@@ -26,6 +26,8 @@
 
   <!-- Preload critical font -->
   <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
+  <!-- Preload Paolo image (prevents content-visibility + lazy double-delay) -->
+  <link rel="preload" href="assets/paolo%20pomposi.webp" as="image" type="image/webp" />
   <!-- Preconnect for faster resource loading -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Preload critical above-the-fold images -->
@@ -1158,7 +1160,7 @@
     <div class="world-grid">
       <!-- LEFT: Metrics -->
       <div class="world-card world-card--metrics">
-        <img class="world-card__paolo" src="assets/paolo%20pomposi.webp" alt="Paolo Pomposi" loading="lazy" decoding="async" />
+        <img class="world-card__paolo" src="assets/paolo%20pomposi.webp" alt="Paolo Pomposi" loading="eager" decoding="async" fetchpriority="high" />
         <span class="world-card__label" data-i18n="heritage.stat.quality">Qualità Italiana</span>
         <h2 class="world-card__title title-accent" data-i18n="heritage.title">BADIANI NEL MONDO VUOL DIRE GELATO</h2>
         <p class="world-card__desc" data-i18n-html="heritage.intro">
