@@ -682,3 +682,17 @@ h1, h2, h3 {
   border-color: rgba(180, 35, 24, 0.35);
   color: #b42318;
 }
+
+/* ========== VIDEO — hide native controls & play overlay ========== */
+video::-webkit-media-controls,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+video::-moz-media-controls { display: none !important; }
+video { object-fit: cover; }

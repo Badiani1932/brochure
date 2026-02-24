@@ -781,6 +781,11 @@
       aspect-ratio:1 / 1;
       object-fit:cover;
       display:block;
+      transition:opacity 0.35s ease, filter 0.35s ease;
+    }
+    .gelato-card img.img-loading{
+      opacity:0.12;
+      filter:blur(8px);
     }
     .gelato-card--tub img{
       aspect-ratio:3081 / 4393;
@@ -7658,14 +7663,18 @@
         if(!img) return;
         if(!detailSrc || !isExpanded){
           img.dataset.detailSrc = '';
+          img.classList.remove('img-loading');
           img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
           return;
         }
         img.dataset.detailSrc = detailSrc;
         if(gelatoImageCache.has(detailSrc)){
+          img.classList.remove('img-loading');
           img.src = `${encodeURI(detailSrc)}?v=${ASSET_VERSION}`;
           return;
         }
+        /* Fade out while detail image loads */
+        img.classList.add('img-loading');
         cacheImage(detailSrc, (fallbackSrc) => {
           if(!img.isConnected) return;
           const card = img.closest('.gelato-card');
@@ -7673,8 +7682,8 @@
           if(img.dataset.detailSrc !== detailSrc) return;
           const finalSrc = fallbackSrc || detailSrc;
           img.src = `${encodeURI(finalSrc)}?v=${ASSET_VERSION}`;
+          img.classList.remove('img-loading');
         });
-        img.src = `${encodeURI(baseSrc)}?v=${ASSET_VERSION}`;
       }
 
       function getDetailImageSrc(flavor){
@@ -8363,5 +8372,21 @@
     }, {passive:true});
   })();
   </script>
+  <script>
+  (function(){
+    function forcePlay(){
+      document.querySelectorAll('video').forEach(function(v){
+        v.setAttribute('playsinline','');
+        v.muted=true;
+        var p=v.play();
+        if(p&&p.catch) p.catch(function(){
+          document.addEventListener('touchstart',function t(){v.play();document.removeEventListener('touchstart',t);},{once:true,passive:true});
+          document.addEventListener('click',function c(){v.play();document.removeEventListener('click',c);},{once:true,passive:true});
+        });
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
+    else forcePlay();
+  })();
+  </script>
 </body>
-</html>

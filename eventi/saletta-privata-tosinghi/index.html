@@ -241,7 +241,7 @@
       font-weight:400;
     }
     .sal-card__price{
-      font-size:clamp(24px, 2.35vw, 34px);
+      font-size:clamp(17px, 1.65vw, 24px);
       font-weight:700;
       color:var(--badiani-pink);
       margin-bottom:clamp(12px, 1.5vw, 18px);
@@ -1051,8 +1051,12 @@
       box-shadow:none;
       object-fit:cover;
       z-index:0;
-      opacity:0.75;
+      opacity:0;
       filter:brightness(0.85);
+      transition:opacity 0.5s ease;
+    }
+    .modal-hero--banner .modal-hero__img.is-loaded{
+      opacity:0.75;
     }
     .modal-hero--banner .modal-hero__text{
       z-index:2;
@@ -1141,10 +1145,14 @@
       object-fit:contain;
       object-position:left bottom;
       pointer-events:none;
-      z-index:3;
+      z-index:0;
       transform:translateY(-20px) translateX(50px) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
+    }
+    .sal-form-block{
+      position:relative;
+      z-index:2;
     }
     @media(max-width:1200px){
       .sal-form-section__mercury{
@@ -1156,11 +1164,15 @@
       .sal-form-section__mercury{
         left:max(-300px, calc(50% - 1110px));
         height:clamp(560px, 77vh, 840px);
+        opacity:0.55;
       }
     }
     @media(max-width:600px){
       .sal-form-section__mercury{
-        display:none;
+        left:-50px;
+        bottom:calc(-3% - 80px);
+        height:clamp(220px, 34vh, 320px);
+        opacity:0.42;
       }
     }
 
@@ -1204,7 +1216,7 @@
         margin-bottom:10px;
       }
       .sal-card__price{
-        font-size:clamp(24px, 5.2vw, 30px);
+        font-size:clamp(17px, 3.6vw, 21px);
         margin-bottom:12px;
       }
       .sal-card__desc{
@@ -1367,7 +1379,7 @@
         margin-bottom:10px;
       }
       .sal-card__price{
-        font-size:28px;
+        font-size:20px;
         margin-bottom:12px;
       }
       .sal-card__desc{
@@ -1760,7 +1772,7 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero modal-hero--banner">
-          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/food-list-modal.webp" alt="Finger Food" loading="lazy" decoding="async" width="4000" height="2668" />
+          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/food-list-modal.webp" alt="Finger Food" loading="eager" decoding="async" width="4000" height="2668" onload="this.classList.add('is-loaded')" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.food.subtitle">A cura del nostro Chef</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.food.title">Finger Food</h2>
@@ -1800,7 +1812,7 @@
     <div class="modal-content" onclick="event.stopPropagation()">
       <div class="modal-panel">
         <div class="modal-hero modal-hero--banner">
-          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/drink-list-modal.webp" alt="Cocktail" loading="lazy" decoding="async" width="4000" height="2668" />
+          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/drink-list-modal.webp" alt="Cocktail" loading="eager" decoding="async" width="4000" height="2668" onload="this.classList.add('is-loaded')" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.drink.subtitle">I nostri cocktail selezionati</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
@@ -1888,9 +1900,15 @@
     }
 
     // Food & Drink list modals
+    function revealLoadedImages(modal) {
+      if (!modal) return;
+      modal.querySelectorAll('.modal-hero__img').forEach(function(img) {
+        if (img.complete && img.naturalWidth > 0) img.classList.add('is-loaded');
+      });
+    }
     function openFoodListModal() {
       var el = document.getElementById('foodListModal');
-      if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; revealLoadedImages(el); }
     }
     function closeFoodListModal(e) {
       if (e && e.target && e.target.classList && !e.target.classList.contains('modal-overlay') && !e.target.classList.contains('modal-bg')) return;
@@ -1899,7 +1917,7 @@
     }
     function openDrinkListModal() {
       var el = document.getElementById('drinkListModal');
-      if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; }
+      if (el) { el.classList.add('active'); document.body.style.overflow = 'hidden'; revealLoadedImages(el); }
     }
     function closeDrinkListModal(e) {
       if (e && e.target && e.target.classList && !e.target.classList.contains('modal-overlay') && !e.target.classList.contains('modal-bg')) return;
@@ -2780,6 +2798,23 @@
 
       applyTranslations();
     })();
+  </script>
+  <script>
+  (function(){
+    function forcePlay(){
+      document.querySelectorAll('video').forEach(function(v){
+        v.setAttribute('playsinline','');
+        v.muted=true;
+        var p=v.play();
+        if(p&&p.catch) p.catch(function(){
+          document.addEventListener('touchstart',function t(){v.play();document.removeEventListener('touchstart',t);},{once:true,passive:true});
+          document.addEventListener('click',function c(){v.play();document.removeEventListener('click',c);},{once:true,passive:true});
+        });
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
+    else forcePlay();
+  })();
   </script>
 </body>
 </html>

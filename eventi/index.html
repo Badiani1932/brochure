@@ -217,6 +217,7 @@
       grid-template-columns:1fr 1fr;
       gap:0;
       border-left:1px solid rgba(30,57,141,0.06);
+      position:relative;
     }
     /* Bottom: dark blue info panel spanning full width */
     .ev-corp-info{
@@ -267,6 +268,12 @@
     .ev-corp-col--customize{
       border-right:1px solid rgba(30,57,141,0.08);
     }
+    @media(min-width:901px){
+      /* keep readable text while allowing Mano Gelato overlay near divider */
+      .ev-corp-col--customize{
+        padding-left:clamp(54px, 4.8vw, 92px);
+      }
+    }
     .ev-corp-col h3{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
       font-size:clamp(24px, 3vw, 42px);
@@ -316,6 +323,8 @@
     .ev-gallery-section{
       background:var(--badiani-blue);
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+      position:relative;
+      z-index:20;
     }
     .ev-gallery__label{
       font-size:clamp(11px, 1vw, 14px);
@@ -733,6 +742,7 @@
     .ev-corporate{
       position:relative;
       overflow:visible;
+      z-index:1;
     }
     .ev-corp-info{
       position:relative;
@@ -740,35 +750,35 @@
     }
     .ev-corporate__manogelato{
       position:absolute;
-      right:clamp(-90px, -9vw, 30px);
+      left:100%;
+      right:auto;
       bottom:clamp(-140px, -14vw, -100px);
       height:clamp(398px, 52vh, 733px);
       max-width:none;
       object-fit:contain;
       pointer-events:none;
       z-index:10;
-      transform:translateY(170px) translateX(-70px) rotate(0deg);
+      transform:translateX(-50%) translateY(170px) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
     }
     @media(max-width:1200px){
       .ev-corporate__manogelato{
         height:clamp(315px, 43vh, 576px);
-        right:clamp(-130px, -13vw, -30px);
-      }
-    }
-    /* Square / nearly-square desktop window: shift manogelato 200px right */
-    @media(min-width:601px) and (max-aspect-ratio:5/4){
-      .ev-corporate__manogelato{
-        right:clamp(-290px, calc(-9vw - 200px), -170px);
       }
     }
     @media(max-width:900px){
-      .ev-corporate__manogelato{
-        height:clamp(251px, 36vh, 419px);
-        right:-10px;
-        bottom:-20px;
+      .ev-corp-info{
+        position:static;
       }
+      .ev-corporate__manogelato{
+        height:clamp(386px, 53.8vh, 605px);
+        left:auto;
+        right:-5%;
+        top:0;
+        bottom:auto;
+      }
+
     }
     /* mobile-only manogelato in "Ideale per" – hidden by default */
     .ev-corporate__manogelato-mobile{
@@ -776,9 +786,9 @@
     }
 
     @media(max-width:600px){
-      /* hide both manogelato versions on mobile */
+      /* keep desktop manogelato visible, same positioning as stacked layout, just smaller */
       .ev-corporate__manogelato{
-        display:none;
+        height:clamp(240px, 40vh, 380px);
       }
       .ev-corporate__manogelato-mobile{
         display:none;
@@ -795,15 +805,38 @@
       object-fit:contain;
       object-position:left bottom;
       pointer-events:none;
-      z-index:3;
+      z-index:0;
       transform:translateY(-20px) translateX(50px) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
     }
-    /* Hide Mercury as soon as the window is narrower than 16:9 */
+    .ev-form-block{
+      position:relative;
+      z-index:2;
+    }
+    /* Scale Mercury down on narrower-than-landscape viewports */
     @media(max-aspect-ratio:16/9){
       .ev-form-section__mercury{
-        display:none;
+        left:-40px;
+        bottom:calc(-6% - 260px);
+        height:clamp(460px, 70vh, 760px);
+        opacity:0.62;
+      }
+    }
+    @media(max-width:900px){
+      .ev-form-section__mercury{
+        left:-50px;
+        bottom:calc(-5% - 180px);
+        height:clamp(360px, 52vh, 560px);
+        opacity:0.55;
+      }
+    }
+    @media(max-width:600px){
+      .ev-form-section__mercury{
+        left:-50px;
+        bottom:calc(-3% - 80px);
+        height:clamp(220px, 34vh, 320px);
+        opacity:0.42;
       }
     }
 
@@ -1730,28 +1763,58 @@
     (function(){
       var mano = document.querySelector('.ev-corporate__manogelato');
       var section = mano ? mano.closest('.ev-corp-info') : null;
-      if(!mano || !section) return;
+      var corporateWrap = mano ? mano.closest('.ev-corporate') : null;
+      var customizeCol = corporateWrap ? corporateWrap.querySelector('.ev-corp-col--customize') : null;
+      if(!mano || !section || !corporateWrap || !customizeCol) return;
       if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       mano.style.transition = 'transform 0.1s linear';
       mano.style.willChange = 'transform';
+
+      function isStackedLayout(){
+        return window.matchMedia('(max-width: 900px)').matches;
+      }
+
+      function updateManogelato(){
+        var vh = window.innerHeight;
+        var r = section.getBoundingClientRect();
+        var p = 1 - (r.top + r.height) / (vh + r.height);
+        p = Math.max(0, Math.min(1, p));
+
+        if(isStackedLayout()){
+          var wrapRect = corporateWrap.getBoundingClientRect();
+          var handHeight = mano.offsetHeight || mano.getBoundingClientRect().height || 0;
+          var anchorTop = wrapRect.height - handHeight + 30;
+          var rotateStacked = p * -6;
+
+          mano.style.top = anchorTop + 'px';
+          mano.style.bottom = 'auto';
+          mano.style.transform = 'translateX(0) translateY(0) rotate(' + rotateStacked + 'deg)';
+          return;
+        }
+
+        mano.style.top = '';
+        mano.style.bottom = '';
+        var shiftY = 170 - p * 200 - Math.sin(p * Math.PI) * 70;
+        var rotate = p * -8;
+        mano.style.transform = 'translateX(-50%) translateY(' + shiftY + 'px) rotate(' + rotate + 'deg)';
+      }
+
       var ticking = false;
       window.addEventListener('scroll', function(){
         if(!ticking){
           ticking = true;
           requestAnimationFrame(function(){
-            var vh = window.innerHeight;
-            var r = section.getBoundingClientRect();
-            var p = 1 - (r.top + r.height) / (vh + r.height);
-            p = Math.max(0, Math.min(1, p));
-            // arc: move right and curve upward
-            var shiftX = p * 60 - 70;
-            var shiftY = 170 - p * 200 - Math.sin(p * Math.PI) * 70;
-            var rotate = p * -8;
-            mano.style.transform = 'translateX(' + shiftX + 'px) translateY(' + shiftY + 'px) rotate(' + rotate + 'deg)';
+            updateManogelato();
             ticking = false;
           });
         }
       }, {passive:true});
+
+      window.addEventListener('resize', function(){
+        requestAnimationFrame(updateManogelato);
+      });
+
+      updateManogelato();
     })();
   </script>
 
@@ -1813,5 +1876,22 @@
   <!-- Hamburger + Cookie -->
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');document.body.style.overflow=o?'':'hidden';});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');document.body.style.overflow='';});});})();</script>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
+  <script>
+  (function(){
+    function forcePlay(){
+      document.querySelectorAll('video').forEach(function(v){
+        v.setAttribute('playsinline','');
+        v.muted=true;
+        var p=v.play();
+        if(p&&p.catch) p.catch(function(){
+          document.addEventListener('touchstart',function t(){v.play();document.removeEventListener('touchstart',t);},{once:true,passive:true});
+          document.addEventListener('click',function c(){v.play();document.removeEventListener('click',c);},{once:true,passive:true});
+        });
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
+    else forcePlay();
+  })();
+  </script>
 </body>
 </html>

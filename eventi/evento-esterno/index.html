@@ -1842,5 +1842,22 @@
       applyTranslations();
     })();
   </script>
+  <script>
+  (function(){
+    function forcePlay(){
+      document.querySelectorAll('video').forEach(function(v){
+        v.setAttribute('playsinline','');
+        v.muted=true;
+        var p=v.play();
+        if(p&&p.catch) p.catch(function(){
+          document.addEventListener('touchstart',function t(){v.play();document.removeEventListener('touchstart',t);},{once:true,passive:true});
+          document.addEventListener('click',function c(){v.play();document.removeEventListener('click',c);},{once:true,passive:true});
+        });
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
+    else forcePlay();
+  })();
+  </script>
 </body>
 </html>
