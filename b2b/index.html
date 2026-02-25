@@ -637,30 +637,15 @@
     .pezziduri-grid-stage[hidden]{
       display:none !important;
     }
-    @media(min-width:901px){
-      .modal__content.is-pezziduri.is-pezziduri-overlay{
-        overflow-y:hidden;
-        align-items:center;
-        justify-content:center;
-        padding-top:16px;
-        padding-bottom:16px;
-      }
-      .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-hero-overlay{
-        width:min(1020px, 88vw);
-        max-height:calc(100vh - 230px);
-        margin:0 auto;
-      }
-      .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-hero-overlay img{
-        width:auto;
-        max-width:100%;
-        max-height:calc(100vh - 230px);
-        height:auto;
-        object-fit:contain;
-        object-position:center center;
-      }
-      .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-note{
-        display:none;
-      }
+    .modal__content.is-pezziduri.is-pezziduri-overlay{
+      overflow-y:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:16px;
+    }
+    .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-note{
+      display:none;
     }
     .modal__select{
       display:none;
@@ -2088,31 +2073,31 @@
       cursor:pointer;
       border-radius:18px;
       overflow:hidden;
-      margin-bottom:20px;
+      margin:0 auto 20px;
       box-shadow:0 12px 32px rgba(0,0,0,0.25);
       animation:pezziduri-fadeIn 0.4s ease;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      max-height:calc(100vh - 220px);
+      max-height:calc(100dvh - 220px);
     }
     .pezziduri-hero-overlay img{
       display:block;
-      width:100%;
+      width:auto;
+      max-width:100%;
       height:auto;
-      object-fit:cover;
+      max-height:calc(100vh - 220px);
+      max-height:calc(100dvh - 220px);
+      object-fit:contain;
+      object-position:center center;
     }
     @media(min-width:901px){
       .pezziduri-hero-overlay{
-        max-height:56vh;
-        background:#fff;
-        display:flex;
-        align-items:center;
-        justify-content:center;
+        max-height:calc(100vh - 230px);
       }
       .pezziduri-hero-overlay img{
-        width:auto;
-        max-width:100%;
-        height:auto;
-        max-height:56vh;
-        object-fit:contain;
-        object-position:center center;
+        max-height:calc(100vh - 230px);
       }
     }
     .pezziduri-hero-overlay .pezziduri-hero-tap{
@@ -2132,6 +2117,23 @@
     }
     @keyframes pezziduri-fadeIn{ from{opacity:0;transform:scale(1.02)} to{opacity:1;transform:scale(1)} }
     @keyframes pezziduri-pulse{ 0%,100%{opacity:.85} 50%{opacity:1} }
+
+    /* ── Staggered card entrance ── */
+    @keyframes cardStaggerIn{
+      from{ opacity:0; transform:scale(0.92) translateY(10px); }
+      to{ opacity:1; transform:scale(1) translateY(0); }
+    }
+    .gelato-card,
+    .pezziduri-card{
+      animation:cardStaggerIn 0.35s cubic-bezier(0.22,1,0.36,1) both;
+      animation-delay:calc(var(--stagger-i, 0) * 40ms);
+    }
+    @media(prefers-reduced-motion:reduce){
+      .gelato-card,
+      .pezziduri-card{
+        animation:none;
+      }
+    }
     .pezziduri-card{
       background:#fff;
       border-radius:16px;
@@ -3452,7 +3454,6 @@
         right:clamp(10px, 3vw, 44px);
         bottom:calc(-6% - 260px);
         height:clamp(460px, 70vh, 760px);
-        opacity:0.62;
       }
     }
     /* 3-column grid: steps left, form center */
@@ -3475,7 +3476,6 @@
         right:clamp(-12px, 2vw, 24px);
         bottom:calc(-5% - 180px);
         height:clamp(360px, 52vh, 560px);
-        opacity:0.55;
       }
     }
     .b2b-form-block{
@@ -3724,7 +3724,6 @@
         right:clamp(-18px, 1vw, 10px);
         bottom:calc(-4% - 120px);
         height:clamp(280px, 42vh, 420px);
-        opacity:0.48;
       }
     }
 
@@ -3733,7 +3732,6 @@
         right:-22px;
         bottom:calc(-3% - 80px);
         height:clamp(220px, 34vh, 320px);
-        opacity:0.42;
       }
     }
 
@@ -4680,11 +4678,14 @@
           'b2b.coni.quantity': 'Quantit\u00e0',
           'b2b.coni.dimensions': 'Dimensioni',
           'b2b.coppette.hint': 'Tocca una coppetta per vederne i dettagli',
+          'b2b.coppette.sectionTitle': 'Coppette',
           'b2b.coppette.code': 'Codice coppetta',
           'b2b.coppette.capacity': 'Capienza',
           'b2b.coppette.packaging': 'Confezione',
           'b2b.coni.hint': 'Tocca un cono per vederne i dettagli',
+          'b2b.coni.sectionTitle': 'Coni',
           'b2b.conigf.hint': 'Tocca un cono gluten free per vederne i dettagli',
+          'b2b.conigf.sectionTitle': 'Coni Gluten Free',
           'b2b.torte.hint': 'Tocca una torta per vederne i dettagli',
           'b2b.torte.sizeS': '4–6 persone',
           'b2b.torte.sizeM': '7–8 persone',
@@ -5018,7 +5019,9 @@
           'b2b.coppette.capacity': 'Capacity',
           'b2b.coppette.packaging': 'Packaging',
           'b2b.coni.hint': 'Tap a cone to see its details',
+          'b2b.coni.sectionTitle': 'Cones',
           'b2b.conigf.hint': 'Tap a gluten free cone to see its details',
+          'b2b.conigf.sectionTitle': 'Gluten Free Cones',
           'b2b.torte.hint': 'Tap a cake to see its details',
           'b2b.torte.sizeS': '4–6 people',
           'b2b.torte.sizeM': '7–8 people',
@@ -5357,7 +5360,9 @@
           'b2b.coppette.capacity': 'Contenance',
           'b2b.coppette.packaging': 'Conditionnement',
           'b2b.coni.hint': 'Appuyez sur un cornet pour en voir les détails',
+          'b2b.coni.sectionTitle': 'Cornets',
           'b2b.conigf.hint': 'Appuyez sur un cornet sans gluten pour en voir les détails',
+          'b2b.conigf.sectionTitle': 'Cornets Sans Gluten',
           'b2b.torte.hint': 'Appuyez sur un gâteau pour en voir les détails',
           'b2b.torte.sizeS': '4–6 personnes',
           'b2b.torte.sizeM': '7–8 personnes',
@@ -5696,7 +5701,9 @@
           'b2b.coppette.capacity': 'Capacidad',
           'b2b.coppette.packaging': 'Envase',
           'b2b.coni.hint': 'Toca un cono para ver sus detalles',
+          'b2b.coni.sectionTitle': 'Conos',
           'b2b.conigf.hint': 'Toca un cono sin gluten para ver sus detalles',
+          'b2b.conigf.sectionTitle': 'Conos Sin Gluten',
           'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
           'b2b.torte.sizeS': '4–6 personas',
           'b2b.torte.sizeM': '7–8 personas',
@@ -5888,6 +5895,9 @@
           title: 'Monoporzioni',
           columns: ['Gusto', 'Peso medio (1 pz.)', 'Ordine minimo*'],
           rows: [
+            ['Lingotto Buontalenti', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte'],
+            ['Lingotto Buontalenti Pistacchio', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia, frutta a guscio'],
+            ['Lingotto Dolcevita', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia'],
             ['Classico Buontalenti', '90 g', '24', 'uova, latte, soia'],
             ['Classico Stracciatella', '100 g', '24', 'uova, latte, soia'],
             ['Classico Fondente', '100 g', '24', 'soia'],
@@ -5906,9 +5916,6 @@
             ['Ghiacciolo di frutta al limone', '100 g', '20', ''],
             ['Ghiacciolo di frutta la mango', '100 g', '20', ''],
             ['Ghiacciolo alla menta', '100 g', '20', ''],
-            ['Lingotto Buontalenti', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte'],
-            ['Lingotto Buontalenti Pistacchio', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia, frutta a guscio'],
-            ['Lingotto Dolcevita', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia'],
             ['Zampa', '150 g', '16', 'uova, latte, soia']
           ]
         },
@@ -6468,25 +6475,25 @@
           'Palettine': { name: 'Spatulas', desc: 'Gelato spatulas' },
           'Cialdine': { name: 'Wafers', desc: 'Badiani branded wafers' },
           'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17' },
-          'Paletta': { name: 'Scoop', desc: 'Gelato serving scoop' },
-          'Contenitore 1': { name: 'Container 1', desc: 'Small serving container' },
-          'Contenitore 2': { name: 'Container 2', desc: 'Large serving container' }
+          'Paletta': { name: 'Scoop', desc: 'Gelato serving scoop', qty: 'on request' },
+          'Contenitore 1': { name: 'Container 1', desc: 'Small serving container', qty: 'on request' },
+          'Contenitore 2': { name: 'Container 2', desc: 'Large serving container', qty: 'on request' }
         },
         fr: {
           'Palettine': { name: 'Spatules', desc: 'Spatules à gelato' },
           'Cialdine': { name: 'Gaufrettes', desc: 'Gaufrettes griffées Badiani' },
           'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17' },
-          'Paletta': { name: 'Pelle', desc: 'Pelle de service gelato' },
-          'Contenitore 1': { name: 'Contenant 1', desc: 'Petit contenant de service' },
-          'Contenitore 2': { name: 'Contenant 2', desc: 'Grand contenant de service' }
+          'Paletta': { name: 'Pelle', desc: 'Pelle de service gelato', qty: 'sur demande' },
+          'Contenitore 1': { name: 'Contenant 1', desc: 'Petit contenant de service', qty: 'sur demande' },
+          'Contenitore 2': { name: 'Contenant 2', desc: 'Grand contenant de service', qty: 'sur demande' }
         },
         es: {
           'Palettine': { name: 'Paletas', desc: 'Paletas de helado' },
           'Cialdine': { name: 'Barquillos', desc: 'Barquillos con logo Badiani' },
           'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17' },
-          'Paletta': { name: 'Cuchara', desc: 'Cuchara de servicio para helado' },
-          'Contenitore 1': { name: 'Contenedor 1', desc: 'Contenedor pequeño de servicio' },
-          'Contenitore 2': { name: 'Contenedor 2', desc: 'Contenedor grande de servicio' }
+          'Paletta': { name: 'Cuchara', desc: 'Cuchara de servicio para helado', qty: 'bajo pedido' },
+          'Contenitore 1': { name: 'Contenedor 1', desc: 'Contenedor pequeño de servicio', qty: 'bajo pedido' },
+          'Contenitore 2': { name: 'Contenedor 2', desc: 'Contenedor grande de servicio', qty: 'bajo pedido' }
         }
       };
 
@@ -6599,9 +6606,44 @@
       function getVascheName(name){ return (VASCHE_NAMES_I18N[currentLang] || {})[name] || name; }
       function getPezziDuriName(name){ return (PEZZI_DURI_NAMES_I18N[currentLang] || {})[name] || name; }
       function getTorteName(name){ return (TORTE_NAMES_I18N[currentLang] || {})[name] || name; }
+      function getTorteDescription(name){
+        const lang = currentLang;
+        if(lang === 'it') return (TORTE_DETAILS[name] || {}).description || '';
+        return ((TORTE_DETAILS_I18N[lang] || {})[name] || {}).description || (TORTE_DETAILS[name] || {}).description || '';
+      }
+      function getTorteAllergens(name){
+        const lang = currentLang;
+        if(lang === 'it') return (TORTE_DETAILS[name] || {}).allergens || '';
+        return ((TORTE_DETAILS_I18N[lang] || {})[name] || {}).allergens || (TORTE_DETAILS[name] || {}).allergens || '';
+      }
       function getAccessoriName(name){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.name : name; }
       function getAccessoriDesc(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.desc : fallback; }
+      function getAccessoriQty(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return (a && a.qty) ? a.qty : fallback; }
       function getPezziDuriMinOrder(val){ return ((PEZZI_DURI_MINORDER_I18N[currentLang] || {})[val]) || val; }
+
+      /* ── Coni size name translations ── */
+      const CONI_NAMES_I18N = {
+        en: { 'PICCOLO': 'SMALL', 'MEDIO': 'MEDIUM', 'GRANDE': 'LARGE' },
+        fr: { 'PICCOLO': 'PETIT', 'MEDIO': 'MOYEN', 'GRANDE': 'GRAND' },
+        es: { 'PICCOLO': 'PEQUEÑO', 'MEDIO': 'MEDIANO', 'GRANDE': 'GRANDE' }
+      };
+      function getConiName(name){ return (CONI_NAMES_I18N[currentLang] || {})[name] || name; }
+
+      /* ── Contenitori name translations ── */
+      const CONTENITORI_NAMES_I18N = {
+        en: { 'Contenitore polistirolo T2': 'Polystyrene container T2' },
+        fr: { 'Contenitore polistirolo T2': 'Conteneur polystyrène T2' },
+        es: { 'Contenitore polistirolo T2': 'Contenedor poliestireno T2' }
+      };
+      function getContenitoriName(name){ return (CONTENITORI_NAMES_I18N[currentLang] || {})[name] || name; }
+
+      /* ── Tipologia vasca name translations ── */
+      const TIPOLOGIA_NAMES_I18N = {
+        en: { 'Vaschetta 3500cc': 'Tub 3500cc', 'Vaschetta 4800cc': 'Tub 4800cc', 'Vaschetta 5000cc': 'Tub 5000cc', 'Vaschetta 8000cc': 'Tub 8000cc', 'Carapina 6000cc': 'Carapina 6000cc' },
+        fr: { 'Vaschetta 3500cc': 'Bac 3500cc', 'Vaschetta 4800cc': 'Bac 4800cc', 'Vaschetta 5000cc': 'Bac 5000cc', 'Vaschetta 8000cc': 'Bac 8000cc', 'Carapina 6000cc': 'Carapina 6000cc' },
+        es: { 'Vaschetta 3500cc': 'Cubeta 3500cc', 'Vaschetta 4800cc': 'Cubeta 4800cc', 'Vaschetta 5000cc': 'Cubeta 5000cc', 'Vaschetta 8000cc': 'Cubeta 8000cc', 'Carapina 6000cc': 'Carapina 6000cc' }
+      };
+      function getTipologiaName(name){ return (TIPOLOGIA_NAMES_I18N[currentLang] || {})[name] || name; }
 
       /* ── Pezzi duri allergen term translations ── */
       const PEZZI_DURI_ALLERGEN_TERMS = {
@@ -6699,6 +6741,52 @@
         'Millefoglie Buontalenti Pistacchio': {
           description: 'Millefoglie farcito con gelato Buontalenti e salsa al pistacchio',
           allergens: 'Latte, uova, glutine, frutta a guscio, soia'
+        }
+      };
+
+      /* ── Torte details i18n (descriptions + allergens) ── */
+      const TORTE_DETAILS_I18N = {
+        en: {
+          'Millefoglie Buontalenti': {
+            description: 'Millefeuille filled with Buontalenti gelato',
+            allergens: 'Milk, eggs, gluten, tree nuts'
+          },
+          'Millefoglie Dolcevita': {
+            description: 'Millefeuille filled with Buontalenti gelato and hazelnut chocolate sauce',
+            allergens: 'Milk, eggs, gluten, tree nuts, soy'
+          },
+          'Millefoglie Buontalenti Pistacchio': {
+            description: 'Millefeuille filled with Buontalenti gelato and pistachio sauce',
+            allergens: 'Milk, eggs, gluten, tree nuts, soy'
+          }
+        },
+        fr: {
+          'Millefoglie Buontalenti': {
+            description: 'Millefeuille garni de glace Buontalenti',
+            allergens: 'Lait, œufs, gluten, fruits à coque'
+          },
+          'Millefoglie Dolcevita': {
+            description: 'Millefeuille garni de glace Buontalenti et sauce chocolat aux noisettes',
+            allergens: 'Lait, œufs, gluten, fruits à coque, soja'
+          },
+          'Millefoglie Buontalenti Pistacchio': {
+            description: 'Millefeuille garni de glace Buontalenti et sauce pistache',
+            allergens: 'Lait, œufs, gluten, fruits à coque, soja'
+          }
+        },
+        es: {
+          'Millefoglie Buontalenti': {
+            description: 'Milhojas relleno de helado Buontalenti',
+            allergens: 'Leche, huevos, gluten, frutos de cáscara'
+          },
+          'Millefoglie Dolcevita': {
+            description: 'Milhojas relleno de helado Buontalenti y salsa de chocolate con avellanas',
+            allergens: 'Leche, huevos, gluten, frutos de cáscara, soja'
+          },
+          'Millefoglie Buontalenti Pistacchio': {
+            description: 'Milhojas relleno de helado Buontalenti y salsa de pistacho',
+            allergens: 'Leche, huevos, gluten, frutos de cáscara, soja'
+          }
         }
       };
 
@@ -6815,6 +6903,7 @@
       let expandedTorteId = '';
       let selectedTorteMapId = new Set();
       let expandedPezziDuriId = '';
+      let pezziDuriShowOverlay = false;
       let expandedContenitoriId = '';
       let selectedContenitoriMapId = new Set();
       let expandedTipologiaId = '';
@@ -6901,6 +6990,7 @@
         expandedFlavorId = '';
         expandedTorteId = '';
         expandedPezziDuriId = '';
+        pezziDuriShowOverlay = false;
         expandedContenitoriId = '';
         expandedTipologiaId = '';
         expandedConiId = new Set();
@@ -7024,7 +7114,7 @@
         }
 
         const cards = items
-          .map(({ name, weight, min, allergens, src }) => {
+          .map(({ name, weight, min, allergens, src }, staggerIdx) => {
             const imageSrc = encodeURI(src);
             const isExpanded = expandedPezziDuriId === name;
             const localName = getPezziDuriName(name);
@@ -7039,7 +7129,7 @@
               </svg>
             `;
             return `
-              <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
+              <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}" style="--stagger-i:${staggerIdx}">
                 <div class="pezziduri-media">
                   <img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />
                   <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${src}" data-zoom-alt="${localName}">${zoomIcon}</button>
@@ -7057,10 +7147,25 @@
           })
           .join('');
 
+        /* ── Hero overlay (shown only on first entry from home) ── */
+        const heroHtml = `
+          <div class="pezziduri-hero-overlay" role="button" tabindex="0" aria-label="${t('b2b.pezziduri.tapOverlay')}">
+            <picture>
+              <source media="(max-width:600px)" srcset="../assets/images/pezziduri/vetrina-monoporzioni-mobile.webp" type="image/webp">
+              <source media="(min-width:601px)" srcset="../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp" type="image/webp">
+              <img src="../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp" alt="Vetrina Monoporzioni Badiani" loading="eager" decoding="async" />
+            </picture>
+            <span class="pezziduri-hero-tap">${t('b2b.pezziduri.tapOverlay')}</span>
+          </div>
+        `;
+
         return `
           <div class="modal__section">
-            <h4>${getCatTitle('PEZZI DURI')}</h4>
-            <div class="pezziduri-grid">${cards}</div>
+            ${pezziDuriShowOverlay ? heroHtml : ''}
+            <div class="pezziduri-grid-stage"${pezziDuriShowOverlay ? ' hidden' : ''}>
+              <h4>${getCatTitle('PEZZI DURI')}</h4>
+              <div class="pezziduri-grid">${cards}</div>
+            </div>
           </div>
         `;
       }
@@ -7075,10 +7180,10 @@
             return `
               <article class="tipologia-card${isExpanded ? ' is-expanded' : ''}" data-tipologia-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="tipologia-media">
-                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+                  <img src="${imageSrc}" alt="${getTipologiaName(name)}" loading="lazy" decoding="async" />
                 </div>
                 <div class="tipologia-body">
-                  <div class="tipologia-title">${name}</div>
+                  <div class="tipologia-title">${getTipologiaName(name)}</div>
                 </div>
               </article>
             `;
@@ -7132,7 +7237,7 @@
         const zones = CONTENITORI_ZONE_ORDER.map((name) => {
           const isActive = selectedContenitoriMapId.has(name);
           const shortName = CONTENITORI_SHORT_NAMES[name] || name;
-          return `<div class="contenitori-zone${isActive ? ' is-active' : ''}" data-contenitori-zone="${name}" role="button" tabindex="0" aria-label="${name}">
+          return `<div class="contenitori-zone${isActive ? ' is-active' : ''}" data-contenitori-zone="${name}" role="button" tabindex="0" aria-label="${getContenitoriName(name)}">
             <span class="contenitori-zone-label">${tapIcon}${shortName}</span>
           </div>`;
         }).join('');
@@ -7146,10 +7251,10 @@
           detailPanels += `
             <div class="contenitori-detail-panel" data-panel-name="${selName}">
               <div class="contenitori-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${getContenitoriName(selName)}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="contenitori-detail-info">
-                <div class="contenitori-detail-name">${selName}</div>
+                <div class="contenitori-detail-name">${getContenitoriName(selName)}</div>
                 <div class="contenitori-detail-meta">
                   <span><strong>${t('b2b.coni.description')}</strong><em>${getContenitoriDesc(selName) || d.desc}</em></span>
                   ${getContenitoriCapacity(selName) ? `<span><strong>${t('b2b.contenitori.capacity')}</strong><em>${getContenitoriCapacity(selName)}</em></span>` : ''}
@@ -7261,8 +7366,8 @@
               <div class="torte-detail-info">
                 <div class="torte-detail-name">${getTorteName(selName)}</div>
                 <div class="torte-detail-meta">
-                  <span><strong>${t('b2b.torte.description') || 'Descrizione'}</strong><em>${details.description || '-'}</em></span>
-                  <span><strong>${t('b2b.torte.allergens') || 'Allergeni'}</strong><em>${details.allergens || '-'}</em></span>
+                  <span><strong>${t('b2b.torte.description')}</strong><em>${getTorteDescription(selName) || '-'}</em></span>
+                  <span><strong>${t('b2b.torte.allergens')}</strong><em>${getTorteAllergens(selName) || '-'}</em></span>
                 </div>
                 <div class="torte-detail-sizes">
                   <span class="torte-size-pill"><strong>S</strong> ${t('b2b.torte.sizeS')}</span>
@@ -7338,6 +7443,27 @@
       }
 
       function setupPezziDuriZoom(){
+        /* ── Hero overlay click: dismiss and reveal grid ── */
+        const heroOverlay = defaultContent ? defaultContent.querySelector('.pezziduri-hero-overlay') : null;
+        if(heroOverlay){
+          const dismissHero = () => {
+            pezziDuriShowOverlay = false;
+            heroOverlay.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+            heroOverlay.style.opacity = '0';
+            heroOverlay.style.transform = 'scale(0.97)';
+            setTimeout(() => {
+              heroOverlay.remove();
+              if(categoryContent) categoryContent.classList.remove('is-pezziduri-overlay');
+              const stage = defaultContent ? defaultContent.querySelector('.pezziduri-grid-stage') : null;
+              if(stage) stage.removeAttribute('hidden');
+            }, 300);
+          };
+          heroOverlay.addEventListener('click', dismissHero);
+          heroOverlay.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); dismissHero(); }
+          });
+        }
+
         const grid = defaultContent ? defaultContent.querySelector('.pezziduri-grid') : null;
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
 
@@ -7416,10 +7542,10 @@
             return `
               <article class="coni-card${isExpanded ? ' is-expanded' : ''}" data-coni-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="coni-media">
-                  <img src="${imageSrc}" alt="${name}" loading="lazy" decoding="async" />
+                  <img src="${imageSrc}" alt="${getConiName(name)}" loading="lazy" decoding="async" />
                 </div>
                 <div class="coni-body">
-                  <div class="coni-title">${name}</div>
+                  <div class="coni-title">${getConiName(name)}</div>
                   <div class="coni-meta">
                     <span><strong>${t('b2b.coni.dimensions')}</strong><em>${getConiCoppetteDesc(name) || desc}</em></span>
                     <span><strong>${t('b2b.coni.quantity')}</strong><em>${qty}</em></span>
@@ -7474,7 +7600,7 @@
 
         const coppetteSection = `
           <div class="coppette-map-wrapper">
-            <h4 class="map-overlay-title">Coppette</h4>
+            <h4 class="map-overlay-title">${t('b2b.coppette.sectionTitle')}</h4>
             <img src="${headerSrc}" alt="Coppette" loading="lazy" decoding="async" />
             <div class="coppette-zones">${zones}</div>
           </div>
@@ -7490,8 +7616,8 @@
         const coniZones = CONI_ZONE_ORDER.map((name) => {
           const isActive = selectedConiHeroId.has(name);
           const tapIcon = `<svg class="coni-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
-          return `<div class="coni-zone${isActive ? ' is-active' : ''}" data-coni-hero-zone="${name}" role="button" tabindex="0" aria-label="${name}">
-            <span class="coni-zone-label">${tapIcon}${name}</span>
+          return `<div class="coni-zone${isActive ? ' is-active' : ''}" data-coni-hero-zone="${name}" role="button" tabindex="0" aria-label="${getConiName(name)}">
+            <span class="coni-zone-label">${tapIcon}${getConiName(name)}</span>
           </div>`;
         }).join('');
 
@@ -7504,10 +7630,10 @@
           coniDetailPanels += `
             <div class="coni-detail-panel" data-panel-name="${selName}">
               <div class="coni-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${getConiName(selName)}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="coni-detail-info">
-                <div class="coni-detail-name">${selName}</div>
+                <div class="coni-detail-name">${getConiName(selName)}</div>
                 <div class="coni-detail-meta">
                   <span><strong>${t('b2b.coni.dimensions')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
@@ -7522,8 +7648,8 @@
         const coniHeroSection = `
           <div class="coni-hero-section">
             <div class="coni-map-wrapper">
-              <h4 class="map-overlay-title">Coni</h4>
-              <img class="coni-hero-img" src="${coniHeroSrc}" alt="Coni" loading="lazy" decoding="async" />
+              <h4 class="map-overlay-title">${t('b2b.coni.sectionTitle')}</h4>
+              <img class="coni-hero-img" src="${coniHeroSrc}" alt="${t('b2b.coni.sectionTitle')}" loading="lazy" decoding="async" />
               <div class="coni-zones">${coniZones}</div>
             </div>
             ${coniHintText}
@@ -7541,8 +7667,8 @@
           const isActive = selectedConiGfMapId.has(name);
           const shortName = CONIGF_SHORT_NAMES[name] || name;
           const tapIcon = `<svg class="conigf-tap-icon" viewBox="0 0 24 24" fill="none"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>`;
-          return `<div class="conigf-zone${isActive ? ' is-active' : ''}" data-conigf-zone="${name}" role="button" tabindex="0" aria-label="${name}">
-            <span class="conigf-zone-label">${tapIcon}${shortName}</span>
+          return `<div class="conigf-zone${isActive ? ' is-active' : ''}" data-conigf-zone="${name}" role="button" tabindex="0" aria-label="${getConiName(shortName)}">
+            <span class="conigf-zone-label">${tapIcon}${getConiName(shortName)}</span>
           </div>`;
         }).join('');
 
@@ -7555,10 +7681,10 @@
           conigfDetailPanels += `
             <div class="conigf-detail-panel" data-panel-name="${selName}">
               <div class="conigf-detail-img">
-                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${selName}" loading="lazy" decoding="async" />` : ''}
+                ${detailImgSrc ? `<img src="${detailImgSrc}" alt="${getConiName(CONIGF_SHORT_NAMES[selName] || selName)}" loading="lazy" decoding="async" />` : ''}
               </div>
               <div class="conigf-detail-info">
-                <div class="conigf-detail-name">${selName}</div>
+                <div class="conigf-detail-name">${getConiName(CONIGF_SHORT_NAMES[selName] || selName)}</div>
                 <div class="conigf-detail-meta">
                   <span><strong>${t('b2b.coni.dimensions')}</strong><em>${getConiCoppetteDesc(selName) || d.desc}</em></span>
                   <span><strong>${t('b2b.coni.quantity')}</strong><em>${d.qty}</em></span>
@@ -7573,8 +7699,8 @@
         const conigfHeroSection = `
           <div class="conigf-hero-section">
             <div class="conigf-map-wrapper">
-              <h4 class="map-overlay-title">Coni Gluten Free</h4>
-              <img class="conigf-hero-img" src="${conigfHeroSrc}" alt="Coni Gluten Free" loading="lazy" decoding="async" />
+              <h4 class="map-overlay-title">${t('b2b.conigf.sectionTitle')}</h4>
+              <img class="conigf-hero-img" src="${conigfHeroSrc}" alt="${t('b2b.conigf.sectionTitle')}" loading="lazy" decoding="async" />
               <div class="conigf-zones">${conigfZones}</div>
             </div>
             ${conigfHintText}
@@ -7729,6 +7855,7 @@
           const isExpanded = expandedAccessoriId === name;
           const localName = getAccessoriName(name);
           const localDesc = getAccessoriDesc(name, desc);
+          const localQty = getAccessoriQty(name, qty);
           const zoomIcon = `
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
               <polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -7747,7 +7874,7 @@
                 <div class="accessori-title">${localName}</div>
                 <div class="accessori-meta">
                   <span><strong>${t('b2b.accessori.description')}</strong><em>${localDesc}</em></span>
-                  <span><strong>${t('b2b.accessori.quantity')}</strong><em>${qty}</em></span>
+                  <span><strong>${t('b2b.accessori.quantity')}</strong><em>${localQty}</em></span>
                 </div>
               </div>
             </article>
@@ -7839,7 +7966,7 @@
         if(categoryContent){
           const isPezziDuri = category === 'PEZZI DURI';
           categoryContent.classList.toggle('is-pezziduri', isPezziDuri);
-          categoryContent.classList.remove('is-pezziduri-overlay');
+          categoryContent.classList.toggle('is-pezziduri-overlay', isPezziDuri && pezziDuriShowOverlay);
         }
         const data = CATEGORY_DATA[category];
         if(!data){
@@ -8170,7 +8297,7 @@
             const mediaBlock = `
               <div class=\"gelato-card__media\">
                 <img src=\"${imageUrl}\" alt=\"${flavorName}\" loading=\"lazy\" decoding=\"async\" />
-                <button class=\"gelato-card__zoom\" type=\"button\" aria-label=\"Ingrandisci\">${zoomIcon}</button>
+                <button class=\"gelato-card__zoom\" type=\"button\" aria-label=\"${t('b2b.zoom')}\">${zoomIcon}</button>
               </div>
               <span>${flavorName}</span>
             `;
@@ -8210,6 +8337,7 @@
             });
 
             gelatoGrid.appendChild(btn);
+            btn.style.setProperty('--stagger-i', totalRendered);
             if(expandedFlavorId === flavor.id){
               setGelatoCardExpanded(btn, flavor, true);
             }
@@ -8274,6 +8402,7 @@
 
       function openModal(name){
         resetInteractiveSelections();
+        if(name === 'PEZZI DURI') pezziDuriShowOverlay = true;
         setActiveCategory(name || categories[0]);
         modal.classList.add('is-open');
         lockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
