@@ -8,3 +8,4 @@ Sitemap: https://www.badiani1932.com/sitemap.xml
 Disallow: /_source/
 Disallow: /scripts/
 Disallow: /docs/
+Disallow: /assets/docs/

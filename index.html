@@ -26,8 +26,9 @@
 
   <!-- Preload critical font -->
   <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <!-- Preload Paolo image (prevents content-visibility + lazy double-delay) -->
+  <!-- Preload Paolo + Worldwide images (prevents content-visibility + lazy double-delay) -->
   <link rel="preload" href="assets/paolo%20pomposi.webp" as="image" type="image/webp" />
+  <link rel="preload" href="assets/worldwide.webp" as="image" type="image/webp" />
   <!-- Preconnect for faster resource loading -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <!-- Preload critical above-the-fold images -->
@@ -1193,7 +1194,7 @@
         </h2>
         <div class="world-card__gelato-wrap">
           <span class="world-card__gelato-big">Gelato</span>
-          <img class="world-card__map" src="assets/worldwide.webp" alt="Badiani nel mondo" loading="lazy" decoding="async" />
+          <img class="world-card__map" src="assets/worldwide.webp" alt="Badiani nel mondo" loading="eager" decoding="async" fetchpriority="high" />
         </div>
       </div>
     </div>

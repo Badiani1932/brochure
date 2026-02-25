@@ -2682,14 +2682,22 @@
       display:inline-flex;
       align-items:center;
       gap:6px;
-      background:transparent;
-      color:rgba(30,57,141,0.65);
+      background:rgba(30,57,141,0.08);
+      color:rgba(30,57,141,0.85);
       font-size:12px;
       font-weight:600;
       padding:6px 14px;
       border-radius:20px;
       letter-spacing:0.4px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+    }
+    .torte-sizes-note{
+      text-align:center;
+      font-size:13px;
+      color:rgba(30,57,141,0.7);
+      font-style:italic;
+      margin:12px 0 4px;
+      letter-spacing:0.3px;
     }
     @media(max-width:600px){
       .torte-detail-panel{
@@ -3728,6 +3736,235 @@
         opacity:0.42;
       }
     }
+
+    /* ── Listino Lock Button ── */
+    .modal__lock-btn{
+      border:none;
+      background:transparent;
+      cursor:pointer;
+      color:var(--badiani-blue);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:44px;
+      height:44px;
+      flex-shrink:0;
+      border-radius:50%;
+      transition:background 0.2s, transform 0.2s;
+      padding:0;
+    }
+    .modal__lock-btn:hover{
+      background:rgba(30,57,141,0.08);
+      transform:scale(1.1);
+    }
+    .modal__lock-btn:focus-visible{
+      outline:2px solid var(--badiani-blue);
+      outline-offset:2px;
+    }
+    .modal__lock-btn svg{
+      width:20px;
+      height:20px;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:1.8;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
+    /* ── Password Prompt Overlay ── */
+    .listino-pw-overlay{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:10010;
+      background:rgba(0,0,0,0.55);
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+    }
+    .listino-pw-overlay.is-open{ display:flex; }
+    .listino-pw-box{
+      background:#fff;
+      border-radius:16px;
+      padding:36px 32px 32px;
+      max-width:360px;
+      width:90%;
+      box-shadow:0 24px 64px rgba(0,0,0,0.25);
+      text-align:center;
+    }
+    .listino-pw-box h4{
+      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
+      font-size:18px;
+      color:var(--badiani-blue);
+      margin:0 0 6px;
+      letter-spacing:0.5px;
+    }
+    .listino-pw-box p{
+      font-size:13px;
+      color:#666;
+      margin:0 0 20px;
+      line-height:1.4;
+    }
+    .listino-pw-input{
+      width:100%;
+      padding:12px 16px;
+      font-size:20px;
+      letter-spacing:8px;
+      text-align:center;
+      border:1.5px solid rgba(30,57,141,0.2);
+      border-radius:10px;
+      outline:none;
+      font-family:'SuperGroteskC',sans-serif;
+      transition:border-color 0.2s;
+      box-sizing:border-box;
+    }
+    .listino-pw-input:focus{
+      border-color:var(--badiani-blue);
+    }
+    .listino-pw-input.is-error{
+      border-color:#d44;
+      animation:pwShake 0.35s ease;
+    }
+    @keyframes pwShake{
+      0%,100%{ transform:translateX(0); }
+      20%{ transform:translateX(-6px); }
+      40%{ transform:translateX(6px); }
+      60%{ transform:translateX(-4px); }
+      80%{ transform:translateX(4px); }
+    }
+    .listino-pw-error{
+      color:#d44;
+      font-size:12px;
+      margin-top:8px;
+      min-height:18px;
+    }
+    .listino-pw-actions{
+      display:flex;
+      gap:10px;
+      margin-top:18px;
+      justify-content:center;
+    }
+    .listino-pw-actions button{
+      padding:10px 24px;
+      border-radius:8px;
+      border:none;
+      cursor:pointer;
+      font-family:'SuperGroteskC',sans-serif;
+      font-size:14px;
+      font-weight:600;
+      letter-spacing:0.3px;
+      transition:background 0.2s, transform 0.15s;
+    }
+    .listino-pw-actions button:active{ transform:scale(0.97); }
+    .listino-pw-submit{
+      background:var(--badiani-blue);
+      color:#fff;
+    }
+    .listino-pw-submit:hover{ background:rgba(30,57,141,0.88); }
+    .listino-pw-cancel{
+      background:rgba(30,57,141,0.08);
+      color:var(--badiani-blue);
+    }
+    .listino-pw-cancel:hover{ background:rgba(30,57,141,0.14); }
+
+    /* ── Listino Viewer Overlay ── */
+    .listino-viewer-overlay{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:10020;
+      background:rgba(0,0,0,0.85);
+      flex-direction:column;
+      align-items:center;
+      backdrop-filter:blur(4px);
+      -webkit-backdrop-filter:blur(4px);
+    }
+    .listino-viewer-overlay.is-open{ display:flex; }
+    .listino-viewer-topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+      max-width:900px;
+      padding:16px 20px;
+      box-sizing:border-box;
+    }
+    .listino-viewer-title{
+      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
+      font-size:16px;
+      color:#fff;
+      letter-spacing:0.5px;
+    }
+    .listino-viewer-close{
+      border:none;
+      background:rgba(255,255,255,0.12);
+      color:#fff;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:background 0.2s;
+    }
+    .listino-viewer-close:hover{ background:rgba(255,255,255,0.22); }
+    .listino-viewer-close:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+    .listino-viewer-body{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      max-width:900px;
+      overflow:hidden;
+      position:relative;
+    }
+    .listino-viewer-page{
+      max-width:100%;
+      max-height:calc(100vh - 140px);
+      object-fit:contain;
+      border-radius:8px;
+      box-shadow:0 8px 40px rgba(0,0,0,0.4);
+      user-select:none;
+      -webkit-user-select:none;
+    }
+    .listino-viewer-nav{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      padding:14px 20px;
+    }
+    .listino-viewer-nav button{
+      border:none;
+      background:rgba(255,255,255,0.12);
+      color:#fff;
+      width:40px;
+      height:40px;
+      border-radius:50%;
+      cursor:pointer;
+      font-size:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:background 0.2s, opacity 0.2s;
+    }
+    .listino-viewer-nav button:hover{ background:rgba(255,255,255,0.22); }
+    .listino-viewer-nav button:disabled{ opacity:0.3; cursor:default; }
+    .listino-viewer-nav button:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+    .listino-viewer-indicator{
+      color:rgba(255,255,255,0.7);
+      font-size:13px;
+      font-family:'SuperGroteskC',sans-serif;
+      letter-spacing:1px;
+      min-width:40px;
+      text-align:center;
+    }
+    @media(prefers-reduced-motion:reduce){
+      .listino-pw-input.is-error{ animation:none; }
+    }
   </style>
 </head>
 <body>
@@ -4096,6 +4333,9 @@
         <h3 class="modal__title" id="categoryModalTitle" data-i18n="b2b.modal.titleDefault"></h3>
         <nav class="modal__nav" id="categoryNav" data-i18n-attr="aria-label:b2b.modal.nav"></nav>
         <div class="modal__header-actions">
+          <button class="modal__lock-btn" id="listinoLockBtn" type="button" aria-label="Listino Prezzi" data-i18n-attr="aria-label:b2b.listino.lockLabel">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </button>
           <button class="modal__close" type="button" data-i18n-attr="aria-label:b2b.modal.close"></button>
         </div>
       </div>
@@ -4204,6 +4444,36 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- Listino Password Prompt -->
+  <div class="listino-pw-overlay" id="listinoPwOverlay" role="dialog" aria-modal="true" aria-labelledby="listinoPwTitle">
+    <div class="listino-pw-box">
+      <h4 id="listinoPwTitle" data-i18n="b2b.listino.pwTitle">Area Riservata</h4>
+      <p data-i18n="b2b.listino.pwSubtitle">Inserisci il codice di accesso</p>
+      <input class="listino-pw-input" id="listinoPwInput" type="password" inputmode="numeric" maxlength="6" autocomplete="off" spellcheck="false" placeholder="••••••" aria-label="Codice accesso" data-i18n-attr="aria-label:b2b.listino.pwInputLabel" />
+      <div class="listino-pw-error" id="listinoPwError" aria-live="polite"></div>
+      <div class="listino-pw-actions">
+        <button class="listino-pw-cancel" id="listinoPwCancel" type="button" data-i18n="b2b.listino.pwCancel">Annulla</button>
+        <button class="listino-pw-submit" id="listinoPwSubmit" type="button" data-i18n="b2b.listino.pwSubmit">Accedi</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Listino Viewer -->
+  <div class="listino-viewer-overlay" id="listinoViewerOverlay" role="dialog" aria-modal="true" aria-label="Listino Prezzi">
+    <div class="listino-viewer-topbar">
+      <span class="listino-viewer-title" data-i18n="b2b.listino.viewerTitle">Listino Prezzi 2026</span>
+      <button class="listino-viewer-close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">✕</button>
+    </div>
+    <div class="listino-viewer-body">
+      <img class="listino-viewer-page" id="listinoViewerPage" src="" alt="Listino Prezzi" draggable="false" />
+    </div>
+    <nav class="listino-viewer-nav" aria-label="Navigazione pagine">
+      <button id="listinoPrev" type="button" aria-label="Pagina precedente" disabled>‹</button>
+      <span class="listino-viewer-indicator" id="listinoIndicator">1 / 2</span>
+      <button id="listinoNext" type="button" aria-label="Pagina successiva">›</button>
+    </nav>
   </div>
 
   <div class="fullscreen-overlay" id="gelatoFullscreen" role="dialog" aria-modal="true" aria-label="Immagine gelato" data-i18n-attr="aria-label:b2b.fullscreen.label">
@@ -4345,6 +4615,15 @@
           'b2b.form.submit': 'Invia Richiesta',
           'b2b.form.close': 'Chiudi',
           'b2b.form.telefono_ph': '+39 ...',
+          'b2b.listino.lockLabel': 'Listino Prezzi',
+          'b2b.listino.pwTitle': 'Area Riservata',
+          'b2b.listino.pwSubtitle': 'Inserisci il codice di accesso',
+          'b2b.listino.pwInputLabel': 'Codice accesso',
+          'b2b.listino.pwSubmit': 'Accedi',
+          'b2b.listino.pwCancel': 'Annulla',
+          'b2b.listino.pwError': 'Codice errato. Riprova.',
+          'b2b.listino.viewerTitle': 'Listino Prezzi 2026',
+          'b2b.listino.viewerClose': 'Chiudi',
           'b2b.fullscreen.label': 'Immagine gelato',
           'b2b.fullscreen.close': 'Chiudi',
           'b2b.zoom': 'Ingrandisci',
@@ -4407,8 +4686,11 @@
           'b2b.coni.hint': 'Tocca un cono per vederne i dettagli',
           'b2b.conigf.hint': 'Tocca un cono gluten free per vederne i dettagli',
           'b2b.torte.hint': 'Tocca una torta per vederne i dettagli',
-          'b2b.torte.sizeS': '6 persone',
-          'b2b.torte.sizeL': '12 persone',
+          'b2b.torte.sizeS': '4–6 persone',
+          'b2b.torte.sizeM': '7–8 persone',
+          'b2b.torte.sizesNote': 'Ogni torta è disponibile in 2 misure: S e M',
+          'b2b.torte.description': 'Descrizione',
+          'b2b.torte.allergens': 'Allergeni',
           'b2b.contenitori.hint': 'Tocca un contenitore per vederne i dettagli',
           'b2b.contenitori.capacity': 'Capienza',
           'b2b.accessori.description': 'Descrizione',
@@ -4667,6 +4949,15 @@
           'b2b.form.submit': 'Send Request',
           'b2b.form.close': 'Close',
           'b2b.form.telefono_ph': '+44 ...',
+          'b2b.listino.lockLabel': 'Price List',
+          'b2b.listino.pwTitle': 'Restricted Area',
+          'b2b.listino.pwSubtitle': 'Enter the access code',
+          'b2b.listino.pwInputLabel': 'Access code',
+          'b2b.listino.pwSubmit': 'Access',
+          'b2b.listino.pwCancel': 'Cancel',
+          'b2b.listino.pwError': 'Wrong code. Try again.',
+          'b2b.listino.viewerTitle': 'Price List 2026',
+          'b2b.listino.viewerClose': 'Close',
           'b2b.fullscreen.label': 'Gelato image',
           'b2b.fullscreen.close': 'Close',
           'b2b.zoom': 'Enlarge',
@@ -4729,8 +5020,11 @@
           'b2b.coni.hint': 'Tap a cone to see its details',
           'b2b.conigf.hint': 'Tap a gluten free cone to see its details',
           'b2b.torte.hint': 'Tap a cake to see its details',
-          'b2b.torte.sizeS': '6 people',
-          'b2b.torte.sizeL': '12 people',
+          'b2b.torte.sizeS': '4–6 people',
+          'b2b.torte.sizeM': '7–8 people',
+          'b2b.torte.sizesNote': 'Each cake is available in 2 sizes: S and M',
+          'b2b.torte.description': 'Description',
+          'b2b.torte.allergens': 'Allergens',
           'b2b.contenitori.hint': 'Tap a container to see its details',
           'b2b.contenitori.capacity': 'Capacity',
           'b2b.accessori.description': 'Description',
@@ -4994,6 +5288,15 @@
           'b2b.form.submit': 'Envoyer la demande',
           'b2b.form.close': 'Fermer',
           'b2b.form.telefono_ph': '+33 ...',
+          'b2b.listino.lockLabel': 'Tarifs',
+          'b2b.listino.pwTitle': 'Zone Réservée',
+          'b2b.listino.pwSubtitle': 'Entrez le code d\u2019accès',
+          'b2b.listino.pwInputLabel': 'Code d\u2019accès',
+          'b2b.listino.pwSubmit': 'Accéder',
+          'b2b.listino.pwCancel': 'Annuler',
+          'b2b.listino.pwError': 'Code incorrect. Réessayez.',
+          'b2b.listino.viewerTitle': 'Tarifs 2026',
+          'b2b.listino.viewerClose': 'Fermer',
           'b2b.fullscreen.label': 'Image gelato',
           'b2b.fullscreen.close': 'Fermer',
           'b2b.zoom': 'Agrandir',
@@ -5056,8 +5359,11 @@
           'b2b.coni.hint': 'Appuyez sur un cornet pour en voir les détails',
           'b2b.conigf.hint': 'Appuyez sur un cornet sans gluten pour en voir les détails',
           'b2b.torte.hint': 'Appuyez sur un gâteau pour en voir les détails',
-          'b2b.torte.sizeS': '6 personnes',
-          'b2b.torte.sizeL': '12 personnes',
+          'b2b.torte.sizeS': '4–6 personnes',
+          'b2b.torte.sizeM': '7–8 personnes',
+          'b2b.torte.sizesNote': 'Chaque gâteau est disponible en 2 tailles : S et M',
+          'b2b.torte.description': 'Description',
+          'b2b.torte.allergens': 'Allergènes',
           'b2b.contenitori.hint': 'Appuyez sur un contenant pour en voir les détails',
           'b2b.contenitori.capacity': 'Contenance',
           'b2b.accessori.description': 'Description',
@@ -5321,6 +5627,15 @@
           'b2b.form.submit': 'Enviar solicitud',
           'b2b.form.close': 'Cerrar',
           'b2b.form.telefono_ph': '+34 ...',
+          'b2b.listino.lockLabel': 'Lista de Precios',
+          'b2b.listino.pwTitle': 'Área Reservada',
+          'b2b.listino.pwSubtitle': 'Introduce el código de acceso',
+          'b2b.listino.pwInputLabel': 'Código de acceso',
+          'b2b.listino.pwSubmit': 'Acceder',
+          'b2b.listino.pwCancel': 'Cancelar',
+          'b2b.listino.pwError': 'Código incorrecto. Inténtalo de nuevo.',
+          'b2b.listino.viewerTitle': 'Lista de Precios 2026',
+          'b2b.listino.viewerClose': 'Cerrar',
           'b2b.fullscreen.label': 'Imagen de helado',
           'b2b.fullscreen.close': 'Cerrar',
           'b2b.zoom': 'Ampliar',
@@ -5383,8 +5698,11 @@
           'b2b.coni.hint': 'Toca un cono para ver sus detalles',
           'b2b.conigf.hint': 'Toca un cono sin gluten para ver sus detalles',
           'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
-          'b2b.torte.sizeS': '6 personas',
-          'b2b.torte.sizeL': '12 personas',
+          'b2b.torte.sizeS': '4–6 personas',
+          'b2b.torte.sizeM': '7–8 personas',
+          'b2b.torte.sizesNote': 'Cada tarta está disponible en 2 tamaños: S y M',
+          'b2b.torte.description': 'Descripción',
+          'b2b.torte.allergens': 'Alérgenos',
           'b2b.contenitori.hint': 'Toca un contenedor para ver sus detalles',
           'b2b.contenitori.capacity': 'Capacidad',
           'b2b.accessori.description': 'Descripci\u00f3n',
@@ -6371,18 +6689,15 @@
 
       const TORTE_DETAILS = {
         'Millefoglie Buontalenti': {
-          description: 'Millefoglie farcito con gelato Buontalenti. Per 6 persone',
-          price: '32',
+          description: 'Millefoglie farcito con gelato Buontalenti',
           allergens: 'Latte, uova, glutine, frutta a guscio'
         },
         'Millefoglie Dolcevita': {
-          description: 'Millefoglie farcito con gelato Buontalenti e salsa al cioccolato alle nocciole. Per 6 persone',
-          price: '38',
+          description: 'Millefoglie farcito con gelato Buontalenti e salsa al cioccolato alle nocciole',
           allergens: 'Latte, uova, glutine, frutta a guscio, soia'
         },
         'Millefoglie Buontalenti Pistacchio': {
-          description: 'Millefoglie farcito con gelato Buontalenti e salsa al pistacchio. Per 6 persone',
-          price: '38',
+          description: 'Millefoglie farcito con gelato Buontalenti e salsa al pistacchio',
           allergens: 'Latte, uova, glutine, frutta a guscio, soia'
         }
       };
@@ -6947,8 +7262,11 @@
                 <div class="torte-detail-name">${getTorteName(selName)}</div>
                 <div class="torte-detail-meta">
                   <span><strong>${t('b2b.torte.description') || 'Descrizione'}</strong><em>${details.description || '-'}</em></span>
-                  <span><strong>${t('b2b.torte.price') || 'Prezzo (€)'}</strong><em>${details.price || '-'}</em></span>
                   <span><strong>${t('b2b.torte.allergens') || 'Allergeni'}</strong><em>${details.allergens || '-'}</em></span>
+                </div>
+                <div class="torte-detail-sizes">
+                  <span class="torte-size-pill"><strong>S</strong> ${t('b2b.torte.sizeS')}</span>
+                  <span class="torte-size-pill"><strong>M</strong> ${t('b2b.torte.sizeM')}</span>
                 </div>
               </div>
             </div>
@@ -6956,6 +7274,7 @@
         });
 
         const hintText = selectedTorteMapId.size ? '' : `<p class="torte-hint">${t('b2b.torte.hint')}</p>`;
+        const sizesNote = `<p class="torte-sizes-note">${t('b2b.torte.sizesNote')}</p>`;
 
         return `
           <div class="modal__section">
@@ -6964,6 +7283,7 @@
               <img src="${groupSrc}" alt="Torte" loading="lazy" decoding="async" />
               <div class="torte-zones">${zones}</div>
             </div>
+            ${sizesNote}
             ${hintText}
             ${detailPanels}
           </div>
@@ -8312,6 +8632,136 @@
           await handleB2BSubmit(form);
         });
       });
+
+      /* ═══════════════════════════════════════════════════════
+         Listino Prezzi – Password-protected viewer
+         ═══════════════════════════════════════════════════════ */
+      (function initListino(){
+        const LISTINO_CODE = '182115';
+        const LISTINO_PAGES = [
+          '../assets/docs/listino-2026-p1.webp',
+          '../assets/docs/listino-2026-p2.webp'
+        ];
+
+        const lockBtn       = document.getElementById('listinoLockBtn');
+        const pwOverlay     = document.getElementById('listinoPwOverlay');
+        const pwInput       = document.getElementById('listinoPwInput');
+        const pwError       = document.getElementById('listinoPwError');
+        const pwSubmit      = document.getElementById('listinoPwSubmit');
+        const pwCancel      = document.getElementById('listinoPwCancel');
+        const viewerOverlay = document.getElementById('listinoViewerOverlay');
+        const viewerClose   = document.getElementById('listinoViewerClose');
+        const viewerPage    = document.getElementById('listinoViewerPage');
+        const indicator     = document.getElementById('listinoIndicator');
+        const prevBtn       = document.getElementById('listinoPrev');
+        const nextBtn       = document.getElementById('listinoNext');
+
+        if(!lockBtn || !pwOverlay || !viewerOverlay) return;
+
+        let currentPage = 0;
+        let listinoUnlocked = false;
+
+        function openPwPrompt(){
+          pwInput.value = '';
+          pwInput.classList.remove('is-error');
+          pwError.textContent = '';
+          pwOverlay.classList.add('is-open');
+          requestAnimationFrame(() => pwInput.focus());
+        }
+
+        function closePwPrompt(){
+          pwOverlay.classList.remove('is-open');
+          pwInput.value = '';
+          pwInput.classList.remove('is-error');
+          pwError.textContent = '';
+        }
+
+        function openViewer(){
+          currentPage = 0;
+          updateViewer();
+          viewerOverlay.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeViewer(){
+          viewerOverlay.classList.remove('is-open');
+          document.body.style.overflow = '';
+        }
+
+        function updateViewer(){
+          viewerPage.src = LISTINO_PAGES[currentPage];
+          indicator.textContent = (currentPage + 1) + ' / ' + LISTINO_PAGES.length;
+          prevBtn.disabled = currentPage === 0;
+          nextBtn.disabled = currentPage === LISTINO_PAGES.length - 1;
+        }
+
+        function checkCode(){
+          const val = pwInput.value.trim();
+          if(val === LISTINO_CODE){
+            listinoUnlocked = true;
+            closePwPrompt();
+            openViewer();
+          } else {
+            pwInput.classList.add('is-error');
+            pwError.textContent = t('b2b.listino.pwError') || 'Codice errato. Riprova.';
+            pwInput.select();
+            setTimeout(() => pwInput.classList.remove('is-error'), 500);
+          }
+        }
+
+        lockBtn.addEventListener('click', () => {
+          if(listinoUnlocked){
+            openViewer();
+          } else {
+            openPwPrompt();
+          }
+        });
+
+        pwSubmit.addEventListener('click', checkCode);
+        pwInput.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter'){ e.preventDefault(); checkCode(); }
+        });
+        pwCancel.addEventListener('click', closePwPrompt);
+        pwOverlay.addEventListener('click', (e) => {
+          if(e.target === pwOverlay) closePwPrompt();
+        });
+
+        viewerClose.addEventListener('click', closeViewer);
+        viewerOverlay.addEventListener('click', (e) => {
+          if(e.target === viewerOverlay) closeViewer();
+        });
+
+        prevBtn.addEventListener('click', () => {
+          if(currentPage > 0){ currentPage--; updateViewer(); }
+        });
+        nextBtn.addEventListener('click', () => {
+          if(currentPage < LISTINO_PAGES.length - 1){ currentPage++; updateViewer(); }
+        });
+
+        document.addEventListener('keydown', (e) => {
+          if(pwOverlay.classList.contains('is-open') && e.key === 'Escape'){
+            closePwPrompt();
+          }
+          if(viewerOverlay.classList.contains('is-open')){
+            if(e.key === 'Escape') closeViewer();
+            if(e.key === 'ArrowLeft' && currentPage > 0){ currentPage--; updateViewer(); }
+            if(e.key === 'ArrowRight' && currentPage < LISTINO_PAGES.length - 1){ currentPage++; updateViewer(); }
+          }
+        });
+
+        /* Swipe support for mobile */
+        let touchStartX = 0;
+        viewerOverlay.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].clientX;
+        }, { passive: true });
+        viewerOverlay.addEventListener('touchend', (e) => {
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if(Math.abs(dx) > 50){
+            if(dx < 0 && currentPage < LISTINO_PAGES.length - 1){ currentPage++; updateViewer(); }
+            if(dx > 0 && currentPage > 0){ currentPage--; updateViewer(); }
+          }
+        }, { passive: true });
+      })();
     })();
   </script>
 
