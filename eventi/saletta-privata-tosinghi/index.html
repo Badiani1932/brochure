@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>Saletta Privata Tosinghi — Badiani 1932 | Feste Private a Firenze</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Prenota la saletta privata Badiani in Via de' Tosinghi a Firenze. Pacchetti Silver, Gold e Platinum per feste private con gelato artigianale e finger food." />
@@ -12,10 +13,43 @@
   <meta property="og:title" content="Saletta Privata Tosinghi — Badiani 1932" />
   <meta property="og:description" content="Feste private esclusive nella saletta Badiani a Firenze. Gelato, cocktail e finger food." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <meta property="og:url" content="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
+  <meta property="og:site_name" content="Badiani 1932" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Saletta Privata Tosinghi — Badiani 1932" />
+  <meta name="twitter:description" content="Feste private esclusive nella saletta Badiani a Firenze. Gelato, cocktail e finger food." />
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="preload" href="../../assets/images/migrated/eventi/CT%20FIRENZE/food-list-modal.webp" as="image" type="image/webp" />
   <link rel="preload" href="../../assets/images/migrated/eventi/CT%20FIRENZE/drink-list-modal.webp" as="image" type="image/webp" />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Saletta Privata Tosinghi — Badiani 1932",
+    "description": "Saletta privata per eventi esclusivi con gelato Badiani in Via de' Tosinghi, Firenze.",
+    "url": "https://www.badiani1932.com/eventi/saletta-privata-tosinghi/",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Eventi", "item": "https://www.badiani1932.com/eventi/"},
+        {"@type": "ListItem", "position": 3, "name": "Saletta Privata Tosinghi"}
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Badiani 1932",
+      "url": "https://www.badiani1932.com/"
+    }
+  }
+  </script>
   <style>
     /* ============================================================
        SALETTA PRIVATA TOSINGHI — aligned with home + eventi design
@@ -1135,8 +1169,8 @@
     /* ===== MERCURY CHARACTER ===== */
     .sal-form-section__mercury{
       position:absolute;
-      left:max(-400px, calc(50% - 1180px));
-      bottom:calc(-10% - 200px);
+      left:max(-320px, calc(50% - 1180px));
+      bottom:calc(-10% - 300px);
       height:clamp(800px, 110vh, 1400px);
       max-width:none;
       object-fit:contain;
@@ -1153,23 +1187,23 @@
     }
     @media(max-width:1200px){
       .sal-form-section__mercury{
-        left:max(-350px, calc(50% - 1150px));
+        left:max(-280px, calc(50% - 1150px));
         height:clamp(700px, 90vh, 1100px);
       }
     }
     @media(max-width:900px){
       .sal-form-section__mercury{
-        left:max(-300px, calc(50% - 1110px));
+        left:max(-200px, calc(50% - 1110px));
         height:clamp(560px, 77vh, 840px);
-        opacity:0.55;
+        opacity:0.5;
       }
     }
     @media(max-width:600px){
       .sal-form-section__mercury{
-        left:-50px;
+        left:-60px;
         bottom:calc(-3% - 80px);
         height:clamp(220px, 34vh, 320px);
-        opacity:0.42;
+        opacity:0.35;
       }
     }
 
@@ -1457,6 +1491,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <!-- TOPBAR -->
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../../" class="topbar__logo">
@@ -1489,7 +1524,7 @@
   </nav>
 
   <!-- VIDEO HERO -->
-  <section class="sal-hero" id="salHero">
+  <section class="sal-hero" id="main-content">
     <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="../../assets/video/videotosinghi.mp4" type="video/mp4">
       <track kind="descriptions" srclang="it" label="Descrizione video" default>
@@ -1600,15 +1635,15 @@
     
     <!-- CTA BUTTONS INSIDE PACKAGES SECTION -->
     <div class="sal-packages__cta">
-      <button type="button" class="sal-packages__list-btn" onclick="openFoodListModal()">
+      <button type="button" class="sal-packages__list-btn" id="openFoodListBtn">
         <svg viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
         <span data-i18n="tosinghi.list.food.btn">Lista Food</span>
       </button>
-      <button type="button" class="sal-packages__cta-btn" onclick="document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+      <button type="button" class="sal-packages__cta-btn" id="scrollToContattiBtn">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
       </button>
-      <button type="button" class="sal-packages__list-btn" onclick="openDrinkListModal()">
+      <button type="button" class="sal-packages__list-btn" id="openDrinkListBtn">
         <svg viewBox="0 0 24 24"><path d="M21 5V3H3v2l8 9v5H6v2h12v-2h-5v-5l8-9zM7.43 7L5.66 5h12.69l-1.78 2H7.43z"/></svg>
         <span data-i18n="tosinghi.list.drink.btn">Lista Drink</span>
       </button>
@@ -1619,23 +1654,23 @@
     <p class="sal-gallery__label" data-i18n="tosinghi.gallery.label">La nostra saletta</p>
     <h2 class="sal-gallery__title title-accent title-accent--light" data-i18n="tosinghi.gallery.title">Galleria</h2>
     <div class="sal-gallery__grid">
-      <div class="sal-gallery__photo" onclick="openLightbox(0)">
+      <div class="sal-gallery__photo" data-index="0">
         <img src="../../assets/images/migrated/eventi/foto%20eventi/1.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
         <span class="sal-gallery__photo-label" data-i18n="tosinghi.gallery.photo1">Saletta Privata</span>
       </div>
-      <div class="sal-gallery__photo" onclick="openLightbox(1)">
+      <div class="sal-gallery__photo" data-index="1">
         <img src="../../assets/images/migrated/eventi/foto%20eventi/2.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
         <span class="sal-gallery__photo-label" data-i18n="tosinghi.gallery.photo2">Allestimento</span>
       </div>
-      <div class="sal-gallery__photo" onclick="openLightbox(2)">
+      <div class="sal-gallery__photo" data-index="2">
         <img src="../../assets/images/migrated/eventi/foto%20eventi/3.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="2668" height="4000" />
         <span class="sal-gallery__photo-label" data-i18n="tosinghi.gallery.photo3">Dettaglio</span>
       </div>
-      <div class="sal-gallery__photo" onclick="openLightbox(3)">
+      <div class="sal-gallery__photo" data-index="3">
         <img src="../../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
         <span class="sal-gallery__photo-label" data-i18n="tosinghi.gallery.photo4">Atmosfera</span>
       </div>
-      <div class="sal-gallery__photo" onclick="openLightbox(4)">
+      <div class="sal-gallery__photo" data-index="4">
         <img src="../../assets/images/migrated/eventi/foto%20eventi/5.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
         <span class="sal-gallery__photo-label" data-i18n="tosinghi.gallery.photo5">Servizio</span>
       </div>
@@ -1643,11 +1678,11 @@
   </section>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-    <button class="lightbox-nav lightbox-prev" onclick="prevImage(event)">&#10094;</button>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close">&times;</button>
+    <button class="lightbox-nav lightbox-prev">&#10094;</button>
     <img id="lightbox-img" src="" alt="" loading="lazy" decoding="async" />
-    <button class="lightbox-nav lightbox-next" onclick="nextImage(event)">&#10095;</button>
+    <button class="lightbox-nav lightbox-next">&#10095;</button>
   </div>
 
   <!-- TERMS — dark blue full-bleed -->
@@ -1687,7 +1722,7 @@
         <p data-i18n="tosinghi.form.subtitle">Compila il modulo e ti ricontatteremo</p>
       </div>
       <div class="sal-form-body">
-        <form id="tosinghiRequestForm" action="" method="post" enctype="text/plain">
+        <form id="tosinghiRequestForm" method="post">
           <div class="sal-form-grid">
             <div class="sf-field">
               <label for="tos-nome" data-i18n="tosinghi.form.name.label">Nome *</label>
@@ -1724,8 +1759,8 @@
             <div class="sf-field">
               <label data-i18n="tosinghi.form.extras.label">Opzioni Extra?</label>
               <div class="sf-radio-group">
-                <label><input type="radio" name="extra" value="si" onchange="document.getElementById('extrasTosinghi').classList.add('visible')" /> <span data-i18n="tosinghi.form.extras.yes">S&#236;</span></label>
-                <label><input type="radio" name="extra" value="no" checked onchange="document.getElementById('extrasTosinghi').classList.remove('visible')" /> <span data-i18n="tosinghi.form.extras.no">No</span></label>
+                <label><input type="radio" name="extra" value="si" /> <span data-i18n="tosinghi.form.extras.yes">S&#236;</span></label>
+                <label><input type="radio" name="extra" value="no" checked /> <span data-i18n="tosinghi.form.extras.no">No</span></label>
               </div>
               <div class="sf-extras-panel" id="extrasTosinghi">
                 <div class="sf-checkbox-group">
@@ -1763,13 +1798,13 @@
   </section>
 
   <!-- FOOD LIST MODAL — same structure as package modals -->
-  <div class="modal-overlay" id="foodListModal" onclick="closeFoodListModal(event)">
+  <div class="modal-overlay" id="foodListModal">
     <div class="modal-bg"></div>
-    <button class="modal-close" onclick="closeFoodListModal()" aria-label="Chiudi"></button>
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" aria-label="Chiudi"></button>
+    <div class="modal-content">
       <div class="modal-panel">
         <div class="modal-hero modal-hero--banner">
-          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/food-list-modal.webp" alt="Finger Food" loading="eager" decoding="async" width="4000" height="2668" onload="this.classList.add('is-loaded')" />
+          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/food-list-modal.webp" alt="Finger Food" loading="eager" decoding="async" width="4000" height="2668" id="foodModalHeroImg" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.food.subtitle">A cura del nostro Chef</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.food.title">Finger Food</h2>
@@ -1793,7 +1828,7 @@
           </ul>
         </div>
         <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" onclick="closeFoodListModal(); document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+          <button type="button" class="modal-request-btn" id="foodModalCta">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
           </button>
@@ -1803,13 +1838,13 @@
   </div>
 
   <!-- DRINK LIST MODAL — same structure as package modals -->
-  <div class="modal-overlay" id="drinkListModal" onclick="closeDrinkListModal(event)">
+  <div class="modal-overlay" id="drinkListModal">
     <div class="modal-bg"></div>
-    <button class="modal-close" onclick="closeDrinkListModal()" aria-label="Chiudi"></button>
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" aria-label="Chiudi"></button>
+    <div class="modal-content">
       <div class="modal-panel">
         <div class="modal-hero modal-hero--banner">
-          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/drink-list-modal.webp" alt="Cocktail" loading="eager" decoding="async" width="4000" height="2668" onload="this.classList.add('is-loaded')" />
+          <img class="modal-hero__img" src="../../assets/images/migrated/eventi/CT%20FIRENZE/drink-list-modal.webp" alt="Cocktail" loading="eager" decoding="async" width="4000" height="2668" id="drinkModalHeroImg" />
           <div class="modal-hero__text">
             <span class="modal-hero__label" data-i18n="tosinghi.list.drink.subtitle">I nostri cocktail selezionati</span>
             <h2 class="modal-hero__title title-accent title-accent--light" data-i18n="tosinghi.list.drink.title">Cocktail</h2>
@@ -1828,7 +1863,7 @@
           </ul>
         </div>
         <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" onclick="closeDrinkListModal(); document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+          <button type="button" class="modal-request-btn" id="drinkModalCta">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span data-i18n="tosinghi.cta.request">Richiedi Informazioni</span>
           </button>
@@ -1844,19 +1879,19 @@
         <a href="../../" class="footer-logo-link"><img src="../../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
-      <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h4 data-i18n="footer.contatti">Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
-      <div class="footer-col"><h4 data-i18n="footer.legale">Legale</h4><ul><li><a href="../../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
   </footer>
 
   <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
-    <p class="cookie-banner__text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
     <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
-      <a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
+      <a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
     </div>
   </div>
 
@@ -1943,9 +1978,92 @@
       }
     });
 
+    // CTA buttons
+    document.getElementById('openFoodListBtn').addEventListener('click', function() {
+      openFoodListModal();
+    });
+    document.getElementById('scrollToContattiBtn').addEventListener('click', function() {
+      document.getElementById('contatti').scrollIntoView({behavior:'smooth'});
+    });
+    document.getElementById('openDrinkListBtn').addEventListener('click', function() {
+      openDrinkListModal();
+    });
+
+    // Gallery photos — event delegation via data-index
+    document.querySelectorAll('.sal-gallery__photo[data-index]').forEach(function(photo) {
+      photo.addEventListener('click', function() {
+        openLightbox(parseInt(this.getAttribute('data-index'), 10));
+      });
+    });
+
+    // Lightbox controls
+    document.getElementById('lightbox').addEventListener('click', function(e) {
+      closeLightbox(e);
+    });
+    document.querySelector('#lightbox .lightbox-close').addEventListener('click', function() {
+      closeLightbox();
+    });
+    document.querySelector('#lightbox .lightbox-prev').addEventListener('click', function(e) {
+      prevImage(e);
+    });
+    document.querySelector('#lightbox .lightbox-next').addEventListener('click', function(e) {
+      nextImage(e);
+    });
+
+    // Food modal controls
+    document.getElementById('foodListModal').addEventListener('click', function(e) {
+      closeFoodListModal(e);
+    });
+    document.querySelector('#foodListModal .modal-close').addEventListener('click', function() {
+      closeFoodListModal();
+    });
+    document.querySelector('#foodListModal .modal-content').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+    document.getElementById('foodModalCta').addEventListener('click', function() {
+      closeFoodListModal();
+      document.getElementById('contatti').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Drink modal controls
+    document.getElementById('drinkListModal').addEventListener('click', function(e) {
+      closeDrinkListModal(e);
+    });
+    document.querySelector('#drinkListModal .modal-close').addEventListener('click', function() {
+      closeDrinkListModal();
+    });
+    document.querySelector('#drinkListModal .modal-content').addEventListener('click', function(e) {
+      e.stopPropagation();
+    });
+    document.getElementById('drinkModalCta').addEventListener('click', function() {
+      closeDrinkListModal();
+      document.getElementById('contatti').scrollIntoView({behavior:'smooth'});
+    });
+
+    // Modal hero images — onload replacement
+    ['foodModalHeroImg', 'drinkModalHeroImg'].forEach(function(id) {
+      var img = document.getElementById(id);
+      if (img) {
+        if (img.complete && img.naturalWidth > 0) {
+          img.classList.add('is-loaded');
+        } else {
+          img.addEventListener('load', function() { this.classList.add('is-loaded'); });
+        }
+      }
+    });
+
+    // Radio buttons for extras panel
+    document.querySelectorAll('input[name="extra"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var panel = document.getElementById('extrasTosinghi');
+        if (this.value === 'si') panel.classList.add('visible');
+        else panel.classList.remove('visible');
+      });
+    });
+
     // Hero: click toggles overlay on/off (like home page)
     (function(){
-      var hero = document.getElementById('salHero');
+      var hero = document.getElementById('main-content');
       if (!hero) return;
       hero.addEventListener('click', function(){
         hero.classList.toggle('is-active');
@@ -1955,21 +2073,29 @@
     // Mercury parallax
     (function(){
       var mercury = document.querySelector('.sal-form-section__mercury');
-      if(!mercury) return;
+      var mercurySection = mercury ? mercury.closest('.sal-form-section') : null;
+      if(!mercury || !mercurySection) return;
       var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if(prefersReduced) return;
-      function onScroll(){
-        var rect = mercury.parentElement.getBoundingClientRect();
-        var vh = window.innerHeight;
-        var progress = 1 - (rect.top / vh);
-        var p = Math.max(0, Math.min(1, progress));
-        var shiftX = 50 + p * 30;
-        var shiftY = -20 - p * 80;
-        mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + (p*-5) + 'deg)';
-      }
+      mercury.style.transition = 'transform 0.1s linear';
+      mercury.style.willChange = 'transform';
       var ticking = false;
-      window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ onScroll(); ticking=false; }); } }, {passive:true});
-      onScroll();
+      window.addEventListener('scroll', function(){
+        if(!ticking){
+          ticking = true;
+          requestAnimationFrame(function(){
+            var vh = window.innerHeight;
+            var mr = mercurySection.getBoundingClientRect();
+            var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
+            mp = Math.max(0, Math.min(1, mp * 1.4));
+            var shiftY = (1 - mp) * 180 - 200;
+            var shiftX = (1 - mp) * 50;
+            var rotate = mp * 12;
+            mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
+            ticking = false;
+          });
+        }
+      }, {passive:true});
     })();
 
     // Hamburger
@@ -2342,8 +2468,12 @@
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': 'Evento Aziendale su Misura',
           'tosinghi.form.privacy': 'Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
-          'tosinghi.form.submit': 'Invia Richiesta'
-        },
+          'tosinghi.form.submit': 'Invia Richiesta',
+          'cookie.aria': 'Informativa cookie',
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a>',
+          'cookie.accept': 'Accetto',
+          'cookie.link': 'Cookie Policy',
+},
         en: {
           'meta.title': 'Tosinghi Private Room \u2014 Badiani Events',
           'lang.label': 'Language selector',
@@ -2474,8 +2604,12 @@
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': 'Corporate Tailored Event',
           'tosinghi.form.privacy': 'I have read and accept the <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
-          'tosinghi.form.submit': 'Send Request'
-        },
+          'tosinghi.form.submit': 'Send Request',
+          'cookie.aria': 'Cookie notice',
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../../cookie-policy.html">More information</a>',
+          'cookie.accept': 'Accept',
+          'cookie.link': 'Cookie Policy',
+},
         fr: {
           'meta.title': 'Salle Priv\u00e9e Tosinghi \u2014 \u00c9v\u00e9nements Badiani',
           'lang.label': 'S\u00e9lecteur de langue',
@@ -2603,8 +2737,12 @@
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': '\u00c9v\u00e9nement d\'Entreprise sur Mesure',
           'tosinghi.form.privacy': 'J\'ai lu et j\'accepte la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialit\u00e9</a>.',
-          'tosinghi.form.submit': 'Envoyer la Demande'
-        },
+          'tosinghi.form.submit': 'Envoyer la Demande',
+          'cookie.aria': 'Avis sur les cookies',
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../../cookie-policy.html">Plus d\'informations</a>',
+          'cookie.accept': 'Accepter',
+          'cookie.link': 'Cookie Policy',
+},
         es: {
           'meta.title': 'Sala Privada Tosinghi \u2014 Eventos Badiani',
           'lang.label': 'Selector de idioma',
@@ -2732,8 +2870,12 @@
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': 'Evento Corporativo a Medida',
           'tosinghi.form.privacy': 'He le\u00eddo y acepto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
-          'tosinghi.form.submit': 'Enviar Solicitud'
-        }
+          'tosinghi.form.submit': 'Enviar Solicitud',
+          'cookie.aria': 'Aviso de cookies',
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+          'cookie.accept': 'Aceptar',
+          'cookie.link': 'Cookie Policy',
+}
       };
 
       function normalizeLang(lang){

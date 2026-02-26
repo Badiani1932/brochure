@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>Badiani dove vuoi — Badiani 1932 | Cool Box e Carretto Gelato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box e Carretto Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
@@ -12,8 +13,41 @@
   <meta property="og:title" content="Badiani dove vuoi — Badiani 1932" />
   <meta property="og:description" content="Cool Box e Carretto Gelato dove vuoi." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <meta property="og:url" content="https://www.badiani1932.com/eventi/evento-esterno/" />
+  <meta property="og:site_name" content="Badiani 1932" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Badiani dove vuoi — Badiani 1932" />
+  <meta name="twitter:description" content="Cool Box e Carretto Gelato per eventi. Gelato artigianale fiorentino ovunque." />
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/evento-esterno/" />
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/evento-esterno/" />
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/evento-esterno/" />
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/evento-esterno/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Evento Esterno — Badiani 1932",
+    "description": "Porta il gelato Badiani al tuo evento con soluzioni mobili: Coolbox e Carretto Gelato.",
+    "url": "https://www.badiani1932.com/eventi/evento-esterno/",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Eventi", "item": "https://www.badiani1932.com/eventi/"},
+        {"@type": "ListItem", "position": 3, "name": "Evento Esterno"}
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Badiani 1932",
+      "url": "https://www.badiani1932.com/"
+    }
+  }
+  </script>
   <style>
     /* ============================================================
        EVENTO ESTERNO — aligned with home + eventi design language
@@ -280,6 +314,8 @@
       border-radius:28px;
       overflow:hidden;
       box-shadow:0 20px 60px rgba(30,57,141,0.10);
+      position:relative;
+      z-index:2;
     }
     .ext-form-header{
       background:linear-gradient(135deg, var(--badiani-blue) 0%, #2a4faf 100%);
@@ -701,33 +737,37 @@
     /* ===== MERCURY CHARACTER ===== */
     .ext-form-section__mercury{
       position:absolute;
-      left:calc(50% - 1180px);
+      left:max(-320px, calc(50% - 1180px));
       bottom:calc(-10% - 300px);
       height:clamp(800px, 110vh, 1400px);
       max-width:none;
       object-fit:contain;
       object-position:left bottom;
       pointer-events:none;
-      z-index:3;
+      z-index:0;
       transform:translateY(-20px) translateX(50px) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
     }
     @media(max-width:1200px){
       .ext-form-section__mercury{
-        left:calc(50% - 1150px);
+        left:max(-280px, calc(50% - 1150px));
         height:clamp(700px, 90vh, 1100px);
       }
     }
     @media(max-width:900px){
       .ext-form-section__mercury{
-        left:calc(50% - 1110px);
+        left:max(-200px, calc(50% - 1110px));
         height:clamp(560px, 77vh, 840px);
+        opacity:0.5;
       }
     }
     @media(max-width:600px){
       .ext-form-section__mercury{
-        display:none;
+        left:-60px;
+        bottom:calc(-3% - 80px);
+        height:clamp(220px, 34vh, 320px);
+        opacity:0.35;
       }
     }
 
@@ -852,6 +892,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <!-- TOPBAR -->
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../../" class="topbar__logo">
@@ -884,9 +925,10 @@
   </nav>
 
   <!-- HERO -->
-  <section class="ext-hero">
+  <section class="ext-hero" id="main-content">
     <video class="ext-hero__video" autoplay muted loop playsinline poster="../foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg">
       <source src="../../assets/video/Video%20Badiani%20dove%20vuoi%20.mp4" type="video/mp4" />
+      <track kind="descriptions" srclang="it" label="Descrizione video" default>
     </video>
     <div class="ext-hero__content">
       <div class="ext-hero__heading">
@@ -901,7 +943,7 @@
   <section class="ext-solutions" data-i18n-attr="aria-label:external.solutions.title">
     <div class="ext-solutions__grid">
       <!-- COOL BOX -->
-      <button class="ext-card" onclick="openModal('coolbox')" aria-label="Cool Box — Pratico e versatile" data-i18n-attr="aria-label:external.coolbox.aria">
+      <button class="ext-card" data-modal="coolbox" aria-label="Cool Box — Pratico e versatile" data-i18n-attr="aria-label:external.coolbox.aria">
         <img class="ext-card__img" src="../../assets/images/categories/pulsante-coolbox.webp" alt="Cool box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
         <span class="ext-card__label" aria-hidden="true">1</span>
         <div class="ext-card__overlay">
@@ -913,8 +955,8 @@
       </button>
 
       <!-- CARRETTO GELATO -->
-      <button class="ext-card" onclick="openModal('carretto')" aria-label="Carretto Gelato — Ideale per eventi casual e all'aperto" data-i18n-attr="aria-label:external.carretto.aria">
-        <img class="ext-card__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" />
+      <button class="ext-card" data-modal="carretto" aria-label="Carretto Gelato — Ideale per eventi casual e all'aperto" data-i18n-attr="aria-label:external.carretto.aria">
+        <img class="ext-card__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" />
         <span class="ext-card__label" aria-hidden="true">2</span>
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
@@ -961,7 +1003,7 @@
         <p data-i18n="external.form.subtitle">Compila il modulo e ti ricontatteremo</p>
       </div>
       <div class="ext-form-body">
-        <form id="externalRequestForm" action="" method="post" enctype="text/plain">
+        <form id="externalRequestForm" method="post">
           <div class="ext-form-grid">
             <div class="ef-field">
               <label for="ext-nome" data-i18n="external.form.firstName">Nome *</label>
@@ -998,8 +1040,8 @@
             <div class="ef-field">
               <label data-i18n="external.form.extras">Opzioni Extra?</label>
               <div class="ef-radio-group">
-                <label><input type="radio" name="extra" value="si" onchange="document.getElementById('extrasEsterno').classList.add('visible')" /> <span data-i18n="external.form.extras.yes">S&#236;</span></label>
-                <label><input type="radio" name="extra" value="no" checked onchange="document.getElementById('extrasEsterno').classList.remove('visible')" /> <span data-i18n="external.form.extras.no">No</span></label>
+                <label><input type="radio" name="extra" value="si" /> <span data-i18n="external.form.extras.yes">S&#236;</span></label>
+                <label><input type="radio" name="extra" value="no" checked /> <span data-i18n="external.form.extras.no">No</span></label>
               </div>
               <div class="ef-extras-panel" id="extrasEsterno">
                 <div class="ef-checkbox-group">
@@ -1037,10 +1079,10 @@
   </section>
 
   <!-- MODAL COOL BOX -->
-  <div class="modal-overlay" id="modalCoolbox" onclick="closeModal('coolbox')">
+  <div class="modal-overlay" id="modalCoolbox">
     <div class="modal-bg"></div>
-    <button class="modal-close" onclick="closeModal('coolbox')" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
+    <div class="modal-content">
       <div class="modal-panel">
         <div class="modal-hero">
           <span class="modal-hero__number" aria-hidden="true" style="display:none;">1</span>
@@ -1072,7 +1114,7 @@
           </div>
         </div>
         <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" onclick="closeModal('coolbox'); document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+          <button type="button" class="modal-request-btn" data-close-modal="coolbox">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
           </button>
@@ -1082,10 +1124,10 @@
   </div>
 
   <!-- MODAL CARRETTO -->
-  <div class="modal-overlay" id="modalCarretto" onclick="closeModal('carretto')">
+  <div class="modal-overlay" id="modalCarretto">
     <div class="modal-bg"></div>
-    <button class="modal-close" onclick="closeModal('carretto')" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
-    <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
+    <div class="modal-content">
       <div class="modal-panel">
         <div class="modal-hero">
           <span class="modal-hero__number" aria-hidden="true" style="display:none;">2</span>
@@ -1094,7 +1136,7 @@
             <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
             <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
           </div>
-          <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" />
+          <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1117,7 +1159,7 @@
           </div>
         </div>
         <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" onclick="closeModal('carretto'); document.getElementById('contatti').scrollIntoView({behavior:'smooth'})">
+          <button type="button" class="modal-request-btn" data-close-modal="carretto">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
           </button>
@@ -1135,19 +1177,19 @@
         <a href="../../" class="footer-logo-link"><img src="../../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
-      <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h4 data-i18n="footer.contatti">Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
-      <div class="footer-col"><h4 data-i18n="footer.legale">Legale</h4><ul><li><a href="../../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
   </footer>
 
   <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
-    <p class="cookie-banner__text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
     <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
-      <a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
+      <a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
     </div>
   </div>
 
@@ -1181,24 +1223,83 @@
       }
     });
 
+    // Solution card buttons — open modals
+    document.querySelectorAll('.ext-card[data-modal]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        openModal(this.getAttribute('data-modal'));
+      });
+    });
+
+    // Modal overlays — close on overlay/bg click
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay || e.target.classList.contains('modal-bg')) {
+          var id = overlay.id;
+          var type = id.replace('modal', '').toLowerCase();
+          closeModal(type);
+        }
+      });
+    });
+
+    // Modal close buttons
+    document.querySelectorAll('.modal-overlay .modal-close').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var overlay = this.closest('.modal-overlay');
+        var type = overlay.id.replace('modal', '').toLowerCase();
+        closeModal(type);
+      });
+    });
+
+    // Modal content — stop propagation
+    document.querySelectorAll('.modal-overlay .modal-content').forEach(function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+    });
+
+    // Modal CTA buttons — close modal + scroll to contact
+    document.querySelectorAll('.modal-request-btn[data-close-modal]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        closeModal(this.getAttribute('data-close-modal'));
+        document.getElementById('contatti').scrollIntoView({behavior:'smooth'});
+      });
+    });
+
+    // Radio buttons for extras panel
+    document.querySelectorAll('input[name="extra"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var panel = document.getElementById('extrasEsterno');
+        if (this.value === 'si') panel.classList.add('visible');
+        else panel.classList.remove('visible');
+      });
+    });
+
     // Mercury parallax
     (function(){
       var mercury = document.querySelector('.ext-form-section__mercury');
-      if(!mercury) return;
+      var mercurySection = mercury ? mercury.closest('.ext-form-section') : null;
+      if(!mercury || !mercurySection) return;
       var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if(prefersReduced) return;
-      function onScroll(){
-        var rect = mercury.parentElement.getBoundingClientRect();
-        var vh = window.innerHeight;
-        var progress = 1 - (rect.top / vh);
-        var p = Math.max(0, Math.min(1, progress));
-        var shiftX = 50 + p * 30;
-        var shiftY = -20 - p * 80;
-        mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + (p*-5) + 'deg)';
-      }
+      mercury.style.transition = 'transform 0.1s linear';
+      mercury.style.willChange = 'transform';
       var ticking = false;
-      window.addEventListener('scroll', function(){ if(!ticking){ ticking=true; requestAnimationFrame(function(){ onScroll(); ticking=false; }); } }, {passive:true});
-      onScroll();
+      window.addEventListener('scroll', function(){
+        if(!ticking){
+          ticking = true;
+          requestAnimationFrame(function(){
+            var vh = window.innerHeight;
+            var mr = mercurySection.getBoundingClientRect();
+            var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
+            mp = Math.max(0, Math.min(1, mp * 1.4));
+            var shiftY = (1 - mp) * 180 - 200;
+            var shiftX = (1 - mp) * 50;
+            var rotate = mp * 12;
+            mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
+            ticking = false;
+          });
+        }
+      }, {passive:true});
     })();
 
     // Hamburger
@@ -1493,8 +1594,12 @@
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Evento Aziendale su Misura',
           'external.form.privacy': 'Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
-          'external.form.submit': 'Invia Richiesta'
-        },
+          'external.form.submit': 'Invia Richiesta',
+          'cookie.aria': 'Informativa cookie',
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a>',
+          'cookie.accept': 'Accetto',
+          'cookie.link': 'Cookie Policy',
+},
         en: {
           'meta.title': 'Badiani Anywhere — Badiani Events',
           'lang.label': 'Language selector',
@@ -1585,8 +1690,12 @@
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Corporate Tailored Event',
           'external.form.privacy': 'I have read and accept the <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
-          'external.form.submit': 'Send Request'
-        },
+          'external.form.submit': 'Send Request',
+          'cookie.aria': 'Cookie notice',
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../../cookie-policy.html">More information</a>',
+          'cookie.accept': 'Accept',
+          'cookie.link': 'Cookie Policy',
+},
         fr: {
           'meta.title': 'Badiani où vous voulez — Événements Badiani',
           'lang.label': 'Sélecteur de langue',
@@ -1677,8 +1786,12 @@
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': '\u00c9v\u00e9nement d\'Entreprise sur Mesure',
           'external.form.privacy': 'J\u2019ai lu et j\u2019accepte la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialit\u00e9</a>.',
-          'external.form.submit': 'Envoyer la Demande'
-        },
+          'external.form.submit': 'Envoyer la Demande',
+          'cookie.aria': 'Avis sur les cookies',
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../../cookie-policy.html">Plus d\'informations</a>',
+          'cookie.accept': 'Accepter',
+          'cookie.link': 'Cookie Policy',
+},
         es: {
           'meta.title': 'Badiani donde quieras — Eventos Badiani',
           'lang.label': 'Selector de idioma',
@@ -1769,8 +1882,12 @@
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Evento Corporativo a Medida',
           'external.form.privacy': 'He le\u00eddo y acepto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
-          'external.form.submit': 'Enviar Solicitud'
-        }
+          'external.form.submit': 'Enviar Solicitud',
+          'cookie.aria': 'Aviso de cookies',
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+          'cookie.accept': 'Aceptar',
+          'cookie.link': 'Cookie Policy',
+}
       };
 
       function normalizeLang(lang){

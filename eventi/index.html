@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>Eventi — Badiani 1932 | Feste Private e Su Misura</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Organizza eventi esclusivi con il gelato artigianale Badiani. Saletta privata, eventi esterni, gelato van e soluzioni aziendali personalizzate a Firenze." />
@@ -13,8 +14,39 @@
   <meta property="og:description" content="Feste private e eventi su misura con gelato artigianale Badiani dal 1932." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <meta property="og:url" content="https://www.badiani1932.com/eventi/" />
+  <meta property="og:site_name" content="Badiani 1932" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Eventi — Badiani 1932" />
+  <meta name="twitter:description" content="Feste private e eventi su misura con gelato artigianale Badiani dal 1932." />
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/" />
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/" />
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/" />
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/" />
   <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Eventi — Badiani 1932",
+    "description": "Organizza eventi esclusivi con il gelato artigianale Badiani. Saletta privata, eventi esterni, gelato van e soluzioni aziendali.",
+    "url": "https://www.badiani1932.com/eventi/",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Eventi"}
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Badiani 1932",
+      "url": "https://www.badiani1932.com/"
+    }
+  }
+  </script>
   <style>
     /* ============================================================
        EVENTI PAGE — aligned with home design language
@@ -216,6 +248,7 @@
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:0;
+      align-items:start;
       border-left:1px solid rgba(30,57,141,0.06);
       position:relative;
     }
@@ -226,7 +259,7 @@
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
       display:flex;
       flex-direction:column;
-      justify-content:flex-end;
+      justify-content:center;
     }
     .ev-corp-info__label{
       display:block;
@@ -271,7 +304,7 @@
     @media(min-width:901px){
       /* keep readable text while allowing Mano Gelato overlay near divider */
       .ev-corp-col--customize{
-        padding-left:clamp(54px, 4.8vw, 92px);
+        padding-left:clamp(36px, 3.2vw, 56px);
       }
     }
     .ev-corp-col h3{
@@ -798,7 +831,7 @@
     /* ===== MERCURY CHARACTER ===== */
     .ev-form-section__mercury{
       position:absolute;
-      left:-20px;
+      left:max(-320px, calc(50% - 1180px));
       bottom:calc(-10% - 300px);
       height:clamp(800px, 110vh, 1400px);
       max-width:none;
@@ -814,29 +847,25 @@
       position:relative;
       z-index:2;
     }
-    /* Scale Mercury down on narrower-than-landscape viewports */
-    @media(max-aspect-ratio:16/9){
+    @media(max-width:1200px){
       .ev-form-section__mercury{
-        left:-40px;
-        bottom:calc(-6% - 260px);
-        height:clamp(460px, 70vh, 760px);
-        opacity:0.62;
+        left:max(-280px, calc(50% - 1150px));
+        height:clamp(700px, 90vh, 1100px);
       }
     }
     @media(max-width:900px){
       .ev-form-section__mercury{
-        left:-50px;
-        bottom:calc(-5% - 180px);
-        height:clamp(360px, 52vh, 560px);
-        opacity:0.55;
+        left:max(-200px, calc(50% - 1110px));
+        height:clamp(560px, 77vh, 840px);
+        opacity:0.5;
       }
     }
     @media(max-width:600px){
       .ev-form-section__mercury{
-        left:-50px;
+        left:-60px;
         bottom:calc(-3% - 80px);
         height:clamp(220px, 34vh, 320px);
-        opacity:0.42;
+        opacity:0.35;
       }
     }
 
@@ -853,6 +882,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <!-- TOPBAR -->
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../" class="topbar__logo">
@@ -883,7 +913,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="ev-hero" id="evHero">
+  <section class="ev-hero" id="main-content">
     <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
       <track kind="descriptions" srclang="it" label="Descrizione video" default>
@@ -965,49 +995,49 @@
     <p class="ev-gallery__label" data-i18n="eventi.gallery.label">Portfolio</p>
     <h2 class="ev-gallery__title title-accent title-accent--light" data-i18n="eventi.gallery.title">Foto Da Eventi Passati</h2>
     <div class="ev-gallery__grid">
-      <div class="ev-gallery__photo" onclick="openEventLightbox(0)">
+      <div class="ev-gallery__photo" data-index="0">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC01243.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC01243.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(1)">
+      <div class="ev-gallery__photo" data-index="1">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC01296.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC01296.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(2)">
+      <div class="ev-gallery__photo" data-index="2">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07193.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC07193.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(3)">
+      <div class="ev-gallery__photo" data-index="3">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07293.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC07293.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(4)">
+      <div class="ev-gallery__photo" data-index="4">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07503.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC07503.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1600" height="1066" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(5)">
+      <div class="ev-gallery__photo" data-index="5">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC07553.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC07553.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(6)">
+      <div class="ev-gallery__photo" data-index="6">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
         </picture>
       </div>
-      <div class="ev-gallery__photo" onclick="openEventLightbox(7)">
+      <div class="ev-gallery__photo" data-index="7">
         <picture>
           <source srcset="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" type="image/webp" />
           <img src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Evento Badiani" loading="lazy" decoding="async" width="1066" height="1600" />
@@ -1018,14 +1048,14 @@
 
   <!-- FORM — sfondo.webp background -->
   <section id="contatti" class="ev-form-section" data-i18n-attr="aria-label:eventi.contact.label">
-    <img class="ev-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" />
+    <img class="ev-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" width="768" height="1356" />
     <div class="ev-form-block">
       <div class="ev-form-header">
         <h2 data-i18n="eventi.form.title">Richiedi Informazioni</h2>
         <p data-i18n="eventi.form.subtitle">Compila il modulo e ti ricontatteremo per organizzare il tuo evento</p>
       </div>
       <div class="ev-form-body">
-        <form action="" method="post" enctype="text/plain" id="requestForm">
+        <form method="post" id="requestForm">
           <div class="ev-form-grid">
             <div class="ef-field">
               <label for="rf-nome" data-i18n="eventi.form.firstName">Nome *</label>
@@ -1073,8 +1103,8 @@
             <div class="ef-field">
               <label data-i18n="eventi.form.extras">Opzioni Extra?</label>
               <div class="ef-radio-group">
-                <label><input type="radio" name="opzioniExtra" value="si" onchange="document.getElementById('extrasMain').classList.add('visible')" /> <span data-i18n="eventi.form.extras.yes">S&#236;</span></label>
-                <label><input type="radio" name="opzioniExtra" value="no" checked onchange="document.getElementById('extrasMain').classList.remove('visible')" /> <span data-i18n="eventi.form.extras.no">No</span></label>
+                <label><input type="radio" name="opzioniExtra" value="si" /> <span data-i18n="eventi.form.extras.yes">S&#236;</span></label>
+                <label><input type="radio" name="opzioniExtra" value="no" checked /> <span data-i18n="eventi.form.extras.no">No</span></label>
               </div>
               <div class="ef-extras-panel" id="extrasMain">
                 <div class="ef-checkbox-group">
@@ -1112,11 +1142,11 @@
   </section>
 
   <!-- LIGHTBOX -->
-  <div class="lightbox" id="eventLightbox" onclick="closeEventLightbox(event)">
-    <button class="lightbox-close" onclick="closeEventLightbox()" aria-label="Chiudi">&times;</button>
-    <button class="lightbox-nav lightbox-prev" onclick="prevEventImage(event)" aria-label="Precedente">&#10094;</button>
+  <div class="lightbox" id="eventLightbox">
+    <button class="lightbox-close" aria-label="Chiudi">&times;</button>
+    <button class="lightbox-nav lightbox-prev" aria-label="Precedente">&#10094;</button>
     <img id="eventLightbox-img" src="" alt="" loading="lazy" decoding="async" />
-    <button class="lightbox-nav lightbox-next" onclick="nextEventImage(event)" aria-label="Successiva">&#10095;</button>
+    <button class="lightbox-nav lightbox-next" aria-label="Successiva">&#10095;</button>
   </div>
 
   <!-- FOOTER -->
@@ -1126,19 +1156,19 @@
         <a href="../" class="footer-logo-link"><img src="../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
-      <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="./" data-i18n="footer.eventi">Eventi</a></li><li><a href="../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h4 data-i18n="footer.contatti">Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
-      <div class="footer-col"><h4 data-i18n="footer.legale">Legale</h4><ul><li><a href="../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="./" data-i18n="footer.eventi">Eventi</a></li><li><a href="../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
   </footer>
 
   <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
-    <p class="cookie-banner__text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a></p>
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a></p>
     <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
-      <a href="../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
+      <a href="../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
     </div>
   </div>
 
@@ -1187,6 +1217,36 @@
         if (e.key === 'ArrowLeft') prevEventImage(e);
         if (e.key === 'ArrowRight') nextEventImage(e);
       }
+    });
+
+    // Gallery photos — event delegation via data-index
+    document.querySelectorAll('.ev-gallery__photo[data-index]').forEach(function(photo) {
+      photo.addEventListener('click', function() {
+        openEventLightbox(parseInt(this.getAttribute('data-index'), 10));
+      });
+    });
+
+    // Lightbox controls
+    document.getElementById('eventLightbox').addEventListener('click', function(e) {
+      closeEventLightbox(e);
+    });
+    document.querySelector('#eventLightbox .lightbox-close').addEventListener('click', function() {
+      closeEventLightbox();
+    });
+    document.querySelector('#eventLightbox .lightbox-prev').addEventListener('click', function(e) {
+      prevEventImage(e);
+    });
+    document.querySelector('#eventLightbox .lightbox-next').addEventListener('click', function(e) {
+      nextEventImage(e);
+    });
+
+    // Radio buttons for extras panel
+    document.querySelectorAll('input[name="opzioniExtra"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        var panel = document.getElementById('extrasMain');
+        if (this.value === 'si') panel.classList.add('visible');
+        else panel.classList.remove('visible');
+      });
     });
   </script>
 
@@ -1276,8 +1336,12 @@
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Evento Aziendale su Misura',
           'eventi.form.privacy': 'Ho letto e accetto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
-          'eventi.form.submit': 'Invia Richiesta'
-        },
+          'eventi.form.submit': 'Invia Richiesta',
+          'cookie.aria': 'Informativa cookie',
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a>',
+          'cookie.accept': 'Accetto',
+          'cookie.link': 'Cookie Policy',
+},
         en: {
           'meta.title': 'Events \u2014 Badiani 1932',
           'topbar.label': 'Brand bar',
@@ -1356,8 +1420,12 @@
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Tailored Corporate Event',
           'eventi.form.privacy': 'I have read and accept the <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
-          'eventi.form.submit': 'Send Request'
-        },
+          'eventi.form.submit': 'Send Request',
+          'cookie.aria': 'Cookie notice',
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../cookie-policy.html">More information</a>',
+          'cookie.accept': 'Accept',
+          'cookie.link': 'Cookie Policy',
+},
         fr: {
           'meta.title': '\u00c9v\u00e9nements \u2014 Badiani 1932',
           'topbar.label': 'Barre de marque',
@@ -1436,8 +1504,12 @@
           'eventi.form.eventInterest.van': 'Van \u00e0 Gelato',
           'eventi.form.eventInterest.tailored': "\u00c9v\u00e9nement d'Entreprise sur Mesure",
           'eventi.form.privacy': "J'ai lu et j'accepte la <a href=\"../privacy.html\" style=\"color:var(--badiani-blue);text-decoration:underline;\">politique de confidentialit\u00e9</a>.",
-          'eventi.form.submit': 'Envoyer la Demande'
-        },
+          'eventi.form.submit': 'Envoyer la Demande',
+          'cookie.aria': 'Avis sur les cookies',
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../cookie-policy.html">Plus d\'informations</a>',
+          'cookie.accept': 'Accepter',
+          'cookie.link': 'Cookie Policy',
+},
         es: {
           'meta.title': 'Eventos \u2014 Badiani 1932',
           'topbar.label': 'Barra de marca',
@@ -1516,8 +1588,12 @@
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Evento Corporativo a Medida',
           'eventi.form.privacy': 'He le\u00eddo y acepto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
-          'eventi.form.submit': 'Enviar Solicitud'
-        }
+          'eventi.form.submit': 'Enviar Solicitud',
+          'cookie.aria': 'Aviso de cookies',
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+          'cookie.accept': 'Aceptar',
+          'cookie.link': 'Cookie Policy',
+}
       };
 
       function normalizeLang(lang){
@@ -1727,7 +1803,7 @@
   <script>
     // Video hero - click to toggle visibility
     (function(){
-      var hero = document.getElementById('evHero');
+      var hero = document.getElementById('main-content');
       if(!hero) return;
       var video = hero.querySelector('video');
       if(!video) return;

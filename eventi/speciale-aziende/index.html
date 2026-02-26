@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>Speciale Aziende — Badiani 1932 | Eventi Corporate</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Badiani 1932: eventi corporate su misura con gelato artigianale fiorentino. Servizio, allestimento, branding personalizzato per aziende." />
@@ -12,7 +13,41 @@
   <meta property="og:title" content="Speciale Aziende — Badiani 1932" />
   <meta property="og:description" content="Eventi corporate su misura con gelato artigianale Badiani dal 1932." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <meta property="og:url" content="https://www.badiani1932.com/eventi/speciale-aziende/" />
+  <meta property="og:site_name" content="Badiani 1932" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Speciale Aziende — Badiani 1932" />
+  <meta name="twitter:description" content="Eventi corporate su misura con gelato artigianale Badiani dal 1932." />
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/speciale-aziende/" />
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/speciale-aziende/" />
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/speciale-aziende/" />
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/speciale-aziende/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/speciale-aziende/" />
+  <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Speciale Aziende — Badiani 1932",
+    "description": "Eventi corporate su misura con gelato artigianale Badiani dal 1932.",
+    "url": "https://www.badiani1932.com/eventi/speciale-aziende/",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Eventi", "item": "https://www.badiani1932.com/eventi/"},
+        {"@type": "ListItem", "position": 3, "name": "Speciale Aziende"}
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Badiani 1932",
+      "url": "https://www.badiani1932.com/"
+    }
+  }
+  </script>
   <style>
     /* Page-specific styles for Speciale Aziende */
 
@@ -233,6 +268,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../../" class="topbar__logo">
       <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
@@ -244,7 +280,7 @@
         <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
       </nav>
       <div class="topbar__lang">
-        <select class="topbar__select" data-i18n-attr="aria-label:lang.label" onchange="setLang(this.value)">
+        <select class="topbar__select" data-i18n-attr="aria-label:lang.label">
           <option value="it" data-i18n="lang.it">IT</option>
           <option value="en" data-i18n="lang.en">EN</option>
           <option value="fr" data-i18n="lang.fr">FR</option>
@@ -263,7 +299,7 @@
     <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
   </nav>
 
-  <section class="hero">
+  <section class="hero" id="main-content">
     <h1 class="title-accent title-accent--light" data-i18n="az.hero.title">SPECIALE AZIENDE</h1>
     <p class="subtitle" data-i18n="az.hero.subtitle">Crea un evento unico, pensato intorno al tuo brand</p>
   </section>
@@ -351,8 +387,12 @@
           'az.ideal.item4': 'Conferenze e press day',
           'az.ideal.item5': 'Eventi corporate e team building',
           'az.cta.title': 'Parliamo del tuo progetto',
-          'az.cta.desc': 'Contattaci per creare insieme un\'esperienza unica per la tua azienda'
-        },
+          'az.cta.desc': 'Contattaci per creare insieme un\'esperienza unica per la tua azienda',
+          'cookie.aria': 'Informativa cookie',
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a>',
+          'cookie.accept': 'Accetto',
+          'cookie.link': 'Cookie Policy',
+},
         en: {
           'meta.title': 'Corporate Events — Badiani Events',
           'topbar.label': 'Brand bar',
@@ -381,8 +421,12 @@
           'az.ideal.item4': 'Conferences and press days',
           'az.ideal.item5': 'Corporate events and team building',
           'az.cta.title': 'Let\'s talk about your project',
-          'az.cta.desc': 'Contact us to create a unique experience for your company together'
-        },
+          'az.cta.desc': 'Contact us to create a unique experience for your company together',
+          'cookie.aria': 'Cookie notice',
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../../cookie-policy.html">More information</a>',
+          'cookie.accept': 'Accept',
+          'cookie.link': 'Cookie Policy',
+},
         fr: {
           'meta.title': 'Spécial Entreprises — Événements Badiani',
           'topbar.label': 'Barre de marque',
@@ -411,8 +455,12 @@
           'az.ideal.item4': 'Conférences et journées presse',
           'az.ideal.item5': 'Événements d\'entreprise et renforcement d\'équipe',
           'az.cta.title': 'Parlons de votre projet',
-          'az.cta.desc': 'Contactez-nous pour créer ensemble une expérience unique pour votre entreprise'
-        },
+          'az.cta.desc': 'Contactez-nous pour créer ensemble une expérience unique pour votre entreprise',
+          'cookie.aria': 'Avis sur les cookies',
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../../cookie-policy.html">Plus d\'informations</a>',
+          'cookie.accept': 'Accepter',
+          'cookie.link': 'Cookie Policy',
+},
         es: {
           'meta.title': 'Especial Empresas — Eventos Badiani',
           'topbar.label': 'Barra de marca',
@@ -441,8 +489,12 @@
           'az.ideal.item4': 'Conferencias y días de prensa',
           'az.ideal.item5': 'Eventos corporativos y trabajo en equipo',
           'az.cta.title': 'Hablemos de tu proyecto',
-          'az.cta.desc': 'Contáctanos para crear juntos una experiencia única para tu empresa'
-        }
+          'az.cta.desc': 'Contáctanos para crear juntos una experiencia única para tu empresa',
+          'cookie.aria': 'Aviso de cookies',
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+          'cookie.accept': 'Aceptar',
+          'cookie.link': 'Cookie Policy',
+}
       };
 
       function normalizeLang(l){ if(!l) return DEFAULT_LANG; const b = String(l).toLowerCase().split('-')[0]; return SUPPORTED.includes(b) ? b : DEFAULT_LANG; }
@@ -470,6 +522,13 @@
       }
 
       window.setLang = function(l){ applyLang(l); };
+
+      // Language selector addEventListener
+      var langSelect = document.querySelector('.topbar__select');
+      if (langSelect) {
+        langSelect.addEventListener('change', function() { setLang(this.value); });
+      }
+
       applyLang(currentLang);
     })();
   </script>
@@ -481,15 +540,15 @@
         <a href="../../" class="footer-logo-link"><img src="../../assets/images/branding/logo-white.png" alt="Badiani 1932" width="1665" height="643" /></a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
-      <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h4>Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
-      <div class="footer-col"><h4>Legale</h4><ul><li><a href="../../privacy.html">Privacy Policy</a></li><li><a href="../../cookie-policy.html">Cookie Policy</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../../privacy.html">Privacy Policy</a></li><li><a href="../../cookie-policy.html">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
   </footer>
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
-    <p class="cookie-banner__text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
-    <div class="cookie-banner__actions"><button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button><a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a></div>
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
+    <div class="cookie-banner__actions"><button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button><a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a></div>
   </div>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');document.body.style.overflow=o?'':'hidden';});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');document.body.style.overflow='';});});})();</script>

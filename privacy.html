@@ -2,12 +2,50 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>Privacy Policy — Badiani 1932</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Informativa sulla privacy di Badiani 1932. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali." />
   <meta name="theme-color" content="#1e398d" />
   <link rel="icon" href="assets/images/branding/logo.webp" type="image/webp" />
+  <link rel="canonical" href="https://www.badiani1932.com/privacy.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Privacy Policy — Badiani 1932" />
+  <meta property="og:description" content="Informativa sulla privacy di Badiani 1932. Scopri come raccogliamo, utilizziamo e proteggiamo i tuoi dati personali." />
+  <meta property="og:url" content="https://www.badiani1932.com/privacy.html" />
+  <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Privacy Policy — Badiani 1932" />
+  <meta name="twitter:description" content="Informativa sulla privacy di Badiani 1932." />
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/privacy.html" />
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/privacy.html" />
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/privacy.html" />
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/privacy.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/privacy.html" />
+  <link rel="preload" href="./assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="./assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy — Badiani 1932",
+    "description": "Informativa sulla privacy di Badiani 1932.",
+    "url": "https://www.badiani1932.com/privacy.html",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 2, "name": "Privacy Policy"}
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Badiani 1932",
+      "url": "https://www.badiani1932.com/"
+    }
+  }
+  </script>
   <style>
     .legal-page{
       max-width:860px;
@@ -86,6 +124,7 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="./" class="topbar__logo">
       <img src="assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
@@ -118,7 +157,7 @@
     <a href="magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
   </nav>
 
-  <main class="legal-page">
+  <main class="legal-page" id="main-content">
     <h1 data-i18n="privacy.title">Informativa sulla Privacy</h1>
     <span class="legal-updated" data-i18n="privacy.updated">Ultimo aggiornamento: Febbraio 2026</span>
 
@@ -236,7 +275,7 @@
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.nav">Navigazione</h4>
+        <h3 data-i18n="footer.nav">Navigazione</h3>
         <ul>
           <li><a href="./" data-i18n="footer.home">Home</a></li>
           <li><a href="eventi/" data-i18n="footer.eventi">Eventi</a></li>
@@ -245,14 +284,14 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.contatti">Contatti</h4>
+        <h3 data-i18n="footer.contatti">Contatti</h3>
         <ul>
           <li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li>
           <li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4 data-i18n="footer.legale">Legale</h4>
+        <h3 data-i18n="footer.legale">Legale</h3>
         <ul>
           <li><a href="privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li>
           <li><a href="cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li>
@@ -265,14 +304,14 @@
   </footer>
 
   <!-- COOKIE CONSENT BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
-    <p class="cookie-banner__text">
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">
       Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. Nessun cookie di profilazione.
       <a href="cookie-policy.html">Maggiori informazioni</a>
     </p>
     <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
-      <a href="cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
+      <a href="cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
     </div>
   </div>
 
@@ -328,8 +367,12 @@
           'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
           'privacy.s9.title': '9. Modifiche alla Privacy Policy',
           'privacy.s9.text': 'Il Titolare si riserva il diritto di apportare modifiche alla presente informativa in qualunque momento. Si consiglia di consultare regolarmente questa pagina. In caso di modifiche sostanziali, ne daremo comunicazione tramite il sito.',
-          'privacy.disclaimer': 'Informativa resa ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018.'
-        },
+          'privacy.disclaimer': 'Informativa resa ai sensi del Regolamento UE 2016/679 (GDPR) e del D.Lgs. 196/2003 (Codice Privacy) come modificato dal D.Lgs. 101/2018.',
+          'cookie.aria': 'Informativa cookie',
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="cookie-policy.html">Maggiori informazioni</a>',
+          'cookie.accept': 'Accetto',
+          'cookie.link': 'Cookie Policy',
+},
         en: {
           'meta.title': 'Privacy Policy — Badiani 1932',
           'topbar.label': 'Brand bar',
@@ -375,8 +418,12 @@
           'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
           'privacy.s9.title': '9. Changes to the Privacy Policy',
           'privacy.s9.text': 'The Data Controller reserves the right to make changes to this policy at any time. We recommend consulting this page regularly. In case of substantial changes, we will notify users through the website.',
-          'privacy.disclaimer': 'Policy issued pursuant to Regulation EU 2016/679 (GDPR) and Italian Legislative Decree 196/2003 (Privacy Code) as amended by Legislative Decree 101/2018.'
-        },
+          'privacy.disclaimer': 'Policy issued pursuant to Regulation EU 2016/679 (GDPR) and Italian Legislative Decree 196/2003 (Privacy Code) as amended by Legislative Decree 101/2018.',
+          'cookie.aria': 'Cookie notice',
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="cookie-policy.html">More information</a>',
+          'cookie.accept': 'Accept',
+          'cookie.link': 'Cookie Policy',
+},
         fr: {
           'meta.title': 'Politique de confidentialité — Badiani 1932',
           'topbar.label': 'Barre de marque',
@@ -422,8 +469,12 @@
           'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email : <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
           'privacy.s9.title': '9. Modifications de la Politique de Confidentialité',
           'privacy.s9.text': 'Le Responsable se réserve le droit d\'apporter des modifications à la présente politique à tout moment. Il est conseillé de consulter régulièrement cette page. En cas de modifications substantielles, nous en informerons les utilisateurs via le site.',
-          'privacy.disclaimer': 'Politique rédigée conformément au Règlement UE 2016/679 (RGPD) et au Décret législatif italien 196/2003 (Code de la vie privée) tel que modifié par le Décret législatif 101/2018.'
-        },
+          'privacy.disclaimer': 'Politique rédigée conformément au Règlement UE 2016/679 (RGPD) et au Décret législatif italien 196/2003 (Code de la vie privée) tel que modifié par le Décret législatif 101/2018.',
+          'cookie.aria': 'Avis sur les cookies',
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="cookie-policy.html">Plus d\'informations</a>',
+          'cookie.accept': 'Accepter',
+          'cookie.link': 'Cookie Policy',
+},
         es: {
           'meta.title': 'Política de privacidad — Badiani 1932',
           'topbar.label': 'Barra de marca',
@@ -469,8 +520,12 @@
           'privacy.s8.details': '<strong>Garante per la protezione dei dati personali</strong><br>Piazza Venezia, 11 — 00187 Roma<br><a href="https://www.garanteprivacy.it" target="_blank" rel="noopener noreferrer">www.garanteprivacy.it</a><br>Email: <a href="mailto:protocollo@gpdp.it">protocollo@gpdp.it</a>',
           'privacy.s9.title': '9. Cambios en la Política de Privacidad',
           'privacy.s9.text': 'El Responsable se reserva el derecho de realizar cambios en la presente política en cualquier momento. Se recomienda consultar regularmente esta página. En caso de cambios sustanciales, lo comunicaremos a través del sitio web.',
-          'privacy.disclaimer': 'Política redactada de conformidad con el Reglamento UE 2016/679 (RGPD) y el Decreto Legislativo italiano 196/2003 (Código de Privacidad) modificado por el Decreto Legislativo 101/2018.'
-        }
+          'privacy.disclaimer': 'Política redactada de conformidad con el Reglamento UE 2016/679 (RGPD) y el Decreto Legislativo italiano 196/2003 (Código de Privacidad) modificado por el Decreto Legislativo 101/2018.',
+          'cookie.aria': 'Aviso de cookies',
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+          'cookie.accept': 'Aceptar',
+          'cookie.link': 'Cookie Policy',
+}
       };
 
       function normalizeLang(lang){

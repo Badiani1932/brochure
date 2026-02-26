@@ -4,8 +4,7 @@
 /* Font Declarations */
 @font-face {
   font-family: 'SuperGroteskB';
-  src: url('fonts/SuperGroteskB-CdMed.woff2') format('woff2'),
-       url('fonts/SuperGroteskB-CdMed.woff') format('woff');
+  src: url('fonts/SuperGroteskB-CdMed.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -13,8 +12,7 @@
 
 @font-face {
   font-family: 'SuperGroteskA';
-  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff2') format('woff2'),
-       url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
+  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -52,6 +50,27 @@
   --space-xl: 72px;
   --space-lg: 48px;
   --space-md: 28px;
+}
+
+/* Skip Navigation Link (WCAG 2.1 Level A) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 16px;
+  z-index: 10000;
+  background: var(--badiani-blue);
+  color: #fff;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 8px 8px;
+  transition: top 0.2s ease;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--badiani-pink);
+  outline-offset: 2px;
 }
 
 /* Reset */
@@ -93,7 +112,6 @@ body > * {
   opacity: 0;
   transform: translateY(-16px);
   animation: page-reveal 0.6s ease-out forwards;
-  will-change: opacity, transform;
 }
 
 body > *:nth-child(1){ animation-delay: 0.04s; }
@@ -475,7 +493,7 @@ h1, h2, h3 {
   max-width: 260px;
 }
 
-.footer-col h4 {
+.footer-col h3 {
   font-family: 'SuperGroteskDigits', 'SuperGroteskB', sans-serif;
   font-size: 12px;
   text-transform: uppercase;
@@ -501,10 +519,26 @@ h1, h2, h3 {
   font-size: 14px;
   transition: color 0.3s;
   display: inline-block;
+  position: relative;
+}
+
+.footer-col ul a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--badiani-pink);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-col ul a:hover {
   color: var(--badiani-pink);
+}
+
+.footer-col ul a:hover::after {
+  width: 100%;
 }
 
 .footer-bottom {

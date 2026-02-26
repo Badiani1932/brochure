@@ -2,6 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>B2B — Badiani 1932 | Gelato per Hotel, Catering e Ristorazione</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie. Catalogo completo: vasche, monoporzioni, torte, coni e accessori." />
@@ -13,7 +14,39 @@
   <meta property="og:description" content="Gelato artigianale per hotel, ristoranti e catering. Catalogo B2B Badiani 1932." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <meta property="og:url" content="https://www.badiani1932.com/b2b/" />
+  <meta property="og:site_name" content="Badiani 1932" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="B2B — Badiani 1932" />
+  <meta name="twitter:description" content="Gelato artigianale per hotel, ristoranti e catering. Catalogo B2B Badiani 1932." />
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/b2b/" />
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/b2b/" />
+  <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "B2B — Badiani 1932",
+    "description": "Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie.",
+    "url": "https://www.badiani1932.com/b2b/",
+    "breadcrumb": {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+        {"@type": "ListItem", "position": 2, "name": "B2B"}
+      ]
+    },
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Badiani 1932",
+      "url": "https://www.badiani1932.com/"
+    }
+  }
+  </script>
   <style>
     /* ============================================================
        B2B PAGE — aligned with home / eventi design language
@@ -3438,7 +3471,7 @@
       object-fit:contain;
       object-position:right bottom;
       pointer-events:none;
-      z-index:1;
+      z-index:0;
       transform:translateY(-20px) translateX(-50px) scaleX(-1) rotate(0deg);
       transition:transform 0.1s linear;
       will-change:transform;
@@ -3477,6 +3510,7 @@
         right:clamp(-12px, 2vw, 24px);
         bottom:calc(-5% - 180px);
         height:clamp(360px, 52vh, 560px);
+        opacity:0.5;
       }
     }
     .b2b-form-block{
@@ -3725,6 +3759,7 @@
         right:clamp(-18px, 1vw, 10px);
         bottom:calc(-4% - 120px);
         height:clamp(280px, 42vh, 420px);
+        opacity:0.4;
       }
     }
 
@@ -3733,6 +3768,14 @@
         right:-22px;
         bottom:calc(-3% - 80px);
         height:clamp(220px, 34vh, 320px);
+        opacity:0.35;
+      }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .b2b-form-section__mercury{
+        transition:none !important;
+        transform:none !important;
       }
     }
 
@@ -3967,9 +4010,10 @@
   </style>
 </head>
 <body>
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
   <header class="topbar" data-i18n-attr="aria-label:topbar.label">
     <a href="../" class="topbar__logo">
-      <img src="../assets/images/branding/logo.webp" data-i18n-attr="alt:brand.alt" alt="" width="1665" height="643" />
+      <img src="../assets/images/branding/logo.webp" data-i18n-attr="alt:brand.alt" alt="Badiani 1932" width="1665" height="643" />
     </a>
     <div class="topbar__right">
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
@@ -3996,11 +4040,12 @@
     <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
     <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
   </nav>
-  <main class="page-shell">
+  <main class="page-shell" id="main-content">
 
     <section class="page-hero">
       <video class="page-hero__video" autoplay muted loop playsinline poster="../assets/images/branding/hero-bg.webp">
         <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4" />
+        <track kind="descriptions" srclang="it" label="Descrizione video" default>
       </video>
       <div class="page-hero__heading-group">
         <span class="page-hero__label" data-i18n="b2b.hero.label_text">Partnership</span>
@@ -4016,7 +4061,7 @@
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.gelato.label">Gusti & Vasche</span>
-              <h3 class="category-title" data-i18n="b2b.categories.GELATO"></h3>
+              <h2 class="category-title" data-i18n="b2b.categories.GELATO"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.gelato.desc">Oltre 36 gusti artigianali, dal Buontalenti ai classici</p>
           </div>
@@ -4026,7 +4071,7 @@
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.pezzi.label">Stecchi e biscotti</span>
-              <h3 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h3>
+              <h2 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.pezzi.desc">Stecchi, biscotti e monoporzioni pronti al servizio</p>
           </div>
@@ -4036,7 +4081,7 @@
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.torte.label">Pasticceria Gelato</span>
-              <h3 class="category-title" data-i18n="b2b.categories.TORTE"></h3>
+              <h2 class="category-title" data-i18n="b2b.categories.TORTE"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.torte.desc">Torte gelato e semifreddi per ogni occasione</p>
           </div>
@@ -4046,7 +4091,7 @@
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.coni.label">Servizio</span>
-              <h3 class="category-title" data-i18n-html="b2b.categories.CONI_COPPETTE"></h3>
+              <h2 class="category-title" data-i18n-html="b2b.categories.CONI_COPPETTE"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.coni.desc">Coni artigianali e coppette per la degustazione</p>
           </div>
@@ -4056,7 +4101,7 @@
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.accessori.label">Allestimento</span>
-              <h3 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h3>
+              <h2 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.accessori.desc">Palette, cucchiaini e accessori brandizzati</p>
           </div>
@@ -4066,7 +4111,7 @@
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
               <span class="category-label" data-i18n="b2b.cat.contenitori.label">Packaging</span>
-              <h3 class="category-title" data-i18n="b2b.categories.CONTENITORI"></h3>
+              <h2 class="category-title" data-i18n="b2b.categories.CONTENITORI"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.contenitori.desc">Vaschette, box termici e packaging d'asporto</p>
           </div>
@@ -4116,7 +4161,7 @@
 
     <!-- RICHIEDI INFORMAZIONI — inline form section with steps sidebar -->
     <section id="contatti" class="b2b-form-section" data-i18n-attr="aria-label:b2b.form.label">
-      <img class="b2b-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" />
+      <img class="b2b-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" width="768" height="1356" />
       <div class="b2b-form-section__grid">
       <div class="b2b-form-block">
         <div class="b2b-form-block__header">
@@ -4124,7 +4169,7 @@
           <p data-i18n="b2b.form.subtitle">Compila il modulo e ti ricontatteremo</p>
         </div>
         <div class="b2b-form-block__body">
-          <form id="b2bInlineForm" action="" method="post" enctype="text/plain">
+          <form id="b2bInlineForm" method="post">
             <div class="b2b-inline-grid">
               <!-- Nome / Cognome -->
               <div class="bf-field">
@@ -4250,15 +4295,15 @@
   </main>
 
   <!-- B2B REQUEST FORM MODAL -->
-  <div class="b2b-form-overlay" id="b2bFormModal" onclick="closeB2BForm(event)">
-    <div class="b2b-form" onclick="event.stopPropagation()">
-      <button class="b2b-form__close" onclick="closeB2BForm()" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.form.close">&times;</button>
+  <div class="b2b-form-overlay" id="b2bFormModal">
+    <div class="b2b-form">
+      <button class="b2b-form__close" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.form.close">&times;</button>
       <div class="b2b-form__header">
         <h2 data-i18n="b2b.form.title"></h2>
         <p data-i18n="b2b.form.subtitle"></p>
       </div>
       <div class="b2b-form__body">
-        <form id="b2bRequestForm" action="" method="post" enctype="text/plain">
+        <form id="b2bRequestForm" method="post">
           <div class="b2b-form__grid">
             <!-- Nome / Cognome -->
             <div class="fm-field"><label for="b2b-nome" data-i18n="b2b.form.nome"></label><input id="b2b-nome" name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" autocomplete="given-name" required /></div>
@@ -4354,7 +4399,7 @@
               <div class="gelato-vasche__content" id="vascheContent" hidden></div>
             </div>
             <!-- Pulsante scroll verso Formato Acquisto -->
-            <button type="button" class="formato-acquisto-btn" id="formatoAcquistoBtn" onclick="document.getElementById('tipologiaSection').scrollIntoView({behavior:'smooth',block:'start'})">
+            <button type="button" class="formato-acquisto-btn" id="formatoAcquistoBtn">
               <span data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
             </button>
@@ -4827,8 +4872,12 @@
           'gelato.allergens.uova': 'Uova',
           'gelato.allergens.frutta-guscio': 'Frutta a guscio',
           'gelato.allergens.glutine': 'Glutine',
-          'gelato.allergens.sesamo': 'Sesamo'
-        },
+          'gelato.allergens.sesamo': 'Sesamo',
+          'cookie.aria': 'Informativa cookie',
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a>',
+          'cookie.accept': 'Accetto',
+          'cookie.link': 'Cookie Policy',
+},
         en: {
           'meta.title': 'Badiani 1932 — B2B',
           'brand.alt': 'Badiani 1932',
@@ -5168,8 +5217,12 @@
           'gelato.allergens.uova': 'Eggs',
           'gelato.allergens.frutta-guscio': 'Tree nuts',
           'gelato.allergens.glutine': 'Gluten',
-          'gelato.allergens.sesamo': 'Sesame'
-        },
+          'gelato.allergens.sesamo': 'Sesame',
+          'cookie.aria': 'Cookie notice',
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../cookie-policy.html">More information</a>',
+          'cookie.accept': 'Accept',
+          'cookie.link': 'Cookie Policy',
+},
         fr: {
           'meta.title': 'Badiani 1932 — B2B',
           'brand.alt': 'Badiani 1932',
@@ -5509,8 +5562,12 @@
           'gelato.allergens.uova': 'Å’ufs',
           'gelato.allergens.frutta-guscio': 'Fruits à coque',
           'gelato.allergens.glutine': 'Gluten',
-          'gelato.allergens.sesamo': 'Sésame'
-        },
+          'gelato.allergens.sesamo': 'Sésame',
+          'cookie.aria': 'Avis sur les cookies',
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../cookie-policy.html">Plus d\'informations</a>',
+          'cookie.accept': 'Accepter',
+          'cookie.link': 'Cookie Policy',
+},
         es: {
           'meta.title': 'Badiani 1932 — B2B',
           'brand.alt': 'Badiani 1932',
@@ -5849,8 +5906,12 @@
           'gelato.allergens.uova': 'Huevos',
           'gelato.allergens.frutta-guscio': 'Frutos secos',
           'gelato.allergens.glutine': 'Gluten',
-          'gelato.allergens.sesamo': 'Sésamo'
-        }
+          'gelato.allergens.sesamo': 'Sésamo',
+          'cookie.aria': 'Aviso de cookies',
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+          'cookie.accept': 'Aceptar',
+          'cookie.link': 'Cookie Policy',
+}
       };
 
       const CATEGORY_DATA = {
@@ -8568,6 +8629,22 @@
         if (e.key === 'Escape') closeB2BForm();
       });
 
+      // B2B form modal — addEventListener replacements
+      document.getElementById('b2bFormModal').addEventListener('click', function(e) {
+        closeB2BForm(e);
+      });
+      document.querySelector('#b2bFormModal .b2b-form').addEventListener('click', function(e) {
+        e.stopPropagation();
+      });
+      document.querySelector('#b2bFormModal .b2b-form__close').addEventListener('click', function() {
+        closeB2BForm();
+      });
+
+      // Formato acquisto scroll button
+      document.getElementById('formatoAcquistoBtn').addEventListener('click', function() {
+        document.getElementById('tipologiaSection').scrollIntoView({behavior:'smooth', block:'start'});
+      });
+
       // wire any other CTA buttons inside modals
       document.querySelectorAll('.cta-button[data-i18n="b2b.modal.cta"]').forEach(function(btn) {
         btn.addEventListener('click', function(e) { e.preventDefault(); openB2BForm(); });
@@ -8909,19 +8986,19 @@
         <a href="../" class="footer-logo-link"><img src="../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
         <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
       </div>
-      <div class="footer-col"><h4 data-i18n="footer.nav">Navigazione</h4><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="../eventi/" data-i18n="footer.eventi">Eventi</a></li><li><a href="./" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h4>Contatti</h4><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
-      <div class="footer-col"><h4>Legale</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../cookie-policy.html">Cookie Policy</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../" data-i18n="footer.home">Home</a></li><li><a href="../eventi/" data-i18n="footer.eventi">Eventi</a></li><li><a href="./" data-i18n="footer.b2b">B2B</a></li><li><a href="../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../cookie-policy.html">Cookie Policy</a></li></ul></div>
     </div>
     <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
   </footer>
 
   <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie">
-    <p class="cookie-banner__text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a></p>
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../cookie-policy.html">Maggiori informazioni</a></p>
     <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept">Accetto</button>
-      <a href="../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info">Cookie Policy</a>
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
+      <a href="../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
     </div>
   </div>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
