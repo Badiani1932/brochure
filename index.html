@@ -33,10 +33,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/" />
 
   <!-- Preload critical font -->
-  <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <!-- Preload Paolo + Worldwide images (prevents content-visibility + lazy double-delay) -->
-  <link rel="preload" href="assets/paolo%20pomposi.webp" as="image" type="image/webp" />
-  <link rel="preload" href="assets/worldwide.webp" as="image" type="image/webp" />
+  <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff2" as="font" type="font/woff2" crossorigin />
   <!-- Preload critical above-the-fold images -->
   <link rel="preload" as="image" href="assets/images/eventi/evento-esterno-2.webp" />
   <link rel="preload" as="image" href="assets/images/categories/vasche.webp" />
@@ -585,6 +582,9 @@
     .world-card--metrics .world-card__title{
       color:var(--badiani-blue);
       max-width:55%;
+      overflow-wrap:normal;
+      word-break:normal;
+      hyphens:none;
     }
     .world-card__desc{
       font-size:clamp(14px, 1.2vw, 17px);
@@ -775,7 +775,7 @@
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
       .world-card__paolo{ height:126%; right:0; max-width:70%; }
       /* Full width text when cards are stacked */
-      .world-card--metrics .world-card__title{ max-width:100%; font-size:clamp(36px, 10.8vw, 168px); overflow-wrap:break-word; word-break:break-word; }
+      .world-card--metrics .world-card__title{ max-width:100%; }
       .world-card__desc{ max-width:100%; }
       .stats{ max-width:100%; grid-template-columns:1fr; }
       .stat:nth-child(odd){ border-right:none; }
@@ -1048,12 +1048,7 @@
       }
     }
 
-    /* Performance: content-visibility for off-screen sections */
-    .story-section,
-    .world-section {
-      content-visibility: auto;
-      contain-intrinsic-size: auto 600px;
-    }
+    /* content-visibility rimossa: causava pop-in visibile durante scroll */
     /* home-form-section esclusa per permettere overflow di Mercury */
 
     /* Reduced motion for users who prefer it */
@@ -1118,7 +1113,7 @@
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
-        <img class="choice-card__img" src="assets/images/migrated/eventi/foto%20eventi/Steve%20Madden%20Pitti/STEVE4.webp" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
+        <img class="choice-card__img" src="assets/images/migrated/eventi/foto%20eventi/Steve%20Madden%20Pitti/STEVE4.webp" alt="Eventi" loading="lazy" decoding="async" width="3966" height="5949" data-i18n-attr="alt:home.card.eventi.title" />
         <div class="choice-card__overlay">
           <div class="choice-card__heading-group">
             <span class="choice-card__label" data-i18n="home.choice.eventi.label">Tipologie</span>
@@ -1170,7 +1165,7 @@
     <div class="world-grid">
       <!-- LEFT: Metrics -->
       <div class="world-card world-card--metrics">
-        <img class="world-card__paolo" src="assets/paolo%20pomposi.webp" alt="Paolo Pomposi" loading="eager" decoding="async" fetchpriority="high" width="1000" height="1405" />
+        <img class="world-card__paolo" src="assets/paolo%20pomposi.webp" alt="Paolo Pomposi" loading="lazy" decoding="async" width="1000" height="1405" />
         <span class="world-card__label" data-i18n="heritage.stat.quality">Qualità Italiana</span>
         <h2 class="world-card__title title-accent" data-i18n="heritage.title">BADIANI NEL MONDO VUOL DIRE GELATO</h2>
         <p class="world-card__desc" data-i18n-html="heritage.intro">
@@ -1203,7 +1198,7 @@
         </h2>
         <div class="world-card__gelato-wrap">
           <span class="world-card__gelato-big">Gelato</span>
-          <img class="world-card__map" src="assets/worldwide.webp" alt="Badiani nel mondo" loading="eager" decoding="async" fetchpriority="high" width="2236" height="1344" />
+          <img class="world-card__map" src="assets/worldwide.webp" alt="Badiani nel mondo" loading="lazy" decoding="async" width="2236" height="1344" />
         </div>
       </div>
     </div>
@@ -2067,21 +2062,21 @@
     /* --- PAOLO parallax orizzontale (dx → sx) --- */
     var paolo = document.querySelector('.world-card__paolo');
     var paoloCard = paolo ? paolo.closest('.world-card--metrics') : null;
-    if(paolo) paolo.style.transition = 'transform 0.1s linear';
+    if(paolo) paolo.style.willChange = 'transform';
 
     /* --- WORLDWIDE MAP parallax dal basso --- */
     var worldMap = document.querySelector('.world-card__map');
     var worldCard = worldMap ? worldMap.closest('.world-card--timeline') : null;
-    if(worldMap){ worldMap.style.transition = 'transform 0.1s linear'; worldMap.style.willChange = 'transform'; }
+    if(worldMap) worldMap.style.willChange = 'transform';
 
     /* --- GELATO big text parallax dall'alto --- */
     var gelatoBig = document.querySelector('.world-card__gelato-big');
-    if(gelatoBig){ gelatoBig.style.transition = 'transform 0.1s linear'; gelatoBig.style.willChange = 'transform'; }
+    if(gelatoBig) gelatoBig.style.willChange = 'transform';
 
     /* --- MERCURY parallax dal basso (sale, si sposta a sx, ruota leggermente) --- */
     var mercury = document.querySelector('.home-form-section__mercury');
     var mercurySection = mercury ? mercury.closest('.home-form-section') : null;
-    if(mercury){ mercury.style.transition = 'transform 0.1s linear'; mercury.style.willChange = 'transform'; }
+    if(mercury) mercury.style.willChange = 'transform';
 
     if(!gelatoImg && !paolo && !worldMap && !mercury) return;
 
@@ -2167,6 +2162,63 @@
     window.addEventListener('resize', fit);
   })();
   </script>
+
+  <!-- Auto-fit heritage title: scale font so widest word fits container -->
+  <script>
+  (function(){
+    var title = document.querySelector('.world-card--metrics .world-card__title');
+    if(!title) return;
+
+    /* Hidden probe element to measure single-word widths */
+    var probe = document.createElement('span');
+    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
+    document.body.appendChild(probe);
+
+    function fitTitle(){
+      /* Copy font styles to probe */
+      var cs = getComputedStyle(title);
+      probe.style.fontFamily = cs.fontFamily;
+      probe.style.fontWeight = cs.fontWeight;
+      probe.style.textTransform = cs.textTransform;
+      probe.style.letterSpacing = cs.letterSpacing;
+
+      /* Available width = title's own max-width (set by CSS: 55% of card) */
+      var containerW = title.clientWidth || title.offsetWidth;
+      /* If title has no width yet, compute from card */
+      if(!containerW){
+        var card = title.closest('.world-card--metrics');
+        if(!card) return;
+        var cardCS = getComputedStyle(card);
+        var cardW = card.clientWidth - parseFloat(cardCS.paddingLeft) - parseFloat(cardCS.paddingRight);
+        containerW = window.innerWidth <= 900 ? cardW : cardW * 0.55;
+      }
+
+      /* Find the widest word in the title text */
+      var words = title.textContent.trim().split(/\s+/);
+      var maxFs = 168;
+      var bestFs = maxFs;
+
+      for(var fs = maxFs; fs >= 20; fs--){
+        probe.style.fontSize = fs + 'px';
+        var fits = true;
+        for(var i = 0; i < words.length; i++){
+          probe.textContent = words[i];
+          if(probe.offsetWidth > containerW){ fits = false; break; }
+        }
+        if(fits){ bestFs = fs; break; }
+      }
+
+      title.style.fontSize = bestFs < maxFs ? bestFs + 'px' : '';
+    }
+
+    fitTitle();
+    window.addEventListener('resize', fitTitle);
+    /* Re-fit on language change */
+    var sel = document.getElementById('langSelect');
+    if(sel) sel.addEventListener('change', function(){ setTimeout(fitTitle, 50); });
+  })();
+  </script>
+
   <script>
   (function(){
     function forcePlay(){

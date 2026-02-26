@@ -15,6 +15,7 @@
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <meta property="og:url" content="https://www.badiani1932.com/b2b/" />
   <meta property="og:site_name" content="Badiani 1932" />
+  <meta property="og:locale" content="it_IT" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="B2B — Badiani 1932" />
   <meta name="twitter:description" content="Gelato artigianale per hotel, ristoranti e catering. Catalogo B2B Badiani 1932." />
@@ -24,7 +25,7 @@
   <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/b2b/" />
   <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/b2b/" />
   <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/b2b/" />
-  <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
+  <link rel="preload" href="../assets/fonts/SuperGroteskB-CdMed.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="../assets/badiani-common.css" />
   <script type="application/ld+json">
   {
@@ -2363,15 +2364,15 @@
     }
     .accessori-media{
       width:100%;
-      aspect-ratio:3 / 4;
+      aspect-ratio:1 / 1;
       background:transparent;
       overflow:hidden;
       position:relative;
     }
     .accessori-card.is-expanded .accessori-media{
-      flex:1 1 0;
-      min-height:0;
-      aspect-ratio:auto;
+      flex:1 1 auto;
+      min-height:280px;
+      aspect-ratio:1 / 1;
       width:100%;
     }
     .accessori-media img{
@@ -2379,6 +2380,9 @@
       height:100%;
       object-fit:cover;
       display:block;
+    }
+    .accessori-card.is-expanded .accessori-media img{
+      object-fit:contain;
     }
     .accessori-media .card-zoom{
       display:none;
@@ -2542,16 +2546,16 @@
         grid-row:span 1;
       }
       .accessori-card.is-expanded .accessori-media{
-        flex:1 1 0;
-        aspect-ratio:auto;
+        flex:1 1 auto;
+        aspect-ratio:1 / 1;
         max-height:none;
-        min-height:0;
+        min-height:200px;
         width:100%;
       }
       .accessori-card.is-expanded .accessori-media img{
         width:100%;
         height:100%;
-        object-fit:cover;
+        object-fit:contain;
       }
       .accessori-card.is-expanded .accessori-body{
         flex:0 0 auto;
@@ -6009,9 +6013,9 @@
           title: 'Accessori',
           columns: ['Prodotto', 'Descrizione', 'Quantità'],
           rows: [
-            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '40 pacchetti'],
-            ['Palettine', 'Palettine gelato', '1 Kg'],
             ['Cialdine', 'Cialdine logate Badiani', '1200 pz'],
+            ['Palettine', 'Palettine gelato', '1 Kg'],
+            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '40 pacchetti'],
             ['Paletta', 'Paletta per servizio gelato', 'su richiesta'],
             ['Contenitore 1', 'Contenitore servizio piccolo', 'su richiesta'],
             ['Contenitore 2', 'Contenitore servizio grande', 'su richiesta']
@@ -6903,7 +6907,7 @@
 
       const ACCESSORI_HERO_IMAGE = '../assets/images/accessori/hero accessori.webp';
 
-      const ACCESSORI_ZONE_ORDER = ['Tovagliolini stampati', 'Palettine', 'Cialdine', 'Paletta', 'Contenitore 1', 'Contenitore 2'];
+      const ACCESSORI_ZONE_ORDER = ['Cialdine', 'Palettine', 'Tovagliolini stampati', 'Paletta', 'Contenitore 1', 'Contenitore 2'];
 
       const ACCESSORI_SHORT_NAMES = {
         'Tovagliolini stampati': 'Fazzoletti',
