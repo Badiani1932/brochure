@@ -4,7 +4,8 @@
 /* Font Declarations */
 @font-face {
   font-family: 'SuperGroteskB';
-  src: url('fonts/SuperGroteskB-CdMed.woff') format('woff');
+  src: url('fonts/SuperGroteskB-CdMed.woff2') format('woff2'),
+       url('fonts/SuperGroteskB-CdMed.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -12,7 +13,8 @@
 
 @font-face {
   font-family: 'SuperGroteskA';
-  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
+  src: url('fonts/SuperGroteskA-Rg%5B7511%5D.woff2') format('woff2'),
+       url('fonts/SuperGroteskA-Rg%5B7511%5D.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -519,26 +521,10 @@ h1, h2, h3 {
   font-size: 14px;
   transition: color 0.3s;
   display: inline-block;
-  position: relative;
-}
-
-.footer-col ul a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--badiani-pink);
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-col ul a:hover {
   color: var(--badiani-pink);
-}
-
-.footer-col ul a:hover::after {
-  width: 100%;
 }
 
 .footer-bottom {

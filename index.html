@@ -38,6 +38,7 @@
   <link rel="preload" href="assets/paolo%20pomposi.webp" as="image" type="image/webp" />
   <link rel="preload" href="assets/worldwide.webp" as="image" type="image/webp" />
   <!-- Preload critical above-the-fold images -->
+  <link rel="preload" as="image" href="assets/images/eventi/evento-esterno-2.webp" />
   <link rel="preload" as="image" href="assets/images/categories/vasche.webp" />
 
   <link rel="stylesheet" href="./assets/badiani-common.css" />
@@ -584,9 +585,6 @@
     .world-card--metrics .world-card__title{
       color:var(--badiani-blue);
       max-width:55%;
-      font-size:clamp(24px, 4.8vw, 168px);
-      overflow-wrap:normal;
-      word-break:normal;
     }
     .world-card__desc{
       font-size:clamp(14px, 1.2vw, 17px);
@@ -777,7 +775,7 @@
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
       .world-card__paolo{ height:126%; right:0; max-width:70%; }
       /* Full width text when cards are stacked */
-      .world-card--metrics .world-card__title{ max-width:100%; font-size:clamp(28px, 9vw, 168px); overflow-wrap:normal; word-break:normal; }
+      .world-card--metrics .world-card__title{ max-width:100%; font-size:clamp(36px, 10.8vw, 168px); overflow-wrap:break-word; word-break:break-word; }
       .world-card__desc{ max-width:100%; }
       .stats{ max-width:100%; grid-template-columns:1fr; }
       .stat:nth-child(odd){ border-right:none; }
@@ -837,7 +835,6 @@
       position:relative;
       padding:clamp(40px, 6vw, 80px) clamp(16px, 4vw, 80px);
       background:transparent;
-      overflow:hidden;
     }
     .home-form-section::before{
       content:'';
@@ -910,7 +907,7 @@
       font-size:14px;
       background:#f8f9fc;
       color:#4a4f57;
-      transition:border-color 0.3s, box-shadow 0.3s, background 0.3s;
+      transition:border-color 0.3s, box-shadow 0.3s;
       box-sizing:border-box;
     }
     .home-form-grid textarea{
@@ -1019,245 +1016,48 @@
       position:relative;
       overflow:visible;
     }
-    .home-form-block{
-      position:relative;
-      z-index:2;
-    }
     .home-form-section__mercury{
       position:absolute;
-      left:max(-320px, calc(50% - 1180px));
-      bottom:0;
+      left:calc(50% - 1180px);
+      bottom:calc(-10% - 300px);
       height:clamp(800px, 110vh, 1400px);
       max-width:none;
       object-fit:contain;
       object-position:left bottom;
       pointer-events:none;
-      z-index:0;
-      opacity:0;
-      transition: opacity 0.8s ease-out;
-    }
-    .home-form-section__mercury.mercury-visible{
-      opacity:1;
+      z-index:3;
+      transform:translateY(-20px) translateX(50px) rotate(0deg);
+      transition:transform 0.1s linear;
+      will-change:transform;
     }
     @media(max-width:1200px){
       .home-form-section__mercury{
-        left:max(-280px, calc(50% - 1150px));
+        left:calc(50% - 1150px);
         height:clamp(700px, 90vh, 1100px);
       }
     }
     @media(max-width:900px){
       .home-form-section__mercury{
-        left:max(-200px, calc(50% - 1110px));
+        left:calc(50% - 1110px);
         height:clamp(560px, 77vh, 840px);
-      }
-      .home-form-section__mercury.mercury-visible{
-        opacity:0.5;
       }
     }
     @media(max-width:600px){
       .home-form-section__mercury{
-        left:-60px;
-        bottom:calc(-3% - 80px);
-        height:clamp(220px, 34vh, 320px);
-      }
-      .home-form-section__mercury.mercury-visible{
-        opacity:0.35;
+        display:none;
       }
     }
 
-    /* ===== ENTRANCE CHOREOGRAPHY ===== */
-    /*  Sequenza:
-        0.00s  quadratino rosa cresce
-        0.30s  lineetta si allunga
-        0.55s  video + scritta "Badiani Experience" appaiono
-        0.80s  header / nav
-        1.10s  card Eventi
-        1.30s  card B2B
-        scroll → storia, buontalenti, mondo, form
-        footer → sempre visibile, mai animato                       */
+    /* Performance: content-visibility for off-screen sections */
+    .story-section,
+    .world-section {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 600px;
+    }
+    /* home-form-section esclusa per permettere overflow di Mercury */
 
-    @keyframes accent-pop {
-      from { transform: scaleX(0); }
-      to   { transform: scaleX(1); }
-    }
-    @keyframes hero-text-in {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── Hero: sfondo video subito, testo ritardato dopo i quadratini ── */
-    body > .hero {
-      animation-delay: 0s !important;
-      animation-duration: 0.25s !important;
-    }
-    /* Testo hero parte invisibile — ma il contenitore resta opacity:1
-       così i ::before/::after (quadratino + lineetta) sono visibili da subito */
-    .hero-content__label {
-      opacity: 0;
-      animation: hero-text-in 0.4s ease-out 0.60s both;
-    }
-    .hero .title-accent {
-      color: transparent;
-      animation: hero-text-color 0.5s ease-out 0.55s both;
-    }
-    @keyframes hero-text-color {
-      from { color: transparent; }
-      to   { color: #fff; }
-    }
-
-    /* ── Step 1 · Quadratino rosa pop-in (prima cosa in assoluto) ── */
-    .hero .title-accent::before {
-      transform-origin: left center;
-      animation: accent-pop 0.45s cubic-bezier(0.22, 1, 0.36, 1) 0.05s both;
-    }
-    /* ── Step 2 · Lineetta si allunga ── */
-    .hero .title-accent::after {
-      transform-origin: left center;
-      animation: accent-pop 0.35s ease-out 0.30s both;
-    }
-
-    /* ── Step 3 · Header e nav appaiono dopo il testo hero ── */
-    body > *:nth-child(1){ animation-delay: 0.80s !important; }  /* skip-link */
-    body > *:nth-child(2){ animation-delay: 0.80s !important; }  /* header */
-    body > *:nth-child(3){ animation-delay: 0.85s !important; }  /* mobile-nav */
-
-    /* ── Step 4 · Choice cards: Eventi poi B2B ── */
-    body > .choice-section {
-      animation-delay: 1.00s !important;
-    }
-    .choice-section .choice-card:nth-child(1) {
-      opacity: 0;
-      animation: hero-text-in 0.5s ease-out 1.05s both;
-    }
-    .choice-section .choice-card:nth-child(2) {
-      opacity: 0;
-      animation: hero-text-in 0.5s ease-out 1.30s both;
-    }
-
-    /* ===== FOOTER — sempre visibile, sopra Mercury ===== */
-    footer.site-footer {
-      position: relative;
-      z-index: 3;
-      opacity: 1 !important;
-      transform: none !important;
-      animation: none !important;
-      transition: none !important;
-    }
-    /* Footer figli sempre visibili (non nascosti da .scroll-reveal > *) */
-    footer.site-footer > * {
-      opacity: 1 !important;
-      transform: none !important;
-    }
-
-    /* ===== SCROLL-REVEAL · sezioni sotto la piega ===== */
-    /*  Coreografia a 3 step come hero "Badiani Experience":
-        1. Sezione sfuma in entrata (sfondo, immagini) — testo titolo trasparente
-        2. Quadratino rosa cresce
-        3. Testo del titolo appare                                                  */
-    .scroll-reveal {
-      animation: none !important;          /* cancella page-reveal di common.css */
-      opacity: 1 !important;
-      transform: none !important;
-    }
-    /* Nasconde il contenuto interno */
-    .scroll-reveal > * {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-    .scroll-reveal.visible > * {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    /* Mercury ha le sue regole di opacity — non interferire */
-    .scroll-reveal > .home-form-section__mercury {
-      transform: none !important;
-      transition: opacity 0.8s ease-out !important;
-    }
-
-    /* ===== ACCENT nelle sezioni scroll — coreografia sequenziale ===== */
-    /* Quadratini partono nascosti, crescono con .accent-visible (dopo .visible) */
-    .scroll-reveal .title-accent::before {
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .scroll-reveal .title-accent::after {
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform 0.4s ease-out 0.15s;
-    }
-    .scroll-reveal.accent-visible .title-accent::before {
-      transform: scaleX(1);
-    }
-    .scroll-reveal.accent-visible .title-accent::after {
-      transform: scaleX(1);
-    }
-    /* Testo titolo: parte trasparente, appare con .text-visible (ultimo step) */
-    .scroll-reveal .title-accent {
-      color: transparent;
-      transition: color 0.45s ease-out;
-    }
-    .scroll-reveal.text-visible .title-accent {
-      color: var(--badiani-blue);
-    }
-    .scroll-reveal.text-visible .title-accent--light {
-      color: #fff;
-    }
-
-    /* ===== PARALLAX — position:absolute, JS batch reads/writes ===== */
-
-    /* Form focus micro-interaction */
-    .hf-field > label {
-      transition: color 0.3s ease;
-    }
-    .hf-field:focus-within > label {
-      color: var(--badiani-blue);
-    }
-    .home-form-grid input:focus,
-    .home-form-grid select:focus,
-    .home-form-grid textarea:focus {
-      background: #fff;
-      border-color: var(--badiani-blue);
-      box-shadow: 0 0 0 3px rgba(30,57,141,0.08), 0 4px 16px rgba(30,57,141,0.06);
-    }
-
-    /* Button press effect */
-    .home-form-submit:active {
-      transform: translateY(1px) scale(0.97);
-      box-shadow: 0 4px 12px rgba(30,57,141,0.15);
-      transition-duration: 0.1s;
-    }
-
-    /* Reduced motion — disabilita tutto */
+    /* Reduced motion for users who prefer it */
     @media (prefers-reduced-motion: reduce) {
-      .hero-content__label,
-      .hero .title-accent,
-      .hero .title-accent::before,
-      .hero .title-accent::after,
-      .choice-section .choice-card,
-      .choice-section .choice-card .title-accent::before,
-      .choice-section .choice-card .title-accent::after {
-        animation: none !important;
-        opacity: 1 !important;
-        transform: none !important;
-        color: inherit !important;
-      }
-      .hero .title-accent { color: #fff !important; }
-      .scroll-reveal > * {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-      }
-      .scroll-reveal .title-accent {
-        color: inherit !important;
-        transition: none !important;
-      }
-      .scroll-reveal .title-accent::before,
-      .scroll-reveal .title-accent::after {
-        transform: scaleX(1) !important;
-        transition: none !important;
-      }
       .world-card__paolo,
       .world-card__map,
       .world-card__gelato-big,
@@ -1265,9 +1065,6 @@
       .home-form-section__mercury {
         transition: none !important;
         transform: none !important;
-      }
-      .home-form-submit:active {
-        transform: none;
       }
     }
   </style>
@@ -1344,7 +1141,7 @@
   </section>
 
   <!-- STORIA DI BADIANI + GELATO (split-screen) -->
-  <section id="story" class="story-section scroll-reveal">
+  <section id="story" class="story-section">
     <div class="story-grid">
       <div class="story-card story-card--storia">
         <img class="story-card__img" src="assets/storia.webp" alt="Badiani 1932 Firenze" loading="lazy" decoding="async" width="1657" height="1195" />
@@ -1369,7 +1166,7 @@
   </section>
 
   <!-- BADIANI NEL MONDO — split-screen (metrics + timeline) -->
-  <section id="heritage" class="world-section scroll-reveal">
+  <section id="heritage" class="world-section">
     <div class="world-grid">
       <!-- LEFT: Metrics -->
       <div class="world-card world-card--metrics">
@@ -1413,7 +1210,7 @@
   </section>
 
   <!-- RICHIEDI INFORMAZIONI -->
-  <section id="contatti" class="home-form-section scroll-reveal" data-i18n-attr="aria-label:home.form.label">
+  <section id="contatti" class="home-form-section" data-i18n-attr="aria-label:home.form.label">
     <img class="home-form-section__mercury" src="assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" width="768" height="1356" />
     <div class="home-form-block">
       <div class="home-form-header">
@@ -1476,7 +1273,7 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="site-footer scroll-reveal">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col footer-brand">
         <a href="./" class="footer-logo-link">
@@ -2256,76 +2053,37 @@
     })();
   </script>
 
-  <!-- Scroll-reveal (IntersectionObserver → .visible + .accent-visible) -->
+  <!-- Parallax scroll (optimized) -->
   <script>
   (function(){
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-      // Mostra tutto subito se l'utente preferisce nessuna animazione
-      document.querySelectorAll('.scroll-reveal').forEach(function(s){
-        s.classList.add('visible','accent-visible','text-visible');
-      });
-      return;
-    }
-    var sections = document.querySelectorAll('.scroll-reveal');
-    if(!sections.length) return;
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          var el = entry.target;
-          // Step 1: sezione sfuma in entrata (sfondo, immagini — titolo trasparente)
-          el.classList.add('visible');
-          // Step 2: quadratino rosa cresce (dopo 500ms)
-          setTimeout(function(){
-            el.classList.add('accent-visible');
-          }, 500);
-          // Step 3: testo del titolo appare (dopo 900ms)
-          setTimeout(function(){
-            el.classList.add('text-visible');
-          }, 900);
-          io.unobserve(el);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: '0px 0px -180px 0px' });
-    sections.forEach(function(s){
-      // Il footer non va osservato — è sempre visibile
-      if(s.tagName === 'FOOTER') return;
-      io.observe(s);
-    });
+    /* Skip parallax if user prefers reduced motion */
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(prefersReducedMotion) return;
 
-    // Mercury appare per ultimo — dopo che il footer è visibile
-    var mercury = document.querySelector('.home-form-section__mercury');
-    var footer = document.querySelector('.site-footer');
-    if(mercury && footer){
-      var mio = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          if(entry.isIntersecting){
-            mercury.classList.add('mercury-visible');
-            mio.disconnect();
-          }
-        });
-      }, { threshold: 0.05 });
-      mio.observe(footer);
-    }
-  })();
-  </script>
+    /* --- GELATOSTORY parallax rimosso (nessuna immagine) --- */
+    var gelatoImg = null;
+    var gelatoCard = null;
 
-  <!-- Parallax scroll (JS, batch reads/writes, passive) -->
-  <script>
-  (function(){
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
+    /* --- PAOLO parallax orizzontale (dx → sx) --- */
     var paolo = document.querySelector('.world-card__paolo');
     var paoloCard = paolo ? paolo.closest('.world-card--metrics') : null;
+    if(paolo) paolo.style.transition = 'transform 0.1s linear';
 
+    /* --- WORLDWIDE MAP parallax dal basso --- */
     var worldMap = document.querySelector('.world-card__map');
     var worldCard = worldMap ? worldMap.closest('.world-card--timeline') : null;
+    if(worldMap){ worldMap.style.transition = 'transform 0.1s linear'; worldMap.style.willChange = 'transform'; }
 
+    /* --- GELATO big text parallax dall'alto --- */
     var gelatoBig = document.querySelector('.world-card__gelato-big');
+    if(gelatoBig){ gelatoBig.style.transition = 'transform 0.1s linear'; gelatoBig.style.willChange = 'transform'; }
 
+    /* --- MERCURY parallax dal basso (sale, si sposta a sx, ruota leggermente) --- */
     var mercury = document.querySelector('.home-form-section__mercury');
     var mercurySection = mercury ? mercury.closest('.home-form-section') : null;
+    if(mercury){ mercury.style.transition = 'transform 0.1s linear'; mercury.style.willChange = 'transform'; }
 
-    if(!paolo && !worldMap && !mercury) return;
+    if(!gelatoImg && !paolo && !worldMap && !mercury) return;
 
     var ticking = false;
     window.addEventListener('scroll', function(){
@@ -2334,47 +2092,59 @@
         requestAnimationFrame(function(){
           var vh = window.innerHeight;
 
-          /* ── BATCH READS ── */
-          var pr = (paolo && paoloCard) ? paoloCard.getBoundingClientRect() : null;
-          var wr = (worldMap && worldCard) ? worldCard.getBoundingClientRect() : null;
-          var mr = (mercury && mercurySection) ? mercurySection.getBoundingClientRect() : null;
-
-          /* ── BATCH WRITES ── */
-
-          /* PAOLO – entra da destra, scorre verso sinistra */
-          if(pr){
-            var pp = 1 - (pr.top + pr.height) / (vh + pr.height);
-            pp = Math.max(0, Math.min(1, pp));
-            paolo.style.transform = 'translateX(' + ((1 - pp) * 40) + 'px)';
+          /* GELATOSTORY – leggero shake mentre scrolla */
+          if(gelatoImg && gelatoCard){
+            var gr = gelatoCard.getBoundingClientRect();
+            var gp = 1 - (gr.top + gr.height) / (vh + gr.height);
+            gp = Math.max(0, Math.min(1, gp));
+            var baseY = (gp - 0.5) * 30;
+            var shake = Math.sin(gp * 25) * 3;
+            var rot = Math.sin(gp * 20) * 1.2;
+            gelatoImg.style.transform = 'translateY(' + (baseY + shake) + 'px) rotate(' + rot + 'deg)';
           }
 
-          /* WORLDWIDE MAP – sale dal basso */
-          if(wr){
+          /* PAOLO – entra da destra, scorre verso sinistra */
+          if(paolo && paoloCard){
+            var pr = paoloCard.getBoundingClientRect();
+            var pp = 1 - (pr.top + pr.height) / (vh + pr.height);
+            pp = Math.max(0, Math.min(1, pp));
+            /* pp=0 (card fuori in basso) → +150px (destra), pp=1 (card passata) → 0 */
+            var shiftX = (1 - pp) * 40;
+            paolo.style.transform = 'translateX(' + shiftX + 'px)';
+          }
+
+          /* WORLDWIDE – entra dal basso verso l'alto */
+          if(worldMap && worldCard){
+            var wr = worldCard.getBoundingClientRect();
             var wp = 1 - (wr.top + wr.height) / (vh + wr.height);
             wp = Math.max(0, Math.min(1, wp * 1.6));
-            worldMap.style.transform = 'translateY(' + ((1 - wp) * 80) + 'px)';
+            var shiftMapY = (1 - wp) * 80;
+            worldMap.style.transform = 'translateY(' + shiftMapY + 'px)';
 
-            /* GELATO big text – scende dall'alto */
+            /* GELATO big text – scende dall'alto (opposto alla mappa), comparsa anticipata */
             if(gelatoBig){
               var gpEarly = Math.min(1, wp * 2.2);
-              gelatoBig.style.transform = 'translateY(' + (-(1 - gpEarly) * 50) + 'px)';
+              var shiftTextY = -(1 - gpEarly) * 50;
+              gelatoBig.style.transform = 'translateY(' + shiftTextY + 'px)';
             }
           }
 
-          /* MERCURY – parte da più in basso, sale fino a bottom:0 */
-          if(mr){
+          /* MERCURY – sale dal basso, ruota verso destra-alto */
+          if(mercury && mercurySection){
+            var mr = mercurySection.getBoundingClientRect();
             var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
             mp = Math.max(0, Math.min(1, mp * 1.4));
-            var shiftY = (1 - mp) * 120;
-            var shiftX = (1 - mp) * 30;
-            var rot = mp * 8;
-            mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rot + 'deg)';
+            /* mp=0 → in basso, mp=1 → in alto, ruotato verso destra */
+            var shiftMercY = (1 - mp) * 180 - 200;   /* sale, parte 200px più in alto */
+            var shiftMercX = (1 - mp) * 50;    /* si sposta a sx di 50px */
+            var rotateMerc = mp * 12;          /* ruota fino a 12 gradi (inclinato a destra-alto) */
+            mercury.style.transform = 'translateY(' + shiftMercY + 'px) translateX(' + shiftMercX + 'px) rotate(' + rotateMerc + 'deg)';
           }
 
           ticking = false;
         });
       }
-    }, {passive: true});
+    }, {passive:true});
   })();
   </script>
 
@@ -2397,49 +2167,6 @@
     window.addEventListener('resize', fit);
   })();
   </script>
-  <!-- Stat counter animation -->
-  <script>
-  (function(){
-    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    /* --- Stat counter animation --- */
-    if(reducedMotion) return;
-    var nums = document.querySelectorAll('.stat-num');
-    if(!nums.length) return;
-    var originals = [];
-    nums.forEach(function(el){ originals.push(el.textContent.trim()); });
-    var done = false;
-    var sio = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting && !done){
-          done = true;
-          nums.forEach(function(el, i){
-            var text = originals[i];
-            var suffix = text.replace(/[0-9]/g, '');
-            var num = parseInt(text.replace(/[^0-9]/g, ''), 10);
-            if(isNaN(num)) return;
-            el.textContent = '0' + suffix;
-            var dur = num > 100 ? 2000 : 1200;
-            setTimeout(function(){
-              var t0 = performance.now();
-              function tick(now){
-                var p = Math.min((now - t0) / dur, 1);
-                var ease = 1 - Math.pow(1 - p, 3);
-                el.textContent = Math.round(ease * num) + suffix;
-                if(p < 1) requestAnimationFrame(tick);
-              }
-              requestAnimationFrame(tick);
-            }, i * 200);
-          });
-          sio.disconnect();
-        }
-      });
-    }, { threshold:0.3 });
-    var statsBox = document.querySelector('.stats');
-    if(statsBox) sio.observe(statsBox);
-  })();
-  </script>
-
   <script>
   (function(){
     function forcePlay(){
