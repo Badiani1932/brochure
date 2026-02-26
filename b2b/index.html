@@ -208,7 +208,7 @@
     }
     /* Background images via CSS custom property for zoom effect */
     .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/vasche.webp'); }
-    .category-card.b2b-card--torte{ --card-bg:url('../assets/images/categories/torte.webp'); }
+    .category-card.b2b-card--torte{ --card-bg:url('../assets/images/categories/pulsante-torte.webp'); }
     .category-card.b2b-card--vasche{ --card-bg:url('../assets/images/categories/vasche.webp'); }
     .category-card.b2b-card--pezziduri{ --card-bg:url('../assets/images/categories/pezzi-duri.webp'); }
     .category-card.b2b-card--coppette{ --card-bg:url('../assets/images/categories/pulsante-coniecoppette.webp'); }
@@ -1046,6 +1046,7 @@
     /* ── Formato Acquisto scroll button ── */
     .formato-acquisto-btn{
       display:inline-flex; align-items:center; gap:8px;
+      justify-self:start;
       background:var(--badiani-blue); color:#fff;
       border:none; border-radius:8px;
       padding:10px 22px; margin:12px 0 8px;
@@ -6694,6 +6695,13 @@
         'Zampa': '../assets/images/pezziduri/zampetta.webp'
       };
 
+      /* Zoom/fullscreen overrides for specific pezzi duri */
+      const PEZZI_DURI_ZOOM_IMAGES = {
+        'Lingotto Buontalenti': '../assets/images/pezziduri/lingotto-buontalenti.webp',
+        'Lingotto Buontalenti Pistacchio': '../assets/images/pezziduri/lingotto-pistacchio.webp',
+        'Lingotto Dolcevita': '../assets/images/pezziduri/lingotto-dolcevita.webp'
+      };
+
       const CONTENITORI_GROUP_IMAGE = '../assets/images/contenitori/gruppo contenitori.webp';
 
       const CONTENITORI_IMAGES = {
@@ -6712,20 +6720,20 @@
         { name: 'Carapina 6000cc',  capacity: '6000 cc', image: '../assets/images/vasche/Carapina 6000cc.webp' }
       ];
 
-      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte gruppono.webp';
+      const TORTE_GROUP_IMAGE = '../assets/images/torte/torte-gruppo.webp';
 
       const TORTE_IMAGES = {
         'Millefoglie Buontalenti': {
-          small: '../assets/images/torte/millefoglie buontalenti s.webp',
-          large: '../assets/images/torte/millefoglie buontalenti L.webp'
+          small: '../assets/images/torte/buontalenti-detail.webp',
+          large: '../assets/images/torte/buontalenti-detail.webp'
         },
         'Millefoglie Dolcevita': {
-          small: '../assets/images/torte/la dolcevita s.webp',
-          large: '../assets/images/torte/la dolcevita L.webp'
+          small: '../assets/images/torte/dolcevita-detail.webp',
+          large: '../assets/images/torte/dolcevita-detail.webp'
         },
         'Millefoglie Buontalenti Pistacchio': {
-          small: '../assets/images/torte/buontalenti pistacchio s.webp',
-          large: '../assets/images/torte/buontalenti pistacchio L.webp'
+          small: '../assets/images/torte/pistacchio-detail.webp',
+          large: '../assets/images/torte/pistacchio-detail.webp'
         }
       };
 
@@ -7132,7 +7140,7 @@
               <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}" style="--stagger-i:${staggerIdx}">
                 <div class="pezziduri-media">
                   <img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${src}" data-zoom-alt="${localName}">${zoomIcon}</button>
+                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${PEZZI_DURI_ZOOM_IMAGES[name] || src}" data-zoom-alt="${localName}">${zoomIcon}</button>
                 </div>
                 <div class="pezziduri-body">
                   <div class="pezziduri-title">${localName}</div>
