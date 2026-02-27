@@ -3914,35 +3914,70 @@
     }
     .listino-pw-cancel:hover{ background:rgba(30,57,141,0.14); }
 
-    /* ── Listino Viewer Overlay ── */
+    /* ── Listino Modal Overlay ── */
     .listino-viewer-overlay{
       display:none;
       position:fixed;
       inset:0;
       z-index:10020;
-      background:rgba(0,0,0,0.85);
-      flex-direction:column;
+      background:rgba(0,0,0,0.82);
       align-items:center;
-      backdrop-filter:blur(4px);
-      -webkit-backdrop-filter:blur(4px);
+      justify-content:center;
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
     }
     .listino-viewer-overlay.is-open{ display:flex; }
-    .listino-viewer-topbar{
+
+    /* Modal panel */
+    .listino-modal{
+      position:relative;
+      width:94%;
+      max-width:880px;
+      max-height:92vh;
+      background:var(--surface,#fff);
+      border-radius:24px;
+      box-shadow:0 30px 80px rgba(0,0,0,0.5);
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      animation:listinoReveal 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    @keyframes listinoReveal{
+      from{ opacity:0; transform:scale(0.92) translateY(24px); }
+      to{ opacity:1; transform:none; }
+    }
+
+    /* Sticky header */
+    .listino-header{
+      position:sticky;
+      top:0;
+      z-index:3;
+      background:var(--badiani-blue,#1e398d);
+      padding:24px 28px 0;
+      border-radius:24px 24px 0 0;
+    }
+    .listino-header__top{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      width:100%;
-      max-width:900px;
-      padding:16px 20px;
-      box-sizing:border-box;
+      margin-bottom:16px;
     }
-    .listino-viewer-title{
+    .listino-header__title{
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:16px;
+      font-size:clamp(18px,2vw,22px);
       color:#fff;
-      letter-spacing:0.5px;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      margin:0;
     }
-    .listino-viewer-close{
+    .listino-header__subtitle{
+      font-family:'SuperGroteskA',sans-serif;
+      font-size:12px;
+      color:rgba(255,255,255,0.55);
+      letter-spacing:0.3px;
+      margin:0 0 0 12px;
+    }
+    .listino-header__close{
       border:none;
       background:rgba(255,255,255,0.12);
       color:#fff;
@@ -3955,58 +3990,215 @@
       align-items:center;
       justify-content:center;
       transition:background 0.2s;
+      flex-shrink:0;
     }
-    .listino-viewer-close:hover{ background:rgba(255,255,255,0.22); }
-    .listino-viewer-close:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
-    .listino-viewer-body{
+    .listino-header__close:hover{ background:rgba(255,255,255,0.22); }
+    .listino-header__close:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+
+    /* Tabs */
+    .listino-tabs{
+      display:flex;
+      gap:4px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:none;
+      padding-bottom:0;
+    }
+    .listino-tabs::-webkit-scrollbar{ display:none; }
+    .listino-tab{
+      border:none;
+      background:rgba(255,255,255,0.08);
+      color:rgba(255,255,255,0.6);
+      padding:10px 18px;
+      font-family:'SuperGroteskC','SuperGroteskB',sans-serif;
+      font-size:13px;
+      letter-spacing:0.4px;
+      text-transform:uppercase;
+      white-space:nowrap;
+      cursor:pointer;
+      border-radius:10px 10px 0 0;
+      transition:background 0.2s, color 0.2s;
+    }
+    .listino-tab:hover{ background:rgba(255,255,255,0.14); color:rgba(255,255,255,0.85); }
+    .listino-tab.is-active{
+      background:var(--surface,#fff);
+      color:var(--badiani-blue,#1e398d);
+      font-weight:600;
+    }
+    .listino-tab:focus-visible{ outline:2px solid #fff; outline-offset:-2px; }
+
+    /* Scrollable body */
+    .listino-body{
       flex:1;
+      overflow-y:auto;
+      overflow-x:hidden;
+      padding:0;
+      -webkit-overflow-scrolling:touch;
+    }
+
+    /* Section panels */
+    .listino-section{ display:none; padding:24px 28px 32px; }
+    .listino-section.is-active{ display:block; }
+
+    /* Section header banner */
+    .listino-section__banner{
+      background:linear-gradient(135deg, var(--badiani-blue,#1e398d) 0%, #2a4ba8 100%);
+      color:#fff;
+      padding:16px 22px;
+      border-radius:14px;
+      margin-bottom:20px;
       display:flex;
       align-items:center;
-      justify-content:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .listino-section__banner-title{
+      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
+      font-size:clamp(15px,1.6vw,18px);
+      letter-spacing:0.5px;
+      text-transform:uppercase;
+      margin:0;
+    }
+    .listino-section__banner-note{
+      font-family:'SuperGroteskA',sans-serif;
+      font-size:11px;
+      color:rgba(255,255,255,0.6);
+      white-space:nowrap;
+    }
+
+    /* Table wrapper — horizontal scroll on mobile */
+    .listino-table-wrap{
+      overflow-x:auto;
+      border-radius:12px;
+      border:1px solid rgba(30,57,141,0.1);
+      margin-bottom:24px;
+    }
+
+    /* Table */
+    .listino-table{
       width:100%;
-      max-width:900px;
-      overflow:hidden;
+      border-collapse:collapse;
+      font-family:'SuperGroteskDigits','SuperGroteskC','SuperGroteskA',sans-serif;
+      font-size:14px;
+      color:var(--badiani-gray,#58595b);
+      min-width:480px;
+    }
+    .listino-table th{
+      background:rgba(30,57,141,0.06);
+      color:var(--badiani-blue,#1e398d);
+      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
+      font-size:11px;
+      letter-spacing:0.8px;
+      text-transform:uppercase;
+      padding:12px 16px;
+      text-align:left;
+      position:sticky;
+      top:0;
+      white-space:nowrap;
+    }
+    .listino-table th:last-child,
+    .listino-table td:last-child{ text-align:right; }
+    .listino-table th.listino-col-center,
+    .listino-table td.listino-col-center{ text-align:center; }
+    .listino-table td{
+      padding:10px 16px;
+      border-bottom:1px solid rgba(30,57,141,0.06);
+      vertical-align:top;
+    }
+    .listino-table tbody tr:nth-child(even) td{
+      background:rgba(30,57,141,0.025);
+    }
+    .listino-table tbody tr:hover td{
+      background:rgba(30,57,141,0.06);
+    }
+    .listino-table .listino-price{
+      font-weight:600;
+      color:var(--badiani-blue,#1e398d);
+      white-space:nowrap;
+    }
+    .listino-table .listino-flavor{
+      font-weight:500;
+      color:#333;
+    }
+    .listino-table .listino-flavor small{
+      display:block;
+      font-weight:400;
+      font-size:11px;
+      color:#999;
+      margin-top:2px;
+    }
+    .listino-table--pezzi{ min-width:560px; }
+    .listino-table--accessori{ min-width:600px; }
+
+    /* Sorbetti sub-header */
+    .listino-table .listino-subheader td{
+      background:rgba(240,103,166,0.08);
+      color:var(--badiani-pink,#f067a6);
+      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
+      font-size:12px;
+      letter-spacing:0.6px;
+      text-transform:uppercase;
+      padding:8px 16px;
+      border-bottom:1px solid rgba(240,103,166,0.15);
+    }
+
+    /* Spedizione cards */
+    .listino-shipping-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+      margin-top:8px;
+    }
+    .listino-shipping-card{
+      background:rgba(30,57,141,0.04);
+      border:1px solid rgba(30,57,141,0.1);
+      border-radius:14px;
+      padding:22px 20px;
+    }
+    .listino-shipping-card__title{
+      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
+      font-size:15px;
+      color:var(--badiani-blue,#1e398d);
+      text-transform:uppercase;
+      letter-spacing:0.5px;
+      margin:0 0 12px;
+    }
+    .listino-shipping-card ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+    }
+    .listino-shipping-card li{
+      font-family:'SuperGroteskA',sans-serif;
+      font-size:13px;
+      color:var(--badiani-gray,#58595b);
+      line-height:1.6;
+      padding:4px 0;
+      padding-left:16px;
       position:relative;
     }
-    .listino-viewer-page{
-      max-width:100%;
-      max-height:calc(100vh - 140px);
-      object-fit:contain;
-      border-radius:8px;
-      box-shadow:0 8px 40px rgba(0,0,0,0.4);
-      user-select:none;
-      -webkit-user-select:none;
-    }
-    .listino-viewer-nav{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      padding:14px 20px;
-    }
-    .listino-viewer-nav button{
-      border:none;
-      background:rgba(255,255,255,0.12);
-      color:#fff;
-      width:40px;
-      height:40px;
+    .listino-shipping-card li::before{
+      content:'';
+      position:absolute;
+      left:0;
+      top:10px;
+      width:6px;
+      height:6px;
       border-radius:50%;
-      cursor:pointer;
-      font-size:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      transition:background 0.2s, opacity 0.2s;
+      background:var(--badiani-pink,#f067a6);
     }
-    .listino-viewer-nav button:hover{ background:rgba(255,255,255,0.22); }
-    .listino-viewer-nav button:disabled{ opacity:0.3; cursor:default; }
-    .listino-viewer-nav button:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
-    .listino-viewer-indicator{
-      color:rgba(255,255,255,0.7);
-      font-size:13px;
-      font-family:'SuperGroteskC',sans-serif;
-      letter-spacing:1px;
-      min-width:40px;
-      text-align:center;
+
+    /* Responsive */
+    @media(max-width:700px){
+      .listino-modal{ width:100%; max-height:100vh; border-radius:0; }
+      .listino-header{ border-radius:0; padding:16px 16px 0; }
+      .listino-section{ padding:16px 14px 24px; }
+      .listino-tab{ padding:8px 14px; font-size:12px; }
+      .listino-shipping-grid{ grid-template-columns:1fr; }
+      .listino-header__subtitle{ display:none; }
+      .listino-table{ font-size:13px; }
+      .listino-table th{ font-size:10px; padding:10px 12px; }
+      .listino-table td{ padding:8px 12px; }
     }
     @media(prefers-reduced-motion:reduce){
       .listino-pw-input.is-error{ animation:none; }
@@ -4508,20 +4700,217 @@
     </div>
   </div>
 
-  <!-- Listino Viewer -->
+  <!-- Listino Prezzi Modal -->
   <div class="listino-viewer-overlay" id="listinoViewerOverlay" role="dialog" aria-modal="true" aria-label="Listino Prezzi">
-    <div class="listino-viewer-topbar">
-      <span class="listino-viewer-title" data-i18n="b2b.listino.viewerTitle">Listino Prezzi 2026</span>
-      <button class="listino-viewer-close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">✕</button>
-    </div>
-    <div class="listino-viewer-body">
-      <img class="listino-viewer-page" id="listinoViewerPage" src="" alt="Listino Prezzi" draggable="false" />
-    </div>
-    <nav class="listino-viewer-nav" aria-label="Navigazione pagine">
-      <button id="listinoPrev" type="button" aria-label="Pagina precedente" disabled>‹</button>
-      <span class="listino-viewer-indicator" id="listinoIndicator">1 / 2</span>
-      <button id="listinoNext" type="button" aria-label="Pagina successiva">›</button>
-    </nav>
+    <div class="listino-modal">
+      <!-- Sticky header -->
+      <div class="listino-header">
+        <div class="listino-header__top">
+          <div style="display:flex;align-items:baseline;flex-wrap:wrap;gap:4px;">
+            <h3 class="listino-header__title" data-i18n="b2b.listino.viewerTitle">Listino Prezzi 2026</h3>
+            <span class="listino-header__subtitle" data-i18n="b2b.listino.subtitle">Prezzi al kg · IVA esclusa</span>
+          </div>
+          <button class="listino-header__close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">✕</button>
+        </div>
+        <nav class="listino-tabs" aria-label="Sezioni listino">
+          <button class="listino-tab is-active" data-listino-tab="gelato" data-i18n="b2b.listino.tab.gelato">Gelato</button>
+          <button class="listino-tab" data-listino-tab="pezziDuri" data-i18n="b2b.listino.tab.pezziDuri">Pezzi Duri</button>
+          <button class="listino-tab" data-listino-tab="torte" data-i18n="b2b.listino.tab.torte">Torte</button>
+          <button class="listino-tab" data-listino-tab="accessori" data-i18n="b2b.listino.tab.accessori">Accessori</button>
+          <button class="listino-tab" data-listino-tab="spedizione" data-i18n="b2b.listino.tab.spedizione">Spedizione</button>
+        </nav>
+      </div>
+
+      <!-- Scrollable body -->
+      <div class="listino-body">
+
+        <!-- ═══ GELATO ═══ -->
+        <div class="listino-section is-active" data-listino-section="gelato">
+          <div class="listino-section__banner">
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.gelato.title">Gelato — Vaschette &amp; Carapine</h4>
+            <span class="listino-section__banner-note" data-i18n="b2b.listino.gelato.note">€/kg · IVA esclusa</span>
+          </div>
+          <div class="listino-table-wrap">
+            <table class="listino-table">
+              <thead>
+                <tr>
+                  <th data-i18n="b2b.listino.col.gusto">Gusto</th>
+                  <th data-i18n="b2b.listino.col.vaschette">Vaschette</th>
+                  <th data-i18n="b2b.listino.col.carapine">Carapine</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="listino-flavor">Bacio</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Banana</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti all'amarena</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti caramello</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti delattosato</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti fondente</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti pistacchio</td><td class="listino-price">€ 18,00</td><td class="listino-price">€ 20,00</td></tr>
+                <tr><td class="listino-flavor">Caffè</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Caramello al burro salato</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
+                <tr><td class="listino-flavor">Cassandra</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">Cheesecake</td><td class="listino-price">€ 16,00</td><td class="listino-price">€ 18,00</td></tr>
+                <tr><td class="listino-flavor">Cioccolata</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Cioccolata all'arancia</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">Cioccolata bianca all'arancio</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">Cocco</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Cremino</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">La Dolcevita</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">Malaga</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">Nocciola</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">Pistacchio</td><td class="listino-price">€ 16,00</td><td class="listino-price">€ 18,00</td></tr>
+                <tr><td class="listino-flavor">Stracciatella</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Stracciatella alla menta</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Tiramisù</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Vaniglia</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
+                <tr><td class="listino-flavor">Yogurt</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Yogurt al mirtillo</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
+                <!-- Sorbetti -->
+                <tr class="listino-subheader"><td colspan="3" data-i18n="b2b.listino.gelato.sorbetti">Sorbetti</td></tr>
+                <tr><td class="listino-flavor">Albicocca</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Cioccolato Monorigine Venezuela</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
+                <tr><td class="listino-flavor">Fragola</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Frutto della Passione</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Lampone</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Limone</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Mango</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Pera</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
+                <tr><td class="listino-flavor">Tropical Summer</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ PEZZI DURI ═══ -->
+        <div class="listino-section" data-listino-section="pezziDuri">
+          <div class="listino-section__banner">
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.pezziDuri.title">Pezzi Duri</h4>
+            <span class="listino-section__banner-note" data-i18n="b2b.listino.pezziDuri.note">* Ordine minimo o multipli</span>
+          </div>
+          <div class="listino-table-wrap">
+            <table class="listino-table listino-table--pezzi">
+              <thead>
+                <tr>
+                  <th data-i18n="b2b.listino.col.prodotto">Prodotto</th>
+                  <th data-i18n="b2b.listino.col.prezzo">Prezzo</th>
+                  <th class="listino-col-center" data-i18n="b2b.listino.col.peso">Peso</th>
+                  <th class="listino-col-center" data-i18n="b2b.listino.col.min">Min.*</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="listino-flavor">Classico Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">90 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Classico Stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Classico Fondente</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Tavoletta Buontalenti e cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Cuore di Buontalenti fondente</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Cuore di Buontalenti alla fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Biscotto Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
+                <tr><td class="listino-flavor">Biscotto Stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
+                <tr><td class="listino-flavor">Donut cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Donut cioccolato bianco</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Donut cioccolato alla fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Donut cioccolato al pistacchio</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Fruit Tube Limone</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Fruit Tube Menta</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Fruit Tube Fragola</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Ghiacciolo di frutta alla fragola</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
+                <tr><td class="listino-flavor">Ghiacciolo di frutta al limone</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
+                <tr><td class="listino-flavor">Ghiacciolo di frutta al mango</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
+                <tr><td class="listino-flavor">Ghiacciolo alla menta</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
+                <tr><td class="listino-flavor">Lingotto</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">60 g</td><td class="listino-col-center">96</td></tr>
+                <tr><td class="listino-flavor">Zampa</td><td class="listino-price">€ 3,00</td><td class="listino-col-center">150 g</td><td class="listino-col-center">16</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ TORTE ═══ -->
+        <div class="listino-section" data-listino-section="torte">
+          <div class="listino-section__banner">
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.torte.title">Torte</h4>
+          </div>
+          <div class="listino-table-wrap">
+            <table class="listino-table">
+              <thead>
+                <tr>
+                  <th data-i18n="b2b.listino.col.torta">Torta</th>
+                  <th data-i18n="b2b.listino.col.prezzoKg">Prezzo/Kg</th>
+                  <th data-i18n="b2b.listino.col.ordineMin">Ordine min.</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti</td><td class="listino-price">€ 22,00/Kg</td><td>2 pezzi</td></tr>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti con salsa Dolcevita<small>Nocciole e cacao</small></td><td class="listino-price">€ 24,00/Kg</td><td>2 pezzi</td></tr>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti con salsa Pistacchio</td><td class="listino-price">€ 28,00/Kg</td><td>2 pezzi</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ ACCESSORI ═══ -->
+        <div class="listino-section" data-listino-section="accessori">
+          <div class="listino-section__banner">
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.accessori.title">Accessori</h4>
+          </div>
+          <div class="listino-table-wrap">
+            <table class="listino-table listino-table--accessori">
+              <thead>
+                <tr>
+                  <th data-i18n="b2b.listino.col.articolo">Articolo</th>
+                  <th class="listino-col-center" data-i18n="b2b.listino.col.quantita">Quantità</th>
+                  <th data-i18n="b2b.listino.col.prezzo">Prezzo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="listino-flavor">Sottozero Coni Piccoli</td><td class="listino-col-center">264 pz</td><td class="listino-price">€ 35,00</td></tr>
+                <tr><td class="listino-flavor">Maxi 1 Coni Medi</td><td class="listino-col-center">220 pz</td><td class="listino-price">€ 35,00</td></tr>
+                <tr><td class="listino-flavor">Maxi 2 Coni Grandi</td><td class="listino-col-center">216 pz</td><td class="listino-price">€ 35,00</td></tr>
+                <tr><td class="listino-flavor">Coni Gluten free (083) 1ª misura</td><td class="listino-col-center">330 pz</td><td class="listino-price">€ 80,00</td></tr>
+                <tr><td class="listino-flavor">Coni Gluten free (084) 2ª misura</td><td class="listino-col-center">250 pz</td><td class="listino-price">€ 60,00</td></tr>
+                <tr><td class="listino-flavor">Palettine Cucchiaini da gelato</td><td class="listino-col-center">1 Kg</td><td class="listino-price">€ 16,00</td></tr>
+                <tr><td class="listino-flavor">RE-MAXIGEL 350<small>Vaschetta asporto piccola (riciclo plastica)</small></td><td class="listino-col-center">60 pz</td><td class="listino-price">€ 60,00</td></tr>
+                <tr><td class="listino-flavor">RE-MAXIGEL 500<small>Vaschetta asporto media (riciclo plastica)</small></td><td class="listino-col-center">60 pz</td><td class="listino-price">€ 60,00</td></tr>
+                <tr><td class="listino-flavor">RE-MAXIGEL 750<small>Vaschetta asporto grande (riciclo plastica)</small></td><td class="listino-col-center">60 pz</td><td class="listino-price">€ 75,00</td></tr>
+                <tr><td class="listino-flavor">RE-MAXIGEL 1000<small>Vaschetta asporto XL (riciclo plastica)</small></td><td class="listino-col-center">60 pz</td><td class="listino-price">€ 90,00</td></tr>
+                <tr><td class="listino-flavor">Tovagliolini stampati<small>Salviettine logate Badiani 17×17</small></td><td class="listino-col-center">10.000 pz</td><td class="listino-price">€ 45,00</td></tr>
+                <tr><td class="listino-flavor">Contenitore polistirolo T2<small>Rettangolare (140×110×100)</small></td><td class="listino-col-center">80 pz</td><td class="listino-price">€ 240,00</td></tr>
+                <tr><td class="listino-flavor">Bicchierini 16B<small>Coppette piccole 80cc</small></td><td class="listino-col-center">250 pz</td><td class="listino-price">€ 25,00</td></tr>
+                <tr><td class="listino-flavor">Bicchierini 108<small>Coppette medie 120cc</small></td><td class="listino-col-center">250 pz</td><td class="listino-price">€ 30,00</td></tr>
+                <tr><td class="listino-flavor">Bicchierini 4C<small>Coppette grandi 160cc</small></td><td class="listino-col-center">200 pz</td><td class="listino-price">€ 25,00</td></tr>
+                <tr><td class="listino-flavor">Bicchierini 4CA<small>Coppette XL 200cc</small></td><td class="listino-col-center">200 pz</td><td class="listino-price">€ 30,00</td></tr>
+                <tr><td class="listino-flavor">Cialdine GF<small>Cialdine logate Badiani</small></td><td class="listino-col-center">1.000 pz</td><td class="listino-price">€ 50,00</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ═══ SPEDIZIONE ═══ -->
+        <div class="listino-section" data-listino-section="spedizione">
+          <div class="listino-section__banner">
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.spedizione.title">Spedizione</h4>
+          </div>
+          <div class="listino-shipping-grid">
+            <div class="listino-shipping-card">
+              <h5 class="listino-shipping-card__title" data-i18n="b2b.listino.spedizione.firenze.title">Comune di Firenze</h5>
+              <ul>
+                <li data-i18n="b2b.listino.spedizione.firenze.free">Spedizione gratuita per ordini minimi di €300 (IVA esclusa)</li>
+                <li data-i18n="b2b.listino.spedizione.firenze.notice">Ordini da inviare con almeno 48 ore di preavviso</li>
+                <li data-i18n="b2b.listino.spedizione.firenze.ztl">Nelle zone a traffico limitato, consegne in accordo con gli orari di entrata</li>
+              </ul>
+            </div>
+            <div class="listino-shipping-card">
+              <h5 class="listino-shipping-card__title" data-i18n="b2b.listino.spedizione.fuori.title">Fuori dal Comune di Firenze</h5>
+              <ul>
+                <li data-i18n="b2b.listino.spedizione.fuori.info">Quotazione su richiesta, modalità e tempi da stabilire</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /listino-body -->
+    </div><!-- /listino-modal -->
   </div>
 
   <div class="fullscreen-overlay" id="gelatoFullscreen" role="dialog" aria-modal="true" aria-label="Immagine gelato" data-i18n-attr="aria-label:b2b.fullscreen.label">
@@ -4672,6 +5061,38 @@
           'b2b.listino.pwError': 'Codice errato. Riprova.',
           'b2b.listino.viewerTitle': 'Listino Prezzi 2026',
           'b2b.listino.viewerClose': 'Chiudi',
+          'b2b.listino.subtitle': 'Prezzi al kg · IVA esclusa',
+          'b2b.listino.tab.gelato': 'Gelato',
+          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.torte': 'Torte',
+          'b2b.listino.tab.accessori': 'Accessori',
+          'b2b.listino.tab.spedizione': 'Spedizione',
+          'b2b.listino.col.gusto': 'Gusto',
+          'b2b.listino.col.vaschette': 'Vaschette',
+          'b2b.listino.col.carapine': 'Carapine',
+          'b2b.listino.col.prodotto': 'Prodotto',
+          'b2b.listino.col.prezzo': 'Prezzo',
+          'b2b.listino.col.peso': 'Peso',
+          'b2b.listino.col.min': 'Min.*',
+          'b2b.listino.col.torta': 'Torta',
+          'b2b.listino.col.prezzoKg': 'Prezzo/Kg',
+          'b2b.listino.col.ordineMin': 'Ordine min.',
+          'b2b.listino.col.articolo': 'Articolo',
+          'b2b.listino.col.quantita': 'Quantità',
+          'b2b.listino.gelato.title': 'Gelato — Vaschette & Carapine',
+          'b2b.listino.gelato.note': '€/kg · IVA esclusa',
+          'b2b.listino.gelato.sorbetti': 'Sorbetti',
+          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.note': '* Ordine minimo o multipli',
+          'b2b.listino.torte.title': 'Torte',
+          'b2b.listino.accessori.title': 'Accessori',
+          'b2b.listino.spedizione.title': 'Spedizione',
+          'b2b.listino.spedizione.firenze.title': 'Comune di Firenze',
+          'b2b.listino.spedizione.firenze.free': 'Spedizione gratuita per ordini minimi di €300 (IVA esclusa)',
+          'b2b.listino.spedizione.firenze.notice': 'Ordini da inviare con almeno 48 ore di preavviso',
+          'b2b.listino.spedizione.firenze.ztl': 'Nelle zone a traffico limitato, consegne in accordo con gli orari di entrata',
+          'b2b.listino.spedizione.fuori.title': 'Fuori dal Comune di Firenze',
+          'b2b.listino.spedizione.fuori.info': 'Quotazione su richiesta, modalità e tempi da stabilire',
           'b2b.fullscreen.label': 'Immagine gelato',
           'b2b.fullscreen.close': 'Chiudi',
           'b2b.zoom': 'Ingrandisci',
@@ -5013,6 +5434,38 @@
           'b2b.listino.pwError': 'Wrong code. Try again.',
           'b2b.listino.viewerTitle': 'Price List 2026',
           'b2b.listino.viewerClose': 'Close',
+          'b2b.listino.subtitle': 'Price per kg · VAT excluded',
+          'b2b.listino.tab.gelato': 'Gelato',
+          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.torte': 'Cakes',
+          'b2b.listino.tab.accessori': 'Accessories',
+          'b2b.listino.tab.spedizione': 'Shipping',
+          'b2b.listino.col.gusto': 'Flavour',
+          'b2b.listino.col.vaschette': 'Tubs',
+          'b2b.listino.col.carapine': 'Carapine',
+          'b2b.listino.col.prodotto': 'Product',
+          'b2b.listino.col.prezzo': 'Price',
+          'b2b.listino.col.peso': 'Weight',
+          'b2b.listino.col.min': 'Min.*',
+          'b2b.listino.col.torta': 'Cake',
+          'b2b.listino.col.prezzoKg': 'Price/Kg',
+          'b2b.listino.col.ordineMin': 'Min. order',
+          'b2b.listino.col.articolo': 'Item',
+          'b2b.listino.col.quantita': 'Quantity',
+          'b2b.listino.gelato.title': 'Gelato — Tubs & Carapine',
+          'b2b.listino.gelato.note': '€/kg · VAT excluded',
+          'b2b.listino.gelato.sorbetti': 'Sorbets',
+          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.note': '* Minimum order or multiples',
+          'b2b.listino.torte.title': 'Cakes',
+          'b2b.listino.accessori.title': 'Accessories',
+          'b2b.listino.spedizione.title': 'Shipping',
+          'b2b.listino.spedizione.firenze.title': 'Florence municipality',
+          'b2b.listino.spedizione.firenze.free': 'Free shipping for minimum orders of €300 (VAT excluded)',
+          'b2b.listino.spedizione.firenze.notice': 'Orders must be placed at least 48 hours in advance',
+          'b2b.listino.spedizione.firenze.ztl': 'In limited traffic zones, deliveries arranged according to entry times',
+          'b2b.listino.spedizione.fuori.title': 'Outside Florence municipality',
+          'b2b.listino.spedizione.fuori.info': 'Quote on request, delivery terms to be agreed',
           'b2b.fullscreen.label': 'Gelato image',
           'b2b.fullscreen.close': 'Close',
           'b2b.zoom': 'Enlarge',
@@ -5358,6 +5811,38 @@
           'b2b.listino.pwError': 'Code incorrect. Réessayez.',
           'b2b.listino.viewerTitle': 'Tarifs 2026',
           'b2b.listino.viewerClose': 'Fermer',
+          'b2b.listino.subtitle': 'Prix au kg · TVA exclue',
+          'b2b.listino.tab.gelato': 'Gelato',
+          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.torte': 'Gâteaux',
+          'b2b.listino.tab.accessori': 'Accessoires',
+          'b2b.listino.tab.spedizione': 'Livraison',
+          'b2b.listino.col.gusto': 'Parfum',
+          'b2b.listino.col.vaschette': 'Bacs',
+          'b2b.listino.col.carapine': 'Carapine',
+          'b2b.listino.col.prodotto': 'Produit',
+          'b2b.listino.col.prezzo': 'Prix',
+          'b2b.listino.col.peso': 'Poids',
+          'b2b.listino.col.min': 'Min.*',
+          'b2b.listino.col.torta': 'Gâteau',
+          'b2b.listino.col.prezzoKg': 'Prix/Kg',
+          'b2b.listino.col.ordineMin': 'Commande min.',
+          'b2b.listino.col.articolo': 'Article',
+          'b2b.listino.col.quantita': 'Quantité',
+          'b2b.listino.gelato.title': 'Gelato — Bacs & Carapine',
+          'b2b.listino.gelato.note': '€/kg · TVA exclue',
+          'b2b.listino.gelato.sorbetti': 'Sorbets',
+          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.note': '* Commande minimum ou multiples',
+          'b2b.listino.torte.title': 'Gâteaux',
+          'b2b.listino.accessori.title': 'Accessoires',
+          'b2b.listino.spedizione.title': 'Livraison',
+          'b2b.listino.spedizione.firenze.title': 'Commune de Florence',
+          'b2b.listino.spedizione.firenze.free': 'Livraison gratuite pour commandes min. de 300 € (TVA exclue)',
+          'b2b.listino.spedizione.firenze.notice': 'Commandes à envoyer au moins 48 h à l\'avance',
+          'b2b.listino.spedizione.firenze.ztl': 'En zones à trafic limité, livraisons selon les horaires d\'accès',
+          'b2b.listino.spedizione.fuori.title': 'Hors commune de Florence',
+          'b2b.listino.spedizione.fuori.info': 'Devis sur demande, modalités et délais à convenir',
           'b2b.fullscreen.label': 'Image gelato',
           'b2b.fullscreen.close': 'Fermer',
           'b2b.zoom': 'Agrandir',
@@ -5703,6 +6188,38 @@
           'b2b.listino.pwError': 'Código incorrecto. Inténtalo de nuevo.',
           'b2b.listino.viewerTitle': 'Lista de Precios 2026',
           'b2b.listino.viewerClose': 'Cerrar',
+          'b2b.listino.subtitle': 'Precio por kg · IVA excluido',
+          'b2b.listino.tab.gelato': 'Helado',
+          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.torte': 'Tartas',
+          'b2b.listino.tab.accessori': 'Accesorios',
+          'b2b.listino.tab.spedizione': 'Envío',
+          'b2b.listino.col.gusto': 'Sabor',
+          'b2b.listino.col.vaschette': 'Cubetas',
+          'b2b.listino.col.carapine': 'Carapine',
+          'b2b.listino.col.prodotto': 'Producto',
+          'b2b.listino.col.prezzo': 'Precio',
+          'b2b.listino.col.peso': 'Peso',
+          'b2b.listino.col.min': 'Mín.*',
+          'b2b.listino.col.torta': 'Tarta',
+          'b2b.listino.col.prezzoKg': 'Precio/Kg',
+          'b2b.listino.col.ordineMin': 'Pedido mín.',
+          'b2b.listino.col.articolo': 'Artículo',
+          'b2b.listino.col.quantita': 'Cantidad',
+          'b2b.listino.gelato.title': 'Helado — Cubetas & Carapine',
+          'b2b.listino.gelato.note': '€/kg · IVA excluido',
+          'b2b.listino.gelato.sorbetti': 'Sorbetes',
+          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.note': '* Pedido mínimo o múltiplos',
+          'b2b.listino.torte.title': 'Tartas',
+          'b2b.listino.accessori.title': 'Accesorios',
+          'b2b.listino.spedizione.title': 'Envío',
+          'b2b.listino.spedizione.firenze.title': 'Municipio de Florencia',
+          'b2b.listino.spedizione.firenze.free': 'Envío gratuito para pedidos mín. de 300 € (IVA excluido)',
+          'b2b.listino.spedizione.firenze.notice': 'Pedidos con al menos 48 horas de antelación',
+          'b2b.listino.spedizione.firenze.ztl': 'En zonas de tráfico limitado, entregas según horarios de acceso',
+          'b2b.listino.spedizione.fuori.title': 'Fuera del municipio de Florencia',
+          'b2b.listino.spedizione.fuori.info': 'Cotización bajo demanda, modalidades y plazos a acordar',
           'b2b.fullscreen.label': 'Imagen de helado',
           'b2b.fullscreen.close': 'Cerrar',
           'b2b.zoom': 'Ampliar',
@@ -8852,14 +9369,10 @@
       });
 
       /* ═══════════════════════════════════════════════════════
-         Listino Prezzi – Password-protected viewer
+         Listino Prezzi – Password-protected tabbed modal
          ═══════════════════════════════════════════════════════ */
       (function initListino(){
         const LISTINO_CODE = '182115';
-        const LISTINO_PAGES = [
-          '../assets/docs/listino-2026-p1.webp',
-          '../assets/docs/listino-2026-p2.webp'
-        ];
 
         const lockBtn       = document.getElementById('listinoLockBtn');
         const pwOverlay     = document.getElementById('listinoPwOverlay');
@@ -8869,16 +9382,27 @@
         const pwCancel      = document.getElementById('listinoPwCancel');
         const viewerOverlay = document.getElementById('listinoViewerOverlay');
         const viewerClose   = document.getElementById('listinoViewerClose');
-        const viewerPage    = document.getElementById('listinoViewerPage');
-        const indicator     = document.getElementById('listinoIndicator');
-        const prevBtn       = document.getElementById('listinoPrev');
-        const nextBtn       = document.getElementById('listinoNext');
 
         if(!lockBtn || !pwOverlay || !viewerOverlay) return;
 
-        let currentPage = 0;
         let listinoUnlocked = false;
 
+        /* Tab system */
+        const tabs     = viewerOverlay.querySelectorAll('.listino-tab');
+        const sections = viewerOverlay.querySelectorAll('.listino-section');
+        const body     = viewerOverlay.querySelector('.listino-body');
+
+        function switchTab(tabName){
+          tabs.forEach(t => t.classList.toggle('is-active', t.dataset.listinoTab === tabName));
+          sections.forEach(s => s.classList.toggle('is-active', s.dataset.listinoSection === tabName));
+          if(body) body.scrollTop = 0;
+        }
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => switchTab(tab.dataset.listinoTab));
+        });
+
+        /* Password prompt */
         function openPwPrompt(){
           pwInput.value = '';
           pwInput.classList.remove('is-error');
@@ -8894,9 +9418,9 @@
           pwError.textContent = '';
         }
 
+        /* Viewer open / close */
         function openViewer(){
-          currentPage = 0;
-          updateViewer();
+          switchTab('gelato');
           viewerOverlay.classList.add('is-open');
           document.body.style.overflow = 'hidden';
         }
@@ -8904,13 +9428,6 @@
         function closeViewer(){
           viewerOverlay.classList.remove('is-open');
           document.body.style.overflow = '';
-        }
-
-        function updateViewer(){
-          viewerPage.src = LISTINO_PAGES[currentPage];
-          indicator.textContent = (currentPage + 1) + ' / ' + LISTINO_PAGES.length;
-          prevBtn.disabled = currentPage === 0;
-          nextBtn.disabled = currentPage === LISTINO_PAGES.length - 1;
         }
 
         function checkCode(){
@@ -8927,12 +9444,10 @@
           }
         }
 
+        /* Event listeners */
         lockBtn.addEventListener('click', () => {
-          if(listinoUnlocked){
-            openViewer();
-          } else {
-            openPwPrompt();
-          }
+          if(listinoUnlocked) openViewer();
+          else openPwPrompt();
         });
 
         pwSubmit.addEventListener('click', checkCode);
@@ -8949,36 +9464,14 @@
           if(e.target === viewerOverlay) closeViewer();
         });
 
-        prevBtn.addEventListener('click', () => {
-          if(currentPage > 0){ currentPage--; updateViewer(); }
-        });
-        nextBtn.addEventListener('click', () => {
-          if(currentPage < LISTINO_PAGES.length - 1){ currentPage++; updateViewer(); }
-        });
-
         document.addEventListener('keydown', (e) => {
           if(pwOverlay.classList.contains('is-open') && e.key === 'Escape'){
             closePwPrompt();
           }
-          if(viewerOverlay.classList.contains('is-open')){
-            if(e.key === 'Escape') closeViewer();
-            if(e.key === 'ArrowLeft' && currentPage > 0){ currentPage--; updateViewer(); }
-            if(e.key === 'ArrowRight' && currentPage < LISTINO_PAGES.length - 1){ currentPage++; updateViewer(); }
+          if(viewerOverlay.classList.contains('is-open') && e.key === 'Escape'){
+            closeViewer();
           }
         });
-
-        /* Swipe support for mobile */
-        let touchStartX = 0;
-        viewerOverlay.addEventListener('touchstart', (e) => {
-          touchStartX = e.changedTouches[0].clientX;
-        }, { passive: true });
-        viewerOverlay.addEventListener('touchend', (e) => {
-          const dx = e.changedTouches[0].clientX - touchStartX;
-          if(Math.abs(dx) > 50){
-            if(dx < 0 && currentPage < LISTINO_PAGES.length - 1){ currentPage++; updateViewer(); }
-            if(dx > 0 && currentPage > 0){ currentPage--; updateViewer(); }
-          }
-        }, { passive: true });
       })();
     })();
   </script>
