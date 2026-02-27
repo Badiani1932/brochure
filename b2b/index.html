@@ -2218,6 +2218,51 @@
       display:flex;
     }
 
+    /* ── Plating button variant (Lingotto products) ── */
+    .card-zoom--plating{
+      background:linear-gradient(135deg,var(--badiani-pink),#c8507a) !important;
+      border:none !important;
+      box-shadow:0 2px 12px rgba(240,103,166,0.45);
+      position:absolute;
+      top:10px;
+      right:10px;
+      width:52px;
+      height:52px;
+      border-radius:999px;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      transition:transform 0.18s ease, box-shadow 0.18s ease;
+      touch-action:manipulation;
+      z-index:5;
+      pointer-events:auto;
+    }
+    .card-zoom--plating:hover{
+      transform:scale(1.1);
+      box-shadow:0 4px 18px rgba(240,103,166,0.6);
+    }
+    .card-zoom--plating svg{ width:24px; height:24px; }
+    .card-zoom--plating::before{
+      content:'';
+      position:absolute;
+      inset:-4px;
+      border-radius:999px;
+      padding:2.5px;
+      background:conic-gradient(var(--badiani-pink),var(--badiani-yellow),var(--badiani-pink));
+      -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+              mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite:xor;
+              mask-composite:exclude;
+      animation:platingRingSpin 2.4s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes platingRingSpin{
+      to{ transform:rotate(360deg); }
+    }
+
     .pezziduri-body{
       padding:12px 14px 14px;
       display:flex;
@@ -4079,7 +4124,7 @@
       width:100%;
       border-collapse:collapse;
       font-family:'SuperGroteskDigits','SuperGroteskC','SuperGroteskA',sans-serif;
-      font-size:14px;
+      font-size:clamp(15px, 1.2vw, 17px);
       color:var(--badiani-gray,#58595b);
       min-width:480px;
     }
@@ -4087,10 +4132,10 @@
       background:rgba(30,57,141,0.06);
       color:var(--badiani-blue,#1e398d);
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:11px;
+      font-size:clamp(11px, 1vw, 13px);
       letter-spacing:0.8px;
       text-transform:uppercase;
-      padding:12px 16px;
+      padding:13px 16px;
       text-align:left;
       position:sticky;
       top:0;
@@ -4101,7 +4146,7 @@
     .listino-table th.listino-col-center,
     .listino-table td.listino-col-center{ text-align:center; }
     .listino-table td{
-      padding:10px 16px;
+      padding:11px 16px;
       border-bottom:1px solid rgba(30,57,141,0.06);
       vertical-align:top;
     }
@@ -4115,15 +4160,17 @@
       font-weight:600;
       color:var(--badiani-blue,#1e398d);
       white-space:nowrap;
+      font-size:clamp(15px, 1.2vw, 17px);
     }
     .listino-table .listino-flavor{
       font-weight:500;
       color:#333;
+      font-size:clamp(15px, 1.2vw, 17px);
     }
     .listino-table .listino-flavor small{
       display:block;
       font-weight:400;
-      font-size:11px;
+      font-size:clamp(11px, 0.9vw, 13px);
       color:#999;
       margin-top:2px;
     }
@@ -4135,10 +4182,10 @@
       background:rgba(240,103,166,0.08);
       color:var(--badiani-pink,#f067a6);
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:12px;
+      font-size:13px;
       letter-spacing:0.6px;
       text-transform:uppercase;
-      padding:8px 16px;
+      padding:10px 16px;
       border-bottom:1px solid rgba(240,103,166,0.15);
     }
 
@@ -4157,7 +4204,7 @@
     }
     .listino-shipping-card__title{
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:15px;
+      font-size:16px;
       color:var(--badiani-blue,#1e398d);
       text-transform:uppercase;
       letter-spacing:0.5px;
@@ -4170,7 +4217,7 @@
     }
     .listino-shipping-card li{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:13px;
+      font-size:14px;
       color:var(--badiani-gray,#58595b);
       line-height:1.6;
       padding:4px 0;
@@ -4196,9 +4243,12 @@
       .listino-tab{ padding:8px 14px; font-size:12px; }
       .listino-shipping-grid{ grid-template-columns:1fr; }
       .listino-header__subtitle{ display:none; }
-      .listino-table{ font-size:13px; }
-      .listino-table th{ font-size:10px; padding:10px 12px; }
-      .listino-table td{ padding:8px 12px; }
+      .listino-table{ font-size:15px; }
+      .listino-table th{ font-size:11px; padding:10px 12px; }
+      .listino-table td{ padding:9px 12px; }
+      .listino-table .listino-price{ font-size:15px; }
+      .listino-table .listino-flavor{ font-size:15px; }
+      .listino-table .listino-flavor small{ font-size:12px; }
     }
     @media(prefers-reduced-motion:reduce){
       .listino-pw-input.is-error{ animation:none; }
@@ -7710,19 +7760,25 @@
             const localName = getPezziDuriName(name);
             const localMin = getPezziDuriMinOrder(min);
             const localAllergens = getPezziDuriAllergens(allergens);
-            const zoomIcon = `
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                <polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                <line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            `;
+            const hasPlating = !!PEZZI_DURI_ZOOM_IMAGES[name];
+            const zoomBtnClass = hasPlating ? 'card-zoom card-zoom--plating' : 'card-zoom';
+            const zoomIcon = hasPlating
+              ? `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                   <ellipse cx="12" cy="12" rx="10" ry="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                   <ellipse cx="12" cy="10.5" rx="7" ry="7" stroke="currentColor" stroke-width="1.8" fill="none"/>
+                   <ellipse cx="12" cy="10.5" rx="3.5" ry="3.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".6"/>
+                 </svg>`
+              : `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                   <polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                   <polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                   <line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                   <line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                 </svg>`;
             return `
               <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}" style="--stagger-i:${staggerIdx}">
                 <div class="pezziduri-media">
                   <img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />
-                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${PEZZI_DURI_ZOOM_IMAGES[name] || src}" data-zoom-alt="${localName}">${zoomIcon}</button>
+                  <button class="${zoomBtnClass}" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${PEZZI_DURI_ZOOM_IMAGES[name] || src}" data-zoom-alt="${localName}">${zoomIcon}</button>
                 </div>
                 <div class="pezziduri-body">
                   <div class="pezziduri-title">${localName}</div>
