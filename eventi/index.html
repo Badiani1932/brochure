@@ -170,7 +170,8 @@
       color:#fff;
       display:flex;
       align-items:flex-end;
-      min-height:52vh;
+      aspect-ratio:1/1;
+      min-height:0;
       cursor:pointer;
     }
     .ev-card::after{
@@ -715,7 +716,7 @@
         grid-template-columns:1fr;
         gap:2px;
       }
-      .ev-card{ min-height:50vh; }
+      .ev-card{ aspect-ratio:1/1; min-height:0; }
 
       .ev-corporate__grid{
         grid-template-columns:1fr;
@@ -745,7 +746,8 @@
       .ev-hero__title{ font-size:clamp(40px, 12vw, 72px); }
 
       .ev-card{
-        min-height:40vh;
+        aspect-ratio:1/1;
+        min-height:0;
       }
       .ev-card__overlay{
         padding:28px 20px;

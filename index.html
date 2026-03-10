@@ -162,7 +162,8 @@
       color:#fff;
       display:flex;
       align-items:stretch;
-      min-height:70vh;
+      aspect-ratio:1/1;
+      min-height:0;
       cursor:pointer;
       margin:0;
       padding:0;
@@ -304,7 +305,8 @@
         grid-template-columns:1fr;
       }
       .choice-card{
-        min-height:50vh;
+        aspect-ratio:1/1;
+        min-height:0;
       }
       .choice-card__overlay{
         padding:32px 28px;
@@ -325,7 +327,8 @@
         font-size:clamp(52px, 14vw, 80px);
       }
       .choice-card{
-        min-height:40vh;
+        aspect-ratio:1/1;
+        min-height:0;
       }
       .choice-card__overlay{
         padding:24px 20px;
@@ -381,7 +384,8 @@
       color:#fff;
       display:flex;
       align-items:flex-end;
-      min-height:70vh;
+      aspect-ratio:1/1;
+      min-height:0;
       margin:0;
       padding:0;
     }
@@ -403,24 +407,32 @@
       align-items:stretch;
     }
     .story-card--storia .story-card__overlay{
+      position:absolute;
+      inset:0;
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
-      height:100%;
-      padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px);
+      overflow:hidden;
+      box-sizing:border-box;
+      padding:clamp(32px, 4vw, 56px);
+      z-index:2;
     }
     .story-card--storia .story-card__label{
       margin-bottom:12px;
     }
     .story-card--storia .story-card__title{
-      margin-bottom:clamp(20px, 3vw, 40px);
-      flex:1 0 auto;
+      margin-bottom:clamp(12px, 2vw, 24px);
+      flex-shrink:0;
     }
     .story-card--storia .story-card__desc{
       max-width:none;
-      flex-shrink:0;
+      flex:1;
+      overflow:hidden;
+      display:-webkit-box;
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:7;
       line-height:1.6;
-      margin-top:auto;
+      margin-top:clamp(8px, 1.5vw, 20px);
     }
     /* LA STORIA – immagine riempie il riquadro, no zoom */
     .story-card--storia .story-card__img{
@@ -445,14 +457,16 @@
       display:none;
     }
     .story-card--gelato .story-card__overlay{
-      max-width:100%;
-      width:100%;
+      position:absolute;
+      inset:0;
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
-      height:100%;
-      padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px);
+      overflow:hidden;
+      box-sizing:border-box;
+      padding:clamp(28px, 3.5vw, 48px);
       z-index:2;
+      background:rgba(255,255,255,0.82);
     }
     .story-card--gelato .story-card__label{
       display:block;
@@ -476,11 +490,11 @@
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
       text-shadow:none;
-      font-size:clamp(42px, 6vw, 192px);
+      font-size:clamp(24px, 3.2vw, 52px);
       line-height:0.92;
-      flex:1 0 auto;
+      flex-shrink:0;
       display:block;
-      margin-bottom:clamp(20px, 3vw, 40px);
+      margin-bottom:clamp(8px, 1vw, 14px);
       overflow-wrap:normal;
       word-break:normal;
       hyphens:none;
@@ -488,12 +502,14 @@
     }
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
-      margin-top:auto;
-      flex-shrink:0;
-      max-width:none;
+      flex:1;
+      overflow:hidden;
       display:block;
-      columns:1;
-      line-height:1.6;
+      columns:2;
+      column-gap:clamp(16px, 2vw, 28px);
+      font-size:clamp(13px, 1.1vw, 16px);
+      line-height:1.55;
+      max-width:none;
     }
     .story-card__overlay{
       position:relative;
@@ -533,10 +549,7 @@
       max-width:280px;
       font-weight:300;
     }
-    /* Vertical divider between halves - using box-shadow to avoid affecting layout */
-    .story-grid .story-card:first-child{
-      box-shadow:1px 0 0 0 rgba(255,255,255,0.15);
-    }
+    /* Vertical divider between halves removed */
     .highlight-pink{ background:var(--badiani-pink); color:#fff; padding:3px 10px; font-family:'SuperGroteskDigits', 'SuperGroteskC', 'SuperGroteskA', 'SuperGroteskB', sans-serif; font-weight:500; border-radius:3px; white-space:nowrap; text-transform:uppercase; font-variant-caps:normal; }
 
     /* ===== BADIANI NEL MONDO — unified split-screen ===== */
@@ -554,8 +567,10 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-end;
-      padding:clamp(36px, 4vw, 56px) clamp(32px, 4vw, 56px);
+      padding:clamp(24px, 2.8vw, 40px);
       min-width:0;
+      aspect-ratio:1/1;
+      min-height:0;
     }
     /* LEFT card — metrics (light) */
     .world-card--metrics{
@@ -594,7 +609,7 @@
       text-transform:uppercase;
       letter-spacing:3px;
       line-height:1;
-      margin-bottom:20px;
+      margin-bottom:10px;
       font-weight:400;
     }
     .world-card--metrics .world-card__label{
@@ -602,12 +617,12 @@
     }
     .world-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(42px, 6vw, 192px);
+      font-size:clamp(36px, 5.5vw, 96px);
       text-transform:uppercase;
       letter-spacing:4px;
       font-weight:700;
       line-height:0.92;
-      margin-bottom:24px;
+      margin-bottom:14px;
     }
     .world-card--metrics .world-card__title{
       color:var(--badiani-blue);
@@ -617,11 +632,11 @@
       hyphens:none;
     }
     .world-card__desc{
-      font-size:clamp(14px, 1.2vw, 17px);
-      line-height:1.7;
+      font-size:clamp(13px, 1.1vw, 15px);
+      line-height:1.6;
       max-width:55%;
       font-weight:300;
-      margin-bottom:clamp(28px, 3vw, 44px);
+      margin-bottom:clamp(12px, 1.4vw, 20px);
     }
     .world-card--metrics .world-card__desc{
       color:var(--badiani-gray);
@@ -639,7 +654,7 @@
       border:none;
       border-bottom:1px solid rgba(30,57,141,0.10);
       border-radius:0;
-      padding:clamp(24px, 2.5vw, 36px) clamp(8px, 1vw, 16px);
+      padding:clamp(10px, 1.1vw, 16px) clamp(8px, 1vw, 16px);
       text-align:left;
       transition:background 0.35s ease;
       box-shadow:none;
@@ -670,11 +685,11 @@
     }
     .stat-num{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4vw, 60px);
+      font-size:clamp(28px, 3.2vw, 48px);
       font-weight:700;
       color:var(--badiani-blue);
       line-height:1;
-      margin-bottom:8px;
+      margin-bottom:5px;
     }
     .stat:nth-child(2) .stat-num{ color:var(--badiani-pink); }
     .stat:nth-child(3) .stat-num{ color:var(--badiani-yellow); }
@@ -689,7 +704,9 @@
     }
     /* RIGHT card — timeline (dark) */
     .world-card--timeline{
-      background:var(--badiani-blue);
+      background: linear-gradient(rgba(14,26,80,0.30),rgba(14,26,80,0.30)),
+                  url('assets/worldwide.webp') center/cover no-repeat;
+      background-color:var(--badiani-blue);
       color:#fff;
       justify-content:flex-start;
       padding:clamp(48px, 6vw, 80px) 0 0 0;
@@ -810,8 +827,8 @@
       .world-card__desc{ max-width:100%; }
       .stats{ max-width:100%; grid-template-columns:1fr; }
       .stat:nth-child(odd){ border-right:none; }
-      /* RIGHT card — Significa/Gelato: shorter, bigger text */
-      .world-card--timeline{ min-height:40vh; padding:clamp(24px, 4vw, 40px) 0 0 0; }
+      /* RIGHT card — Significa/Gelato: aspect-ratio handles height */
+      .world-card--timeline{ padding:clamp(24px, 4vw, 40px) 0 0 0; }
       .world-card__gelato-big{ font-size:clamp(60px, 22vw, 430px); }
       .world-card__gelato-wrap{ flex:0 1 auto; }
       .timeline{
@@ -836,19 +853,21 @@
 
       /* Story split - mobile stack */
       .story-grid{ grid-template-columns:1fr; }
-      .story-card{ min-height:50vh; }
+      .story-card{ aspect-ratio:1/1; min-height:0; }
       .story-card__overlay{ padding:32px 28px; }
       .story-card__title{ font-size:clamp(36px, 12vw, 168px); overflow-wrap:normal; word-break:normal; }
       .story-card__desc{ font-size:clamp(13px, 3.8vw, 15px); line-height:1.5; max-width:none; }
       .story-card__label{ letter-spacing:2px; margin-bottom:8px; }
-      .story-grid .story-card:first-child{ box-shadow:none; border-bottom:1px solid rgba(255,255,255,0.15); }
+      .story-grid .story-card:first-child{ box-shadow:none; }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
       /* Storia: title+label top-left, desc stays at bottom */
       .story-card--storia .story-card__label{ order:-2; margin-bottom:4px; }
       .story-card--storia .story-card__title{ order:-1; }
       .story-card--storia .story-card__desc{ margin-top:auto; }
+      /* Buontalenti mobile: single column, readable size */
+      .story-card--gelato .story-card__desc{ columns:1; font-size:clamp(12px, 3.2vw, 14px); line-height:1.5; }
       .story-card--gelato .story-card__title{
-        font-size:clamp(30px, 11vw, 128px);
+        font-size:clamp(22px, 7vw, 40px);
         overflow-wrap:normal;
         word-break:normal;
       }
@@ -1185,7 +1204,6 @@
         </h2>
         <div class="world-card__gelato-wrap">
           <span class="world-card__gelato-big">Gelato</span>
-          <img class="world-card__map" src="assets/worldwide.webp" alt="Badiani nel mondo" loading="lazy" decoding="async" width="2236" height="1344" />
         </div>
       </div>
     </div>

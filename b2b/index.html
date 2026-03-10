@@ -184,7 +184,8 @@
       touch-action:manipulation;
       display:flex;
       align-items:flex-end;
-      min-height:60vh;
+      aspect-ratio:1/1;
+      min-height:0;
       border:none;
       border-radius:0;
       padding:0;
@@ -205,7 +206,7 @@
       color:#fff;
       border-color:transparent;
       overflow:hidden;
-      min-height:60vh;
+      min-height:0;
     }
     /* Pulsing pink border overlay */
     .b2b-pulse{
@@ -6494,7 +6495,7 @@
           'b2b.conigf.sectionTitle': 'Conos Sin Gluten',
           'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
           'b2b.torte.sizeS': 'hasta 4 raciones',
-          'b2b.torte.sizeM': 'hasta 6 raciones',,
+          'b2b.torte.sizeM': 'hasta 6 raciones',
           'b2b.torte.sizesNote': 'Cada tarta está disponible en 2 tamaños: S y M',
           'b2b.torte.description': 'Descripción',
           'b2b.torte.allergens': 'Alérgenos',
@@ -8854,15 +8855,7 @@
 
         requestAnimationFrame(setupZoomButtons);
 
-        /* Preserve scroll position when re-rendering within the same category
-           (e.g. zone clicks in Coni/Coppette/Contenitori). The setActiveCategory
-           function already resets scrollTop to 0 on category switch. */
-        const _savedScrollTop = (category === 'CONI_COPPETTE' || category === 'CONTENITORI') && categoryContent
-          ? categoryContent.scrollTop : 0;
         defaultContent.innerHTML = sections.join('');
-        if(_savedScrollTop > 0 && categoryContent){
-          requestAnimationFrame(() => { categoryContent.scrollTop = _savedScrollTop; });
-        }
       }
 
       function renderGelatoDetail(flavor){
@@ -9311,8 +9304,6 @@
       function setActiveCategory(name){
         const previousCategory = activeCategory;
         activeCategory = name || categories[0];
-        /* Reset modal content scroll to top whenever the category changes */
-        if(previousCategory !== activeCategory && categoryContent) categoryContent.scrollTop = 0;
         const enteringPezziDuri = activeCategory === 'PEZZI DURI' && previousCategory !== 'PEZZI DURI';
         if(enteringPezziDuri){
           pezziDuriShowOverlay = true;
