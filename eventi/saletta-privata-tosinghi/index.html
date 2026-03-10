@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Prenota la saletta privata Badiani in Via de' Tosinghi a Firenze. Pacchetti Silver, Gold e Platinum per feste private con gelato artigianale e finger food." />
   <meta name="theme-color" content="#1e398d" />
-  <link rel="icon" href="../../assets/images/branding/logo.webp" type="image/webp" />
+  <link rel="icon" href="../../assets/images/branding/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../../assets/images/branding/favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="../../assets/images/branding/apple-touch-icon.png" />
   <link rel="canonical" href="https://www.badiani1932.com/eventi/saletta-privata-tosinghi/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Saletta Privata Tosinghi — Badiani 1932" />
@@ -327,6 +329,16 @@
       font-weight:300;
       color:rgba(255,255,255,0.85);
       line-height:1.55;
+    }
+    .sal-card__min-spend{
+      font-size:clamp(10px, 0.9vw, 12px);
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:rgba(255,255,255,0.4);
+      text-align:center;
+      padding:clamp(10px, 1.2vw, 16px) clamp(16px, 2vw, 28px);
+      margin:0;
+      border-top:1px solid rgba(255,255,255,0.08);
     }
     /* colour-coding for package headers in cards */
     .sal-card.silver .sal-card__subtitle{ color:#a3b07a; }
@@ -1531,7 +1543,6 @@
     </video>
     <div class="sal-hero__content">
       <div class="sal-hero__heading">
-        <span class="sal-hero__label" data-i18n="tosinghi.hero.label">Feste private esclusive</span>
         <h1 class="sal-hero__title title-accent title-accent--light" data-i18n="tosinghi.hero.title">Saletta Tosinghi</h1>
       </div>
       <p class="sal-hero__desc" data-i18n="tosinghi.hero.sub">Scegli il tuo pacchetto per la nostra saletta privata nel cuore di Firenze</p>
@@ -1569,6 +1580,7 @@
             <span class="sal-card__spec-value" data-i18n-html="tosinghi.modal.silver.booking.value">Entro 10 giorni dalla data dell&rsquo;evento</span>
           </div>
         </div>
+        <p class="sal-card__min-spend" data-i18n="tosinghi.card.minspend">Minimo di spesa applicabile</p>
       </div>
 
       <!-- GOLD -->
@@ -1600,6 +1612,7 @@
             <span class="sal-card__spec-value" data-i18n-html="tosinghi.modal.gold.booking.value">Entro 10 giorni dalla data dell&rsquo;evento</span>
           </div>
         </div>
+        <p class="sal-card__min-spend" data-i18n="tosinghi.card.minspend">Minimo di spesa applicabile</p>
       </div>
 
       <!-- PLATINUM -->
@@ -1630,6 +1643,7 @@
             <span class="sal-card__spec-value" data-i18n-html="tosinghi.modal.platinum.booking.value">Entro 15 giorni dalla data dell&rsquo;evento</span>
           </div>
         </div>
+        <p class="sal-card__min-spend" data-i18n="tosinghi.card.minspend">Minimo di spesa applicabile</p>
       </div>
     </div>
     
@@ -2377,6 +2391,7 @@
           'tosinghi.platinum.price': '\u20ac40,00/persona',
           'tosinghi.platinum.desc': 'L\'esperienza esclusiva con finger food dello Chef, dolce a scelta, e un drink',
           'tosinghi.platinum.note': 'IVA inclusa \u2022 Max 40/50 persone',
+          'tosinghi.card.minspend': 'Minimo di spesa applicabile',
           'tosinghi.gallery.label': 'La nostra saletta',
           'tosinghi.gallery.title': 'Galleria',
           'tosinghi.terms.label': 'Condizioni',
@@ -2513,6 +2528,7 @@
           'tosinghi.platinum.price': '\u20ac40.00/person',
           'tosinghi.platinum.desc': 'The exclusive experience with Chef\'s finger food, dessert of your choice, and a drink',
           'tosinghi.platinum.note': 'VAT included \u2022 Max 40/50 guests',
+          'tosinghi.card.minspend': 'Minimum spend applies',
           'tosinghi.gallery.label': 'Our private room',
           'tosinghi.gallery.title': 'Gallery',
           'tosinghi.terms.label': 'Conditions',
@@ -2646,6 +2662,7 @@
           'tosinghi.platinum.subtitle': 'Exp\u00e9rience de luxe',
           'tosinghi.platinum.price': '\u20ac40,00/personne',
           'tosinghi.platinum.desc': 'L\'exp\u00e9rience exclusive avec finger food du Chef, dessert au choix, et une boisson',
+          'tosinghi.card.minspend': 'Minimum de d\u00e9pense applicable',
           'tosinghi.gallery.label': 'Notre salle priv\u00e9e',
           'tosinghi.gallery.title': 'Galerie',
           'tosinghi.terms.label': 'Conditions',
@@ -2779,6 +2796,7 @@
           'tosinghi.platinum.subtitle': 'Experiencia de lujo',
           'tosinghi.platinum.price': '\u20ac40,00/persona',
           'tosinghi.platinum.desc': 'La experiencia exclusiva con finger food del Chef, postre a elecci\u00f3n, y una bebida',
+          'tosinghi.card.minspend': 'Se aplica gasto m\u00ednimo',
           'tosinghi.gallery.label': 'Nuestra sala privada',
           'tosinghi.gallery.title': 'Galer\u00eda',
           'tosinghi.terms.label': 'Condiciones',

@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Soluzioni B2B di gelato artigianale Badiani 1932 per hotel, ristoranti, catering e gelaterie. Catalogo completo: vasche, monoporzioni, torte, coni e accessori." />
   <meta name="theme-color" content="#1e398d" />
-  <link rel="icon" href="../assets/images/branding/logo.webp" type="image/webp" />
+  <link rel="icon" href="../assets/images/branding/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../assets/images/branding/favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="../assets/images/branding/apple-touch-icon.png" />
   <link rel="canonical" href="https://www.badiani1932.com/b2b/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="B2B — Badiani 1932" />
@@ -112,7 +114,7 @@
       margin-bottom:20px;
     }
     .page-hero h1{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-family:'SuperGroteskB',sans-serif;
       font-size:clamp(72px, 9vw, 140px);
       font-weight:700;
       letter-spacing:4px;
@@ -134,7 +136,7 @@
     .hero{ display:none; }
 
     .section-title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-family:'SuperGroteskB',sans-serif;
       font-size:clamp(36px, 4.5vw, 72px);
       letter-spacing:3px;
       text-transform:uppercase;
@@ -320,7 +322,7 @@
       margin-bottom:clamp(8px, 4cqi, 20px);
     }
     .category-title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-family:'SuperGroteskB',sans-serif;
       font-size:clamp(17px, 11cqi, 100px);
       letter-spacing:clamp(1px, 0.8cqi, 4px);
       text-transform:uppercase;
@@ -406,7 +408,7 @@
     }
     .b2b-step__connector{ display:none; }
     .b2b-step__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-family:'SuperGroteskB',sans-serif;
       font-size:clamp(26px, 3vw, 43px);
       font-weight:700;
       text-transform:uppercase;
@@ -1018,24 +1020,24 @@
     /* ── Tipologia vasca gallery ── */
     .tipologia-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-      gap:16px;
+      grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
+      gap:12px;
       align-items:start;
     }
     .tipologia-card{
       background:#fff;
       border-radius:16px;
       overflow:hidden;
-      border:1px solid rgba(30,57,141,0.08);
+      border:2px solid rgba(30,57,141,0.08);
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
       display:flex;
       flex-direction:column;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition:box-shadow 0.2s ease, border-color 0.2s ease;
     }
-    .tipologia-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.3); }
+    .tipologia-card:hover{ box-shadow:0 16px 30px rgba(0,0,0,0.3); }
     .tipologia-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
-    .tipologia-card.is-expanded{ border-color:var(--badiani-pink); box-shadow:0 12px 28px rgba(240,103,166,0.2); }
+    .tipologia-card.is-expanded{ border-color:var(--badiani-pink); box-shadow:0 12px 28px rgba(240,103,166,0.35); }
     .tipologia-media{
       width:100%;
       aspect-ratio:1 / 1;
@@ -1050,31 +1052,101 @@
       display:block;
     }
     .tipologia-body{
-      padding:10px 14px 12px;
+      padding:8px 10px 10px;
       display:grid;
       gap:0;
       text-align:center;
     }
     .tipologia-title{
-      font-size:13px;
+      font-size:12px;
       font-weight:600;
-      letter-spacing:0.6px;
+      letter-spacing:0.5px;
       color:var(--badiani-blue);
       text-transform:uppercase;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .tipologia-capacity{
+    .tipologia-capacity{ display:none; }
+    /* ── Detail panel shown above the grid on click ── */
+    .tipologia-detail-panel{
       display:none;
+      margin-bottom:16px;
+      background:#fff;
+      border-radius:20px;
+      border:2px solid var(--badiani-pink);
+      box-shadow:0 12px 36px rgba(240,103,166,0.2);
+      overflow:hidden;
+      animation:tipDetailReveal 0.22s ease;
+    }
+    @keyframes tipDetailReveal{
+      from{ opacity:0; transform:translateY(-8px) scale(0.98); }
+      to{ opacity:1; transform:translateY(0) scale(1); }
+    }
+    .tipologia-detail-panel.is-visible{ display:flex; align-items:stretch; }
+    .tipologia-detail-panel__img{
+      width:clamp(110px, 18vw, 180px);
+      flex-shrink:0;
+      background:#f4f4f4;
+    }
+    .tipologia-detail-panel__img img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .tipologia-detail-panel__body{
+      flex:1;
+      padding:clamp(14px, 2vw, 24px) clamp(16px, 2.5vw, 28px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:6px;
+    }
+    .tipologia-detail-panel__name{
+      font-family:'SuperGroteskB', sans-serif;
+      font-size:clamp(20px, 2.5vw, 30px);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      color:var(--badiani-blue);
+      line-height:1.1;
+    }
+    .tipologia-detail-panel__capacity{
+      font-size:clamp(15px, 1.6vw, 20px);
+      color:rgba(30,57,141,0.65);
+      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+    .tipologia-detail-panel__close{
+      position:absolute;
+      top:10px;
+      right:12px;
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      border:none;
+      background:rgba(30,57,141,0.1);
+      cursor:pointer;
+      font-size:16px;
+      line-height:28px;
+      text-align:center;
+      color:var(--badiani-blue);
+      padding:0;
+    }
+    .tipologia-detail-panel__close:hover{ background:rgba(30,57,141,0.2); }
+    .tipologia-detail-panel-wrap{
+      position:relative;
     }
     @media(max-width:720px){
       .tipologia-grid{
-        grid-template-columns:repeat(3, minmax(0, 1fr)) !important;
-        gap:8px;
+        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
+        gap:10px;
       }
       .tipologia-media{ aspect-ratio:1 / 1; }
       .tipologia-body{ padding:6px 6px 8px; gap:2px; }
-      .tipologia-title{ font-size:10px; letter-spacing:0.3px; }
-      .tipologia-capacity{ font-size:9px; }
+      .tipologia-title{ font-size:11px; letter-spacing:0.3px; }
+      .tipologia-detail-panel__name{ font-size:clamp(18px, 5vw, 24px); }
+      .tipologia-detail-panel__capacity{ font-size:clamp(13px, 3.5vw, 16px); }
     }
 
     /* ── Formato Acquisto scroll button ── */
@@ -3446,7 +3518,7 @@
       margin-bottom:8px;
     }
     .b2b-terms__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+      font-family:'SuperGroteskB',sans-serif;
       font-size:clamp(36px, 4.5vw, 72px);
       letter-spacing:3px;
       text-transform:uppercase;
@@ -4123,7 +4195,7 @@
     .listino-table{
       width:100%;
       border-collapse:collapse;
-      font-family:'SuperGroteskDigits','SuperGroteskC','SuperGroteskA',sans-serif;
+      font-family:'SuperGroteskC','SuperGroteskA',sans-serif;
       font-size:clamp(15px, 1.2vw, 17px);
       color:var(--badiani-gray,#58595b);
       min-width:480px;
@@ -4294,7 +4366,6 @@
         <track kind="descriptions" srclang="it" label="Descrizione video" default>
       </video>
       <div class="page-hero__heading-group">
-        <span class="page-hero__label" data-i18n="b2b.hero.label_text">Partnership</span>
         <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">B2B</h1>
       </div>
       <p data-i18n="b2b.hero.subtitle">Esperienze B2B su misura: dal corporate all'hospitality, un'unica regia per eventi, travel e partnership</p>
@@ -4306,7 +4377,6 @@
           <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.gelato.label">Gusti & Vasche</span>
               <h2 class="category-title" data-i18n="b2b.categories.GELATO"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.gelato.desc">Oltre 36 gusti artigianali, dal Buontalenti ai classici</p>
@@ -4316,7 +4386,6 @@
           <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.pezzi.label">Stecchi e biscotti</span>
               <h2 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.pezzi.desc">Stecchi, biscotti e monoporzioni pronti al servizio</p>
@@ -4326,7 +4395,6 @@
           <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.torte.label">Pasticceria Gelato</span>
               <h2 class="category-title" data-i18n="b2b.categories.TORTE"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.torte.desc">Torte gelato e semifreddi per ogni occasione</p>
@@ -4336,7 +4404,6 @@
           <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.coni.label">Servizio</span>
               <h2 class="category-title" data-i18n-html="b2b.categories.CONI_COPPETTE"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.coni.desc">Coni artigianali e coppette per la degustazione</p>
@@ -4346,7 +4413,6 @@
           <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.accessori.label">Allestimento</span>
               <h2 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.accessori.desc">Palette, cucchiaini e accessori brandizzati</p>
@@ -4356,7 +4422,6 @@
           <span class="b2b-pulse"></span>
           <div class="category-card__overlay">
             <div class="category-card__heading-group">
-              <span class="category-label" data-i18n="b2b.cat.contenitori.label">Packaging</span>
               <h2 class="category-title" data-i18n="b2b.categories.CONTENITORI"></h2>
             </div>
             <p class="category-desc" data-i18n="b2b.cat.contenitori.desc">Vaschette, box termici e packaging d'asporto</p>
@@ -4676,7 +4741,17 @@
             </div>
             <!-- Formato Acquisto: tipologia vasca grid (moved to bottom) -->
             <div id="tipologiaSection">
-              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
+              <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0 0 14px;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
+              <div class="tipologia-detail-panel-wrap">
+                <div class="tipologia-detail-panel" id="tipologiaDetailPanel" aria-live="polite">
+                  <div class="tipologia-detail-panel__img" id="tipologiaDetailImg"><img id="tipologiaDetailImgEl" src="" alt="" /></div>
+                  <div class="tipologia-detail-panel__body">
+                    <div class="tipologia-detail-panel__name" id="tipologiaDetailName"></div>
+                    <div class="tipologia-detail-panel__capacity" id="tipologiaDetailCapacity"></div>
+                  </div>
+                  <button class="tipologia-detail-panel__close" id="tipologiaDetailClose" aria-label="Chiudi">&times;</button>
+                </div>
+              </div>
               <div class="tipologia-grid" id="tipologiaContent"></div>
             </div>
           </div>
@@ -7534,6 +7609,11 @@
       const vascheToggle = document.getElementById('vascheToggle');
       const vascheContent = document.getElementById('vascheContent');
       const tipologiaContent = document.getElementById('tipologiaContent');
+      const tipologiaDetailPanel = document.getElementById('tipologiaDetailPanel');
+      const tipologiaDetailName  = document.getElementById('tipologiaDetailName');
+      const tipologiaDetailCapacity = document.getElementById('tipologiaDetailCapacity');
+      const tipologiaDetailImgEl = document.getElementById('tipologiaDetailImgEl');
+      const tipologiaDetailClose = document.getElementById('tipologiaDetailClose');
       const categoryContent = document.getElementById('categoryContent');
       const defaultContent = document.getElementById('b2bDefaultContent');
       const fullscreenOverlay = document.getElementById('gelatoFullscreen');
@@ -7633,6 +7713,7 @@
         pezziDuriShowOverlay = false;
         expandedContenitoriId = '';
         expandedTipologiaId = '';
+        if(tipologiaDetailPanel) tipologiaDetailPanel.classList.remove('is-visible');
         expandedConiId = new Set();
         expandedAccessoriId = '';
         selectedTorteMapId = new Set();
@@ -7839,6 +7920,28 @@
         return cards;
       }
 
+      /* ── Tipologia detail panel helpers ── */
+      function showTipologiaDetail(id){
+        const item = TIPOLOGIA_VASCA.find((v) => v.name === id);
+        if(!item || !tipologiaDetailPanel) return;
+        tipologiaDetailImgEl.src = encodeURI(item.image);
+        tipologiaDetailImgEl.alt = getTipologiaName(id);
+        tipologiaDetailName.textContent = getTipologiaName(id);
+        tipologiaDetailCapacity.textContent = item.capacity;
+        tipologiaDetailPanel.classList.add('is-visible');
+      }
+
+      function hideTipologiaDetail(){
+        if(tipologiaDetailPanel) tipologiaDetailPanel.classList.remove('is-visible');
+        expandedTipologiaId = '';
+        document.querySelectorAll('#tipologiaContent .tipologia-card.is-expanded')
+          .forEach((c) => c.classList.remove('is-expanded'));
+      }
+
+      if(tipologiaDetailClose){
+        tipologiaDetailClose.addEventListener('click', hideTipologiaDetail);
+      }
+
       function setupTipologiaZoom(){
         const el = document.getElementById('tipologiaContent');
         if(!el) return;
@@ -7847,16 +7950,21 @@
           const id = card.dataset.tipologiaId;
           if(!id) return;
           card.addEventListener('click', () => {
-            expandedTipologiaId = expandedTipologiaId === id ? '' : id;
-            tipologiaContent.innerHTML = renderTipologiaGallery();
-            setupTipologiaZoom();
+            if(expandedTipologiaId === id){
+              hideTipologiaDetail();
+              return;
+            }
+            /* Deselect previous */
+            document.querySelectorAll('#tipologiaContent .tipologia-card.is-expanded')
+              .forEach((c) => c.classList.remove('is-expanded'));
+            card.classList.add('is-expanded');
+            expandedTipologiaId = id;
+            showTipologiaDetail(id);
           });
           card.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
-              expandedTipologiaId = expandedTipologiaId === id ? '' : id;
-              tipologiaContent.innerHTML = renderTipologiaGallery();
-              setupTipologiaZoom();
+              card.click();
             }
           });
         });

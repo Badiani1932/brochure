@@ -98,7 +98,7 @@ html, body {
 html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 body, html {
-  font-family: 'SuperGroteskDigits', 'SuperGroteskA', 'SuperGroteskB', sans-serif;
+  font-family: 'SuperGroteskC', 'SuperGroteskA', 'SuperGroteskB', sans-serif;
   font-weight: 400;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
@@ -176,21 +176,11 @@ h1, h2, h3 {
   z-index: -1;
 }
 
-/* Thin decorative line extending right from the square */
-.title-accent::after {
-  content: '';
-  position: absolute;
-  height: 1px;
-  background: rgba(30, 57, 141, 0.12);
-  top: -0.02em;            /* allineata al bordo superiore del quadrato */
-  left: 0.42em;
-  width: calc(100% - 0.42em + 1.5em);
-  z-index: -1;
-}
+/* Thin decorative line — removed */
 
 /* On dark backgrounds, make the line lighter */
 .title-accent--light::after {
-  background: rgba(255, 255, 255, 0.15);
+  display: none;
 }
 
 /* Topbar Component */
@@ -489,6 +479,7 @@ h1, h2, h3 {
 }
 
 .footer-tagline {
+  font-family: 'SuperGroteskA', sans-serif;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.6;
@@ -516,6 +507,7 @@ h1, h2, h3 {
 }
 
 .footer-col ul a {
+  font-family: 'SuperGroteskA', sans-serif;
   color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
   font-size: 14px;
@@ -535,6 +527,7 @@ h1, h2, h3 {
 }
 
 .footer-bottom p {
+  font-family: 'SuperGroteskA', sans-serif;
   font-size: 12px;
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.5px;

@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box e Carretto Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
   <meta name="theme-color" content="#1e398d" />
-  <link rel="icon" href="../../assets/images/branding/logo.webp" type="image/webp" />
+  <link rel="icon" href="../../assets/images/branding/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="../../assets/images/branding/favicon.webp" type="image/webp" />
+  <link rel="apple-touch-icon" href="../../assets/images/branding/apple-touch-icon.png" />
   <link rel="canonical" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Badiani dove vuoi — Badiani 1932" />
@@ -657,6 +659,54 @@
       box-shadow:0 16px 48px rgba(0,0,0,0.5);
       border:3px solid rgba(255,255,255,0.08);
     }
+    .modal-hero__img[data-zoomable]{
+      cursor:zoom-in;
+      transition:transform 0.18s ease, box-shadow 0.18s ease;
+    }
+    .modal-hero__img[data-zoomable]:hover{
+      transform:scale(1.03);
+      box-shadow:0 22px 56px rgba(0,0,0,0.65);
+    }
+
+    /* Lightbox fullscreen */
+    .img-lightbox{
+      display:none;
+      position:fixed;
+      inset:0;
+      z-index:9999;
+      background:rgba(0,0,0,0.92);
+      cursor:zoom-out;
+      align-items:center;
+      justify-content:center;
+    }
+    .img-lightbox.is-open{
+      display:flex;
+    }
+    .img-lightbox__img{
+      max-width:92vw;
+      max-height:90vh;
+      object-fit:contain;
+      border-radius:12px;
+      box-shadow:0 24px 72px rgba(0,0,0,0.7);
+      pointer-events:none;
+      user-select:none;
+    }
+    .img-lightbox__close{
+      position:absolute;
+      top:18px;
+      right:22px;
+      background:none;
+      border:none;
+      color:#fff;
+      font-size:32px;
+      line-height:1;
+      cursor:pointer;
+      padding:4px 10px;
+      border-radius:8px;
+      opacity:0.75;
+      transition:opacity 0.15s;
+    }
+    .img-lightbox__close:hover{ opacity:1; }
     .modal-hero__img--coolbox{
       width:clamp(250px, 30vw, 440px);
       height:clamp(220px, 28vw, 380px);
@@ -1095,7 +1145,7 @@
             <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
             <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
           </div>
-          <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" />
+          <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1140,7 +1190,7 @@
             <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
             <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
           </div>
-          <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" />
+          <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1974,6 +2024,53 @@
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
     else forcePlay();
+  })();
+  </script>
+
+  <!-- Lightbox fullscreen -->
+  <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Immagine a tutto schermo">
+    <button class="img-lightbox__close" aria-label="Chiudi">&#x2715;</button>
+    <img class="img-lightbox__img" id="imgLightboxSrc" alt="" />
+  </div>
+
+  <script>
+  (function(){
+    var lb = document.getElementById('imgLightbox');
+    var lbImg = document.getElementById('imgLightboxSrc');
+    if(!lb || !lbImg) return;
+
+    function openLightbox(src, alt){
+      lbImg.src = src;
+      lbImg.alt = alt || '';
+      lb.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox(){
+      lb.classList.remove('is-open');
+      document.body.style.overflow = '';
+      lbImg.src = '';
+    }
+
+    document.querySelectorAll('.modal-hero__img[data-zoomable]').forEach(function(img){
+      img.addEventListener('click', function(e){
+        e.stopPropagation();
+        openLightbox(this.src, this.alt);
+      });
+      img.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){
+          e.preventDefault();
+          openLightbox(this.src, this.alt);
+        }
+      });
+    });
+
+    lb.addEventListener('click', function(e){
+      if(e.target !== lbImg) closeLightbox();
+    });
+    lb.querySelector('.img-lightbox__close').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
+    });
   })();
   </script>
 </body>
