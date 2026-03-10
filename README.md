@@ -106,7 +106,7 @@ badianibroshure/
 │   │   └── ... (27 cartelle)
 │   ├── images/
 │   │   ├── branding/                   # Logo, sfondi brand
-│   │   ├── categories/                 # Immagini categorie B2B
+│   │   ├── categories/                 # Immagini categorie B2B (es. gusti.webp, vasche.webp, torte.webp, coni-coppette.webp, contenitori.webp, accessori.webp)
 │   │   ├── eventi/                     # Foto eventi + galleria
 │   │   ├── torte/                      # Foto torte
 │   │   ├── vasche/                     # Foto vasche gelato
@@ -837,6 +837,9 @@ python _source/add_cookie_strings.py
 | 2026-03-10 | **B2B Gusti grid**: portato a 5 colonne desktop (era 4); mobile 2 colonne (era 3) |
 | 2026-03-10 | **B2B Gusti grid — bug fix**: rimosso `grid-auto-flow:dense` che causava spostamento visivo delle card tra categorie al click; rimossa logica DOM-swap difettosa (`.before()` non ripristinava la posizione originale); rimossi override `gridRowStart`/`gridRowEnd` in conflitto con `grid-row:span 2` CSS |
 | 2026-03-10 | **B2B Gusti grid — bug fix 2**: rimosso completamente `grid-column:span 2 / grid-row:span 2` dall'expanded card (causa impossibilità di espansione in ultima colonna → salto di riga → gap → incasino categorie); dettaglio gusto ora mostrato nel pannello `#gelatoDetail` sotto la griglia (stessa architettura tipologia vasche) |
+| 2026-03-10 | **B2B Gelato card — overlay espansa**: rimosso pannello `#gelatoDetail`; info gusto iniettata come `.gelato-card__exp-body` con `position:absolute; bottom:0` che scorre dal basso sopra la foto |
+| 2026-03-10 | **B2B Gelato card — bug fix specificità**: `.gelato-card span` (specificità 0,1,1) sovrastava `.gelato-card__exp-tag` (0,1,0) rendendo i pill allergeni grandi 13px. **Fix**: selettore cambiato in `.gelato-card > span` (solo figlio diretto = etichetta nome); `.gelato-card__exp-tag` protetto con `!important` su tutte le proprietà dimensionali |
+| 2026-03-10 | **B2B Categorie**: aggiornati i pulsanti categoria `Gusti`, `Torte`, `Coni & Coppette`, `Contenitori` e `Accessori` con nuovi asset in `assets/images/categories/`; convertite le sorgenti PNG in `gusti.webp`, `torte.webp`, `coni-coppette.webp`, `contenitori.webp`, `accessori.webp` per uso web |
 
 ### Debito Tecnico
 

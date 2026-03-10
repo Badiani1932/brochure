@@ -243,15 +243,15 @@
       background:linear-gradient(180deg, rgba(0,0,0,0.08) 20%, rgba(0,0,0,0.55) 100%);
     }
     /* Background images via CSS custom property for zoom effect */
-    .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/vasche.webp'); }
-    .category-card.b2b-card--torte{ --card-bg:url('../assets/images/categories/pulsante-torte.webp'); }
+    .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/gusti.webp'); }
+    .category-card.b2b-card--torte{ --card-bg:url('../assets/images/categories/torte.webp'); }
     .category-card.b2b-card--vasche{ --card-bg:url('../assets/images/categories/vasche.webp'); }
     .category-card.b2b-card--pezziduri{ --card-bg:url('../assets/images/categories/pezzi-duri.webp'); }
-    .category-card.b2b-card--coppette{ --card-bg:url('../assets/images/categories/pulsante-coniecoppette.webp'); }
-    .category-card.b2b-card--cono{ --card-bg:url('../assets/images/categories/pulsante-coniecoppette.webp'); }
+    .category-card.b2b-card--coppette{ --card-bg:url('../assets/images/categories/coni-coppette.webp'); }
+    .category-card.b2b-card--cono{ --card-bg:url('../assets/images/categories/coni-coppette.webp'); }
     .category-card.b2b-card--cialde{ --card-bg:url('../assets/images/categories/wafer-pulsante.webp'); }
-    .category-card.b2b-card--contenitori{ --card-bg:url('../assets/images/categories/pulsante-contenitori.webp'); }
-    .category-card.b2b-card--accessori{ --card-bg:url('../assets/images/categories/pulsante-accessori.webp'); }
+    .category-card.b2b-card--contenitori{ --card-bg:url('../assets/images/categories/contenitori.webp'); }
+    .category-card.b2b-card--accessori{ --card-bg:url('../assets/images/categories/accessori.webp'); }
     /* ::before = background image layer (zoomable on hover) */
     .category-card.b2b-card--gelato::before,
     .category-card.b2b-card--torte::before,
@@ -447,9 +447,7 @@
     .b2b-step:nth-child(5)::before{ background:var(--badiani-blue); }
 
     @media(max-width:980px){
-      .b2b-steps{
-        gap:0;
-      }
+      .lingotto-carousel__img{ max-width:92vw; max-height:72vh; }
       .b2b-step{
         grid-template-columns:70px 1fr;
         gap:0 20px;
@@ -781,13 +779,14 @@
       grid-template-columns:repeat(5, minmax(0, 1fr));
       gap:16px;
       align-content:start;
-      align-items:stretch;
+      align-items:start;
     }
     .gelato-card{
       border:none;
       background:#fff;
       border-radius:14px;
       overflow:hidden;
+      position:relative;
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
       cursor:pointer;
       text-align:left;
@@ -810,7 +809,10 @@
     .gelato-card--tub img{
       aspect-ratio:3081 / 4393;
     }
-    .gelato-card span{
+    /* Direct-child > span = flavor name label only.
+       Do NOT change to .gelato-card span — that would override allergen pills (.gelato-card__exp-tag)
+       because .gelato-card span has specificity (0,1,1) which beats .gelato-card__exp-tag (0,1,0). */
+    .gelato-card > span{
       font-size:13px;
       font-weight:600;
       letter-spacing:0.6px;
@@ -881,10 +883,17 @@
       aspect-ratio:1 / 1;
       object-fit:cover;
       display:block;
+      transition:object-fit 0s, object-position 0.25s ease;
     }
     .gelato-card--tub .gelato-card__media img{
       aspect-ratio:3081 / 4393;
     }
+    .gelato-card.is-expanded .gelato-card__media img{
+      object-fit:contain;
+      object-position:center top;
+      background:#f7f5f2;
+    }
+    .gelato-card.is-expanded > span{ display:none; }
     .gelato-card__details{
       display:grid;
       gap:6px;
@@ -905,60 +914,104 @@
     .gelato-card__details .gelato-list{ font-size:11px; color:rgba(30,57,141,0.65); }
     .gelato-card__details .gelato-flags{ gap:4px; }
     .gelato-card__details .gelato-flag{ padding:4px 8px; font-size:11px; }
-    .gelato-detail{
-      background:#fff;
-      border-radius:16px;
-      border:1px solid rgba(30,57,141,0.1);
-      padding:18px;
-      display:grid;
-      gap:14px;
-      overflow:auto;
-      -webkit-overflow-scrolling:touch;
-      max-height:none;
-      opacity:0;
-      transform:translateY(8px);
-      pointer-events:none;
-      transition:opacity 0.2s ease, transform 0.2s ease;
-    }
-    .gelato-detail.is-open{
-      opacity:1;
-      transform:translateY(0);
-      pointer-events:auto;
-    }
-    .gelato-detail__header{
+    /* === Expanded gelato card — overlays bottom of card in place === */
+    .gelato-card__exp-body{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height:130px;
+      padding:30px 12px 6px;
       display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
+      flex-direction:column;
+      gap:3px;
+      background:linear-gradient(to bottom,
+        rgba(255,255,255,0)    0%,
+        rgba(255,255,255,0.7)  38%,
+        rgba(255,255,255,0.96) 60%,
+        #fff                   72%
+      );
+      backdrop-filter:blur(2px);
+      -webkit-backdrop-filter:blur(2px);
+      overflow:hidden;
+      animation:gelato-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
     }
-    .gelato-detail__close{
+    @keyframes gelato-exp-up{
+      from{ opacity:0; transform:translateY(100%); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .gelato-card__exp-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:8px;
+    }
+    .gelato-card__exp-category{
+      font-size:9px;
+      color:var(--badiani-pink);
+      text-transform:uppercase;
+      letter-spacing:2px;
+      font-family:'SuperGroteskB',sans-serif;
+      margin-bottom:0;
+    }
+    .gelato-card__exp-name{
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:13px;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      line-height:1.2;
+    }
+    .gelato-card__exp-close{
+      width:22px;
+      height:22px;
+      border-radius:50%;
       border:none;
       background:rgba(30,57,141,0.08);
       color:var(--badiani-blue);
-      padding:6px 10px;
-      border-radius:999px;
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1px;
       cursor:pointer;
-    }
-    .gelato-detail.is-collapsed{
-      opacity:0;
-      transform:translateY(8px);
-      pointer-events:none;
-      height:0;
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      transition:background 0.15s;
       padding:0;
-      border:none;
-      overflow:hidden;
+      line-height:1;
     }
-    .gelato-detail img{
-      width:100%;
-      border-radius:12px;
-      aspect-ratio:4 / 3;
-      object-fit:cover;
-      display:block;
-      background:transparent;
-      transform:scale(1.08);
+    .gelato-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
+    .gelato-card__exp-section-label{
+      font-size:8px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:rgba(30,57,141,0.4);
+      margin-bottom:0;
+    }
+    .gelato-card__exp-desc{
+      font-size:10px;
+      color:rgba(30,57,141,0.65);
+      line-height:1.4;
+      font-family:'SuperGroteskC',sans-serif;
+    }
+    .gelato-card__exp-allergens{
+      display:flex;
+      flex-wrap:wrap;
+      gap:2px;
+    }
+    /* !important guards protect these values from being overridden by higher-specificity ancestor rules */
+    .gelato-card__exp-tag{
+      background:rgba(30,57,141,0.07) !important;
+      color:var(--badiani-blue) !important;
+      border-radius:999px !important;
+      padding:1px 5px !important;
+      font-size:7px !important;
+      font-weight:400 !important;
+      text-transform:uppercase !important;
+      letter-spacing:0.2px !important;
+      font-family:'SuperGroteskC',sans-serif !important;
+      line-height:1.4 !important;
+      display:inline !important;
+      flex:none !important;
     }
     .gelato-vasche{
       display:grid;
@@ -2176,70 +2229,20 @@
       display:flex;
       flex-direction:column;
       align-items:center;
-      gap:24px;
-      max-width:min(860px,92vw);
+      gap:20px;
+      max-width:min(900px,92vw);
       width:100%;
     }
-    .lingotto-carousel__slide{
-      display:flex;
-      flex-direction:row;
-      align-items:center;
-      gap:40px;
-      width:100%;
-    }
-    .lingotto-carousel__img-wrap{
-      flex:0 0 auto;
-      width:clamp(180px,32vw,360px);
-    }
-    .lingotto-carousel__img-wrap img{
-      width:100%;
+    .lingotto-carousel__img{
+      max-width:min(860px,88vw);
+      max-height:82vh;
+      width:auto;
+      height:auto;
       border-radius:18px;
       object-fit:contain;
       background:#11131a;
       box-shadow:0 24px 60px rgba(0,0,0,0.4);
-    }
-    .lingotto-carousel__info{
-      flex:1;
-      display:flex;
-      flex-direction:column;
-      gap:16px;
-      min-width:0;
-    }
-    .lingotto-carousel__name{
-      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:clamp(20px,2.8vw,34px);
-      font-weight:700;
-      letter-spacing:0.06em;
-      text-transform:uppercase;
-      color:#fff;
-      line-height:1.1;
-    }
-    .lingotto-carousel__meta{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .lingotto-carousel__meta-row{
-      display:flex;
-      flex-direction:column;
-      gap:3px;
-    }
-    .lingotto-carousel__meta-label{
-      font-size:10px;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.4);
-      font-family:'SuperGroteskC','SuperGroteskB',sans-serif;
-    }
-    .lingotto-carousel__meta-value{
-      font-size:14px;
-      color:#fff;
-      font-weight:500;
-      font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-    }
-    .lingotto-carousel__meta-value em{
-      color:var(--badiani-pink,#f067a6);
-      font-style:normal;
+      display:block;
     }
     .lingotto-carousel__nav{
       position:absolute;
@@ -2285,9 +2288,7 @@
       transform:scale(1.35);
     }
     @media(max-width:600px){
-      .lingotto-carousel__slide{ flex-direction:column; gap:18px; }
-      .lingotto-carousel__img-wrap{ width:min(240px,76vw); }
-      .lingotto-carousel__info{ align-items:center; text-align:center; }
+      .lingotto-carousel__img{ max-width:92vw; max-height:72vh; }
       .lingotto-carousel__nav--prev{ left:6px; }
       .lingotto-carousel__nav--next{ right:6px; }
     }
@@ -3263,7 +3264,6 @@
         margin-top:0;
       }
       .gelato-card.is-expanded{ outline:2px solid var(--badiani-pink); outline-offset:2px; }
-      .gelato-detail,
       .gelato-card__details{ transition:none; }
 
       /* Modal mobile: compatta */
@@ -3354,12 +3354,10 @@
     }
     @media(max-width:768px){
       .gelato-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
-      .gelato-detail{ position:relative; opacity:1; transform:none; pointer-events:auto; }
-      .gelato-detail.is-collapsed{ height:auto; padding:16px; border:1px solid rgba(255,255,255,0.08); }
     }
     @media(prefers-reduced-motion:reduce){
-      .gelato-card,
-      .gelato-detail{ transition:none; }
+      .gelato-card{ transition:none; }
+      .gelato-card__exp-body{ animation:none; }
     }
 
     .notice{ margin-top:10px; font-size:13px; color:rgba(255,255,255,0.4); }
@@ -4862,9 +4860,6 @@
                 <div class="gelato-section-title" data-gelato-i18n="vetrinaGelato.gridTitle"></div>
                 <div class="gelato-grid" id="gelatoGrid"></div>
               </div>
-              <div class="gelato-detail is-collapsed" id="gelatoDetail">
-                <div class="gelato-empty" data-gelato-i18n="vetrinaGelato.selectFlavorHint"></div>
-              </div>
             </div>
             <!-- Formato Acquisto: tipologia vasca grid (moved to bottom) -->
             <div id="tipologiaSection">
@@ -5178,13 +5173,7 @@
     <button class="lingotto-carousel__nav lingotto-carousel__nav--prev" type="button" aria-label="Precedente">&#8249;</button>
     <button class="lingotto-carousel__nav lingotto-carousel__nav--next" type="button" aria-label="Successivo">&#8250;</button>
     <div class="lingotto-carousel__inner">
-      <div class="lingotto-carousel__slide">
-        <div class="lingotto-carousel__img-wrap"><img id="lingottoCarouselImg" alt="" /></div>
-        <div class="lingotto-carousel__info">
-          <div class="lingotto-carousel__name" id="lingottoCarouselName"></div>
-          <div class="lingotto-carousel__meta" id="lingottoCarouselMeta"></div>
-        </div>
-      </div>
+      <img class="lingotto-carousel__img" id="lingottoCarouselImg" alt="" />
       <div class="lingotto-carousel__dots" id="lingottoCarouselDots"></div>
     </div>
   </div>
@@ -7553,10 +7542,13 @@
         'Lingotto Dolcevita': '../assets/images/pezziduri/lingotto-dolcevita.webp'
       };
 
-      const LINGOTTO_CAROUSEL_VARIANTS = [
-        { name: 'Lingotto Buontalenti',           weight: '60 g', min: '96 (8 box da 12 pezzi)', allergens: 'uova, latte' },
-        { name: 'Lingotto Dolcevita',              weight: '60 g', min: '96 (8 box da 12 pezzi)', allergens: 'uova, latte, soia' },
-        { name: 'Lingotto Buontalenti Pistacchio', weight: '60 g', min: '96 (8 box da 12 pezzi)', allergens: 'uova, latte, soia, frutta a guscio' }
+      const LINGOTTO_CAROUSEL_SLIDES = [
+        { src: '../assets/images/pezziduri/LINGOTTO BUONTALENTI.webp',           alt: 'Lingotto Buontalenti' },
+        { src: '../assets/images/pezziduri/lingotto-buontalenti.webp',            alt: 'Lingotto Buontalenti' },
+        { src: '../assets/images/pezziduri/LINGOTTO DOLCEVITA.webp',              alt: 'Lingotto Dolcevita' },
+        { src: '../assets/images/pezziduri/lingotto-dolcevita.webp',              alt: 'Lingotto Dolcevita' },
+        { src: '../assets/images/pezziduri/LINGOTTO BUONTALENTI PISTACCHIO.webp', alt: 'Lingotto Buontalenti Pistacchio' },
+        { src: '../assets/images/pezziduri/lingotto-pistacchio.webp',             alt: 'Lingotto Buontalenti Pistacchio' }
       ];
 
       const CONTENITORI_GROUP_IMAGE = '../assets/images/contenitori/gruppo contenitori.webp';
@@ -7771,8 +7763,6 @@
       const fullscreenClose = fullscreenOverlay ? fullscreenOverlay.querySelector('.fullscreen-close') : null;
       const lingottoCarouselEl = document.getElementById('lingottoCarousel');
       const lingottoCarouselImg = document.getElementById('lingottoCarouselImg');
-      const lingottoCarouselName = document.getElementById('lingottoCarouselName');
-      const lingottoCarouselMeta = document.getElementById('lingottoCarouselMeta');
       const lingottoCarouselDotsEl = document.getElementById('lingottoCarouselDots');
       let lingottoCarouselIndex = 0;
       let expandedFlavorId = '';
@@ -8934,48 +8924,66 @@
 
       function renderGelatoDetail(flavor){
         if(!gelatoDetail) return;
-        if(!flavor){
-          gelatoDetail.innerHTML = `<div class=\"gelato-empty\">${t('gelato.detail.empty')}</div>`;
-          gelatoDetail.classList.add('is-collapsed');
-          gelatoDetail.classList.remove('is-open');
-          return;
-        }
-
-        const description = getGelatoDesc(flavor.id) || flavor.description || '';
-        const allergensText = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
-        const categoryName = getFlavorCategory(flavor.id);
-
-        const flavorLabel = getFlavorLabel(flavor);
-        gelatoDetail.innerHTML = `
-          <div class=\"gelato-detail__header\">
-            <div class=\"gelato-section-title\">${flavorLabel}</div>
-            <button class=\"gelato-detail__close\" type=\"button\">✕</button>
-          </div>
-          <h4>${flavorLabel}</h4>
-          ${description ? `<div>
-            <div class=\"gelato-section-title\">${t('gelato.detail.description')}</div>
-            <div class="gelato-list">${description}</div>
-          </div>` : ''}
-          ${categoryName ? `<div>
-            <div class=\"gelato-section-title\">${t('gelato.detail.category')}</div>
-            <div class="gelato-list">${categoryName}</div>
-          </div>` : ''}
-          <div>
-            <div class=\"gelato-section-title\">${t('gelato.detail.allergens')}</div>
-            <div class="gelato-list">${allergensText}</div>
-          </div>
-        `;
-
-        gelatoDetail.classList.remove('is-collapsed');
-        gelatoDetail.classList.add('is-open');
-
-        const closeBtn = gelatoDetail.querySelector('.gelato-detail__close');
-        if(closeBtn){
-          closeBtn.addEventListener('click', () => {
-            gelatoDetail.classList.add('is-collapsed');
-            gelatoDetail.classList.remove('is-open');
-          });
-        }
+        // Animate out, swap content, animate back in
+        gelatoDetail.classList.add('is-updating');
+        setTimeout(() => {
+          if(!flavor){
+            gelatoDetail.className = 'gelato-detail gelato-detail--empty';
+            gelatoDetail.innerHTML = `
+              <div class="gelato-detail__placeholder">
+                <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="18" r="12" stroke="currentColor" stroke-width="2"/><path d="M12 40 Q24 30 36 40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                <span>${t('gelato.detail.empty')}</span>
+              </div>`;
+          } else {
+            const description = getGelatoDesc(flavor.id) || flavor.description || '';
+            const allergensRaw = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
+            const categoryName = getFlavorCategory(flavor.id);
+            const flavorLabel = getFlavorLabel(flavor);
+            const detailSrc = getDetailImageSrc(flavor);
+            const baseSrc = getBaseImageSrc(flavor);
+            const imgSrc = detailSrc || baseSrc;
+            const isTub = (flavor.isTub || (baseSrc && baseSrc.includes('vasche'))) ? ' gelato-detail--tub' : '';
+            const allergenTags = allergensRaw.split(',').map(a =>
+              `<span class="gelato-detail__allergen-tag">${a.trim()}</span>`).join('');
+            const zoomSvg = `<svg viewBox="0 0 24 24" fill="none" width="15" height="15" aria-hidden="true"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
+            gelatoDetail.className = `gelato-detail${isTub}`;
+            gelatoDetail.innerHTML = `
+              <div class="gelato-detail__img">
+                <img src="${encodeURI(imgSrc)}?v=${ASSET_VERSION}" alt="${flavorLabel}" loading="eager" decoding="async" />
+                <button class="gelato-detail__zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${encodeURI(imgSrc)}" data-zoom-alt="${flavorLabel}">${zoomSvg}</button>
+              </div>
+              <button class="gelato-detail__close" type="button" aria-label="Chiudi">&#x2715;</button>
+              <div class="gelato-detail__body">
+                ${categoryName ? `<div class="gelato-detail__category">${categoryName}</div>` : ''}
+                <div class="gelato-detail__name">${flavorLabel}</div>
+                ${description ? `<div>
+                  <div class="gelato-detail__section-label">${t('gelato.detail.description')}</div>
+                  <div class="gelato-detail__value">${description}</div>
+                </div>` : ''}
+                <div>
+                  <div class="gelato-detail__section-label">${t('gelato.detail.allergens')}</div>
+                  <div class="gelato-detail__allergens">${allergenTags}</div>
+                </div>
+              </div>`;
+            const closeBtn = gelatoDetail.querySelector('.gelato-detail__close');
+            if(closeBtn){
+              closeBtn.addEventListener('click', () => {
+                if(expandedFlavorId){
+                  const prev = gelatoGrid ? gelatoGrid.querySelector(`[data-flavor-id="${expandedFlavorId}"]`) : null;
+                  const prevFlavor = gelatoById ? gelatoById.get(expandedFlavorId) : null;
+                  if(prev && prevFlavor) setGelatoCardExpanded(prev, prevFlavor, false);
+                }
+                expandedFlavorId = '';
+                renderGelatoDetail(null);
+              });
+            }
+            const zoomBtn = gelatoDetail.querySelector('.gelato-detail__zoom');
+            if(zoomBtn){
+              zoomBtn.addEventListener('click', () => openFullscreenImage(imgSrc, flavorLabel));
+            }
+          }
+          gelatoDetail.classList.remove('is-updating');
+        }, 150);
       }
 
       function buildGelatoDetailsHTML(flavor){
@@ -9096,24 +9104,10 @@
 
       /* ── Lingotto variants carousel ── */
       function updateLingottoCarouselSlide(idx){
-        const v = LINGOTTO_CAROUSEL_VARIANTS[idx];
-        if(!v || !lingottoCarouselImg || !lingottoCarouselName || !lingottoCarouselMeta || !lingottoCarouselDotsEl) return;
-        lingottoCarouselImg.src = `${encodeURI(PEZZI_DURI_ZOOM_IMAGES[v.name])}?v=${ASSET_VERSION}`;
-        lingottoCarouselImg.alt = getPezziDuriName(v.name);
-        lingottoCarouselName.textContent = getPezziDuriName(v.name);
-        lingottoCarouselMeta.innerHTML =
-          `<div class="lingotto-carousel__meta-row">
-            <span class="lingotto-carousel__meta-label">${t('b2b.pezziduri.avgWeight')}</span>
-            <span class="lingotto-carousel__meta-value">${v.weight}</span>
-          </div>
-          <div class="lingotto-carousel__meta-row">
-            <span class="lingotto-carousel__meta-label">${t('b2b.pezziduri.minOrder')}</span>
-            <span class="lingotto-carousel__meta-value">${getPezziDuriMinOrder(v.min)}</span>
-          </div>
-          ${v.allergens ? `<div class="lingotto-carousel__meta-row">
-            <span class="lingotto-carousel__meta-label">${t('b2b.pezziduri.allergens')}</span>
-            <span class="lingotto-carousel__meta-value"><em>${getPezziDuriAllergens(v.allergens)}</em></span>
-          </div>` : ''}`;
+        const slide = LINGOTTO_CAROUSEL_SLIDES[idx];
+        if(!slide || !lingottoCarouselImg || !lingottoCarouselDotsEl) return;
+        lingottoCarouselImg.src = `${encodeURI(slide.src)}?v=${ASSET_VERSION}`;
+        lingottoCarouselImg.alt = getPezziDuriName(slide.alt);
         lingottoCarouselDotsEl.querySelectorAll('.lingotto-carousel__dot')
           .forEach((d, i) => d.classList.toggle('is-active', i === idx));
       }
@@ -9122,8 +9116,8 @@
         if(!lingottoCarouselEl) return;
         lingottoCarouselIndex = startIdx || 0;
         if(lingottoCarouselDotsEl){
-          lingottoCarouselDotsEl.innerHTML = LINGOTTO_CAROUSEL_VARIANTS.map((_, i) =>
-            `<button class="lingotto-carousel__dot${i === lingottoCarouselIndex ? ' is-active' : ''}" type="button" aria-label="Variante ${i + 1}"></button>`
+          lingottoCarouselDotsEl.innerHTML = LINGOTTO_CAROUSEL_SLIDES.map((slide, i) =>
+            `<button class="lingotto-carousel__dot${i === lingottoCarouselIndex ? ' is-active' : ''}" type="button" aria-label="${getPezziDuriName(slide.alt)} ${i + 1}"></button>`
           ).join('');
           lingottoCarouselDotsEl.querySelectorAll('.lingotto-carousel__dot').forEach((dot, i) => {
             dot.addEventListener('click', () => {
@@ -9159,11 +9153,11 @@
         const nextBtn = lingottoCarouselEl.querySelector('.lingotto-carousel__nav--next');
         const closeBtn = lingottoCarouselEl.querySelector('.lingotto-carousel__close');
         if(prevBtn) prevBtn.addEventListener('click', () => {
-          lingottoCarouselIndex = (lingottoCarouselIndex - 1 + LINGOTTO_CAROUSEL_VARIANTS.length) % LINGOTTO_CAROUSEL_VARIANTS.length;
+          lingottoCarouselIndex = (lingottoCarouselIndex - 1 + LINGOTTO_CAROUSEL_SLIDES.length) % LINGOTTO_CAROUSEL_SLIDES.length;
           updateLingottoCarouselSlide(lingottoCarouselIndex);
         });
         if(nextBtn) nextBtn.addEventListener('click', () => {
-          lingottoCarouselIndex = (lingottoCarouselIndex + 1) % LINGOTTO_CAROUSEL_VARIANTS.length;
+          lingottoCarouselIndex = (lingottoCarouselIndex + 1) % LINGOTTO_CAROUSEL_SLIDES.length;
           updateLingottoCarouselSlide(lingottoCarouselIndex);
         });
         if(closeBtn) closeBtn.addEventListener('click', closeLingottoCarousel);
@@ -9175,11 +9169,11 @@
         if(!lingottoCarouselEl || !lingottoCarouselEl.classList.contains('is-open')) return;
         if(event.key === 'Escape'){ closeLingottoCarousel(); }
         if(event.key === 'ArrowLeft'){
-          lingottoCarouselIndex = (lingottoCarouselIndex - 1 + LINGOTTO_CAROUSEL_VARIANTS.length) % LINGOTTO_CAROUSEL_VARIANTS.length;
+          lingottoCarouselIndex = (lingottoCarouselIndex - 1 + LINGOTTO_CAROUSEL_SLIDES.length) % LINGOTTO_CAROUSEL_SLIDES.length;
           updateLingottoCarouselSlide(lingottoCarouselIndex);
         }
         if(event.key === 'ArrowRight'){
-          lingottoCarouselIndex = (lingottoCarouselIndex + 1) % LINGOTTO_CAROUSEL_VARIANTS.length;
+          lingottoCarouselIndex = (lingottoCarouselIndex + 1) % LINGOTTO_CAROUSEL_SLIDES.length;
           updateLingottoCarouselSlide(lingottoCarouselIndex);
         }
       });
@@ -9191,9 +9185,52 @@
         const img = card.querySelector('img');
         const baseSrc = getBaseImageSrc(flavor);
         updateGelatoCardImage(img, baseSrc, getDetailImageSrc(flavor), isExpanded);
-        /* Remove any stale inline details from previous approach */
-        const existing = card.querySelector('.gelato-card__details');
-        if(existing) existing.remove();
+
+        /* Remove any stale expanded body */
+        const existingBody = card.querySelector('.gelato-card__exp-body');
+        if(existingBody) existingBody.remove();
+
+        const nameSpan = card.querySelector('span');
+        if(isExpanded){
+          const description = getGelatoDesc(flavor.id) || flavor.description || '';
+          const allergensRaw = getGelatoAllergens(flavor.id) || flavor.allergensText || t('gelato.detail.none');
+          const categoryName = getFlavorCategory(flavor.id);
+          const flavorLabel = getFlavorLabel(flavor);
+          const allergenTags = allergensRaw.split(',').map(a =>
+            `<span class="gelato-card__exp-tag">${a.trim()}</span>`).join('');
+
+          const expBody = document.createElement('div');
+          expBody.className = 'gelato-card__exp-body';
+          expBody.innerHTML = `
+            <div class="gelato-card__exp-header">
+              <div>
+                <div class="gelato-card__exp-name">${flavorLabel}</div>
+              </div>
+              <button class="gelato-card__exp-close" type="button" aria-label="Chiudi">&#x2715;</button>
+            </div>
+            ${description ? `<div>
+              <div class="gelato-card__exp-section-label">${t('gelato.detail.description')}</div>
+              <div class="gelato-card__exp-desc">${description}</div>
+            </div>` : ''}
+            <div>
+              <div class="gelato-card__exp-section-label">${t('gelato.detail.allergens')}</div>
+              <div class="gelato-card__exp-allergens">${allergenTags}</div>
+            </div>`;
+          card.appendChild(expBody);
+
+          const closeBtn = expBody.querySelector('.gelato-card__exp-close');
+          if(closeBtn){
+            closeBtn.addEventListener('click', (e) => {
+              e.stopPropagation();
+              expandedFlavorId = '';
+              setGelatoCardExpanded(card, flavor, false);
+            });
+          }
+        } else {
+          /* Remove any stale old details */
+          const staleDetails = card.querySelector('.gelato-card__details');
+          if(staleDetails) staleDetails.remove();
+        }
       }
 
       function renderGelatoGrid(){
@@ -9283,11 +9320,6 @@
               if(nextId){
                 setGelatoCardExpanded(btn, flavor, true);
                 renderGelatoDetail(flavor);
-                if(!prefersReducedMotion){
-                  requestAnimationFrame(() => {
-                    if(gelatoDetail) gelatoDetail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                  });
-                }
               } else {
                 renderGelatoDetail(null);
               }
@@ -9334,7 +9366,16 @@
       }
 
       function setActiveCategory(name){
+        const previousCategory = activeCategory;
         activeCategory = name || categories[0];
+        const enteringPezziDuri = activeCategory === 'PEZZI DURI' && previousCategory !== 'PEZZI DURI';
+        if(enteringPezziDuri){
+          pezziDuriShowOverlay = true;
+          expandedPezziDuriId = '';
+        }else if(activeCategory !== 'PEZZI DURI'){
+          pezziDuriShowOverlay = false;
+          expandedPezziDuriId = '';
+        }
         title.innerHTML = categoryLabel(activeCategory);
         nav.querySelectorAll('button').forEach((btn) => {
           btn.classList.toggle('is-active', btn.dataset.category === activeCategory);
