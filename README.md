@@ -834,6 +834,9 @@ python _source/add_cookie_strings.py
 | 2026-03-10 | **Titoli**: rimossa linea grigia decorativa (`.title-accent::after`) — resta solo quadratino rosa |
 | 2026-03-10 | **Favicon**: sostituito logo completo con icona "B" — 4 varianti generate (WebP 64px, ICO 32px, PNG 180px, PNG 32px) |
 | 2026-03-10 | **Saletta Tosinghi**: aggiunta dicitura "Minimo di spesa applicabile" sotto ogni pacchetto (Silver, Gold, Platinum), localizzata in IT/EN/FR/ES |
+| 2026-03-10 | **B2B Gusti grid**: portato a 5 colonne desktop (era 4); mobile 2 colonne (era 3) |
+| 2026-03-10 | **B2B Gusti grid — bug fix**: rimosso `grid-auto-flow:dense` che causava spostamento visivo delle card tra categorie al click; rimossa logica DOM-swap difettosa (`.before()` non ripristinava la posizione originale); rimossi override `gridRowStart`/`gridRowEnd` in conflitto con `grid-row:span 2` CSS |
+| 2026-03-10 | **B2B Gusti grid — bug fix 2**: rimosso completamente `grid-column:span 2 / grid-row:span 2` dall'expanded card (causa impossibilità di espansione in ultima colonna → salto di riga → gap → incasino categorie); dettaglio gusto ora mostrato nel pannello `#gelatoDetail` sotto la griglia (stessa architettura tipologia vasche) |
 
 ### Debito Tecnico
 
