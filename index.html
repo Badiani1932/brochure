@@ -197,7 +197,7 @@
     .choice-card__overlay{
       position:relative;
       z-index:2;
-      padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px);
+      padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px) clamp(32px, 4vw, 48px);
       background:none;
       display:flex;
       flex-direction:column;
@@ -231,7 +231,6 @@
       letter-spacing:4px;
       font-weight:700;
       line-height:0.92;
-      flex:1 0 auto;
       text-shadow:none;
     }
     .choice-desc{
@@ -239,14 +238,43 @@
       color:rgba(255,255,255,0.85);
       line-height:1.5;
       max-width:220px;
-      margin-top:auto;
-      padding-bottom:6px;
+      margin-top:14px;
     }
-    .choice-cta{ display:none; }
-
-    /* Vertical divider between halves - using box-shadow to avoid affecting layout */
-    .choice-grid .choice-card:first-child{
-      box-shadow:1px 0 0 0 rgba(255,255,255,0.15);
+    .choice-cta{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+      margin-top:auto;
+      align-self:stretch;
+      padding:20px 40px;
+      border-radius:999px;
+      border:none;
+      background:#fff;
+      color:var(--badiani-blue);
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(14px, 1.1vw, 17px);
+      text-transform:uppercase;
+      letter-spacing:2.5px;
+      font-weight:700;
+      pointer-events:none;
+      box-shadow:0 6px 28px rgba(0,0,0,0.32);
+      transition:background 0.28s ease, color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .choice-cta svg{
+      width:18px;
+      height:18px;
+      flex-shrink:0;
+      transition:transform 0.28s ease;
+    }
+    .choice-card:hover .choice-cta{
+      background:var(--badiani-pink);
+      color:#fff;
+      transform:translateY(-3px);
+      box-shadow:0 12px 40px rgba(240,103,166,0.45);
+    }
+    .choice-card:hover .choice-cta svg{
+      transform:translateX(5px);
     }
 
     @media(max-width:768px){
@@ -263,7 +291,7 @@
         gap:10px;
       }
       .hero-content h1{
-        font-size:clamp(48px, 9vw, 72px);
+        font-size:clamp(56px, 11vw, 110px);
         letter-spacing:2px;
         line-height:0.9;
       }
@@ -282,11 +310,7 @@
         padding:32px 28px;
       }
       .choice-title{
-        font-size:clamp(42px, 6vw, 192px);
-      }
-      .choice-grid .choice-card:first-child{
-        box-shadow:none;
-        border-bottom:1px solid rgba(255,255,255,0.15);
+        font-size:clamp(56px, 14vw, 140px);
       }
       .todo-note{ display:none; }
 
@@ -298,7 +322,7 @@
         padding:24px 20px;
       }
       .hero-content h1{
-        font-size:clamp(40px, 12vw, 72px);
+        font-size:clamp(52px, 14vw, 80px);
       }
       .choice-card{
         min-height:40vh;
@@ -310,7 +334,7 @@
         gap:8px;
       }
       .choice-title{
-        font-size:clamp(42px, 6vw, 192px);
+        font-size:clamp(56px, 15vw, 140px);
       }
       .choice-desc{ font-size:13px; max-width:none; }
     }
@@ -781,6 +805,7 @@
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
       .world-card__paolo{ height:126%; right:0; max-width:70%; }
       /* Full width text when cards are stacked */
+      .world-card__title{ font-size:clamp(44px, 11vw, 120px); }
       .world-card--metrics .world-card__title{ max-width:100%; }
       .world-card__desc{ max-width:100%; }
       .stats{ max-width:100%; grid-template-columns:1fr; }
@@ -1079,6 +1104,10 @@
             <h2 class="choice-title title-accent title-accent--light" data-i18n="home.card.eventi.title">EVENTI</h2>
           </div>
           <p class="choice-desc" data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</p>
+          <span class="choice-cta" aria-hidden="true">
+            <span data-i18n="home.choice.eventi.cta">Scopri gli eventi</span>
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+          </span>
         </div>
       </a>
       <a class="choice-card" href="b2b/" data-i18n-attr="aria-label:home.choice.b2b.aria">
@@ -1088,6 +1117,10 @@
             <h2 class="choice-title title-accent title-accent--light">B2B</h2>
           </div>
           <p class="choice-desc" data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</p>
+          <span class="choice-cta" aria-hidden="true">
+            <span data-i18n="home.choice.b2b.cta">Esplora il catalogo</span>
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+          </span>
         </div>
       </a>
     </div>

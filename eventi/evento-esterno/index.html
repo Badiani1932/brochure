@@ -788,43 +788,6 @@
       width:18px; height:18px; fill:currentColor;
     }
 
-    /* ===== MERCURY CHARACTER ===== */
-    .ext-form-section__mercury{
-      position:absolute;
-      left:max(-320px, calc(50% - 1180px));
-      bottom:calc(-10% - 300px);
-      height:clamp(800px, 110vh, 1400px);
-      max-width:none;
-      object-fit:contain;
-      object-position:left bottom;
-      pointer-events:none;
-      z-index:0;
-      transform:translateY(-20px) translateX(50px) rotate(0deg);
-      transition:transform 0.1s linear;
-      will-change:transform;
-    }
-    @media(max-width:1200px){
-      .ext-form-section__mercury{
-        left:max(-280px, calc(50% - 1150px));
-        height:clamp(700px, 90vh, 1100px);
-      }
-    }
-    @media(max-width:900px){
-      .ext-form-section__mercury{
-        left:max(-200px, calc(50% - 1110px));
-        height:clamp(560px, 77vh, 840px);
-        opacity:0.5;
-      }
-    }
-    @media(max-width:600px){
-      .ext-form-section__mercury{
-        left:-60px;
-        bottom:calc(-3% - 80px);
-        height:clamp(220px, 34vh, 320px);
-        opacity:0.35;
-      }
-    }
-
     /* ===== RESPONSIVE ===== */
     @media(max-width:900px){
       .ext-hero__content{
@@ -933,10 +896,8 @@
       }
     }
 
-    /* ===== prefers-reduced-motion ===== */
     @media(prefers-reduced-motion: reduce){
-      .ext-card__img,
-      .ext-form-section__mercury{
+      .ext-card__img{
         transition:none !important;
         transform:none !important;
       }
@@ -1050,7 +1011,6 @@
 
   <!-- FORM — sfondo.webp background -->
   <section id="contatti" class="ext-form-section" data-i18n-attr="aria-label:external.contact.title">
-    <img class="ext-form-section__mercury" src="../../assets/mercury.webp" alt="" loading="lazy" decoding="async" aria-hidden="true" />
     <div class="ext-form-block">
       <div class="ext-form-header">
         <h2 data-i18n="external.form.title">Richiedi Informazioni</h2>
@@ -1327,34 +1287,6 @@
         else panel.classList.remove('visible');
       });
     });
-
-    // Mercury parallax
-    (function(){
-      var mercury = document.querySelector('.ext-form-section__mercury');
-      var mercurySection = mercury ? mercury.closest('.ext-form-section') : null;
-      if(!mercury || !mercurySection) return;
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(prefersReduced) return;
-      mercury.style.transition = 'transform 0.1s linear';
-      mercury.style.willChange = 'transform';
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if(!ticking){
-          ticking = true;
-          requestAnimationFrame(function(){
-            var vh = window.innerHeight;
-            var mr = mercurySection.getBoundingClientRect();
-            var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
-            mp = Math.max(0, Math.min(1, mp * 1.4));
-            var shiftY = (1 - mp) * 180 - 200;
-            var shiftX = (1 - mp) * 50;
-            var rotate = mp * 12;
-            mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
-            ticking = false;
-          });
-        }
-      }, {passive:true});
-    })();
 
     // Hamburger
     (function(){

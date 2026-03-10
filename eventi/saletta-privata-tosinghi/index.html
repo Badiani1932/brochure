@@ -657,7 +657,7 @@
       transform:scaleX(-1);
       z-index:0;
     }
-    .sal-form-section > *:not(.sal-form-section__mercury){
+    .sal-form-section > *{
       position:relative;
       z-index:1;
     }
@@ -1178,21 +1178,6 @@
       .list-modal__body li:last-child{ border-bottom:none; }
     }
 
-    /* ===== MERCURY CHARACTER ===== */
-    .sal-form-section__mercury{
-      position:absolute;
-      left:max(-320px, calc(50% - 1180px));
-      bottom:calc(-10% - 300px);
-      height:clamp(800px, 110vh, 1400px);
-      max-width:none;
-      object-fit:contain;
-      object-position:left bottom;
-      pointer-events:none;
-      z-index:0;
-      transform:translateY(-20px) translateX(50px) rotate(0deg);
-      transition:transform 0.1s linear;
-      will-change:transform;
-    }
     .sal-form-block{
       position:relative;
       z-index:2;
@@ -1489,11 +1474,9 @@
       .list-btns-row{ flex-direction:column; align-items:center; gap:12px; }
     }
 
-    /* ===== prefers-reduced-motion ===== */
     @media(prefers-reduced-motion: reduce){
       .sal-card__img,
-      .sal-gallery__photo img,
-      .sal-form-section__mercury{
+      .sal-gallery__photo img{
         transition:none !important;
         transform:none !important;
       }
@@ -1727,9 +1710,8 @@
     </div>
   </section>
 
-  <!-- FORM — sfondo.webp background with Mercury parallax -->
+  <!-- FORM — sfondo.webp background -->
   <section id="contatti" class="sal-form-section" data-i18n-attr="aria-label:tosinghi.contact.title">
-    <img class="sal-form-section__mercury" src="../../assets/mercury.webp?v=2" alt="" loading="lazy" decoding="async" aria-hidden="true" />
     <div class="sal-form-block">
       <div class="sal-form-header">
         <h2 data-i18n="tosinghi.form.title">Richiedi Informazioni</h2>
@@ -2082,34 +2064,6 @@
       hero.addEventListener('click', function(){
         hero.classList.toggle('is-active');
       });
-    })();
-
-    // Mercury parallax
-    (function(){
-      var mercury = document.querySelector('.sal-form-section__mercury');
-      var mercurySection = mercury ? mercury.closest('.sal-form-section') : null;
-      if(!mercury || !mercurySection) return;
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if(prefersReduced) return;
-      mercury.style.transition = 'transform 0.1s linear';
-      mercury.style.willChange = 'transform';
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if(!ticking){
-          ticking = true;
-          requestAnimationFrame(function(){
-            var vh = window.innerHeight;
-            var mr = mercurySection.getBoundingClientRect();
-            var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
-            mp = Math.max(0, Math.min(1, mp * 1.4));
-            var shiftY = (1 - mp) * 180 - 200;
-            var shiftX = (1 - mp) * 50;
-            var rotate = mp * 12;
-            mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
-            ticking = false;
-          });
-        }
-      }, {passive:true});
     })();
 
     // Hamburger

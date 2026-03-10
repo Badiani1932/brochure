@@ -672,11 +672,9 @@
       display:none !important;
     }
     .modal__content.is-pezziduri.is-pezziduri-overlay{
-      overflow-y:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:16px;
+      overflow-y:auto;
+      display:grid;
+      align-content:start;
     }
     .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-note{
       display:none;
@@ -893,7 +891,7 @@
       object-position:center top;
       background:#f7f5f2;
     }
-    .gelato-card.is-expanded > span{ display:none; }
+    .gelato-card.is-expanded > span{ opacity:0; pointer-events:none; }
     .gelato-card__details{
       display:grid;
       gap:6px;
@@ -920,16 +918,16 @@
       bottom:0;
       left:0;
       right:0;
-      height:130px;
-      padding:30px 12px 6px;
+      height:175px;
+      padding:50px 14px 12px;
       display:flex;
       flex-direction:column;
-      gap:3px;
+      gap:5px;
       background:linear-gradient(to bottom,
         rgba(255,255,255,0)    0%,
-        rgba(255,255,255,0.7)  38%,
-        rgba(255,255,255,0.96) 60%,
-        #fff                   72%
+        rgba(255,255,255,0.75) 35%,
+        rgba(255,255,255,0.97) 55%,
+        #fff                   68%
       );
       backdrop-filter:blur(2px);
       -webkit-backdrop-filter:blur(2px);
@@ -956,7 +954,7 @@
     }
     .gelato-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:13px;
+      font-size:15px;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
@@ -981,14 +979,14 @@
     }
     .gelato-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
     .gelato-card__exp-section-label{
-      font-size:8px;
+      font-size:10px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .gelato-card__exp-desc{
-      font-size:10px;
+      font-size:12px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskC',sans-serif;
@@ -996,20 +994,20 @@
     .gelato-card__exp-allergens{
       display:flex;
       flex-wrap:wrap;
-      gap:2px;
+      gap:4px;
     }
     /* !important guards protect these values from being overridden by higher-specificity ancestor rules */
     .gelato-card__exp-tag{
       background:rgba(30,57,141,0.07) !important;
       color:var(--badiani-blue) !important;
       border-radius:999px !important;
-      padding:1px 5px !important;
-      font-size:7px !important;
+      padding:2px 8px !important;
+      font-size:10px !important;
       font-weight:400 !important;
       text-transform:uppercase !important;
       letter-spacing:0.2px !important;
       font-family:'SuperGroteskC',sans-serif !important;
-      line-height:1.4 !important;
+      line-height:1.5 !important;
       display:inline !important;
       flex:none !important;
     }
@@ -2492,6 +2490,18 @@
       align-items:center;
       justify-content:center;
     }
+    .pezziduri-desc{
+      display:none;
+      font-size:12px;
+      color:rgba(30,57,141,0.75);
+      text-align:center;
+      line-height:1.4;
+      padding:2px 4px 0;
+    }
+    .pezziduri-card.is-expanded .pezziduri-desc{
+      display:block;
+      animation:cardDetailsFadeIn 0.25s ease;
+    }
     .pezziduri-card.is-expanded .pezziduri-title{
       font-size:16px;
       text-align:center;
@@ -3706,36 +3716,6 @@
       position:relative;
       z-index:1;
     }
-    /* Mercury character — right side */
-    .b2b-form-section__mercury{
-      position:absolute;
-      right:clamp(100px, 10vw, 200px);
-      left:auto;
-      bottom:calc(-10% - 480px);
-      height:clamp(800px, 110vh, 1400px);
-      max-width:none;
-      object-fit:contain;
-      object-position:right bottom;
-      pointer-events:none;
-      z-index:0;
-      transform:translateY(-20px) translateX(-50px) scaleX(-1) rotate(0deg);
-      transition:transform 0.1s linear;
-      will-change:transform;
-    }
-    @media(max-width:1200px){
-      .b2b-form-section__mercury{
-        right:clamp(60px, 6vw, 140px);
-        height:clamp(700px, 90vh, 1100px);
-      }
-    }
-    /* Keep Mercury visible on narrow viewports, but scaled down */
-    @media(max-aspect-ratio:16/9){
-      .b2b-form-section__mercury{
-        right:clamp(10px, 3vw, 44px);
-        bottom:calc(-6% - 260px);
-        height:clamp(460px, 70vh, 760px);
-      }
-    }
     /* 3-column grid: steps left, form center */
     .b2b-form-section__grid{
       display:grid;
@@ -3751,12 +3731,6 @@
       .b2b-form-section__grid{
         grid-template-columns:1fr;
         max-width:900px;
-      }
-      .b2b-form-section__mercury{
-        right:clamp(-12px, 2vw, 24px);
-        bottom:calc(-5% - 180px);
-        height:clamp(360px, 52vh, 560px);
-        opacity:0.5;
       }
     }
     .b2b-form-block{
@@ -4000,28 +3974,6 @@
       }
       .b2b-form-inline-submit{
         justify-content:center;
-      }
-      .b2b-form-section__mercury{
-        right:clamp(-18px, 1vw, 10px);
-        bottom:calc(-4% - 120px);
-        height:clamp(280px, 42vh, 420px);
-        opacity:0.4;
-      }
-    }
-
-    @media(max-width:560px){
-      .b2b-form-section__mercury{
-        right:-22px;
-        bottom:calc(-3% - 80px);
-        height:clamp(220px, 34vh, 320px);
-        opacity:0.35;
-      }
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      .b2b-form-section__mercury{
-        transition:none !important;
-        transform:none !important;
       }
     }
 
@@ -4597,7 +4549,6 @@
 
     <!-- RICHIEDI INFORMAZIONI — inline form section with steps sidebar -->
     <section id="contatti" class="b2b-form-section" data-i18n-attr="aria-label:b2b.form.label">
-      <img class="b2b-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" width="768" height="1356" />
       <div class="b2b-form-section__grid">
       <div class="b2b-form-block">
         <div class="b2b-form-block__header">
@@ -5047,18 +4998,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="listino-flavor">Classico Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">90 g</td><td class="listino-col-center">24</td></tr>
-                <tr><td class="listino-flavor">Classico Stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
-                <tr><td class="listino-flavor">Classico Fondente</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Stecco Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">90 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Stecco stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Stecco fondente</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
                 <tr><td class="listino-flavor">Tavoletta Buontalenti e cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">24</td></tr>
-                <tr><td class="listino-flavor">Cuore di Buontalenti fondente</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Cuore di Buontalenti alla fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Cuore Buontalenti e cioccolata</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Cuore Buontalenti e fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Biscotto Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
                 <tr><td class="listino-flavor">Biscotto Stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
                 <tr><td class="listino-flavor">Donut cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Donut cioccolato bianco</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Donut cioccolato alla fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Donut cioccolato al pistacchio</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Donut bianco</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Donut rosa</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Donut verde</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Fruit Tube Limone</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Fruit Tube Menta</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Fruit Tube Fragola</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
@@ -5416,8 +5367,8 @@
           'b2b.conigf.hint': 'Tocca un cono gluten free per vederne i dettagli',
           'b2b.conigf.sectionTitle': 'Coni Gluten Free',
           'b2b.torte.hint': 'Tocca una torta per vederne i dettagli',
-          'b2b.torte.sizeS': '4–6 persone',
-          'b2b.torte.sizeM': '7–8 persone',
+          'b2b.torte.sizeS': 'fino a 4 porzioni',
+          'b2b.torte.sizeM': 'fino a 6 porzioni',
           'b2b.torte.sizesNote': 'Ogni torta è disponibile in 2 misure: S e M',
           'b2b.torte.description': 'Descrizione',
           'b2b.torte.allergens': 'Allergeni',
@@ -5788,8 +5739,8 @@
           'b2b.conigf.hint': 'Tap a gluten free cone to see its details',
           'b2b.conigf.sectionTitle': 'Gluten Free Cones',
           'b2b.torte.hint': 'Tap a cake to see its details',
-          'b2b.torte.sizeS': '4–6 people',
-          'b2b.torte.sizeM': '7–8 people',
+          'b2b.torte.sizeS': 'up to 4 servings',
+          'b2b.torte.sizeM': 'up to 6 servings',
           'b2b.torte.sizesNote': 'Each cake is available in 2 sizes: S and M',
           'b2b.torte.description': 'Description',
           'b2b.torte.allergens': 'Allergens',
@@ -6165,8 +6116,8 @@
           'b2b.conigf.hint': 'Appuyez sur un cornet sans gluten pour en voir les détails',
           'b2b.conigf.sectionTitle': 'Cornets Sans Gluten',
           'b2b.torte.hint': 'Appuyez sur un gâteau pour en voir les détails',
-          'b2b.torte.sizeS': '4–6 personnes',
-          'b2b.torte.sizeM': '7–8 personnes',
+          'b2b.torte.sizeS': "jusqu'à 4 portions",
+          'b2b.torte.sizeM': "jusqu'à 6 portions",
           'b2b.torte.sizesNote': 'Chaque gâteau est disponible en 2 tailles : S et M',
           'b2b.torte.description': 'Description',
           'b2b.torte.allergens': 'Allergènes',
@@ -6542,8 +6493,8 @@
           'b2b.conigf.hint': 'Toca un cono sin gluten para ver sus detalles',
           'b2b.conigf.sectionTitle': 'Conos Sin Gluten',
           'b2b.torte.hint': 'Toca una tarta para ver sus detalles',
-          'b2b.torte.sizeS': '4–6 personas',
-          'b2b.torte.sizeM': '7–8 personas',
+          'b2b.torte.sizeS': 'hasta 4 raciones',
+          'b2b.torte.sizeM': 'hasta 6 raciones',,
           'b2b.torte.sizesNote': 'Cada tarta está disponible en 2 tamaños: S y M',
           'b2b.torte.description': 'Descripción',
           'b2b.torte.allergens': 'Alérgenos',
@@ -6739,17 +6690,17 @@
             ['Lingotto Buontalenti', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte'],
             ['Lingotto Buontalenti Pistacchio', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia, frutta a guscio'],
             ['Lingotto Dolcevita', '60 g', '96 (8 box da 12 pezzi)', 'uova, latte, soia'],
-            ['Classico Buontalenti', '90 g', '24', 'uova, latte, soia'],
-            ['Classico Stracciatella', '100 g', '24', 'uova, latte, soia'],
-            ['Classico Fondente', '100 g', '24', 'soia'],
-            ['Cuore Buontalenti fondente', '110 g', '24', 'uova, latte, soia'],
-            ['Buontalenti alla fragola', '110 g', '16', 'uova, latte, soia'],
+            ['Stecco Buontalenti', '90 g', '24', 'uova, latte, soia'],
+            ['Stecco stracciatella', '100 g', '24', 'uova, latte, soia'],
+            ['Stecco fondente', '100 g', '24', 'soia'],
+            ['Cuore Buontalenti e cioccolata', '110 g', '24', 'uova, latte, frutta a guscio, soia'],
+            ['Cuore Buontalenti e fragola', '110 g', '16', 'uova, latte, soia'],
             ['Biscotto Buontalenti', '110 g', '12', 'uova, latte, soia, glutine'],
             ['Biscotto Stracciatella', '110 g', '12', 'uova, latte, soia, glutine'],
             ['Donut cioccolato', '90 g', '16', 'uova, latte, soia'],
-            ['Donut cioccolato bianco', '90 g', '16', 'uova, latte, soia'],
-            ['Donut cioccolato alla fragola', '90 g', '16', 'uova, latte, soia'],
-            ['Donut cioccolato al pistacchio', '90 g', '16', 'uova, latte, soia'],
+            ['Donut bianco', '90 g', '16', 'uova, latte, soia'],
+            ['Donut rosa', '90 g', '16', 'uova, latte, soia'],
+            ['Donut verde', '90 g', '16', 'uova, latte, soia'],
             ['Fruit Tube Limone', '120 g', '16', ''],
             ['Fruit Tube Menta', '120 g', '16', ''],
             ['Fruit Tube Fragola', '120 g', '16', ''],
@@ -6778,7 +6729,7 @@
             ['GRANDE', '175mm × ⌀48mm', '216 pz'],
             ['Coni Gluten free (083)', '155mm × ⌀42mm', '240 pz'],
             ['Coni Gluten free (084)', '165mm × ⌀47mm', '212 pz'],
-            ['Piccola', '16B', '120cc', '250 pz'],
+            ['Piccola', '16B', '80 gr', '250 pz'],
             ['Media', '108', '120cc', '250 pz'],
             ['Grande', '4C', '160cc', '200 pz'],
             ['Maxi', '4CA', '200cc', '200 pz']
@@ -6790,8 +6741,8 @@
           rows: [
             ['Cialdine', 'Cialdine logate Badiani', '1200 pz'],
             ['Palettine', 'Palettine gelato', '1 Kg'],
-            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '40 pacchetti'],
-            ['Paletta', 'Paletta per servizio gelato', 'su richiesta'],
+            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '250 a pacchetto'],
+            ['Spatola servizio gelato', 'Spatola per servizio gelato, 26 cm', 'su richiesta'],
             ['Contenitore 1', 'Contenitore servizio piccolo', 'su richiesta'],
             ['Contenitore 2', 'Contenitore servizio grande', 'su richiesta']
           ]
@@ -6868,31 +6819,31 @@
           'la-dolcevita': 'Buontalenti with hazelnut and cocoa sauce, our Gelato Festival winning flavour',
           'buontalenti-pistacchio': 'Buontalenti with pistachio sauce',
           'buontalenti-caramello': 'Buontalenti with caramel sauce',
-          'buontalenti-amarena': 'Buontalenti with sour cherry ripple',
-          'buontalenti-delattosato': 'Our iconic flavour made with just 4 ingredients: lactose-free cream and milk, sugar, eggs',
+          'buontalenti-amarena': 'Our iconic flavour with sour cherry sauce',
+          'buontalenti-delattosato': 'Our iconic flavour made without lactose',
           'buontalenti-fondente': 'Buontalenti with dark chocolate sauce',
           'bacio': 'Dark chocolate and whole roasted hazelnut gelato, inspired by the famous Italian chocolate kiss',
           'caffe': 'Arabica coffee gelato with an aromatic and velvety taste',
           'caramello-salato': 'Caramel gelato with a hint of salt for a sweet-salty balance',
-          'cassandra': 'Buontalenti with caramel sauce and hazelnut and almond flakes',
+          'cassandra': 'Buontalenti, caramel sauce, almond and hazelnut flakes',
           'cheesecake-frutti-rossi': 'Cheesecake gelato with red berry ripple',
           'cioccolato-al-latte': 'Milk chocolate gelato with a creamy and enveloping texture',
-          'cioccolato-bianco-arancia': 'White chocolate gelato with a fresh hint of orange',
-          'cocco': 'Coconut gelato with a creamy texture and tropical taste',
+          'cioccolato-bianco-arancia': 'Milk chocolate with orange sauce',
+          'cocco': 'Coconut gelato',
           'cremino-al-pistacchio': 'Cremino gelato with pistachio paste, intense and velvety flavour',
           'cremino-alla-nocciola': 'Cremino gelato with roasted hazelnut paste, soy and cocoa',
-          'fragola': 'Fresh strawberry sorbet with a fruity and natural taste',
-          'fondente': 'Dark chocolate gelato with an intense and bold taste',
-          'lampone': 'Raspberry sorbet with a fresh and slightly tart taste',
-          'limone': 'Fresh and refreshing lemon sorbet with lemon zest',
-          'malaga': 'Custard gelato with rum-soaked raisins',
-          'mango': 'Ripe mango sorbet with a tropical and fragrant taste',
-          'nocciola': 'Roasted hazelnut gelato with a rich and enveloping taste',
-          'pistacchio': 'Pistachio gelato with pure pistachio paste',
-          'stracciatella': 'Milk cream gelato with dark chocolate shavings',
-          'tiramis\u00f9': 'Tiramis\u00f9 gelato with mascarpone, coffee and cocoa',
+          'fragola': 'Strawberry sorbet',
+          'fondente': 'Single-origin 72% dark chocolate sorbet',
+          'lampone': 'Raspberry sorbet',
+          'limone': 'Lemon sorbet',
+          'malaga': 'Cream gelato with rum and Chilean raisins',
+          'mango': 'Mango sorbet',
+          'nocciola': 'Hazelnut gelato',
+          'pistacchio': 'Pistachio gelato',
+          'stracciatella': 'Cream gelato with dark chocolate shavings',
+          'tiramis\u00f9': 'Tiramis\u00f9 gelato',
           'yogurt-mirtillo': 'Yoghurt gelato with blueberry ripple',
-          'yogurt': 'Fresh and delicate yoghurt gelato',
+          'yogurt': 'Yoghurt gelato made with over 70% yoghurt',
           'dubai-chocolate': 'Chocolate gelato with pistachio cream and crunchy kadayif, inspired by the famous Dubai bar'
         },
         fr: {
@@ -6900,31 +6851,31 @@
           'la-dolcevita': 'Buontalenti avec sauce aux noisettes et cacao, notre parfum laur\u00e9at du Gelato Festival',
           'buontalenti-pistacchio': 'Buontalenti avec sauce \u00e0 la pistache',
           'buontalenti-caramello': 'Buontalenti avec sauce au caramel',
-          'buontalenti-amarena': 'Buontalenti avec coulis de griottes',
-          'buontalenti-delattosato': 'Notre parfum embl\u00e9matique, \u00e9labor\u00e9 avec seulement 4 ingr\u00e9dients : cr\u00e8me et lait sans lactose, sucre, \u0153ufs',
+          'buontalenti-amarena': 'Notre parfum embl\u00e9matique avec sauce aux griottes',
+          'buontalenti-delattosato': 'Notre parfum embl\u00e9matique sans lactose',
           'buontalenti-fondente': 'Buontalenti avec sauce au chocolat noir',
           'bacio': 'Gelato au chocolat noir et noisettes torr\u00e9fi\u00e9es enti\u00e8res, inspir\u00e9 du c\u00e9l\u00e8bre chocolat italien',
           'caffe': 'Gelato au caf\u00e9 arabica au go\u00fbt aromatique et velout\u00e9',
           'caramello-salato': 'Gelato au caramel avec une note de sel pour un \u00e9quilibre sucr\u00e9-sal\u00e9',
-          'cassandra': 'Buontalenti avec sauce au caramel et \u00e9clats de noisettes et amandes',
+          'cassandra': 'Buontalenti, sauce caramel, \u00e9clats d\'amandes et noisettes',
           'cheesecake-frutti-rossi': 'Gelato au cheesecake avec coulis de fruits rouges',
           'cioccolato-al-latte': 'Gelato au chocolat au lait \u00e0 la texture cr\u00e9meuse et enveloppante',
-          'cioccolato-bianco-arancia': 'Gelato au chocolat blanc avec une note fra\u00eeche d\u2019orange',
-          'cocco': 'Gelato \u00e0 la noix de coco \u00e0 la texture cr\u00e9meuse et au go\u00fbt tropical',
+          'cioccolato-bianco-arancia': 'Chocolat au lait avec sauce \u00e0 l\'orange',
+          'cocco': 'Gelato \u00e0 la noix de coco',
           'cremino-al-pistacchio': 'Gelato cremino \u00e0 la p\u00e2te de pistache au go\u00fbt intense et velout\u00e9',
           'cremino-alla-nocciola': 'Gelato cremino \u00e0 la p\u00e2te de noisettes torr\u00e9fi\u00e9es, soja et cacao',
-          'fragola': 'Sorbet \u00e0 la fraise fra\u00eeche au go\u00fbt fruit\u00e9 et naturel',
-          'fondente': 'Gelato au chocolat noir au go\u00fbt intense et prononc\u00e9',
-          'lampone': 'Sorbet \u00e0 la framboise au go\u00fbt frais et l\u00e9g\u00e8rement acidul\u00e9',
-          'limone': 'Sorbet au citron frais et d\u00e9salt\u00e9rant avec zeste de citron',
-          'malaga': 'Gelato \u00e0 la cr\u00e8me avec raisins secs mac\u00e9r\u00e9s au rhum',
-          'mango': 'Sorbet \u00e0 la mangue m\u00fbre au go\u00fbt tropical et parfum\u00e9',
-          'nocciola': 'Gelato \u00e0 la noisette torr\u00e9fi\u00e9e au go\u00fbt riche et enveloppant',
-          'pistacchio': 'Gelato \u00e0 la pistache avec p\u00e2te de pistache pure',
-          'stracciatella': 'Gelato \u00e0 la cr\u00e8me de lait avec \u00e9clats de chocolat noir',
-          'tiramis\u00f9': 'Gelato au tiramis\u00f9 avec mascarpone, caf\u00e9 et cacao',
+          'fragola': 'Sorbet fraise',
+          'fondente': 'Sorbet au chocolat noir monorigine 72%',
+          'lampone': 'Sorbet framboise',
+          'limone': 'Sorbet citron',
+          'malaga': 'Gelato \u00e0 la cr\u00e8me au rhum avec raisins chiliens',
+          'mango': 'Sorbet mangue',
+          'nocciola': 'Gelato \u00e0 la noisette',
+          'pistacchio': 'Gelato \u00e0 la pistache',
+          'stracciatella': 'Gelato fior di panna aux copeaux de chocolat noir',
+          'tiramis\u00f9': 'Gelato au tiramis\u00f9',
           'yogurt-mirtillo': 'Gelato au yaourt avec coulis de myrtilles',
-          'yogurt': 'Gelato au yaourt frais et d\u00e9licat',
+          'yogurt': 'Gelato au yaourt avec plus de 70% de yaourt',
           'dubai-chocolate': 'Gelato au chocolat avec cr\u00e8me de pistache et kadayif croustillant, inspir\u00e9 de la c\u00e9l\u00e8bre tablette Duba\u00ef'
         },
         es: {
@@ -6932,31 +6883,31 @@
           'la-dolcevita': 'Buontalenti con salsa de avellanas y cacao, nuestro sabor ganador del Gelato Festival',
           'buontalenti-pistacchio': 'Buontalenti con salsa de pistacho',
           'buontalenti-caramello': 'Buontalenti con salsa de caramelo',
-          'buontalenti-amarena': 'Buontalenti con remolino de guindas',
-          'buontalenti-delattosato': 'Nuestro sabor ic\u00f3nico elaborado con solo 4 ingredientes: nata y leche sin lactosa, az\u00facar, huevos',
+          'buontalenti-amarena': 'Nuestro sabor ic\u00f3nico con salsa de guindas',
+          'buontalenti-delattosato': 'Nuestro sabor ic\u00f3nico elaborado sin lactosa',
           'buontalenti-fondente': 'Buontalenti con salsa de chocolate negro',
           'bacio': 'Helado de chocolate negro y avellanas tostadas enteras, inspirado en el famoso bombón italiano',
           'caffe': 'Helado de caf\u00e9 ar\u00e1bica con un sabor arom\u00e1tico y aterciopelado',
           'caramello-salato': 'Helado de caramelo con un toque de sal para un equilibrio dulce-salado',
-          'cassandra': 'Buontalenti con salsa de caramelo y escamas de avellanas y almendras',
+          'cassandra': 'Buontalenti, salsa de caramelo, escamas de almendras y avellanas',
           'cheesecake-frutti-rossi': 'Helado de cheesecake con remolino de frutos rojos',
           'cioccolato-al-latte': 'Helado de chocolate con leche de textura cremosa y envolvente',
-          'cioccolato-bianco-arancia': 'Helado de chocolate blanco con un fresco toque de naranja',
-          'cocco': 'Helado de coco de textura cremosa y sabor tropical',
+          'cioccolato-bianco-arancia': 'Chocolate con leche con salsa de naranja',
+          'cocco': 'Helado de coco',
           'cremino-al-pistacchio': 'Helado cremino con pasta de pistacho de sabor intenso y aterciopelado',
           'cremino-alla-nocciola': 'Helado cremino con pasta de avellanas tostadas, soja y cacao',
-          'fragola': 'Sorbete de fresa fresca con un sabor afrutado y natural',
-          'fondente': 'Helado de chocolate negro con un sabor intenso y decidido',
-          'lampone': 'Sorbete de frambuesa de sabor fresco y ligeramente \u00e1cido',
-          'limone': 'Sorbete de lim\u00f3n fresco y refrescante con ralladura de lim\u00f3n',
-          'malaga': 'Helado de crema con pasas maceradas en ron',
-          'mango': 'Sorbete de mango maduro de sabor tropical y arom\u00e1tico',
-          'nocciola': 'Helado de avellana tostada de sabor rico y envolvente',
-          'pistacchio': 'Helado de pistacho con pasta de pistacho puro',
-          'stracciatella': 'Helado de crema de leche con virutas de chocolate negro',
-          'tiramis\u00f9': 'Helado de tiramis\u00fa con mascarpone, caf\u00e9 y cacao',
+          'fragola': 'Sorbete de fresa',
+          'fondente': 'Sorbete de chocolate negro monoorigen al 72%',
+          'lampone': 'Sorbete de frambuesa',
+          'limone': 'Sorbete de lim\u00f3n',
+          'malaga': 'Helado de crema al ron con uvas pasas chilenas',
+          'mango': 'Sorbete de mango',
+          'nocciola': 'Helado de avellana',
+          'pistacchio': 'Helado de pistacho',
+          'stracciatella': 'Helado fior di panna con virutas de chocolate negro',
+          'tiramis\u00f9': 'Helado de tiramis\u00fa',
           'yogurt-mirtillo': 'Helado de yogur con remolino de ar\u00e1ndanos',
-          'yogurt': 'Helado de yogur fresco y delicado',
+          'yogurt': 'Helado de yogur elaborado con m\u00e1s del 70% de yogur',
           'dubai-chocolate': 'Helado de chocolate con crema de pistacho y kadayif crujiente, inspirado en la famosa tableta Dub\u00e1i'
         }
       };
@@ -6967,20 +6918,20 @@
           'buontalenti': 'Milk, eggs',
           'la-dolcevita': 'Milk, eggs, tree nuts',
           'buontalenti-pistacchio': 'Milk, eggs, tree nuts',
-          'buontalenti-caramello': 'Milk, eggs, soy, gluten',
+          'buontalenti-caramello': 'Milk, eggs, soy',
           'buontalenti-amarena': 'Milk, eggs',
           'buontalenti-delattosato': 'Milk, eggs',
           'buontalenti-fondente': 'Milk, eggs, soy',
           'bacio': 'Milk, eggs, tree nuts',
           'caffe': 'Milk, eggs',
-          'caramello-salato': 'Milk, eggs, peanuts',
+          'caramello-salato': 'Milk, eggs',
           'cassandra': 'Milk, eggs, tree nuts',
-          'cheesecake-frutti-rossi': 'Milk, eggs, gluten',
+          'cheesecake-frutti-rossi': 'Milk, gluten',
           'cioccolato-al-latte': 'Milk, eggs',
           'cioccolato-bianco-arancia': 'Milk, eggs',
-          'cocco': 'Milk, eggs',
+          'cocco': 'Milk',
           'cremino-al-pistacchio': 'Milk, eggs, tree nuts',
-          'cremino-alla-nocciola': 'Milk, eggs, soy, tree nuts',
+          'cremino-alla-nocciola': 'Milk, eggs, tree nuts',
           'fragola': 'May contain soy',
           'fondente': 'Soy',
           'lampone': 'May contain soy',
@@ -6999,20 +6950,20 @@
           'buontalenti': 'Lait, \u0153ufs',
           'la-dolcevita': 'Lait, \u0153ufs, fruits \u00e0 coque',
           'buontalenti-pistacchio': 'Lait, \u0153ufs, fruits \u00e0 coque',
-          'buontalenti-caramello': 'Lait, \u0153ufs, soja, gluten',
+          'buontalenti-caramello': 'Lait, \u0153ufs, soja',
           'buontalenti-amarena': 'Lait, \u0153ufs',
           'buontalenti-delattosato': 'Lait, \u0153ufs',
           'buontalenti-fondente': 'Lait, \u0153ufs, soja',
           'bacio': 'Lait, \u0153ufs, fruits \u00e0 coque',
           'caffe': 'Lait, \u0153ufs',
-          'caramello-salato': 'Lait, \u0153ufs, arachides',
+          'caramello-salato': 'Lait, \u0153ufs',
           'cassandra': 'Lait, \u0153ufs, fruits \u00e0 coque',
-          'cheesecake-frutti-rossi': 'Lait, \u0153ufs, gluten',
+          'cheesecake-frutti-rossi': 'Lait, gluten',
           'cioccolato-al-latte': 'Lait, \u0153ufs',
           'cioccolato-bianco-arancia': 'Lait, \u0153ufs',
-          'cocco': 'Lait, \u0153ufs',
+          'cocco': 'Lait',
           'cremino-al-pistacchio': 'Lait, \u0153ufs, fruits \u00e0 coque',
-          'cremino-alla-nocciola': 'Lait, \u0153ufs, soja, fruits \u00e0 coque',
+          'cremino-alla-nocciola': 'Lait, \u0153ufs, fruits \u00e0 coque',
           'fragola': 'Peut contenir du soja',
           'fondente': 'Soja',
           'lampone': 'Peut contenir du soja',
@@ -7031,20 +6982,20 @@
           'buontalenti': 'Leche, huevos',
           'la-dolcevita': 'Leche, huevos, frutos secos',
           'buontalenti-pistacchio': 'Leche, huevos, frutos secos',
-          'buontalenti-caramello': 'Leche, huevos, soja, gluten',
+          'buontalenti-caramello': 'Leche, huevos, soja',
           'buontalenti-amarena': 'Leche, huevos',
           'buontalenti-delattosato': 'Leche, huevos',
           'buontalenti-fondente': 'Leche, huevos, soja',
           'bacio': 'Leche, huevos, frutos secos',
           'caffe': 'Leche, huevos',
-          'caramello-salato': 'Leche, huevos, cacahuetes',
+          'caramello-salato': 'Leche, huevos',
           'cassandra': 'Leche, huevos, frutos secos',
-          'cheesecake-frutti-rossi': 'Leche, huevos, gluten',
+          'cheesecake-frutti-rossi': 'Leche, gluten',
           'cioccolato-al-latte': 'Leche, huevos',
           'cioccolato-bianco-arancia': 'Leche, huevos',
-          'cocco': 'Leche, huevos',
+          'cocco': 'Leche',
           'cremino-al-pistacchio': 'Leche, huevos, frutos secos',
-          'cremino-alla-nocciola': 'Leche, huevos, soja, frutos secos',
+          'cremino-alla-nocciola': 'Leche, huevos, frutos secos',
           'fragola': 'Puede contener soja',
           'fondente': 'Soja',
           'lampone': 'Puede contener soja',
@@ -7215,20 +7166,78 @@
         }
       };
 
+      /* ── Pezzi duri description (IT) ── */
+      const PEZZI_DURI_DESC = {
+        'Stecco Buontalenti': 'Stecco con Buontalenti ricoperto di cioccolato fondente',
+        'Stecco stracciatella': 'Stecco con gelato alla stracciatella ricoperto con cioccolato fondente e cioccolato bianco',
+        'Stecco fondente': 'Sorbetto fondente ricoperto con cioccolato fondente',
+        'Cuore Buontalenti e cioccolata': 'Buontalenti con salsa alla nocciola e cacao ricoperto di cioccolato fondente',
+        'Cuore Buontalenti e fragola': 'Buontalenti e salsa alla fragola',
+        'Biscotto Buontalenti': 'Biscotto con Buontalenti',
+        'Biscotto Stracciatella': 'Biscotto con gelato alla stracciatella',
+        'Donut bianco': 'Buontalenti ricoperto con cioccolato bianco',
+        'Donut rosa': 'Buontalenti',
+        'Donut verde': 'Buontalenti',
+        'Donut cioccolato': 'Buontalenti ricoperto con cioccolato fondente'
+      };
+
+      /* ── Pezzi duri description i18n (EN/FR/ES) ── */
+      const PEZZI_DURI_DESC_I18N = {
+        en: {
+          'Stecco Buontalenti': 'Buontalenti ice cream bar coated in dark chocolate',
+          'Stecco stracciatella': 'Stracciatella ice cream bar coated in dark and white chocolate',
+          'Stecco fondente': 'Dark chocolate sorbet coated in dark chocolate',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti with hazelnut and cocoa sauce, coated in dark chocolate',
+          'Cuore Buontalenti e fragola': 'Buontalenti and strawberry sauce',
+          'Biscotto Buontalenti': 'Biscuit with Buontalenti',
+          'Biscotto Stracciatella': 'Biscuit with stracciatella gelato',
+          'Donut bianco': 'Buontalenti coated in white chocolate',
+          'Donut rosa': 'Buontalenti',
+          'Donut verde': 'Buontalenti',
+          'Donut cioccolato': 'Buontalenti coated in dark chocolate'
+        },
+        fr: {
+          'Stecco Buontalenti': 'Bâtonnet Buontalenti enrobé de chocolat noir',
+          'Stecco stracciatella': 'Bâtonnet stracciatella enrobé de chocolat noir et blanc',
+          'Stecco fondente': 'Sorbet chocolat noir enrobé de chocolat noir',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti avec sauce noisette et cacao, enrobé de chocolat noir',
+          'Cuore Buontalenti e fragola': 'Buontalenti et sauce fraise',
+          'Biscotto Buontalenti': 'Biscuit avec Buontalenti',
+          'Biscotto Stracciatella': 'Biscuit avec gelato stracciatella',
+          'Donut bianco': 'Buontalenti enrobé de chocolat blanc',
+          'Donut rosa': 'Buontalenti',
+          'Donut verde': 'Buontalenti',
+          'Donut cioccolato': 'Buontalenti enrobé de chocolat noir'
+        },
+        es: {
+          'Stecco Buontalenti': 'Bombón Buontalenti bañado en chocolate negro',
+          'Stecco stracciatella': 'Bombón stracciatella bañado en chocolate negro y blanco',
+          'Stecco fondente': 'Sorbete de chocolate negro bañado en chocolate negro',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti con salsa de avellanas y cacao, bañado en chocolate negro',
+          'Cuore Buontalenti e fragola': 'Buontalenti y salsa de fresa',
+          'Biscotto Buontalenti': 'Galleta con Buontalenti',
+          'Biscotto Stracciatella': 'Galleta con helado stracciatella',
+          'Donut bianco': 'Buontalenti bañado en chocolate blanco',
+          'Donut rosa': 'Buontalenti',
+          'Donut verde': 'Buontalenti',
+          'Donut cioccolato': 'Buontalenti bañado en chocolate negro'
+        }
+      };
+
       /* ── Pezzi duri (monoporzioni) name translations ── */
       const PEZZI_DURI_NAMES_I18N = {
         en: {
-          'Classico Buontalenti': 'Classic Buontalenti',
-          'Classico Stracciatella': 'Classic Stracciatella',
-          'Classico Fondente': 'Classic Dark Chocolate',
-          'Cuore Buontalenti fondente': 'Buontalenti Dark Chocolate Heart',
-          'Buontalenti alla fragola': 'Buontalenti Strawberry Heart',
+          'Stecco Buontalenti': 'Buontalenti Bar',
+          'Stecco stracciatella': 'Stracciatella Bar',
+          'Stecco fondente': 'Dark Chocolate Bar',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti Chocolate Heart',
+          'Cuore Buontalenti e fragola': 'Buontalenti Strawberry Heart',
           'Biscotto Buontalenti': 'Buontalenti Biscuit',
           'Biscotto Stracciatella': 'Stracciatella Biscuit',
           'Donut cioccolato': 'Chocolate Donut',
-          'Donut cioccolato bianco': 'White Chocolate Donut',
-          'Donut cioccolato alla fragola': 'Strawberry Chocolate Donut',
-          'Donut cioccolato al pistacchio': 'Pistachio Chocolate Donut',
+          'Donut bianco': 'White Donut',
+          'Donut rosa': 'Pink Donut',
+          'Donut verde': 'Green Donut',
           'Fruit Tube Limone': 'Fruit Tube Lemon',
           'Fruit Tube Menta': 'Fruit Tube Mint',
           'Fruit Tube Fragola': 'Fruit Tube Strawberry',
@@ -7236,23 +7245,23 @@
           'Ghiacciolo di frutta al limone': 'Lemon Fruit Lolly',
           'Ghiacciolo di frutta la mango': 'Mango Fruit Lolly',
           'Ghiacciolo alla menta': 'Mint Lolly',
-          'Lingotto Buontalenti': 'Buontalenti Ingot',
-          'Lingotto Buontalenti Pistacchio': 'Buontalenti Pistachio Ingot',
+          'Lingotto Buontalenti': 'Buontalenti Bar',
+          'Lingotto Buontalenti Pistacchio': 'Buontalenti Pistachio Bar',
           'Lingotto Dolcevita': 'Dolcevita Ingot',
           'Zampa': 'Paw'
         },
         fr: {
-          'Classico Buontalenti': 'Classique Buontalenti',
-          'Classico Stracciatella': 'Classique Stracciatella',
-          'Classico Fondente': 'Classique Chocolat Noir',
-          'Cuore Buontalenti fondente': 'Cœur Buontalenti Chocolat Noir',
-          'Buontalenti alla fragola': 'Buontalenti Fraise',
+          'Stecco Buontalenti': 'Bâtonnet Buontalenti',
+          'Stecco stracciatella': 'Bâtonnet Stracciatella',
+          'Stecco fondente': 'Bâtonnet Chocolat Noir',
+          'Cuore Buontalenti e cioccolata': 'Cœur Buontalenti Chocolat',
+          'Cuore Buontalenti e fragola': 'Cœur Buontalenti Fraise',
           'Biscotto Buontalenti': 'Biscuit Buontalenti',
           'Biscotto Stracciatella': 'Biscuit Stracciatella',
           'Donut cioccolato': 'Donut Chocolat',
-          'Donut cioccolato bianco': 'Donut Chocolat Blanc',
-          'Donut cioccolato alla fragola': 'Donut Chocolat Fraise',
-          'Donut cioccolato al pistacchio': 'Donut Chocolat Pistache',
+          'Donut bianco': 'Donut Blanc',
+          'Donut rosa': 'Donut Rose',
+          'Donut verde': 'Donut Vert',
           'Fruit Tube Limone': 'Fruit Tube Citron',
           'Fruit Tube Menta': 'Fruit Tube Menthe',
           'Fruit Tube Fragola': 'Fruit Tube Fraise',
@@ -7266,17 +7275,17 @@
           'Zampa': 'Patte'
         },
         es: {
-          'Classico Buontalenti': 'Clásico Buontalenti',
-          'Classico Stracciatella': 'Clásico Stracciatella',
-          'Classico Fondente': 'Clásico Chocolate Negro',
-          'Cuore Buontalenti fondente': 'Corazón Buontalenti Chocolate Negro',
-          'Buontalenti alla fragola': 'Buontalenti Fresa',
+          'Stecco Buontalenti': 'Bombón Buontalenti',
+          'Stecco stracciatella': 'Bombón Stracciatella',
+          'Stecco fondente': 'Bombón Chocolate Negro',
+          'Cuore Buontalenti e cioccolata': 'Corazón Buontalenti Chocolate',
+          'Cuore Buontalenti e fragola': 'Corazón Buontalenti Fresa',
           'Biscotto Buontalenti': 'Galleta Buontalenti',
           'Biscotto Stracciatella': 'Galleta Stracciatella',
           'Donut cioccolato': 'Donut de Chocolate',
-          'Donut cioccolato bianco': 'Donut de Chocolate Blanco',
-          'Donut cioccolato alla fragola': 'Donut de Chocolate con Fresa',
-          'Donut cioccolato al pistacchio': 'Donut de Chocolate con Pistacho',
+          'Donut bianco': 'Donut Blanco',
+          'Donut rosa': 'Donut Rosa',
+          'Donut verde': 'Donut Verde',
           'Fruit Tube Limone': 'Fruit Tube Limón',
           'Fruit Tube Menta': 'Fruit Tube Menta',
           'Fruit Tube Fragola': 'Fruit Tube Fresa',
@@ -7315,24 +7324,24 @@
         en: {
           'Palettine': { name: 'Spatulas', desc: 'Gelato spatulas' },
           'Cialdine': { name: 'Wafers', desc: 'Badiani branded wafers' },
-          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17' },
-          'Paletta': { name: 'Scoop', desc: 'Gelato serving scoop', qty: 'on request' },
+          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17', qty: '250 per pack' },
+          'Spatola servizio gelato': { name: 'Gelato Spatula', desc: 'Gelato serving spatula, 26 cm', qty: 'on request' },
           'Contenitore 1': { name: 'Container 1', desc: 'Small serving container', qty: 'on request' },
           'Contenitore 2': { name: 'Container 2', desc: 'Large serving container', qty: 'on request' }
         },
         fr: {
           'Palettine': { name: 'Spatules', desc: 'Spatules à gelato' },
           'Cialdine': { name: 'Gaufrettes', desc: 'Gaufrettes griffées Badiani' },
-          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17' },
-          'Paletta': { name: 'Pelle', desc: 'Pelle de service gelato', qty: 'sur demande' },
+          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17', qty: '250 par paquet' },
+          'Spatola servizio gelato': { name: 'Spatule à glace', desc: 'Spatule de service gelato, 26 cm', qty: 'sur demande' },
           'Contenitore 1': { name: 'Contenant 1', desc: 'Petit contenant de service', qty: 'sur demande' },
           'Contenitore 2': { name: 'Contenant 2', desc: 'Grand contenant de service', qty: 'sur demande' }
         },
         es: {
           'Palettine': { name: 'Paletas', desc: 'Paletas de helado' },
           'Cialdine': { name: 'Barquillos', desc: 'Barquillos con logo Badiani' },
-          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17' },
-          'Paletta': { name: 'Cuchara', desc: 'Cuchara de servicio para helado', qty: 'bajo pedido' },
+          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17', qty: '250 por paquete' },
+          'Spatola servizio gelato': { name: 'Espátula para helado', desc: 'Espátula de servicio para helado, 26 cm', qty: 'bajo pedido' },
           'Contenitore 1': { name: 'Contenedor 1', desc: 'Contenedor pequeño de servicio', qty: 'bajo pedido' },
           'Contenitore 2': { name: 'Contenedor 2', desc: 'Contenedor grande de servicio', qty: 'bajo pedido' }
         }
@@ -7347,14 +7356,22 @@
 
       /* ── Gelato flavor card name translations ── */
       const GELATO_FLAVOR_NAMES_I18N = {
+        it: {
+          'Buontalenti': 'Buontalenti®',
+          'Buontalenti al Pistacchio': 'Buontalenti® al Pistacchio',
+          'Buontalenti Caramello': 'Buontalenti® Caramello',
+          'Buontalenti all\'Amarena': 'Buontalenti® all\'Amarena',
+          'Buontalenti Delattosato': 'Buontalenti® Delattosato',
+          'Buontalenti Fondente': 'Buontalenti® Fondente'
+        },
         en: {
-          'Buontalenti': 'Buontalenti',
+          'Buontalenti': 'Buontalenti®',
           'La Dolcevita': 'La Dolcevita',
-          'Buontalenti al Pistacchio': 'Buontalenti Pistachio',
-          'Buontalenti Caramello': 'Buontalenti Caramel',
-          'Buontalenti all\'Amarena': 'Buontalenti Sour Cherry',
-          'Buontalenti Delattosato': 'Buontalenti Lactose-Free',
-          'Buontalenti Fondente': 'Buontalenti Dark Chocolate',
+          'Buontalenti al Pistacchio': 'Buontalenti® Pistachio',
+          'Buontalenti Caramello': 'Buontalenti® Caramel',
+          'Buontalenti all\'Amarena': 'Buontalenti® Sour Cherry',
+          'Buontalenti Delattosato': 'Buontalenti® Lactose-Free',
+          'Buontalenti Fondente': 'Buontalenti® Dark Chocolate',
           'Cremino alla Nocciola': 'Hazelnut Cremino',
           'Cremino al Pistacchio': 'Pistachio Cremino',
           'Stracciatella': 'Stracciatella',
@@ -7379,13 +7396,13 @@
           'Dubai Chocolate': 'Dubai Chocolate'
         },
         fr: {
-          'Buontalenti': 'Buontalenti',
+          'Buontalenti': 'Buontalenti®',
           'La Dolcevita': 'La Dolcevita',
-          'Buontalenti al Pistacchio': 'Buontalenti Pistache',
-          'Buontalenti Caramello': 'Buontalenti Caramel',
-          'Buontalenti all\'Amarena': 'Buontalenti Amarena',
-          'Buontalenti Delattosato': 'Buontalenti Sans Lactose',
-          'Buontalenti Fondente': 'Buontalenti Chocolat Noir',
+          'Buontalenti al Pistacchio': 'Buontalenti® Pistache',
+          'Buontalenti Caramello': 'Buontalenti® Caramel',
+          'Buontalenti all\'Amarena': 'Buontalenti® Amarena',
+          'Buontalenti Delattosato': 'Buontalenti® Sans Lactose',
+          'Buontalenti Fondente': 'Buontalenti® Chocolat Noir',
           'Cremino alla Nocciola': 'Cremino Noisette',
           'Cremino al Pistacchio': 'Cremino Pistache',
           'Stracciatella': 'Stracciatella',
@@ -7410,13 +7427,13 @@
           'Dubai Chocolate': 'Chocolat Dubaï'
         },
         es: {
-          'Buontalenti': 'Buontalenti',
+          'Buontalenti': 'Buontalenti®',
           'La Dolcevita': 'La Dolcevita',
-          'Buontalenti al Pistacchio': 'Buontalenti Pistacho',
-          'Buontalenti Caramello': 'Buontalenti Caramelo',
-          'Buontalenti all\'Amarena': 'Buontalenti Amarena',
-          'Buontalenti Delattosato': 'Buontalenti Sin Lactosa',
-          'Buontalenti Fondente': 'Buontalenti Chocolate Negro',
+          'Buontalenti al Pistacchio': 'Buontalenti® Pistacho',
+          'Buontalenti Caramello': 'Buontalenti® Caramelo',
+          'Buontalenti all\'Amarena': 'Buontalenti® Amarena',
+          'Buontalenti Delattosato': 'Buontalenti® Sin Lactosa',
+          'Buontalenti Fondente': 'Buontalenti® Chocolate Negro',
           'Cremino alla Nocciola': 'Cremino de Avellana',
           'Cremino al Pistacchio': 'Cremino de Pistacho',
           'Stracciatella': 'Stracciatella',
@@ -7446,6 +7463,10 @@
 
       function getVascheName(name){ return (VASCHE_NAMES_I18N[currentLang] || {})[name] || name; }
       function getPezziDuriName(name){ return (PEZZI_DURI_NAMES_I18N[currentLang] || {})[name] || name; }
+      function getPezziDuriDesc(name){
+        if(currentLang === 'it') return PEZZI_DURI_DESC[name] || '';
+        return (PEZZI_DURI_DESC_I18N[currentLang] || {})[name] || PEZZI_DURI_DESC[name] || '';
+      }
       function getTorteName(name){ return (TORTE_NAMES_I18N[currentLang] || {})[name] || name; }
       function getTorteDescription(name){
         const lang = currentLang;
@@ -7518,17 +7539,17 @@
       function getContenitoriCapacity(name){ return (CONTENITORI_CAPACITY_I18N[currentLang] || CONTENITORI_CAPACITY_I18N.it)[name]; }
 
       const PEZZI_DURI_IMAGES = {
-        'Classico Buontalenti': '../assets/images/pezziduri/pinguino1 bianco.webp',
-        'Classico Stracciatella': '../assets/images/pezziduri/stracciatella.webp',
-        'Classico Fondente': '../assets/images/pezziduri/pinguino fondente.webp',
-        'Cuore Buontalenti fondente': '../assets/images/pezziduri/cuore dolcevita.webp',
+        'Stecco Buontalenti': '../assets/images/pezziduri/pinguino1 bianco.webp',
+        'Stecco stracciatella': '../assets/images/pezziduri/stracciatella.webp',
+        'Stecco fondente': '../assets/images/pezziduri/pinguino fondente.webp',
+        'Cuore Buontalenti e cioccolata': '../assets/images/pezziduri/cuore dolcevita.webp',
         'Biscotto Buontalenti': '../assets/images/pezziduri/biscotto.webp',
         'Biscotto Stracciatella': '../assets/images/pezziduri/biscotto stracciatella.webp',
-        'Buontalenti alla fragola': '../assets/images/pezziduri/cuore.webp',
+        'Cuore Buontalenti e fragola': '../assets/images/pezziduri/cuore.webp',
         'Donut cioccolato': '../assets/images/pezziduri/pinguino tondo.webp',
-        'Donut cioccolato bianco': '../assets/images/pezziduri/bianco.webp',
-        'Donut cioccolato alla fragola': '../assets/images/pezziduri/rosa.webp',
-        'Donut cioccolato al pistacchio': '../assets/images/pezziduri/pistacchio .webp',
+        'Donut bianco': '../assets/images/pezziduri/bianco.webp',
+        'Donut rosa': '../assets/images/pezziduri/rosa.webp',
+        'Donut verde': '../assets/images/pezziduri/pistacchio .webp',
         'Lingotto Buontalenti': '../assets/images/pezziduri/LINGOTTO BUONTALENTI.webp',
         'Lingotto Buontalenti Pistacchio': '../assets/images/pezziduri/LINGOTTO BUONTALENTI PISTACCHIO.webp',
         'Lingotto Dolcevita': '../assets/images/pezziduri/LINGOTTO DOLCEVITA.webp',
@@ -7691,13 +7712,13 @@
 
       const ACCESSORI_HERO_IMAGE = '../assets/images/accessori/hero accessori.webp';
 
-      const ACCESSORI_ZONE_ORDER = ['Cialdine', 'Palettine', 'Tovagliolini stampati', 'Paletta', 'Contenitore 1', 'Contenitore 2'];
+      const ACCESSORI_ZONE_ORDER = ['Cialdine', 'Palettine', 'Tovagliolini stampati', 'Spatola servizio gelato', 'Contenitore 1', 'Contenitore 2'];
 
       const ACCESSORI_SHORT_NAMES = {
         'Tovagliolini stampati': 'Fazzoletti',
         'Palettine': 'Palettine',
         'Cialdine': 'Waffers',
-        'Paletta': 'Paletta',
+        'Spatola servizio gelato': 'Spatola',
         'Contenitore 1': 'Cont. 1',
         'Contenitore 2': 'Cont. 2'
       };
@@ -7706,7 +7727,7 @@
         'Tovagliolini stampati': '../assets/images/accessori/tovagliolini.webp',
         'Palettine':            '../assets/images/accessori/palettine.webp',
         'Cialdine':             '../assets/images/accessori/cialde.webp',
-        'Paletta':              '../assets/images/accessori/paletta.webp',
+        'Spatola servizio gelato': '../assets/images/accessori/paletta.webp',
         'Contenitore 1':        '../assets/images/accessori/confezione 1.webp',
         'Contenitore 2':        '../assets/images/accessori/confezione 2.webp'
       };
@@ -7836,10 +7857,10 @@
       };
 
       const GELATO_CATEGORIES = {
-        iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato'],
-        classici: ['bacio', 'cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt', 'dubai-chocolate'],
+        iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato', 'buontalenti-amarena'],
+        classici: ['cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt'],
         sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango'],
-        limited: ['buontalenti-amarena', 'cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
+        limited: ['cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
       };
 
       function getFlavorCategory(flavorId){
@@ -7988,6 +8009,7 @@
             const imageSrc = encodeURI(src);
             const isExpanded = expandedPezziDuriId === name;
             const localName = getPezziDuriName(name);
+            const localDesc = getPezziDuriDesc(name);
             const localMin = getPezziDuriMinOrder(min);
             const localAllergens = getPezziDuriAllergens(allergens);
             const hasPlating = !!PEZZI_DURI_ZOOM_IMAGES[name];
@@ -8012,6 +8034,7 @@
                 </div>
                 <div class="pezziduri-body">
                   <div class="pezziduri-title">${localName}</div>
+                  ${localDesc ? `<div class="pezziduri-desc">${localDesc}</div>` : ''}
                   <div class="pezziduri-meta">
                     <span><strong>${t('b2b.pezziduri.avgWeight')}</strong><em>${weight}</em></span>
                     <span><strong>${t('b2b.pezziduri.minOrder')}</strong><em>${localMin}</em></span>
@@ -8190,37 +8213,15 @@
           if(!name) return;
           zone.addEventListener('click', () => {
             const wasAdded = !selectedContenitoriMapId.has(name);
-            if(wasAdded){ selectedContenitoriMapId.add(name); } else { selectedContenitoriMapId.delete(name); }
+            selectedContenitoriMapId = wasAdded ? new Set([name]) : new Set();
             renderCategoryContent('CONTENITORI');
-            if(wasAdded && selectedContenitoriMapId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const panel = Array.from(defaultContent.querySelectorAll('.contenitori-detail-panel')).find(p => p.dataset.panelName === name);
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            } else if(!selectedContenitoriMapId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const wrapper = defaultContent.querySelector('.contenitori-map-wrapper');
-                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
               const wasAdded = !selectedContenitoriMapId.has(name);
-              if(wasAdded){ selectedContenitoriMapId.add(name); } else { selectedContenitoriMapId.delete(name); }
+              selectedContenitoriMapId = wasAdded ? new Set([name]) : new Set();
               renderCategoryContent('CONTENITORI');
-              if(wasAdded && selectedContenitoriMapId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const panel = Array.from(defaultContent.querySelectorAll('.contenitori-detail-panel')).find(p => p.dataset.panelName === name);
-                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              } else if(!selectedContenitoriMapId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const wrapper = defaultContent.querySelector('.contenitori-map-wrapper');
-                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              }
             }
           });
         });
@@ -8305,7 +8306,7 @@
           if(!name) return;
           zone.addEventListener('click', () => {
             const wasAdded = !selectedTorteMapId.has(name);
-            if(wasAdded){ selectedTorteMapId.add(name); } else { selectedTorteMapId.delete(name); }
+            selectedTorteMapId = wasAdded ? new Set([name]) : new Set();
             renderCategoryContent('TORTE');
             if(wasAdded && selectedTorteMapId.size){
               requestAnimationFrame(() => { requestAnimationFrame(() => {
@@ -8323,7 +8324,7 @@
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
               const wasAdded = !selectedTorteMapId.has(name);
-              if(wasAdded){ selectedTorteMapId.add(name); } else { selectedTorteMapId.delete(name); }
+              selectedTorteMapId = wasAdded ? new Set([name]) : new Set();
               renderCategoryContent('TORTE');
               if(wasAdded && selectedTorteMapId.size){
                 requestAnimationFrame(() => { requestAnimationFrame(() => {
@@ -8627,37 +8628,15 @@
           if(!name) return;
           zone.addEventListener('click', () => {
             const wasAdded = !selectedCoppetteId.has(name);
-            if(wasAdded){ selectedCoppetteId.add(name); } else { selectedCoppetteId.delete(name); }
+            selectedCoppetteId = wasAdded ? new Set([name]) : new Set();
             renderCategoryContent('CONI_COPPETTE');
-            if(wasAdded && selectedCoppetteId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const panel = Array.from(defaultContent.querySelectorAll('.coppette-detail-panel')).find(p => p.dataset.panelName === name);
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            } else if(!selectedCoppetteId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const wrapper = defaultContent.querySelector('.coppette-map-wrapper');
-                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
               const wasAdded = !selectedCoppetteId.has(name);
-              if(wasAdded){ selectedCoppetteId.add(name); } else { selectedCoppetteId.delete(name); }
+              selectedCoppetteId = wasAdded ? new Set([name]) : new Set();
               renderCategoryContent('CONI_COPPETTE');
-              if(wasAdded && selectedCoppetteId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const panel = Array.from(defaultContent.querySelectorAll('.coppette-detail-panel')).find(p => p.dataset.panelName === name);
-                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              } else if(!selectedCoppetteId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const wrapper = defaultContent.querySelector('.coppette-map-wrapper');
-                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              }
             }
           });
         });
@@ -8670,37 +8649,15 @@
           if(!name) return;
           zone.addEventListener('click', () => {
             const wasAdded = !selectedConiGfMapId.has(name);
-            if(wasAdded){ selectedConiGfMapId.add(name); } else { selectedConiGfMapId.delete(name); }
+            selectedConiGfMapId = wasAdded ? new Set([name]) : new Set();
             renderCategoryContent('CONI_COPPETTE');
-            if(wasAdded && selectedConiGfMapId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const panel = Array.from(defaultContent.querySelectorAll('.conigf-detail-panel')).find(p => p.dataset.panelName === name);
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            } else if(!selectedConiGfMapId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const wrapper = defaultContent.querySelector('.conigf-map-wrapper');
-                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
               const wasAdded = !selectedConiGfMapId.has(name);
-              if(wasAdded){ selectedConiGfMapId.add(name); } else { selectedConiGfMapId.delete(name); }
+              selectedConiGfMapId = wasAdded ? new Set([name]) : new Set();
               renderCategoryContent('CONI_COPPETTE');
-              if(wasAdded && selectedConiGfMapId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const panel = Array.from(defaultContent.querySelectorAll('.conigf-detail-panel')).find(p => p.dataset.panelName === name);
-                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              } else if(!selectedConiGfMapId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const wrapper = defaultContent.querySelector('.conigf-map-wrapper');
-                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              }
             }
           });
         });
@@ -8713,37 +8670,15 @@
           if(!name) return;
           zone.addEventListener('click', () => {
             const wasAdded = !selectedConiHeroId.has(name);
-            if(wasAdded){ selectedConiHeroId.add(name); } else { selectedConiHeroId.delete(name); }
+            selectedConiHeroId = wasAdded ? new Set([name]) : new Set();
             renderCategoryContent('CONI_COPPETTE');
-            if(wasAdded && selectedConiHeroId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const panel = Array.from(defaultContent.querySelectorAll('.coni-detail-panel')).find(p => p.dataset.panelName === name);
-                if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            } else if(!selectedConiHeroId.size){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const wrapper = defaultContent.querySelector('.coni-map-wrapper');
-                if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              }); });
-            }
           });
           zone.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
               event.preventDefault();
               const wasAdded = !selectedConiHeroId.has(name);
-              if(wasAdded){ selectedConiHeroId.add(name); } else { selectedConiHeroId.delete(name); }
+              selectedConiHeroId = wasAdded ? new Set([name]) : new Set();
               renderCategoryContent('CONI_COPPETTE');
-              if(wasAdded && selectedConiHeroId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const panel = Array.from(defaultContent.querySelectorAll('.coni-detail-panel')).find(p => p.dataset.panelName === name);
-                  if(panel) panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              } else if(!selectedConiHeroId.size){
-                requestAnimationFrame(() => { requestAnimationFrame(() => {
-                  const wrapper = defaultContent.querySelector('.coni-map-wrapper');
-                  if(wrapper) wrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }); });
-              }
             }
           });
         });
@@ -8919,7 +8854,15 @@
 
         requestAnimationFrame(setupZoomButtons);
 
+        /* Preserve scroll position when re-rendering within the same category
+           (e.g. zone clicks in Coni/Coppette/Contenitori). The setActiveCategory
+           function already resets scrollTop to 0 on category switch. */
+        const _savedScrollTop = (category === 'CONI_COPPETTE' || category === 'CONTENITORI') && categoryContent
+          ? categoryContent.scrollTop : 0;
         defaultContent.innerHTML = sections.join('');
+        if(_savedScrollTop > 0 && categoryContent){
+          requestAnimationFrame(() => { categoryContent.scrollTop = _savedScrollTop; });
+        }
       }
 
       function renderGelatoDetail(flavor){
@@ -9368,6 +9311,8 @@
       function setActiveCategory(name){
         const previousCategory = activeCategory;
         activeCategory = name || categories[0];
+        /* Reset modal content scroll to top whenever the category changes */
+        if(previousCategory !== activeCategory && categoryContent) categoryContent.scrollTop = 0;
         const enteringPezziDuri = activeCategory === 'PEZZI DURI' && previousCategory !== 'PEZZI DURI';
         if(enteringPezziDuri){
           pezziDuriShowOverlay = true;
@@ -9915,38 +9860,6 @@
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;var m=window.BADIANI_MODAL_API||{};var lk=(m.scrollLockKeys&&m.scrollLockKeys.MOBILE_NAV)||'mobile-nav';var lock=typeof m.lockPageScroll==='function'?m.lockPageScroll:function(){document.body.style.overflow='hidden';};var unlock=typeof m.unlockPageScroll==='function'?m.unlockPageScroll:function(){document.body.style.overflow='';};b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');if(o){unlock(lk);}else{lock(lk);}});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');unlock(lk);});});})();</script>
 
-  <!-- Mercury parallax on scroll -->
-  <script>
-  (function(){
-    var isMobile = window.matchMedia('(max-width: 900px)').matches;
-    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(isMobile || prefersReducedMotion) return;
-
-    var mercury = document.querySelector('.b2b-form-section__mercury');
-    var mercurySection = mercury ? mercury.closest('.b2b-form-section') : null;
-    if(!mercury || !mercurySection) return;
-    mercury.style.transition = 'transform 0.1s linear';
-    mercury.style.willChange = 'transform';
-
-    var ticking = false;
-    window.addEventListener('scroll', function(){
-      if(!ticking){
-        ticking = true;
-        requestAnimationFrame(function(){
-          var vh = window.innerHeight;
-          var mr = mercurySection.getBoundingClientRect();
-          var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
-          mp = Math.max(0, Math.min(1, mp * 1.4));
-          var shiftMercY = (1 - mp) * 180 - 200;
-          var shiftMercX = (1 - mp) * 50;
-          var rotateMerc = mp * 12;
-          mercury.style.transform = 'translateY(' + shiftMercY + 'px) translateX(' + shiftMercX + 'px) rotate(' + rotateMerc + 'deg)';
-          ticking = false;
-        });
-      }
-    }, {passive:true});
-  })();
-  </script>
   <script>
   (function(){
     function forcePlay(){

@@ -146,9 +146,22 @@
     }
     .ev-types__grid{
       display:grid;
-      grid-template-columns:repeat(3, 1fr);
+      grid-template-columns:repeat(2, 1fr);
       gap:0;
       line-height:0;
+    }
+    /* Experience card — light placeholder background */
+    .ev-card--experience{
+      background:#d4d0ca;
+      transition:background 0.4s ease;
+    }
+    .ev-card--experience:hover{ background:#c5c1bb; }
+    .ev-card--experience .ev-card__title{
+      color:var(--badiani-blue);
+      text-shadow:none;
+    }
+    .ev-card--experience .ev-card__desc{
+      color:rgba(30,57,141,0.8);
     }
     .ev-card{
       position:relative;
@@ -157,7 +170,7 @@
       color:#fff;
       display:flex;
       align-items:flex-end;
-      min-height:70vh;
+      min-height:52vh;
       cursor:pointer;
     }
     .ev-card::after{
@@ -229,10 +242,7 @@
       max-width:300px;
       font-weight:300;
     }
-    /* subtle dividers between cards */
-    .ev-card + .ev-card{
-      box-shadow:-1px 0 0 0 rgba(255,255,255,0.12);
-    }
+    /* no dividers needed — gap:2px provides visual separation */
 
     /* ===== CORPORATE — split-screen like home world section ===== */
     .ev-corporate{
@@ -687,6 +697,7 @@
     .lightbox-next{ right:20px; }
 
     /* ===== RESPONSIVE ===== */
+    /* tablet: already 2-col, keep as-is */
     @media(max-width:900px){
       .ev-hero__content{
         padding:32px 28px;
@@ -702,12 +713,9 @@
 
       .ev-types__grid{
         grid-template-columns:1fr;
+        gap:2px;
       }
       .ev-card{ min-height:50vh; }
-      .ev-card + .ev-card{
-        box-shadow:none;
-        border-top:1px solid rgba(255,255,255,0.12);
-      }
 
       .ev-corporate__grid{
         grid-template-columns:1fr;
@@ -831,52 +839,15 @@
       }
     }
 
-    /* ===== MERCURY CHARACTER ===== */
-    .ev-form-section__mercury{
-      position:absolute;
-      left:max(-320px, calc(50% - 1180px));
-      bottom:calc(-10% - 300px);
-      height:clamp(800px, 110vh, 1400px);
-      max-width:none;
-      object-fit:contain;
-      object-position:left bottom;
-      pointer-events:none;
-      z-index:0;
-      transform:translateY(-20px) translateX(50px) rotate(0deg);
-      transition:transform 0.1s linear;
-      will-change:transform;
-    }
     .ev-form-block{
       position:relative;
       z-index:2;
-    }
-    @media(max-width:1200px){
-      .ev-form-section__mercury{
-        left:max(-280px, calc(50% - 1150px));
-        height:clamp(700px, 90vh, 1100px);
-      }
-    }
-    @media(max-width:900px){
-      .ev-form-section__mercury{
-        left:max(-200px, calc(50% - 1110px));
-        height:clamp(560px, 77vh, 840px);
-        opacity:0.5;
-      }
-    }
-    @media(max-width:600px){
-      .ev-form-section__mercury{
-        left:-60px;
-        bottom:calc(-3% - 80px);
-        height:clamp(220px, 34vh, 320px);
-        opacity:0.35;
-      }
     }
 
     /* ===== prefers-reduced-motion ===== */
     @media(prefers-reduced-motion: reduce){
       .ev-card__img,
       .ev-gallery__photo img,
-      .ev-form-section__mercury,
       .ev-corporate__manogelato{
         transition:none !important;
         transform:none !important;
@@ -951,6 +922,12 @@
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
           <p class="ev-card__desc" data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</p>
+        </div>
+      </a>
+      <a class="ev-card ev-card--experience" href="./experience/" data-i18n-attr="aria-label:eventi.experience.aria">
+        <div class="ev-card__overlay">
+          <h2 class="ev-card__title" data-i18n="eventi.experience.title">Experience</h2>
+          <p class="ev-card__desc" data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.</p>
         </div>
       </a>
     </div>
@@ -1050,7 +1027,6 @@
 
   <!-- FORM — sfondo.webp background -->
   <section id="contatti" class="ev-form-section" data-i18n-attr="aria-label:eventi.contact.label">
-    <img class="ev-form-section__mercury" src="../assets/mercury.webp" alt="Mercury" loading="lazy" decoding="async" width="768" height="1356" />
     <div class="ev-form-block">
       <div class="ev-form-header">
         <h2 data-i18n="eventi.form.title">Richiedi Informazioni</h2>
@@ -1125,6 +1101,7 @@
                 <label><input type="checkbox" name="evento[]" value="evento-esterno" /> <span data-i18n="eventi.form.eventInterest.external">Badiani dove vuoi</span></label>
                 <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="eventi.form.eventInterest.van">Gelato Van</span></label>
                 <label><input type="checkbox" name="evento[]" value="evento-su-misura" /> <span data-i18n="eventi.form.eventInterest.tailored">Evento Aziendale su Misura</span></label>
+                <label><input type="checkbox" name="evento[]" value="experience" /> <span data-i18n="eventi.form.eventInterest.experience">Experience — Tasting Guidato</span></label>
               </div>
             </div>
           </div>
@@ -1337,6 +1314,10 @@
           'eventi.form.eventInterest.external': 'Badiani dove vuoi',
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Evento Aziendale su Misura',
+          'eventi.form.eventInterest.experience': 'Experience — Tasting Guidato',
+          'eventi.experience.aria': 'Vai alla pagina Experience',
+          'eventi.experience.title': 'Experience',
+          'eventi.experience.desc': 'Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.',
           'eventi.form.privacy': 'Ho letto e accetto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
           'eventi.form.submit': 'Invia Richiesta',
           'cookie.aria': 'Informativa cookie',
@@ -1421,6 +1402,10 @@
           'eventi.form.eventInterest.external': 'Badiani Anywhere',
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Tailored Corporate Event',
+          'eventi.form.eventInterest.experience': 'Experience — Guided Tasting',
+          'eventi.experience.aria': 'Go to Experience page',
+          'eventi.experience.title': 'Experience',
+          'eventi.experience.desc': 'Guided tasting of Paolo Pomposi’s iconic flavors. An experiential storytelling in the Tosinghi private room.',
           'eventi.form.privacy': 'I have read and accept the <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
           'eventi.form.submit': 'Send Request',
           'cookie.aria': 'Cookie notice',
@@ -1505,6 +1490,10 @@
           'eventi.form.eventInterest.external': 'Badiani o\u00f9 vous voulez',
           'eventi.form.eventInterest.van': 'Van \u00e0 Gelato',
           'eventi.form.eventInterest.tailored': "\u00c9v\u00e9nement d'Entreprise sur Mesure",
+          'eventi.form.eventInterest.experience': 'Experience \u2014 D\u00e9gustation Guid\u00e9e',
+          'eventi.experience.aria': 'Aller \u00e0 la page Experience',
+          'eventi.experience.title': 'Experience',
+          'eventi.experience.desc': 'D\u00e9gustation guid\u00e9e des saveurs iconiques de Paolo Pomposi dans la salle priv\u00e9e Tosinghi.',
           'eventi.form.privacy': "J'ai lu et j'accepte la <a href=\"../privacy.html\" style=\"color:var(--badiani-blue);text-decoration:underline;\">politique de confidentialit\u00e9</a>.",
           'eventi.form.submit': 'Envoyer la Demande',
           'cookie.aria': 'Avis sur les cookies',
@@ -1589,6 +1578,10 @@
           'eventi.form.eventInterest.external': 'Badiani donde quieras',
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Evento Corporativo a Medida',
+          'eventi.form.eventInterest.experience': 'Experience \u2014 Cata Guiada',
+          'eventi.experience.aria': 'Ir a la p\u00e1gina Experience',
+          'eventi.experience.title': 'Experience',
+          'eventi.experience.desc': 'Cata guiada de los sabores ic\u00f3nicos de Paolo Pomposi en la sala privada Tosinghi.',
           'eventi.form.privacy': 'He le\u00eddo y acepto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
           'eventi.form.submit': 'Enviar Solicitud',
           'cookie.aria': 'Aviso de cookies',
@@ -1917,34 +1910,6 @@
             var rotate = -(p * 18 + Math.sin(p * Math.PI) * 10);
             manoM.style.transform = 'scaleX(-1) translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
             ticking2 = false;
-          });
-        }
-      }, {passive:true});
-    })();
-  </script>
-
-  <script>
-    // Mercury parallax
-    (function(){
-      var mercury = document.querySelector('.ev-form-section__mercury');
-      var mercurySection = mercury ? mercury.closest('.ev-form-section') : null;
-      if(!mercury || !mercurySection) return;
-      mercury.style.transition = 'transform 0.1s linear';
-      mercury.style.willChange = 'transform';
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if(!ticking){
-          ticking = true;
-          requestAnimationFrame(function(){
-            var vh = window.innerHeight;
-            var mr = mercurySection.getBoundingClientRect();
-            var mp = 1 - (mr.top + mr.height) / (vh + mr.height);
-            mp = Math.max(0, Math.min(1, mp * 1.4));
-            var shiftY = (1 - mp) * 180 - 200;
-            var shiftX = (1 - mp) * 50;
-            var rotate = mp * 12;
-            mercury.style.transform = 'translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
-            ticking = false;
           });
         }
       }, {passive:true});
