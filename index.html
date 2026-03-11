@@ -344,7 +344,7 @@
       .choice-title{
         font-size:clamp(56px, 15vw, 140px);
       }
-      .choice-desc{ font-size:13px; max-width:none; }
+      .choice-desc{ font-size:15px; max-width:none; }
     }
 
     .video-note{
@@ -466,11 +466,16 @@
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
-      overflow:hidden;
+      overflow-y:auto;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
       box-sizing:border-box;
       padding:clamp(28px, 3.5vw, 72px);
       z-index:2;
       background:rgba(255,255,255,0.45);
+    }
+    .story-card--gelato .story-card__overlay::-webkit-scrollbar{
+      display:none;
     }
     .story-card--gelato .story-card__label{
       display:block;
@@ -494,7 +499,7 @@
     .story-card--gelato .story-card__title{
       color:var(--badiani-blue);
       text-shadow:none;
-      font-size:clamp(36px, 4.8vw, 128px);
+      font-size:clamp(42px, 6vw, 192px);
       line-height:0.92;
       flex-shrink:0;
       display:block;
@@ -506,21 +511,15 @@
     }
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
-      overflow:hidden;
       display:block;
-      columns:2;
-      column-gap:clamp(16px, 2vw, 28px);
       font-size:clamp(13px, 1.2vw, 22px);
       line-height:1.55;
       max-width:none;
-      margin-top:clamp(24px, 3vw, 48px);
+      margin-top:auto;
+      overflow:hidden;
     }
     .col-break{
-      display:block;
-      break-after:column;
-      height:0;
-      margin:0;
-      padding:0;
+      display:none;
     }
     .story-card__overlay{
       position:relative;
@@ -540,7 +539,7 @@
     }
     .story-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.8vw, 128px);
+      font-size:clamp(42px, 6vw, 192px);
       color:#fff;
       text-transform:uppercase;
       letter-spacing:4px;
@@ -590,7 +589,7 @@
       border-right:1px solid rgba(30,57,141,0.08);
       justify-content:flex-start;
       position:relative;
-      overflow:visible;
+      overflow:hidden;
     }
     .world-card--metrics > *{
       position:relative;
@@ -628,7 +627,7 @@
     }
     .world-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.8vw, 128px);
+      font-size:clamp(42px, 6vw, 192px);
       text-transform:uppercase;
       letter-spacing:4px;
       font-weight:700;
@@ -831,11 +830,11 @@
       /* World split - stack vertically, keep internal layout identical to desktop */
       .world-grid{ grid-template-columns:1fr; }
       .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
-      .world-card__paolo{ height:126%; right:0; max-width:70%; }
+      .world-card__paolo{ height:auto; right:0; max-width:45%; max-height:70%; }
       /* Full width text when cards are stacked */
-      .world-card__title{ font-size:clamp(32px, 9vw, 64px); }
+      .world-card__title{ font-size:clamp(56px, 14vw, 140px); }
       .world-card--metrics .world-card__title{ max-width:100%; }
-      .world-card__desc{ max-width:100%; }
+      .world-card__desc{ max-width:100%; font-size:16px; line-height:1.6; }
       .stats{ max-width:100%; grid-template-columns:1fr; }
       .stat:nth-child(odd){ border-right:none; }
       /* RIGHT card — Significa/Gelato: aspect-ratio handles height */
@@ -866,8 +865,9 @@
       .story-grid{ grid-template-columns:1fr; }
       .story-card{ aspect-ratio:1/1; min-height:0; }
       .story-card__overlay{ padding:32px 28px; }
-      .story-card__title{ font-size:clamp(32px, 9vw, 64px); overflow-wrap:normal; word-break:normal; }
-      .story-card__desc{ font-size:clamp(13px, 3.8vw, 15px); line-height:1.5; max-width:none; }
+      .story-card__title{ font-size:clamp(56px, 14vw, 140px); overflow-wrap:normal; word-break:normal; }
+      .story-card__desc{ font-size:16px; line-height:1.6; max-width:none; }
+      .story-card--storia .story-card__desc{ -webkit-line-clamp:unset; }
       .story-card__label{ letter-spacing:2px; margin-bottom:8px; }
       .story-grid .story-card:first-child{ box-shadow:none; }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
@@ -875,10 +875,10 @@
       .story-card--storia .story-card__label{ order:-2; margin-bottom:4px; }
       .story-card--storia .story-card__title{ order:-1; }
       .story-card--storia .story-card__desc{ margin-top:auto; }
-      /* Buontalenti mobile: single column, readable size */
-      .story-card--gelato .story-card__desc{ columns:1; font-size:clamp(12px, 3.2vw, 14px); line-height:1.5; }
+      /* Buontalenti mobile: square, same text size as La Storia */
+      .story-card--gelato .story-card__desc{ font-size:16px; line-height:1.6; }
       .story-card--gelato .story-card__title{
-        font-size:clamp(32px, 9vw, 64px);
+        font-size:clamp(48px, 12vw, 120px);
         overflow-wrap:normal;
         word-break:normal;
       }
@@ -887,7 +887,7 @@
 
     @media(max-width:600px){
       .story-card--gelato .story-card__title{
-        font-size:clamp(28px, 8vw, 56px);
+        font-size:clamp(56px, 15vw, 140px);
       }
     }
 
@@ -1172,7 +1172,7 @@
         <div class="story-card__overlay">
           <h2 class="story-card__title title-accent" data-i18n-html="gelato.titleHtml">IL BUONTALENTI<span class="story-card__reg">®</span></h2>
           <p class="story-card__desc" data-i18n-html="gelato.text">
-            C’è un motivo se il Buontalenti® non è solo il nostro gusto iconico, ma il gelato più famoso (e imitato) di tutta Firenze.<br><br>Tutto ha inizio negli anni ’70, quando Badiani decide di omaggiare l’architetto rinascimentale Bernardo Buontalenti, considerato l’inventore del gelato. Da quel momento, abbiamo portato questo capolavoro fiorentino in tutto il mondo, trasformandolo in un simbolo di eccellenza del Made in Italy.<br><span class="col-break"></span>Cosa lo rende speciale?<br>• <span class="highlight-pink">La perfezione della semplicità</span>: solo 4 ingredienti di altissima qualità (panna, latte, zucchero e uova), consistenza avvolgente e gusto inconfondibile.<br>• <span class="highlight-pink">Innovazione pluripremiata</span>: dalla base iconica nascono varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Il cuore della nostra offerta</span>: dal cono alle torte gelato e alle monoporzioni (stecchi, biscotti, lingotti).<br><br>Scegliere il Buontalenti® significa offrire una storia di successo, un gusto ineguagliabile e un prodotto capace di declinarsi in formati perfetti per ogni esigenza di business.
+            Il Buontalenti® è un marchio registrato di Badiani e il gelato più famoso di Firenze: nato negli anni ‘70 come omaggio all’architetto Bernardo Buontalenti, inventore del gelato. Da allora lo abbiamo portato nel mondo come simbolo del Made in Italy.<br><br><strong>Cosa lo rende speciale?</strong><br>• <span class="highlight-pink">Semplicità perfetta</span> — solo 4 ingredienti: panna, latte, zucchero e uova.<br>• <span class="highlight-pink">Innovazione premiata</span> — varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Versatilità totale</span> — cono, coppa, torte gelato e monoporzioni.
           </p>
         </div>
       </div>
@@ -1405,7 +1405,7 @@
           'gelato.subtitle': 'L\'INCONFONDIBILE FIRMA DI BADIANI',
           'gelato.title': 'IL BUONTALENTI®',
           'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
-          'gelato.text': 'C’è un motivo se il Buontalenti® non è solo il nostro gusto iconico, ma il gelato più famoso (e imitato) di tutta Firenze.<br><br>Tutto ha inizio negli anni ’70, quando Badiani decide di omaggiare l’architetto rinascimentale Bernardo Buontalenti, considerato l’inventore del gelato. Da quel momento, abbiamo portato questo capolavoro fiorentino in tutto il mondo, trasformandolo in un simbolo di eccellenza del Made in Italy.<br><span class="col-break"></span>Cosa lo rende speciale?<br>• <span class="highlight-pink">La perfezione della semplicità</span>: solo 4 ingredienti di altissima qualità (panna, latte, zucchero e uova), consistenza avvolgente e gusto inconfondibile.<br>• <span class="highlight-pink">Innovazione pluripremiata</span>: dalla base iconica nascono varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Il cuore della nostra offerta</span>: dal cono alle torte gelato e alle monoporzioni (stecchi, biscotti, lingotti).<br><br>Scegliere il Buontalenti® significa offrire una storia di successo, un gusto ineguagliabile e un prodotto capace di declinarsi in formati perfetti per ogni esigenza di business.',
+          'gelato.text': 'Il Buontalenti® è un marchio registrato di Badiani e il gelato più famoso di Firenze: nato negli anni ‘70 come omaggio all’architetto Bernardo Buontalenti, inventore del gelato. Da allora lo abbiamo portato nel mondo come simbolo del Made in Italy.<br><br><strong>Cosa lo rende speciale?</strong><br>• <span class="highlight-pink">Semplicità perfetta</span> — solo 4 ingredienti: panna, latte, zucchero e uova.<br>• <span class="highlight-pink">Innovazione premiata</span> — varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Versatilità totale</span> — cono, coppa, torte gelato e monoporzioni.',
           'heritage.title': 'BADIANI NEL MONDO',
           'heritage.intro': 'Nata a <span class="highlight-pink">Firenze nel 1932</span>, Badiani è uno dei produttori di gelato più prestigiosi al mondo. Dalla culla del gelato, abbiamo costruito una presenza internazionale in cinque paesi su tre continenti.',
           'heritage.stat.founded': 'Fondata a Firenze',
@@ -1513,7 +1513,7 @@
           'gelato.subtitle': 'BADIANI\'S UNMISTAKABLE SIGNATURE',
           'gelato.title': 'IL BUONTALENTI®',
           'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
-          'gelato.text': 'There is a reason why Buontalenti® is not only our iconic flavour, but also Florence’s most famous (and imitated) gelato.<br><br>It all began in the 1970s, when Badiani chose to pay tribute to Renaissance architect Bernardo Buontalenti, widely regarded as the inventor of gelato. Since then, we have taken this Florentine masterpiece around the world, turning it into a true symbol of Made in Italy excellence.<br><span class="col-break"></span>What makes it so special?<br>• <span class="highlight-pink">The perfection of simplicity</span>: only 4 top-quality ingredients (cream, milk, sugar and eggs), with a velvety texture and unmistakable taste.<br>• <span class="highlight-pink">Award-winning innovation</span>: from the iconic base come celebrated creations like La Dolcevita and Buontalenti Pistachio.<br>• <span class="highlight-pink">The core of our offer</span>: from cone and cup to elegant gelato cakes and single portions (sticks, biscuits, ingots).<br><br>Choosing Buontalenti® means offering a success story, an unrivalled flavour, and a product available in formats perfect for every business need.',
+          'gelato.text': 'Buontalenti® is a registered trademark of Badiani and Florence’s most famous gelato: created in the 1970s as a tribute to Renaissance architect Bernardo Buontalenti, the inventor of gelato. Since then we’ve brought this masterpiece worldwide as a symbol of Made in Italy.<br><br><strong>What makes it special?</strong><br>• <span class="highlight-pink">Perfect simplicity</span> — just 4 ingredients: cream, milk, sugar and eggs.<br>• <span class="highlight-pink">Award-winning innovation</span> — celebrated creations like La Dolcevita and Buontalenti Pistachio.<br>• <span class="highlight-pink">Total versatility</span> — cone, cup, gelato cakes and single portions.',
           'heritage.title': 'BADIANI WORLDWIDE',
           'heritage.intro': 'Born in <span class="highlight-pink">Florence in 1932</span>, Badiani is one of the world\'s most prestigious gelato producers. From the birthplace of gelato, we have built an international presence spanning five countries across three continents.',
           'heritage.stat.founded': 'Founded in Florence',
@@ -1621,7 +1621,7 @@
           'gelato.subtitle': 'LA SIGNATURE INCONFONDABLE DE BADIANI',
           'gelato.title': 'IL BUONTALENTI®',
           'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
-          'gelato.text': 'Il y a une raison si le Buontalenti® n’est pas seulement notre parfum iconique, mais aussi le gelato le plus célèbre (et imité) de Florence.<br><br>Tout commence dans les années 1970, lorsque Badiani choisit de rendre hommage à l’architecte de la Renaissance Bernardo Buontalenti, considéré comme l’inventeur du gelato. Depuis, nous avons porté ce chef-d’œuvre florentin dans le monde entier, en le transformant en véritable symbole d’excellence du Made in Italy.<br><span class="col-break"></span>Pourquoi est-il si spécial ?<br>• <span class="highlight-pink">La perfection de la simplicité</span> : seulement 4 ingrédients de très haute qualité (crème, lait, sucre et œufs), une texture enveloppante et un goût inimitable.<br>• <span class="highlight-pink">Une innovation primée</span> : de cette base iconique naissent des variantes célèbres comme La Dolcevita et Buontalenti Pistache.<br>• <span class="highlight-pink">Le cœur de notre offre</span> : du cornet à la coupe, jusqu’aux élégants gâteaux glacés et portions individuelles (bâtonnets, biscuits, lingots).<br><br>Choisir le Buontalenti® signifie proposer une histoire à succès, une saveur incomparable et un produit décliné en formats parfaits pour chaque besoin business.',
+          'gelato.text': 'Le Buontalenti® est une marque déposée de Badiani et le gelato le plus célèbre de Florence : né dans les années 1970 en hommage à l’architecte Bernardo Buontalenti, inventeur du gelato. Depuis, nous l’avons porté dans le monde entier comme symbole du Made in Italy.<br><br><strong>Pourquoi est-il si spécial ?</strong><br>• <span class="highlight-pink">Simplicité parfaite</span> — seulement 4 ingrédients : crème, lait, sucre et œufs.<br>• <span class="highlight-pink">Innovation primée</span> — variantes célèbres comme La Dolcevita et Buontalenti Pistache.<br>• <span class="highlight-pink">Polyvalence totale</span> — cornet, coupe, gâteaux glacés et portions individuelles.',
           'heritage.title': 'BADIANI DANS LE MONDE',
           'heritage.intro': 'Née à <span class="highlight-pink">Florence en 1932</span>, Badiani est l\'un des producteurs de gelato les plus prestigieux au monde. Depuis le berceau du gelato, nous avons bâti une présence internationale dans cinq pays sur trois continents.',
           'heritage.stat.founded': 'Fondée à Florence',
@@ -1754,7 +1754,7 @@
           'gelato.subtitle': 'LA FIRMA INCONFUNDIBLE DE BADIANI',
           'gelato.title': 'IL BUONTALENTI®',
           'gelato.titleHtml': 'IL BUONTALENTI<span class="story-card__reg">®</span>',
-          'gelato.text': 'Hay una razón por la que Buontalenti® no es solo nuestro sabor icónico, sino también el helado más famoso (e imitado) de toda Florencia.<br><br>Todo comienza en los años 70, cuando Badiani decide rendir homenaje al arquitecto renacentista Bernardo Buontalenti, considerado el inventor del helado. Desde entonces, hemos llevado esta obra maestra florentina por todo el mundo, convirtiéndola en un símbolo de excelencia del Made in Italy.<br><span class="col-break"></span>¿Qué lo hace tan especial?<br>• <span class="highlight-pink">La perfección de la simplicidad</span>: solo 4 ingredientes de altísima calidad (nata, leche, azúcar y huevos), con textura envolvente y sabor inconfundible.<br>• <span class="highlight-pink">Innovación premiada</span>: de esta base icónica nacen variantes célebres como La Dolcevita y Buontalenti Pistacho.<br>• <span class="highlight-pink">El corazón de nuestra oferta</span>: del cono y la copa a las elegantes tartas heladas y porciones individuales (palitos, galletas, lingotes).<br><br>Elegir Buontalenti® significa ofrecer una historia de éxito, un sabor inigualable y un producto en formatos perfectos para cada necesidad de negocio.',
+          'gelato.text': 'El Buontalenti® es una marca registrada de Badiani y el helado más famoso de Florencia: nacido en los años 70 como homenaje al arquitecto Bernardo Buontalenti, inventor del helado. Desde entonces lo hemos llevado al mundo como símbolo del Made in Italy.<br><br><strong>¿Qué lo hace especial?</strong><br>• <span class="highlight-pink">Simplicidad perfecta</span> — solo 4 ingredientes: nata, leche, azúcar y huevos.<br>• <span class="highlight-pink">Innovación premiada</span> — creaciones célebres como La Dolcevita y Buontalenti Pistacho.<br>• <span class="highlight-pink">Versatilidad total</span> — cono, copa, tartas heladas y porciones individuales.',
           'heritage.title': 'BADIANI EN EL MUNDO',
           'heritage.intro': 'Nacida en <span class="highlight-pink">Florencia en 1932</span>, Badiani es uno de los productores de helado más prestigiosos del mundo. Desde la cuna del helado, hemos construido una presencia internacional en cinco países en tres continentes.',
           'heritage.stat.founded': 'Fundada en Florencia',
