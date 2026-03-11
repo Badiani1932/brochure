@@ -736,6 +736,8 @@
       border-radius:14px;
     }
 
+
+
     /* Modal body — specs area */
     .modal-body{
       padding:0;
@@ -877,6 +879,7 @@
         width:clamp(220px, 72vw, 320px);
         height:clamp(180px, 50vw, 260px);
       }
+
       .modal-hero__title{
         font-size:clamp(36px, 10vw, 60px);
       }
@@ -1126,7 +1129,7 @@
             <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
             <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
           </div>
-          <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
+          <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" data-zoomable data-gallery="coolbox" tabindex="0" role="button" />
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1983,6 +1986,8 @@
   <!-- Lightbox fullscreen -->
   <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Immagine a tutto schermo">
     <button class="img-lightbox__close" aria-label="Chiudi">&#x2715;</button>
+    <button class="img-lightbox__nav img-lightbox__nav--prev" aria-label="Precedente" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8249;</button>
+    <button class="img-lightbox__nav img-lightbox__nav--next" aria-label="Successiva" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8250;</button>
     <img class="img-lightbox__img" id="imgLightboxSrc" alt="" />
   </div>
 
@@ -1990,29 +1995,65 @@
   (function(){
     var lb = document.getElementById('imgLightbox');
     var lbImg = document.getElementById('imgLightboxSrc');
+    var lbPrev = lb.querySelector('.img-lightbox__nav--prev');
+    var lbNext = lb.querySelector('.img-lightbox__nav--next');
     if(!lb || !lbImg) return;
 
-    function openLightbox(src, alt){
+    /* Gallery definitions */
+    var galleries = {
+      coolbox: [
+        { src:'../../assets/images/categories/coolbox.webp', alt:'Cool Box Badiani' },
+        { src:'../../assets/images/eventi/gelatobox-1.webp', alt:'Cool Box Badiani dettaglio' },
+        { src:'../../assets/images/eventi/gelatobox-2.webp', alt:'Cool Box Badiani interno' }
+      ]
+    };
+    var currentGallery = null;
+    var currentIdx = 0;
+
+    function openLightbox(src, alt, galleryName){
       lbImg.src = src;
       lbImg.alt = alt || '';
       lb.classList.add('is-open');
       document.body.style.overflow = 'hidden';
+      currentGallery = galleryName ? galleries[galleryName] : null;
+      currentIdx = 0;
+      if(currentGallery){
+        for(var i=0;i<currentGallery.length;i++){
+          if(currentGallery[i].src === src){ currentIdx = i; break; }
+        }
+      }
+      var hasNav = !!currentGallery && currentGallery.length > 1;
+      lbPrev.style.display = hasNav ? 'flex' : 'none';
+      lbNext.style.display = hasNav ? 'flex' : 'none';
     }
     function closeLightbox(){
       lb.classList.remove('is-open');
       document.body.style.overflow = '';
       lbImg.src = '';
+      currentGallery = null;
+      lbPrev.style.display = 'none';
+      lbNext.style.display = 'none';
+    }
+    function navLightbox(dir){
+      if(!currentGallery) return;
+      currentIdx = (currentIdx + dir + currentGallery.length) % currentGallery.length;
+      lbImg.src = currentGallery[currentIdx].src;
+      lbImg.alt = currentGallery[currentIdx].alt;
     }
 
+    lbPrev.addEventListener('click', function(e){ e.stopPropagation(); navLightbox(-1); });
+    lbNext.addEventListener('click', function(e){ e.stopPropagation(); navLightbox(1); });
+
+    /* All zoomable images (coolbox + carretto etc.) */
     document.querySelectorAll('.modal-hero__img[data-zoomable]').forEach(function(img){
       img.addEventListener('click', function(e){
         e.stopPropagation();
-        openLightbox(this.src, this.alt);
+        openLightbox(this.src, this.alt, this.dataset.gallery || null);
       });
       img.addEventListener('keydown', function(e){
         if(e.key === 'Enter' || e.key === ' '){
           e.preventDefault();
-          openLightbox(this.src, this.alt);
+          openLightbox(this.src, this.alt, this.dataset.gallery || null);
         }
       });
     });
@@ -2023,6 +2064,8 @@
     lb.querySelector('.img-lightbox__close').addEventListener('click', closeLightbox);
     document.addEventListener('keydown', function(e){
       if(e.key === 'Escape' && lb.classList.contains('is-open')) closeLightbox();
+      if(lb.classList.contains('is-open') && e.key === 'ArrowLeft') navLightbox(-1);
+      if(lb.classList.contains('is-open') && e.key === 'ArrowRight') navLightbox(1);
     });
   })();
   </script>
