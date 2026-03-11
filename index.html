@@ -829,8 +829,8 @@
     @media(max-width:900px){
       /* World split - stack vertically, keep internal layout identical to desktop */
       .world-grid{ grid-template-columns:1fr; }
-      .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; }
-      .world-card__paolo{ height:auto; right:0; max-width:45%; max-height:70%; }
+      .world-card--metrics{ border-right:none; border-bottom:1px solid rgba(30,57,141,0.08); overflow:hidden; aspect-ratio:auto; min-height:auto; padding-bottom:clamp(24px, 4vw, 48px); }
+      .world-card__paolo{ height:auto; right:0; max-width:30%; max-height:50%; }
       /* Full width text when cards are stacked */
       .world-card__title{ font-size:clamp(56px, 14vw, 140px); }
       .world-card--metrics .world-card__title{ max-width:100%; }
@@ -863,11 +863,13 @@
 
       /* Story split - mobile stack */
       .story-grid{ grid-template-columns:1fr; }
-      .story-card{ aspect-ratio:1/1; min-height:0; }
-      .story-card__overlay{ padding:32px 28px; }
+      .story-card{ aspect-ratio:auto; min-height:0; }
+      .story-card__overlay{ padding:32px 28px; position:relative; }
       .story-card__title{ font-size:clamp(56px, 14vw, 140px); overflow-wrap:normal; word-break:normal; }
       .story-card__desc{ font-size:16px; line-height:1.6; max-width:none; }
       .story-card--storia .story-card__desc{ -webkit-line-clamp:unset; }
+      .story-card--storia{ min-height:400px; }
+      .story-card--storia .story-card__overlay{ position:relative; overflow:visible; }
       .story-card__label{ letter-spacing:2px; margin-bottom:8px; }
       .story-grid .story-card:first-child{ box-shadow:none; }
       .story-card .highlight-pink{ padding:1px 4px; border-radius:2px; }
@@ -875,7 +877,9 @@
       .story-card--storia .story-card__label{ order:-2; margin-bottom:4px; }
       .story-card--storia .story-card__title{ order:-1; }
       .story-card--storia .story-card__desc{ margin-top:auto; }
-      /* Buontalenti mobile: square, same text size as La Storia */
+      /* Buontalenti mobile: auto height so text fits, same text size as La Storia */
+      .story-card--gelato{ aspect-ratio:auto; min-height:0; }
+      .story-card--gelato .story-card__overlay{ position:relative; overflow:visible; }
       .story-card--gelato .story-card__desc{ font-size:16px; line-height:1.6; }
       .story-card--gelato .story-card__title{
         font-size:clamp(48px, 12vw, 120px);
@@ -889,6 +893,7 @@
       .story-card--gelato .story-card__title{
         font-size:clamp(56px, 15vw, 140px);
       }
+      .world-card__paolo{ max-width:28%; max-height:45%; }
     }
 
     /* ========== HOME REQUEST INFO FORM ========== */
