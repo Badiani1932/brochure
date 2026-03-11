@@ -2,7 +2,7 @@ export const gelatoFlavors = [
   {
     id: "buontalenti",
     nameKey: "flavor.buontalenti",
-    label: "Buontalenti",
+    label: "Buontalenti®",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti/buontalenti.webp",
     detailImage: "../assets/gelato/Buontalenti/buontalenti-2.webp",
@@ -30,7 +30,7 @@ export const gelatoFlavors = [
   {
     id: "buontalenti-pistacchio",
     nameKey: "flavor.buontalentiPistacchio",
-    label: "Buontalenti al Pistacchio",
+    label: "Buontalenti® al Pistacchio",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti al Pistacchio/buontalenti_pistachio.webp",
     detailImage: "../assets/gelato/Buontalenti al Pistacchio/buontalenti_pistachio-2.webp",
@@ -44,7 +44,7 @@ export const gelatoFlavors = [
   {
     id: "buontalenti-caramello",
     nameKey: "flavor.buontalentiCaramello",
-    label: "Buontalenti Caramello",
+    label: "Buontalenti® Caramello",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Caramello/buontalenti_caramello.webp",
     detailImage: "../assets/gelato/Buontalenti Caramello/dettagli_caramello.webp",
@@ -58,7 +58,7 @@ export const gelatoFlavors = [
   {
     id: "buontalenti-amarena",
     nameKey: "flavor.buontalentiAmarena",
-    label: "Buontalenti all’Amarena",
+    label: "Buontalenti® all'Amarena",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti all_Amarena/buontalenti_amarena.webp",
     detailImage: "../assets/gelato/Buontalenti all_Amarena/buontalenti_amarena-2.webp",
@@ -72,7 +72,7 @@ export const gelatoFlavors = [
   {
     id: "buontalenti-delattosato",
     nameKey: "flavor.buontalentiDelattosato",
-    label: "Buontalenti Delattosato",
+    label: "Buontalenti® Delattosato",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Delattosato/buontalenti_delattosato.webp",
     detailImage: "../assets/gelato/Buontalenti Delattosato/buontalenti_delattosato-2.webp",
@@ -86,7 +86,7 @@ export const gelatoFlavors = [
   {
     id: "buontalenti-fondente",
     nameKey: "flavor.buontalentiFondente",
-    label: "Buontalenti Fondente",
+    label: "Buontalenti® Fondente",
     seasons: ["tutti"],
     image: "../assets/gelato/Buontalenti Fondente/buontalenti_fondente.webp",
     detailImage: "../assets/gelato/Buontalenti Fondente/buontalenti_fondente-2.webp",

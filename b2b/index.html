@@ -183,7 +183,7 @@
       cursor:pointer;
       touch-action:manipulation;
       display:flex;
-      align-items:flex-end;
+      align-items:flex-start;
       aspect-ratio:1/1;
       min-height:0;
       border:none;
@@ -236,12 +236,12 @@
       content:'';
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.45) 100%);
+      background:linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.20) 50%, rgba(0,0,0,0.10) 100%);
       transition:background 0.5s ease;
       z-index:1;
     }
     .category-card:hover::after{
-      background:linear-gradient(180deg, rgba(0,0,0,0.08) 20%, rgba(0,0,0,0.55) 100%);
+      background:linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.14) 100%);
     }
     /* Background images via CSS custom property for zoom effect */
     .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/gusti.webp'); }
@@ -300,7 +300,7 @@
       display:flex;
       flex-direction:column;
       align-items:flex-start;
-      justify-content:flex-end;
+      justify-content:flex-start;
       gap:clamp(8px, 3cqi, 16px);
       width:100%;
       height:100%;
@@ -309,7 +309,7 @@
       display:flex;
       flex-direction:column;
       align-items:flex-start;
-      justify-content:flex-end;
+      justify-content:flex-start;
       flex-shrink:0;
     }
     .category-label{
@@ -335,13 +335,46 @@
       overflow-wrap:break-word;
       word-break:break-word;
     }
-    .category-desc{
-      font-size:clamp(12px, 4cqi, 20px);
-      color:rgba(255,255,255,0.85);
-      line-height:1.5;
-      max-width:320px;
-      padding-bottom:clamp(2px, 1cqi, 6px);
-      font-weight:300;
+    .category-desc{ display:none; }
+    .category-cta{
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin-top:clamp(12px, 2cqi, 24px);
+      align-self:stretch;
+      padding:clamp(10px, 3cqi, 14px) clamp(12px, 4cqi, 22px);
+      border-radius:0;
+      border:2px solid var(--badiani-blue);
+      background:var(--badiani-blue);
+      color:#fff;
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(10px, 3cqi, 13px);
+      text-transform:uppercase;
+      letter-spacing:1.5px;
+      font-weight:700;
+      line-height:1.35;
+      pointer-events:none;
+      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+    .category-cta > span{
+      flex:1;
+      min-width:0;
+    }
+    .category-cta svg{
+      width:16px;
+      height:16px;
+      flex-shrink:0;
+      margin-top:0.1em;
+      transition:transform 0.25s ease;
+    }
+    .category-card:hover .category-cta{
+      background:#fff;
+      border-color:#fff;
+      color:var(--badiani-blue);
+      transform:translateY(-2px);
+    }
+    .category-card:hover .category-cta svg{
+      transform:translateX(4px);
     }
     /* Override per-card title pills → full overlay titles */
     .category-card.b2b-card--gelato .category-title,
@@ -3413,7 +3446,7 @@
       }
       .category-title{ font-size:clamp(48px, 12vw, 80px); }
       .category-label{ font-size:13px; letter-spacing:2px; margin-bottom:10px; }
-      .category-desc{ font-size:16px; max-width:none; }
+      .category-cta{ font-size:12px; letter-spacing:1px; }
       .section-title{ font-size:clamp(28px, 8vw, 44px); }
     }
 
@@ -4457,7 +4490,10 @@
             <div class="category-card__heading-group">
               <h2 class="category-title" data-i18n="b2b.categories.GELATO"></h2>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.gelato.desc">Oltre 36 gusti artigianali, dal Buontalenti ai classici</p>
+            <span class="category-cta" aria-hidden="true">
+              <span data-i18n="b2b.cat.gelato.desc">Oltre 36 gusti artigianali, dal Buontalenti® ai classici</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+            </span>
           </div>
         </article>
         <article class="category-card b2b-card--pezziduri" data-category="PEZZI DURI" role="button" tabindex="0" aria-haspopup="dialog">
@@ -4466,7 +4502,10 @@
             <div class="category-card__heading-group">
               <h2 class="category-title" data-i18n="b2b.categories.PEZZI_DURI"></h2>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.pezzi.desc">Stecchi, biscotti e monoporzioni pronti al servizio</p>
+            <span class="category-cta" aria-hidden="true">
+              <span data-i18n="b2b.cat.pezzi.desc">Stecchi, biscotti e monoporzioni pronti al servizio</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+            </span>
           </div>
         </article>
         <article class="category-card b2b-card--torte" data-category="TORTE" role="button" tabindex="0" aria-haspopup="dialog">
@@ -4475,7 +4514,10 @@
             <div class="category-card__heading-group">
               <h2 class="category-title" data-i18n="b2b.categories.TORTE"></h2>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.torte.desc">Torte gelato e semifreddi per ogni occasione</p>
+            <span class="category-cta" aria-hidden="true">
+              <span data-i18n="b2b.cat.torte.desc">Torte gelato e semifreddi per ogni occasione</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+            </span>
           </div>
         </article>
         <article class="category-card b2b-card--coppette" data-category="CONI_COPPETTE" role="button" tabindex="0" aria-haspopup="dialog">
@@ -4484,7 +4526,10 @@
             <div class="category-card__heading-group">
               <h2 class="category-title" data-i18n-html="b2b.categories.CONI_COPPETTE"></h2>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.coni.desc">Coni artigianali e coppette per la degustazione</p>
+            <span class="category-cta" aria-hidden="true">
+              <span data-i18n="b2b.cat.coni.desc">Coni artigianali e coppette per la degustazione</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+            </span>
           </div>
         </article>
         <article class="category-card b2b-card--accessori" data-category="ACCESSORI" role="button" tabindex="0" aria-haspopup="dialog">
@@ -4493,7 +4538,10 @@
             <div class="category-card__heading-group">
               <h2 class="category-title" data-i18n="b2b.categories.ACCESSORI"></h2>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.accessori.desc">Palette, cucchiaini e accessori brandizzati</p>
+            <span class="category-cta" aria-hidden="true">
+              <span data-i18n="b2b.cat.accessori.desc">Palette, cucchiaini e accessori brandizzati</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+            </span>
           </div>
         </article>
         <article class="category-card b2b-card--contenitori" data-category="CONTENITORI" role="button" tabindex="0" aria-haspopup="dialog">
@@ -4502,7 +4550,10 @@
             <div class="category-card__heading-group">
               <h2 class="category-title" data-i18n="b2b.categories.CONTENITORI"></h2>
             </div>
-            <p class="category-desc" data-i18n="b2b.cat.contenitori.desc">Vaschette, box termici e packaging d'asporto</p>
+            <span class="category-cta" aria-hidden="true">
+              <span data-i18n="b2b.cat.contenitori.desc">Vaschette, box termici e packaging d'asporto</span>
+              <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
+            </span>
           </div>
         </article>
       </div>
@@ -4941,12 +4992,12 @@
               <tbody>
                 <tr><td class="listino-flavor">Bacio</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
                 <tr><td class="listino-flavor">Banana</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
-                <tr><td class="listino-flavor">Buontalenti</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
-                <tr><td class="listino-flavor">Buontalenti all'amarena</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
-                <tr><td class="listino-flavor">Buontalenti caramello</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
-                <tr><td class="listino-flavor">Buontalenti delattosato</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
-                <tr><td class="listino-flavor">Buontalenti fondente</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
-                <tr><td class="listino-flavor">Buontalenti pistacchio</td><td class="listino-price">€ 18,00</td><td class="listino-price">€ 20,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti®</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti® all'amarena</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti® caramello</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti® delattosato</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti® fondente</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 14,00</td></tr>
+                <tr><td class="listino-flavor">Buontalenti® pistacchio</td><td class="listino-price">€ 18,00</td><td class="listino-price">€ 20,00</td></tr>
                 <tr><td class="listino-flavor">Caffè</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
                 <tr><td class="listino-flavor">Caramello al burro salato</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
                 <tr><td class="listino-flavor">Cassandra</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 16,00</td></tr>
@@ -4999,13 +5050,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="listino-flavor">Stecco Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">90 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Stecco Buontalenti®</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">90 g</td><td class="listino-col-center">24</td></tr>
                 <tr><td class="listino-flavor">Stecco stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
                 <tr><td class="listino-flavor">Stecco fondente</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">24</td></tr>
-                <tr><td class="listino-flavor">Tavoletta Buontalenti e cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">24</td></tr>
-                <tr><td class="listino-flavor">Cuore Buontalenti e cioccolata</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Cuore Buontalenti e fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Biscotto Buontalenti</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
+                <tr><td class="listino-flavor">Tavoletta Buontalenti® e cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">24</td></tr>
+                <tr><td class="listino-flavor">Cuore Buontalenti® e cioccolata</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Cuore Buontalenti® e fragola</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Biscotto Buontalenti®</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
                 <tr><td class="listino-flavor">Biscotto Stracciatella</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">110 g</td><td class="listino-col-center">12</td></tr>
                 <tr><td class="listino-flavor">Donut cioccolato</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Donut bianco</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
@@ -5040,9 +5091,9 @@
                 </tr>
               </thead>
               <tbody>
-                <tr><td class="listino-flavor">Millefoglie Buontalenti</td><td class="listino-price">€ 22,00/Kg</td><td>2 pezzi</td></tr>
-                <tr><td class="listino-flavor">Millefoglie Buontalenti con salsa Dolcevita<small>Nocciole e cacao</small></td><td class="listino-price">€ 24,00/Kg</td><td>2 pezzi</td></tr>
-                <tr><td class="listino-flavor">Millefoglie Buontalenti con salsa Pistacchio</td><td class="listino-price">€ 28,00/Kg</td><td>2 pezzi</td></tr>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti®</td><td class="listino-price">€ 22,00/Kg</td><td>2 pezzi</td></tr>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti® con salsa Dolcevita<small>Nocciole e cacao</small></td><td class="listino-price">€ 24,00/Kg</td><td>2 pezzi</td></tr>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti® con salsa Pistacchio</td><td class="listino-price">€ 28,00/Kg</td><td>2 pezzi</td></tr>
               </tbody>
             </table>
           </div>
@@ -5187,7 +5238,7 @@
           'b2b.categories.CONTENITORI': 'CONTENITORI',
           'b2b.hero.label_text': 'Partnership',
           'b2b.cat.gelato.label': 'Gusti & Vasche',
-          'b2b.cat.gelato.desc': 'Oltre 36 gusti artigianali, dal Buontalenti ai classici',
+          'b2b.cat.gelato.desc': 'Oltre 36 gusti artigianali, dal Buontalenti® ai classici',
           'b2b.cat.pezzi.label': 'Stecchi e biscotti',
           'b2b.cat.pezzi.desc': '20 monoporzioni artigianali, dagli stecchi ai lingotti',
           'b2b.cat.torte.label': 'Pasticceria Gelato',
@@ -5560,7 +5611,7 @@
           'b2b.categories.CONTENITORI': 'CONTAINERS',
           'b2b.hero.label_text': 'Partnership',
           'b2b.cat.gelato.label': 'Flavours & Tubs',
-          'b2b.cat.gelato.desc': 'Over 36 artisan flavours, from Buontalenti to the classics',
+          'b2b.cat.gelato.desc': 'Over 36 artisan flavours, from Buontalenti® to the classics',
           'b2b.cat.pezzi.label': 'Sticks and Biscuits',
           'b2b.cat.pezzi.desc': '20 artisan treats, from sticks to bars',
           'b2b.cat.torte.label': 'Gelato Pastry',
@@ -5937,7 +5988,7 @@
           'b2b.categories.CONTENITORI': 'CONTENANTS',
           'b2b.hero.label_text': 'Partenariat',
           'b2b.cat.gelato.label': 'Parfums & Bacs',
-          'b2b.cat.gelato.desc': 'Plus de 36 parfums artisanaux, du Buontalenti aux classiques',
+          'b2b.cat.gelato.desc': 'Plus de 36 parfums artisanaux, du Buontalenti® aux classiques',
           'b2b.cat.pezzi.label': 'Bâtonnets et biscuits',
           'b2b.cat.pezzi.desc': '20 portions individuelles artisanales, des bâtonnets aux lingots',
           'b2b.cat.torte.label': 'Pâtisserie Glacée',
@@ -6314,7 +6365,7 @@
           'b2b.categories.CONTENITORI': 'CONTENEDORES',
           'b2b.hero.label_text': 'Colaboración',
           'b2b.cat.gelato.label': 'Sabores & Cubas',
-          'b2b.cat.gelato.desc': 'Más de 36 sabores artesanales, del Buontalenti a los clásicos',
+          'b2b.cat.gelato.desc': 'Más de 36 sabores artesanales, del Buontalenti® a los clásicos',
           'b2b.cat.pezzi.label': 'Palitos y galletas',
           'b2b.cat.pezzi.desc': '20 productos artesanales, de palitos a lingotes',
           'b2b.cat.torte.label': 'Pastelería Helada',
@@ -6652,11 +6703,11 @@
           rows: [
             ['Bacio'],
             ['Banana'],
-            ['Buontalenti'],
-            ['Buontalenti Caramello'],
-            ['Buontalenti Delattosato'],
-            ['Buontalenti Fondente'],
-            ['Buontalenti Pistacchio'],
+            ['Buontalenti®'],
+            ['Buontalenti® Caramello'],
+            ['Buontalenti® Delattosato'],
+            ['Buontalenti® Fondente'],
+            ['Buontalenti® Pistacchio'],
             ['Caffè'],
             ['Caramello al Burro Salato'],
             ['Cassandra Delattosata'],
@@ -7169,71 +7220,79 @@
 
       /* ── Pezzi duri description (IT) ── */
       const PEZZI_DURI_DESC = {
-        'Stecco Buontalenti': 'Stecco con Buontalenti ricoperto di cioccolato fondente',
+        'Stecco Buontalenti': 'Stecco con Buontalenti® ricoperto di cioccolato fondente',
         'Stecco stracciatella': 'Stecco con gelato alla stracciatella ricoperto con cioccolato fondente e cioccolato bianco',
         'Stecco fondente': 'Sorbetto fondente ricoperto con cioccolato fondente',
-        'Cuore Buontalenti e cioccolata': 'Buontalenti con salsa alla nocciola e cacao ricoperto di cioccolato fondente',
-        'Cuore Buontalenti e fragola': 'Buontalenti e salsa alla fragola',
-        'Biscotto Buontalenti': 'Biscotto con Buontalenti',
+        'Cuore Buontalenti e cioccolata': 'Buontalenti® con salsa alla nocciola e cacao ricoperto di cioccolato fondente',
+        'Cuore Buontalenti e fragola': 'Buontalenti® e salsa alla fragola',
+        'Biscotto Buontalenti': 'Biscotto con Buontalenti®',
         'Biscotto Stracciatella': 'Biscotto con gelato alla stracciatella',
-        'Donut bianco': 'Buontalenti ricoperto con cioccolato bianco',
-        'Donut rosa': 'Buontalenti',
-        'Donut verde': 'Buontalenti',
-        'Donut cioccolato': 'Buontalenti ricoperto con cioccolato fondente'
+        'Donut bianco': 'Buontalenti® ricoperto con cioccolato bianco',
+        'Donut rosa': 'Buontalenti®',
+        'Donut verde': 'Buontalenti®',
+        'Donut cioccolato': 'Buontalenti® ricoperto con cioccolato fondente'
       };
 
       /* ── Pezzi duri description i18n (EN/FR/ES) ── */
       const PEZZI_DURI_DESC_I18N = {
         en: {
-          'Stecco Buontalenti': 'Buontalenti ice cream bar coated in dark chocolate',
+          'Stecco Buontalenti': 'Buontalenti® ice cream bar coated in dark chocolate',
           'Stecco stracciatella': 'Stracciatella ice cream bar coated in dark and white chocolate',
           'Stecco fondente': 'Dark chocolate sorbet coated in dark chocolate',
-          'Cuore Buontalenti e cioccolata': 'Buontalenti with hazelnut and cocoa sauce, coated in dark chocolate',
-          'Cuore Buontalenti e fragola': 'Buontalenti and strawberry sauce',
-          'Biscotto Buontalenti': 'Biscuit with Buontalenti',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti® with hazelnut and cocoa sauce, coated in dark chocolate',
+          'Cuore Buontalenti e fragola': 'Buontalenti® and strawberry sauce',
+          'Biscotto Buontalenti': 'Biscuit with Buontalenti®',
           'Biscotto Stracciatella': 'Biscuit with stracciatella gelato',
-          'Donut bianco': 'Buontalenti coated in white chocolate',
-          'Donut rosa': 'Buontalenti',
-          'Donut verde': 'Buontalenti',
-          'Donut cioccolato': 'Buontalenti coated in dark chocolate'
+          'Donut bianco': 'Buontalenti® coated in white chocolate',
+          'Donut rosa': 'Buontalenti®',
+          'Donut verde': 'Buontalenti®',
+          'Donut cioccolato': 'Buontalenti® coated in dark chocolate'
         },
         fr: {
-          'Stecco Buontalenti': 'Bâtonnet Buontalenti enrobé de chocolat noir',
+          'Stecco Buontalenti': 'Bâtonnet Buontalenti® enrobé de chocolat noir',
           'Stecco stracciatella': 'Bâtonnet stracciatella enrobé de chocolat noir et blanc',
           'Stecco fondente': 'Sorbet chocolat noir enrobé de chocolat noir',
-          'Cuore Buontalenti e cioccolata': 'Buontalenti avec sauce noisette et cacao, enrobé de chocolat noir',
-          'Cuore Buontalenti e fragola': 'Buontalenti et sauce fraise',
-          'Biscotto Buontalenti': 'Biscuit avec Buontalenti',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti® avec sauce noisette et cacao, enrobé de chocolat noir',
+          'Cuore Buontalenti e fragola': 'Buontalenti® et sauce fraise',
+          'Biscotto Buontalenti': 'Biscuit avec Buontalenti®',
           'Biscotto Stracciatella': 'Biscuit avec gelato stracciatella',
-          'Donut bianco': 'Buontalenti enrobé de chocolat blanc',
-          'Donut rosa': 'Buontalenti',
-          'Donut verde': 'Buontalenti',
-          'Donut cioccolato': 'Buontalenti enrobé de chocolat noir'
+          'Donut bianco': 'Buontalenti® enrobé de chocolat blanc',
+          'Donut rosa': 'Buontalenti®',
+          'Donut verde': 'Buontalenti®',
+          'Donut cioccolato': 'Buontalenti® enrobé de chocolat noir'
         },
         es: {
-          'Stecco Buontalenti': 'Bombón Buontalenti bañado en chocolate negro',
+          'Stecco Buontalenti': 'Bombón Buontalenti® bañado en chocolate negro',
           'Stecco stracciatella': 'Bombón stracciatella bañado en chocolate negro y blanco',
           'Stecco fondente': 'Sorbete de chocolate negro bañado en chocolate negro',
-          'Cuore Buontalenti e cioccolata': 'Buontalenti con salsa de avellanas y cacao, bañado en chocolate negro',
-          'Cuore Buontalenti e fragola': 'Buontalenti y salsa de fresa',
-          'Biscotto Buontalenti': 'Galleta con Buontalenti',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti® con salsa de avellanas y cacao, bañado en chocolate negro',
+          'Cuore Buontalenti e fragola': 'Buontalenti® y salsa de fresa',
+          'Biscotto Buontalenti': 'Galleta con Buontalenti®',
           'Biscotto Stracciatella': 'Galleta con helado stracciatella',
-          'Donut bianco': 'Buontalenti bañado en chocolate blanco',
-          'Donut rosa': 'Buontalenti',
-          'Donut verde': 'Buontalenti',
-          'Donut cioccolato': 'Buontalenti bañado en chocolate negro'
+          'Donut bianco': 'Buontalenti® bañado en chocolate blanco',
+          'Donut rosa': 'Buontalenti®',
+          'Donut verde': 'Buontalenti®',
+          'Donut cioccolato': 'Buontalenti® bañado en chocolate negro'
         }
       };
 
       /* ── Pezzi duri (monoporzioni) name translations ── */
       const PEZZI_DURI_NAMES_I18N = {
+        it: {
+          'Lingotto Buontalenti': 'Lingotto Buontalenti®',
+          'Lingotto Buontalenti Pistacchio': 'Lingotto Buontalenti® Pistacchio',
+          'Stecco Buontalenti': 'Stecco Buontalenti®',
+          'Cuore Buontalenti e cioccolata': 'Cuore Buontalenti® e cioccolata',
+          'Cuore Buontalenti e fragola': 'Cuore Buontalenti® e fragola',
+          'Biscotto Buontalenti': 'Biscotto Buontalenti®'
+        },
         en: {
-          'Stecco Buontalenti': 'Buontalenti Bar',
+          'Stecco Buontalenti': 'Buontalenti® Bar',
           'Stecco stracciatella': 'Stracciatella Bar',
           'Stecco fondente': 'Dark Chocolate Bar',
-          'Cuore Buontalenti e cioccolata': 'Buontalenti Chocolate Heart',
-          'Cuore Buontalenti e fragola': 'Buontalenti Strawberry Heart',
-          'Biscotto Buontalenti': 'Buontalenti Biscuit',
+          'Cuore Buontalenti e cioccolata': 'Buontalenti® Chocolate Heart',
+          'Cuore Buontalenti e fragola': 'Buontalenti® Strawberry Heart',
+          'Biscotto Buontalenti': 'Buontalenti® Biscuit',
           'Biscotto Stracciatella': 'Stracciatella Biscuit',
           'Donut cioccolato': 'Chocolate Donut',
           'Donut bianco': 'White Donut',
@@ -7246,18 +7305,18 @@
           'Ghiacciolo di frutta al limone': 'Lemon Fruit Lolly',
           'Ghiacciolo di frutta la mango': 'Mango Fruit Lolly',
           'Ghiacciolo alla menta': 'Mint Lolly',
-          'Lingotto Buontalenti': 'Buontalenti Bar',
-          'Lingotto Buontalenti Pistacchio': 'Buontalenti Pistachio Bar',
+          'Lingotto Buontalenti': 'Buontalenti® Bar',
+          'Lingotto Buontalenti Pistacchio': 'Buontalenti® Pistachio Bar',
           'Lingotto Dolcevita': 'Dolcevita Ingot',
           'Zampa': 'Paw'
         },
         fr: {
-          'Stecco Buontalenti': 'Bâtonnet Buontalenti',
+          'Stecco Buontalenti': 'Bâtonnet Buontalenti®',
           'Stecco stracciatella': 'Bâtonnet Stracciatella',
           'Stecco fondente': 'Bâtonnet Chocolat Noir',
-          'Cuore Buontalenti e cioccolata': 'Cœur Buontalenti Chocolat',
-          'Cuore Buontalenti e fragola': 'Cœur Buontalenti Fraise',
-          'Biscotto Buontalenti': 'Biscuit Buontalenti',
+          'Cuore Buontalenti e cioccolata': 'Cœur Buontalenti® Chocolat',
+          'Cuore Buontalenti e fragola': 'Cœur Buontalenti® Fraise',
+          'Biscotto Buontalenti': 'Biscuit Buontalenti®',
           'Biscotto Stracciatella': 'Biscuit Stracciatella',
           'Donut cioccolato': 'Donut Chocolat',
           'Donut bianco': 'Donut Blanc',
@@ -7270,18 +7329,18 @@
           'Ghiacciolo di frutta al limone': 'Glace à l\u2019eau Citron',
           'Ghiacciolo di frutta la mango': 'Glace à l\u2019eau Mangue',
           'Ghiacciolo alla menta': 'Glace à l\u2019eau Menthe',
-          'Lingotto Buontalenti': 'Lingot Buontalenti',
-          'Lingotto Buontalenti Pistacchio': 'Lingot Buontalenti Pistache',
+          'Lingotto Buontalenti': 'Lingot Buontalenti®',
+          'Lingotto Buontalenti Pistacchio': 'Lingot Buontalenti® Pistache',
           'Lingotto Dolcevita': 'Lingot Dolcevita',
           'Zampa': 'Patte'
         },
         es: {
-          'Stecco Buontalenti': 'Bombón Buontalenti',
+          'Stecco Buontalenti': 'Bombón Buontalenti®',
           'Stecco stracciatella': 'Bombón Stracciatella',
           'Stecco fondente': 'Bombón Chocolate Negro',
-          'Cuore Buontalenti e cioccolata': 'Corazón Buontalenti Chocolate',
-          'Cuore Buontalenti e fragola': 'Corazón Buontalenti Fresa',
-          'Biscotto Buontalenti': 'Galleta Buontalenti',
+          'Cuore Buontalenti e cioccolata': 'Corazón Buontalenti® Chocolate',
+          'Cuore Buontalenti e fragola': 'Corazón Buontalenti® Fresa',
+          'Biscotto Buontalenti': 'Galleta Buontalenti®',
           'Biscotto Stracciatella': 'Galleta Stracciatella',
           'Donut cioccolato': 'Donut de Chocolate',
           'Donut bianco': 'Donut Blanco',
@@ -7294,8 +7353,8 @@
           'Ghiacciolo di frutta al limone': 'Polo de Fruta de Limón',
           'Ghiacciolo di frutta la mango': 'Polo de Fruta de Mango',
           'Ghiacciolo alla menta': 'Polo de Menta',
-          'Lingotto Buontalenti': 'Lingote Buontalenti',
-          'Lingotto Buontalenti Pistacchio': 'Lingote Buontalenti Pistacho',
+          'Lingotto Buontalenti': 'Lingote Buontalenti®',
+          'Lingotto Buontalenti Pistacchio': 'Lingote Buontalenti® Pistacho',
           'Lingotto Dolcevita': 'Lingote Dolcevita',
           'Zampa': 'Patita'
         }
@@ -9386,6 +9445,12 @@
       document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
       });
+
+      /* Deep-link: open category from ?cat= URL parameter (from homepage mega menu) */
+      try {
+        const urlCat = new URLSearchParams(window.location.search).get('cat');
+        if(urlCat) openModal(urlCat);
+      } catch(e){}
 
 
 

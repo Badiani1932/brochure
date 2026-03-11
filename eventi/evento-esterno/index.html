@@ -135,8 +135,8 @@
       overflow:hidden;
       color:#fff;
       display:flex;
-      align-items:flex-end;
-      min-height:70vh;
+      align-items:flex-start;
+      aspect-ratio:1/1;
       cursor:pointer;
       border:none;
       background:none;
@@ -207,13 +207,7 @@
       width:100%;
     }
     .ext-card__subtitle{
-      display:block;
-      font-size:clamp(11px, 1vw, 13px);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      color:rgba(255,255,255,0.55);
-      margin-bottom:12px;
-      font-weight:400;
+      display:none;
     }
     .ext-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
@@ -227,11 +221,38 @@
       text-shadow:none;
     }
     .ext-card__desc{
-      font-size:clamp(13px, 1.1vw, 16px);
-      color:rgba(255,255,255,0.8);
-      line-height:1.6;
-      max-width:300px;
-      font-weight:300;
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      margin-top:clamp(16px, 2vw, 28px);
+      padding:14px 28px;
+      border-radius:0;
+      border:2px solid var(--badiani-pink);
+      background:var(--badiani-pink);
+      color:#fff;
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(13px, 1vw, 15px);
+      text-transform:uppercase;
+      letter-spacing:2.5px;
+      font-weight:700;
+      line-height:1;
+      max-width:none;
+      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+    .ext-card__desc svg{
+      width:17px;
+      height:17px;
+      flex-shrink:0;
+      transition:transform 0.25s ease;
+    }
+    .ext-card:hover .ext-card__desc{
+      background:#fff;
+      border-color:#fff;
+      color:var(--badiani-pink);
+      transform:translateY(-2px);
+    }
+    .ext-card:hover .ext-card__desc svg{
+      transform:translateX(4px);
     }
     .ext-card__price{
       font-size:clamp(14px, 1.2vw, 17px);
@@ -805,7 +826,7 @@
       .ext-solutions__grid{
         grid-template-columns:1fr;
       }
-      .ext-card{ min-height:50vh; }
+      .ext-card{ aspect-ratio:4/3; }
       .ext-card + .ext-card{
         box-shadow:none;
         border-top:1px solid rgba(255,255,255,0.12);
@@ -869,7 +890,7 @@
       .ext-hero__content{ padding:24px 20px; }
       .ext-hero__title{ font-size:clamp(40px, 12vw, 72px); }
 
-      .ext-card{ min-height:40vh; }
+      .ext-card{ aspect-ratio:3/4; }
       .ext-card__overlay{ padding:28px 20px; }
       .ext-card__title{ font-size:clamp(28px, 8vw, 44px); }
 
@@ -964,7 +985,7 @@
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
           <h2 class="ext-card__title">Cool Box</h2>
-          <p class="ext-card__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
+          <p class="ext-card__desc"><span data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
           <p class="ext-card__price" data-i18n="external.coolbox.price">A partire da &euro;200+IVA*</p>
         </div>
       </button>
@@ -976,7 +997,7 @@
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
           <h2 class="ext-card__title">Carretto Gelato</h2>
-          <p class="ext-card__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
+          <p class="ext-card__desc"><span data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
           <p class="ext-card__price" data-i18n="external.carretto.price">A partire da &euro;900+IVA*</p>
         </div>
       </button>

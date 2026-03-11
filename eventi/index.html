@@ -156,12 +156,10 @@
       transition:background 0.4s ease;
     }
     .ev-card--experience:hover{ background:#c5c1bb; }
+    .ev-card--experience::after{ display:none; }
     .ev-card--experience .ev-card__title{
       color:var(--badiani-blue);
       text-shadow:none;
-    }
-    .ev-card--experience .ev-card__desc{
-      color:rgba(30,57,141,0.8);
     }
     .ev-card{
       position:relative;
@@ -169,13 +167,18 @@
       text-decoration:none;
       color:#fff;
       display:flex;
-      align-items:flex-end;
+      align-items:flex-start;
       aspect-ratio:1/1;
       min-height:0;
       cursor:pointer;
     }
     .ev-card::after{
-      display:none;
+      content:'';
+      position:absolute;
+      inset:0;
+      z-index:1;
+      pointer-events:none;
+      background:linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.20) 50%, rgba(0,0,0,0.10) 100%);
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -206,6 +209,9 @@
       z-index:2;
       padding:48px 40px;
       width:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
     }
     .ev-card__label{
       position:absolute;
@@ -237,11 +243,38 @@
       text-shadow:none;
     }
     .ev-card__desc{
-      font-size:clamp(13px, 1.1vw, 16px);
-      color:rgba(255,255,255,0.8);
-      line-height:1.6;
-      max-width:300px;
-      font-weight:300;
+      display:inline-flex;
+      align-items:flex-start;
+      gap:12px;
+      margin-top:clamp(16px,2vw,24px);
+      padding:14px 28px;
+      border-radius:0;
+      border:2px solid var(--badiani-pink);
+      background:var(--badiani-pink);
+      color:#fff;
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(13px,1vw,15px);
+      text-transform:uppercase;
+      letter-spacing:2.5px;
+      font-weight:700;
+      line-height:1.35;
+      max-width:none;
+      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    }
+    .ev-card:hover .ev-card__desc{
+      background:#fff;
+      border-color:#fff;
+      color:var(--badiani-pink);
+    }
+    .ev-card__desc svg{
+      flex-shrink:0;
+      width:18px;
+      height:18px;
+      margin-top:0.1em;
+      transition:transform 0.25s ease;
+    }
+    .ev-card:hover .ev-card__desc svg{
+      transform:translateX(4px);
     }
     /* no dividers needed — gap:2px provides visual separation */
 
@@ -909,27 +942,27 @@
         <img class="ev-card__img" src="../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta privata Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.tosinghi.title">Saletta Privata Tosinghi</h2>
-          <p class="ev-card__desc" data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</p>
+          <p class="ev-card__desc"><span data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
         <img class="ev-card__img" src="../assets/images/eventi/cool-box.webp" alt="BADIANI DOVE VUOI" loading="lazy" decoding="async" width="1200" height="669" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.external.title">Badiani dove vuoi</h2>
-          <p class="ev-card__desc" data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</p>
+          <p class="ev-card__desc"><span data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
         <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1759" height="1467" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
-          <p class="ev-card__desc" data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</p>
+          <p class="ev-card__desc"><span data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card ev-card--experience" href="./experience/" data-i18n-attr="aria-label:eventi.experience.aria">
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.experience.title">Experience</h2>
-          <p class="ev-card__desc" data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.</p>
+          <p class="ev-card__desc"><span data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
     </div>

@@ -308,6 +308,13 @@ Usa unità `em` per scalare proporzionalmente con il font-size del titolo.
 | **Modal Open** | `opacity: 0 → 1` + backdrop blur | 0.3s |
 | **Reduced Motion** | Tutte le animazioni disabilitate | `@media (prefers-reduced-motion: reduce)` |
 
+#### Category Cards (B2B)
+
+Le category card nella pagina B2B usano lo stesso pattern visivo delle choice card della homepage:
+- **Titoli in alto a sinistra** (`.category-title` dentro `.category-card__overlay` con `justify-content:flex-start`)
+- **Descrizioni come CTA button** (`.category-cta` con freccia SVG, sfondo `--badiani-blue`, hover bianco)
+- Al passaggio del mouse il bottone diventa bianco con testo blu e la freccia scorre a destra
+
 ### Pattern CSS Ricorrenti
 
 ```css
@@ -815,6 +822,22 @@ python _source/add_cookie_strings.py
 
 ## Problemi Noti e Debito Tecnico
 
+### ⚡ Troubleshooting Rapido VS Code
+
+> **Prima di investigare qualsiasi anomalia visiva o di file in VS Code, prova queste soluzioni in ordine:**
+
+| # | Sintomo | Soluzione immediata |
+|---|---------|---------------------|
+| 1 | Pagina appare con design vecchio/diverso nell'anteprima | **Riavvia VS Code** — la preview può rimanere in cache con versione obsoleta |
+| 2 | File modificato ma le modifiche non sembrano applicate | Riavvia VS Code oppure `Developer: Reload Window` (Ctrl+Shift+P) |
+| 3 | Git diff mostra caratteri strani (es. `┬«` invece di `®`) | Falso allarme — è solo il terminale PowerShell che non renderizza UTF-8; il file è corretto |
+| 4 | Errori lint in file non toccati | Cache linter stantia — riavvia VS Code |
+| 5 | Estensione non risponde o tool fallisce | Riavvia VS Code |
+
+**Regola d'oro**: Se qualcosa sembra rotto ma git conferma che il file è identico a HEAD e il sito live funziona → **riavvia VS Code prima di fare qualsiasi modifica**.
+
+---
+
 ### Problemi Critici
 
 | # | Problema | Impatto | Fix Suggerito |
@@ -829,6 +852,7 @@ python _source/add_cookie_strings.py
 | 2026-03-11 | **Mercury — pulizia completa**: rimosso `mercury.webp` + tutti i CSS + JS parallax da 5 pagine: `eventi/index.html`, `eventi/evento-esterno/`, `eventi/experience/`, `eventi/saletta-privata-tosinghi/`, `b2b/index.html`. Zero riferimenti residui. |
 | 2026-03-11 | **Hub Eventi — outline nere**: corretto `.ev-types__grid` da `gap:2px` a `gap:0` — eliminava sfondo nero visibile come linee tra le card tipologie evento |
 | 2026-03-11 | **Homepage CTA**: `.choice-cta` ridisegnato da pill bianco pieno (`align-self:stretch`, `padding:20px 40px`, sfondo bianco solido) a pill frosted-glass compatto (`align-self:flex-start`, `padding:11px 22px`, `backdrop-filter:blur(8px)`, bordo `rgba(255,255,255,0.75)`) |
+| 2026-03-11 | **Badiani Dove Vuoi — card redesign**: rimossi sovratitoli (`.ext-card__subtitle`), card quadrate con `aspect-ratio:1/1` e titolo in alto (`align-items:flex-start`), descrizione trasformata in pulsante CTA rosa (stile homepage) con freccia SVG |
 | 2026-03-10 | **Homepage**: rimosso testo hero "Badiani Experience" + label "Benvenuti" — video visibile in full-screen |
 | 2026-03-10 | **Homepage**: rimossi tutti i sovratitoli (label uppercase) da tutte le sezioni |
 | 2026-03-10 | **Homepage**: uniformati tutti i titoli a `clamp(42px, 6vw, 192px)` — stessa misura di IL BUONTALENTI® |

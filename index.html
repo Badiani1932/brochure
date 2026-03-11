@@ -244,18 +244,16 @@
     .choice-cta{
       display:inline-flex;
       align-items:center;
-      gap:10px;
-      margin-top:auto;
+      gap:12px;
+      margin-top:clamp(20px, 2.5vw, 36px);
       align-self:flex-start;
-      padding:11px 22px;
-      border-radius:999px;
-      border:1.5px solid rgba(255,255,255,0.75);
-      background:rgba(255,255,255,0.10);
-      backdrop-filter:blur(8px);
-      -webkit-backdrop-filter:blur(8px);
+      padding:14px 28px;
+      border-radius:0;
+      border:2px solid var(--badiani-pink);
+      background:var(--badiani-pink);
       color:#fff;
       font-family:'SuperGroteskB',sans-serif;
-      font-size:clamp(11px, 0.85vw, 13px);
+      font-size:clamp(13px, 1vw, 15px);
       text-transform:uppercase;
       letter-spacing:2.5px;
       font-weight:700;
@@ -263,16 +261,23 @@
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
     .choice-cta svg{
-      width:15px;
-      height:15px;
+      width:17px;
+      height:17px;
       flex-shrink:0;
       transition:transform 0.25s ease;
     }
+    .choice-card[href="b2b/"] .choice-cta{
+      border-color:var(--badiani-blue);
+      background:var(--badiani-blue);
+    }
     .choice-card:hover .choice-cta{
-      background:var(--badiani-pink);
-      border-color:var(--badiani-pink);
-      color:#fff;
+      background:#fff;
+      border-color:#fff;
+      color:var(--badiani-pink);
       transform:translateY(-2px);
+    }
+    .choice-card[href="b2b/"]:hover .choice-cta{
+      color:var(--badiani-blue);
     }
     .choice-card:hover .choice-cta svg{
       transform:translateX(4px);
@@ -836,7 +841,7 @@
       /* RIGHT card — Significa/Gelato: aspect-ratio handles height */
       .world-card--timeline{ padding:clamp(24px, 4vw, 40px) 0 0 0; }
       .world-card__gelato-big{ font-size:clamp(60px, 22vw, 430px); }
-      .world-card__gelato-wrap{ flex:0 1 auto; }
+      .world-card__gelato-wrap{ flex:0 1 auto; min-height:clamp(70px, 26vw, 180px); }
       .timeline{
         flex-direction:column;
         gap:0;
@@ -1077,6 +1082,8 @@
         transform: none !important;
       }
     }
+
+
   </style>
 </head>
 <body>
@@ -1128,9 +1135,8 @@
           <div class="choice-card__heading-group">
             <h2 class="choice-title title-accent title-accent--light" data-i18n="home.card.eventi.title">EVENTI</h2>
           </div>
-          <p class="choice-desc" data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</p>
           <span class="choice-cta" aria-hidden="true">
-            <span data-i18n="home.choice.eventi.cta">Scopri gli eventi</span>
+            <span data-i18n="home.choice.eventi.desc">Feste private ed eventi su misura</span>
             <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
           </span>
         </div>
@@ -1141,9 +1147,8 @@
           <div class="choice-card__heading-group">
             <h2 class="choice-title title-accent title-accent--light">B2B</h2>
           </div>
-          <p class="choice-desc" data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</p>
           <span class="choice-cta" aria-hidden="true">
-            <span data-i18n="home.choice.b2b.cta">Esplora il catalogo</span>
+            <span data-i18n="home.choice.b2b.desc">Soluzioni gelato per catering, hotel</span>
             <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h12M11 4l5 5-5 5"/></svg>
           </span>
         </div>
@@ -1657,6 +1662,31 @@
           'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="cookie-policy.html">Plus d\'informations</a>',
           'cookie.accept': 'Accepter',
           'cookie.link': 'Cookie Policy',
+          'mega.close': 'Fermer',
+          'mega.eventi.title': 'Événements',
+          'mega.eventi.saletta.title': 'Salon Privé Tosinghi',
+          'mega.eventi.saletta.desc': 'Fête exclusive dans notre salon privé avec formules sur mesure',
+          'mega.eventi.esterno.title': 'Badiani Où Vous Voulez',
+          'mega.eventi.esterno.desc': 'Cool box, chariot et vitrine pour événements en plein air',
+          'mega.eventi.aziende.title': 'Spécial Entreprises',
+          'mega.eventi.aziende.desc': 'Événements corporate personnalisés pour votre marque',
+          'mega.eventi.experience.title': 'Experience',
+          'mega.eventi.experience.desc': 'Dégustation guidée des parfums iconiques de Paolo Pomposi',
+          'mega.eventi.footer': 'Tous les événements',
+          'mega.b2b.title': 'B2B',
+          'mega.b2b.gelato.title': 'Gelato',
+          'mega.b2b.gelato.desc': 'Plus de 36 parfums artisanaux, du Buontalenti aux classiques',
+          'mega.b2b.pezziduri.title': 'Pièces Dures',
+          'mega.b2b.pezziduri.desc': 'Bâtonnets, biscuits et portions individuelles prêts à servir',
+          'mega.b2b.torte.title': 'Gâteaux',
+          'mega.b2b.torte.desc': 'Gâteaux glacés et semifreddos pour chaque occasion',
+          'mega.b2b.coni.title': 'Cornets et Coupes',
+          'mega.b2b.coni.desc': 'Cornets artisanaux et coupes pour la dégustation',
+          'mega.b2b.accessori.title': 'Accessoires',
+          'mega.b2b.accessori.desc': 'Spatules, cuillères et accessoires brandés',
+          'mega.b2b.contenitori.title': 'Conteneurs',
+          'mega.b2b.contenitori.desc': 'Barquettes, boîtes isothermes et emballages à emporter',
+          'mega.b2b.footer': 'Catalogue complet',
 },
         es: {
           'meta.title': 'Badiani 1932 — Inicio',
@@ -1765,6 +1795,31 @@
           'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
           'cookie.accept': 'Aceptar',
           'cookie.link': 'Cookie Policy',
+          'mega.close': 'Cerrar',
+          'mega.eventi.title': 'Eventos',
+          'mega.eventi.saletta.title': 'Sala Privada Tosinghi',
+          'mega.eventi.saletta.desc': 'Fiesta exclusiva en nuestra sala privada con paquetes a medida',
+          'mega.eventi.esterno.title': 'Badiani Donde Quieras',
+          'mega.eventi.esterno.desc': 'Cool box, carrito y vitrina para eventos al aire libre',
+          'mega.eventi.aziende.title': 'Especial Empresas',
+          'mega.eventi.aziende.desc': 'Eventos corporativos personalizados para tu marca',
+          'mega.eventi.experience.title': 'Experience',
+          'mega.eventi.experience.desc': 'Degustación guiada de los sabores icónicos de Paolo Pomposi',
+          'mega.eventi.footer': 'Todos los eventos',
+          'mega.b2b.title': 'B2B',
+          'mega.b2b.gelato.title': 'Helado',
+          'mega.b2b.gelato.desc': 'Más de 36 sabores artesanales, del Buontalenti a los clásicos',
+          'mega.b2b.pezziduri.title': 'Piezas Duras',
+          'mega.b2b.pezziduri.desc': 'Palitos, galletas y porciones individuales listos para servir',
+          'mega.b2b.torte.title': 'Tartas',
+          'mega.b2b.torte.desc': 'Tartas heladas y semifríos para cada ocasión',
+          'mega.b2b.coni.title': 'Conos y Copas',
+          'mega.b2b.coni.desc': 'Conos artesanales y copas para degustación',
+          'mega.b2b.accessori.title': 'Accesorios',
+          'mega.b2b.accessori.desc': 'Espátulas, cucharillas y accesorios de marca',
+          'mega.b2b.contenitori.title': 'Contenedores',
+          'mega.b2b.contenitori.desc': 'Tarrinas, cajas térmicas y packaging para llevar',
+          'mega.b2b.footer': 'Catálogo completo',
 }
       };
 
@@ -2012,22 +2067,104 @@
       });
     })();
 
-    /* Hamburger mobile menu toggle */
+    /* Hamburger mobile menu toggle + Mega Menu overlay logic */
     (function(){
-      var btn = document.getElementById('hamburgerBtn');
-      var nav = document.getElementById('mobileNav');
-      if(!btn || !nav) return;
-      btn.addEventListener('click', function(){
-        var open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        nav.classList.toggle('is-open');
-        document.body.style.overflow = open ? '' : 'hidden';
+      var hamburgerBtn = document.getElementById('hamburgerBtn');
+      var mobileNav = document.getElementById('mobileNav');
+
+      if(hamburgerBtn && mobileNav){
+        hamburgerBtn.addEventListener('click', function(){
+          var open = hamburgerBtn.getAttribute('aria-expanded') === 'true';
+          hamburgerBtn.setAttribute('aria-expanded', String(!open));
+          mobileNav.classList.toggle('is-open');
+          document.body.style.overflow = open ? '' : 'hidden';
+        });
+        mobileNav.querySelectorAll('a').forEach(function(a){
+          a.addEventListener('click', function(){
+            hamburgerBtn.setAttribute('aria-expanded','false');
+            mobileNav.classList.remove('is-open');
+            document.body.style.overflow = '';
+          });
+        });
+      }
+
+      /* --- Mega Menu Overlay --- */
+      var overlays = document.querySelectorAll('.mega-overlay');
+      var triggers = document.querySelectorAll('.mega-trigger');
+      var activeTrigger = null;
+
+      function closeMobileNav(){
+        if(hamburgerBtn && mobileNav){
+          hamburgerBtn.setAttribute('aria-expanded','false');
+          mobileNav.classList.remove('is-open');
+        }
+      }
+
+      function openMega(id){
+        overlays.forEach(function(o){ o.classList.remove('is-open'); });
+        var overlay = document.getElementById(id);
+        if(!overlay) return;
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        triggers.forEach(function(btn){
+          btn.setAttribute('aria-expanded', btn.getAttribute('data-mega-target') === id ? 'true' : 'false');
+        });
+        var firstFocusable = overlay.querySelector('.mega-card, .mega-overlay__close');
+        if(firstFocusable) firstFocusable.focus();
+      }
+
+      function closeMega(){
+        overlays.forEach(function(o){ o.classList.remove('is-open'); });
+        triggers.forEach(function(btn){ btn.setAttribute('aria-expanded','false'); });
+        document.body.style.overflow = '';
+        if(activeTrigger){
+          activeTrigger.focus();
+          activeTrigger = null;
+        }
+      }
+
+      triggers.forEach(function(btn){
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          activeTrigger = btn;
+          var target = btn.getAttribute('data-mega-target');
+          var overlay = document.getElementById(target);
+          if(overlay && overlay.classList.contains('is-open')){
+            closeMega();
+          } else {
+            closeMobileNav();
+            openMega(target);
+          }
+        });
       });
-      nav.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          btn.setAttribute('aria-expanded','false');
-          nav.classList.remove('is-open');
-          document.body.style.overflow = '';
+
+      overlays.forEach(function(overlay){
+        var closeBtn = overlay.querySelector('.mega-overlay__close');
+        var backdrop = overlay.querySelector('.mega-overlay__backdrop');
+        if(closeBtn) closeBtn.addEventListener('click', closeMega);
+        if(backdrop) backdrop.addEventListener('click', closeMega);
+      });
+
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Escape'){
+          var anyOpen = false;
+          overlays.forEach(function(o){ if(o.classList.contains('is-open')) anyOpen = true; });
+          if(anyOpen) closeMega();
+        }
+      });
+
+      overlays.forEach(function(overlay){
+        overlay.addEventListener('keydown', function(e){
+          if(e.key !== 'Tab') return;
+          var focusable = overlay.querySelectorAll('a[href], button, [tabindex]:not([tabindex="-1"])');
+          if(focusable.length === 0) return;
+          var first = focusable[0];
+          var last = focusable[focusable.length - 1];
+          if(e.shiftKey){
+            if(document.activeElement === first){ e.preventDefault(); last.focus(); }
+          } else {
+            if(document.activeElement === last){ e.preventDefault(); first.focus(); }
+          }
         });
       });
     })();
@@ -2153,62 +2290,6 @@
     }
     fit();                                           /* run on load */
     window.addEventListener('resize', fit);
-  })();
-  </script>
-
-  <!-- Auto-fit heritage title: scale font so widest word fits container -->
-  <script>
-  (function(){
-    var title = document.querySelector('.world-card--metrics .world-card__title');
-    if(!title) return;
-
-    /* Hidden probe element to measure single-word widths */
-    var probe = document.createElement('span');
-    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
-    document.body.appendChild(probe);
-
-    function fitTitle(){
-      /* Copy font styles to probe */
-      var cs = getComputedStyle(title);
-      probe.style.fontFamily = cs.fontFamily;
-      probe.style.fontWeight = cs.fontWeight;
-      probe.style.textTransform = cs.textTransform;
-      probe.style.letterSpacing = cs.letterSpacing;
-
-      /* Available width = title's own max-width (set by CSS: 55% of card) */
-      var containerW = title.clientWidth || title.offsetWidth;
-      /* If title has no width yet, compute from card */
-      if(!containerW){
-        var card = title.closest('.world-card--metrics');
-        if(!card) return;
-        var cardCS = getComputedStyle(card);
-        var cardW = card.clientWidth - parseFloat(cardCS.paddingLeft) - parseFloat(cardCS.paddingRight);
-        containerW = window.innerWidth <= 900 ? cardW : cardW * 0.55;
-      }
-
-      /* Find the widest word in the title text */
-      var words = title.textContent.trim().split(/\s+/);
-      var maxFs = 168;
-      var bestFs = maxFs;
-
-      for(var fs = maxFs; fs >= 20; fs--){
-        probe.style.fontSize = fs + 'px';
-        var fits = true;
-        for(var i = 0; i < words.length; i++){
-          probe.textContent = words[i];
-          if(probe.offsetWidth > containerW){ fits = false; break; }
-        }
-        if(fits){ bestFs = fs; break; }
-      }
-
-      title.style.fontSize = bestFs < maxFs ? bestFs + 'px' : '';
-    }
-
-    fitTitle();
-    window.addEventListener('resize', fitTitle);
-    /* Re-fit on language change */
-    var sel = document.getElementById('langSelect');
-    if(sel) sel.addEventListener('change', function(){ setTimeout(fitTitle, 50); });
   })();
   </script>
 
