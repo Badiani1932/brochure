@@ -826,6 +826,9 @@ python _source/add_cookie_strings.py
 
 | Data | Modifica |
 |------|----------|
+| 2026-03-11 | **Mercury — pulizia completa**: rimosso `mercury.webp` + tutti i CSS + JS parallax da 5 pagine: `eventi/index.html`, `eventi/evento-esterno/`, `eventi/experience/`, `eventi/saletta-privata-tosinghi/`, `b2b/index.html`. Zero riferimenti residui. |
+| 2026-03-11 | **Hub Eventi — outline nere**: corretto `.ev-types__grid` da `gap:2px` a `gap:0` — eliminava sfondo nero visibile come linee tra le card tipologie evento |
+| 2026-03-11 | **Homepage CTA**: `.choice-cta` ridisegnato da pill bianco pieno (`align-self:stretch`, `padding:20px 40px`, sfondo bianco solido) a pill frosted-glass compatto (`align-self:flex-start`, `padding:11px 22px`, `backdrop-filter:blur(8px)`, bordo `rgba(255,255,255,0.75)`) |
 | 2026-03-10 | **Homepage**: rimosso testo hero "Badiani Experience" + label "Benvenuti" — video visibile in full-screen |
 | 2026-03-10 | **Homepage**: rimossi tutti i sovratitoli (label uppercase) da tutte le sezioni |
 | 2026-03-10 | **Homepage**: uniformati tutti i titoli a `clamp(42px, 6vw, 192px)` — stessa misura di IL BUONTALENTI® |
@@ -966,4 +969,4 @@ Per approfondimenti specifici, consultare:
 
 ---
 
-*Ultimo aggiornamento: Marzo 2026*
+*Ultimo aggiornamento: 11 Marzo 2026*
