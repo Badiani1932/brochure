@@ -2226,6 +2226,56 @@
       touch-action:manipulation;
     }
 
+    /* ── Fullscreen photo navigation ── */
+    .fullscreen-nav{
+      display:none;
+      position:fixed;
+      top:50%;
+      transform:translateY(-50%);
+      width:48px;
+      height:48px;
+      border-radius:50%;
+      border:1.5px solid rgba(255,255,255,0.45);
+      background:rgba(0,0,0,0.35);
+      color:#fff;
+      font-size:30px;
+      cursor:pointer;
+      align-items:center;
+      justify-content:center;
+      backdrop-filter:blur(6px);
+      -webkit-backdrop-filter:blur(6px);
+      transition:background 0.15s;
+      touch-action:manipulation;
+      z-index:4010;
+      line-height:1;
+      padding:0;
+    }
+    .fullscreen-nav:hover{ background:rgba(0,0,0,0.62); }
+    .fullscreen-overlay.has-nav .fullscreen-nav{ display:flex; }
+    .fullscreen-nav--prev{ left:16px; }
+    .fullscreen-nav--next{ right:16px; }
+    .fullscreen-dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      padding-top:4px;
+      min-height:16px;
+    }
+    .fullscreen-dot{
+      width:8px;
+      height:8px;
+      border-radius:50%;
+      background:rgba(255,255,255,0.35);
+      border:none;
+      cursor:pointer;
+      padding:0;
+      transition:background 0.15s, transform 0.15s;
+    }
+    .fullscreen-dot.is-active{
+      background:#fff;
+      transform:scale(1.35);
+    }
+
     /* ── Lingotto variants carousel ── */
     .lingotto-carousel{
       position:fixed;
@@ -3209,11 +3259,11 @@
     }
     .contenitori-detail-info{
       flex:1;
-      padding:24px 24px 24px 0;
+      padding:20px 20px 20px 0;
       display:flex;
       flex-direction:column;
       justify-content:center;
-      gap:12px;
+      gap:6px;
     }
     .contenitori-detail-name{
       font-size:18px;
@@ -3225,7 +3275,7 @@
     }
     .contenitori-detail-meta{
       display:grid;
-      gap:8px;
+      gap:2px;
       font-size:13px;
       color:rgba(30,57,141,0.65);
     }
@@ -3234,7 +3284,7 @@
       justify-content:space-between;
       gap:8px;
       background:transparent;
-      padding:8px 12px;
+      padding:4px 8px;
       border-radius:10px;
     }
     .contenitori-detail-meta strong{
@@ -4161,6 +4211,7 @@
       position:relative;
       width:94%;
       max-width:880px;
+      height:92vh;
       max-height:92vh;
       background:var(--surface,#fff);
       border-radius:24px;
@@ -4200,8 +4251,8 @@
     }
     .listino-header__subtitle{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:12px;
-      color:rgba(255,255,255,0.55);
+      font-size:15px;
+      color:rgba(255,255,255,0.85);
       letter-spacing:0.3px;
       margin:0 0 0 12px;
     }
@@ -4239,7 +4290,7 @@
       color:rgba(255,255,255,0.6);
       padding:10px 18px;
       font-family:'SuperGroteskC','SuperGroteskB',sans-serif;
-      font-size:13px;
+      font-size:14px;
       letter-spacing:0.4px;
       text-transform:uppercase;
       white-space:nowrap;
@@ -4289,8 +4340,8 @@
     }
     .listino-section__banner-note{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:11px;
-      color:rgba(255,255,255,0.6);
+      font-size:14px;
+      color:rgba(255,255,255,0.75);
       white-space:nowrap;
     }
 
@@ -4307,7 +4358,7 @@
       width:100%;
       border-collapse:collapse;
       font-family:'SuperGroteskC','SuperGroteskA',sans-serif;
-      font-size:clamp(15px, 1.2vw, 17px);
+      font-size:clamp(16px, 1.3vw, 18px);
       color:var(--badiani-gray,#58595b);
       min-width:480px;
     }
@@ -4315,7 +4366,7 @@
       background:rgba(30,57,141,0.06);
       color:var(--badiani-blue,#1e398d);
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:clamp(11px, 1vw, 13px);
+      font-size:clamp(13px, 1vw, 14px);
       letter-spacing:0.8px;
       text-transform:uppercase;
       padding:13px 16px;
@@ -4343,19 +4394,19 @@
       font-weight:600;
       color:var(--badiani-blue,#1e398d);
       white-space:nowrap;
-      font-size:clamp(15px, 1.2vw, 17px);
+      font-size:clamp(16px, 1.3vw, 18px);
     }
     .listino-table .listino-flavor{
       font-weight:500;
       color:#333;
-      font-size:clamp(15px, 1.2vw, 17px);
+      font-size:clamp(16px, 1.3vw, 18px);
     }
     .listino-table .listino-flavor small{
       display:block;
       font-weight:400;
-      font-size:clamp(11px, 0.9vw, 13px);
-      color:#999;
-      margin-top:2px;
+      font-size:clamp(14px, 1.1vw, 15px);
+      color:#777;
+      margin-top:3px;
     }
     .listino-table--pezzi{ min-width:560px; }
     .listino-table--accessori{ min-width:600px; }
@@ -4365,7 +4416,7 @@
       background:rgba(240,103,166,0.08);
       color:var(--badiani-pink,#f067a6);
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:13px;
+      font-size:15px;
       letter-spacing:0.6px;
       text-transform:uppercase;
       padding:10px 16px;
@@ -4387,11 +4438,11 @@
     }
     .listino-shipping-card__title{
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:16px;
+      font-size:19px;
       color:var(--badiani-blue,#1e398d);
       text-transform:uppercase;
       letter-spacing:0.5px;
-      margin:0 0 12px;
+      margin:0 0 14px;
     }
     .listino-shipping-card ul{
       list-style:none;
@@ -4400,11 +4451,11 @@
     }
     .listino-shipping-card li{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:14px;
+      font-size:16px;
       color:var(--badiani-gray,#58595b);
       line-height:1.6;
-      padding:4px 0;
-      padding-left:16px;
+      padding:6px 0;
+      padding-left:20px;
       position:relative;
     }
     .listino-shipping-card li::before{
@@ -4423,15 +4474,15 @@
       .listino-modal{ width:100%; max-height:100vh; border-radius:0; }
       .listino-header{ border-radius:0; padding:16px 16px 0; }
       .listino-section{ padding:16px 14px 24px; }
-      .listino-tab{ padding:8px 14px; font-size:12px; }
+      .listino-tab{ padding:8px 14px; font-size:13px; }
       .listino-shipping-grid{ grid-template-columns:1fr; }
       .listino-header__subtitle{ display:none; }
-      .listino-table{ font-size:15px; }
-      .listino-table th{ font-size:11px; padding:10px 12px; }
-      .listino-table td{ padding:9px 12px; }
-      .listino-table .listino-price{ font-size:15px; }
-      .listino-table .listino-flavor{ font-size:15px; }
-      .listino-table .listino-flavor small{ font-size:12px; }
+      .listino-table{ font-size:16px; }
+      .listino-table th{ font-size:13px; padding:10px 12px; }
+      .listino-table td{ padding:10px 12px; }
+      .listino-table .listino-price{ font-size:16px; }
+      .listino-table .listino-flavor{ font-size:16px; }
+      .listino-table .listino-flavor small{ font-size:14px; }
     }
     @media(prefers-reduced-motion:reduce){
       .listino-pw-input.is-error{ animation:none; }
@@ -4964,7 +5015,7 @@
         </div>
         <nav class="listino-tabs" aria-label="Sezioni listino">
           <button class="listino-tab is-active" data-listino-tab="gelato" data-i18n="b2b.listino.tab.gelato">Gelato</button>
-          <button class="listino-tab" data-listino-tab="pezziDuri" data-i18n="b2b.listino.tab.pezziDuri">Pezzi Duri</button>
+          <button class="listino-tab" data-listino-tab="pezziDuri" data-i18n="b2b.listino.tab.pezziDuri">Monoporzioni</button>
           <button class="listino-tab" data-listino-tab="torte" data-i18n="b2b.listino.tab.torte">Torte</button>
           <button class="listino-tab" data-listino-tab="accessori" data-i18n="b2b.listino.tab.accessori">Accessori</button>
           <button class="listino-tab" data-listino-tab="spedizione" data-i18n="b2b.listino.tab.spedizione">Spedizione</button>
@@ -5036,7 +5087,7 @@
         <!-- ═══ PEZZI DURI ═══ -->
         <div class="listino-section" data-listino-section="pezziDuri">
           <div class="listino-section__banner">
-            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.pezziDuri.title">Pezzi Duri</h4>
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.pezziDuri.title">Monoporzioni</h4>
             <span class="listino-section__banner-note" data-i18n="b2b.listino.pezziDuri.note">* Ordine minimo o multipli</span>
           </div>
           <div class="listino-table-wrap">
@@ -5062,15 +5113,12 @@
                 <tr><td class="listino-flavor">Donut bianco</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Donut rosa</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Donut verde</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Fruit Tube Limone</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Fruit Tube Menta</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Fruit Tube Fragola</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">120 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Ghiacciolo di frutta alla fragola</td><td class="listino-price">€ 2,20</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
                 <tr><td class="listino-flavor">Ghiacciolo di frutta al limone</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
                 <tr><td class="listino-flavor">Ghiacciolo di frutta al mango</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
                 <tr><td class="listino-flavor">Ghiacciolo alla menta</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">20</td></tr>
                 <tr><td class="listino-flavor">Lingotto</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">60 g</td><td class="listino-col-center">96</td></tr>
-                <tr><td class="listino-flavor">Zampa</td><td class="listino-price">€ 3,00</td><td class="listino-col-center">150 g</td><td class="listino-col-center">16</td></tr>
+                <tr><td class="listino-flavor">Zampa</td><td class="listino-price">€ 3,00</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
               </tbody>
             </table>
           </div>
@@ -5092,7 +5140,7 @@
               </thead>
               <tbody>
                 <tr><td class="listino-flavor">Millefoglie Buontalenti®</td><td class="listino-price">€ 22,00/Kg</td><td>2 pezzi</td></tr>
-                <tr><td class="listino-flavor">Millefoglie Buontalenti® con salsa Dolcevita<small>Nocciole e cacao</small></td><td class="listino-price">€ 24,00/Kg</td><td>2 pezzi</td></tr>
+                <tr><td class="listino-flavor">Millefoglie Buontalenti® con salsa Dolcevita<small>Salsa nocciola e cacao</small></td><td class="listino-price">€ 24,00/Kg</td><td>2 pezzi</td></tr>
                 <tr><td class="listino-flavor">Millefoglie Buontalenti® con salsa Pistacchio</td><td class="listino-price">€ 28,00/Kg</td><td>2 pezzi</td></tr>
               </tbody>
             </table>
@@ -5147,7 +5195,7 @@
               <ul>
                 <li data-i18n="b2b.listino.spedizione.firenze.free">Spedizione gratuita per ordini minimi di €300 (IVA esclusa)</li>
                 <li data-i18n="b2b.listino.spedizione.firenze.notice">Ordini da inviare con almeno 48 ore di preavviso</li>
-                <li data-i18n="b2b.listino.spedizione.firenze.ztl">Nelle zone a traffico limitato, consegne in accordo con gli orari di entrata</li>
+                <li data-i18n="b2b.listino.spedizione.firenze.ztl">Nella zona a traffico limitato consegne in base agli aggiornamenti degli orari d'ingresso in vigore</li>
               </ul>
             </div>
             <div class="listino-shipping-card">
@@ -5164,9 +5212,12 @@
   </div>
 
   <div class="fullscreen-overlay" id="gelatoFullscreen" role="dialog" aria-modal="true" aria-label="Immagine gelato" data-i18n-attr="aria-label:b2b.fullscreen.label">
+    <button class="fullscreen-nav fullscreen-nav--prev" type="button" aria-label="Foto precedente">&#8249;</button>
+    <button class="fullscreen-nav fullscreen-nav--next" type="button" aria-label="Foto successiva">&#8250;</button>
     <div class="fullscreen-content">
       <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">✕</button>
       <img id="gelatoFullscreenImage" alt="" />
+      <div class="fullscreen-dots" id="gelatoFullscreenDots"></div>
     </div>
   </div>
 
@@ -5324,7 +5375,7 @@
           'b2b.listino.viewerClose': 'Chiudi',
           'b2b.listino.subtitle': 'Prezzi al kg · IVA esclusa',
           'b2b.listino.tab.gelato': 'Gelato',
-          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.pezziDuri': 'Monoporzioni',
           'b2b.listino.tab.torte': 'Torte',
           'b2b.listino.tab.accessori': 'Accessori',
           'b2b.listino.tab.spedizione': 'Spedizione',
@@ -5343,7 +5394,7 @@
           'b2b.listino.gelato.title': 'Gelato — Vaschette & Carapine',
           'b2b.listino.gelato.note': '€/kg · IVA esclusa',
           'b2b.listino.gelato.sorbetti': 'Sorbetti',
-          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.title': 'Monoporzioni',
           'b2b.listino.pezziDuri.note': '* Ordine minimo o multipli',
           'b2b.listino.torte.title': 'Torte',
           'b2b.listino.accessori.title': 'Accessori',
@@ -5697,7 +5748,7 @@
           'b2b.listino.viewerClose': 'Close',
           'b2b.listino.subtitle': 'Price per kg · VAT excluded',
           'b2b.listino.tab.gelato': 'Gelato',
-          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.pezziDuri': 'Single Portions',
           'b2b.listino.tab.torte': 'Cakes',
           'b2b.listino.tab.accessori': 'Accessories',
           'b2b.listino.tab.spedizione': 'Shipping',
@@ -5716,7 +5767,7 @@
           'b2b.listino.gelato.title': 'Gelato — Tubs & Carapine',
           'b2b.listino.gelato.note': '€/kg · VAT excluded',
           'b2b.listino.gelato.sorbetti': 'Sorbets',
-          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.title': 'Single Portions',
           'b2b.listino.pezziDuri.note': '* Minimum order or multiples',
           'b2b.listino.torte.title': 'Cakes',
           'b2b.listino.accessori.title': 'Accessories',
@@ -6074,7 +6125,7 @@
           'b2b.listino.viewerClose': 'Fermer',
           'b2b.listino.subtitle': 'Prix au kg · TVA exclue',
           'b2b.listino.tab.gelato': 'Gelato',
-          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.pezziDuri': 'Portions individuelles',
           'b2b.listino.tab.torte': 'Gâteaux',
           'b2b.listino.tab.accessori': 'Accessoires',
           'b2b.listino.tab.spedizione': 'Livraison',
@@ -6093,7 +6144,7 @@
           'b2b.listino.gelato.title': 'Gelato — Bacs & Carapine',
           'b2b.listino.gelato.note': '€/kg · TVA exclue',
           'b2b.listino.gelato.sorbetti': 'Sorbets',
-          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.title': 'Portions individuelles',
           'b2b.listino.pezziDuri.note': '* Commande minimum ou multiples',
           'b2b.listino.torte.title': 'Gâteaux',
           'b2b.listino.accessori.title': 'Accessoires',
@@ -6451,7 +6502,7 @@
           'b2b.listino.viewerClose': 'Cerrar',
           'b2b.listino.subtitle': 'Precio por kg · IVA excluido',
           'b2b.listino.tab.gelato': 'Helado',
-          'b2b.listino.tab.pezziDuri': 'Pezzi Duri',
+          'b2b.listino.tab.pezziDuri': 'Porciones individuales',
           'b2b.listino.tab.torte': 'Tartas',
           'b2b.listino.tab.accessori': 'Accesorios',
           'b2b.listino.tab.spedizione': 'Envío',
@@ -6470,7 +6521,7 @@
           'b2b.listino.gelato.title': 'Helado — Cubetas & Carapine',
           'b2b.listino.gelato.note': '€/kg · IVA excluido',
           'b2b.listino.gelato.sorbetti': 'Sorbetes',
-          'b2b.listino.pezziDuri.title': 'Pezzi Duri',
+          'b2b.listino.pezziDuri.title': 'Porciones individuales',
           'b2b.listino.pezziDuri.note': '* Pedido mínimo o múltiplos',
           'b2b.listino.torte.title': 'Tartas',
           'b2b.listino.accessori.title': 'Accesorios',
@@ -6760,7 +6811,9 @@
             ['Ghiacciolo di frutta al limone', '100 g', '20', ''],
             ['Ghiacciolo di frutta la mango', '100 g', '20', ''],
             ['Ghiacciolo alla menta', '100 g', '20', ''],
-            ['Zampa', '150 g', '16', 'uova, latte, soia']
+            ['Zampa', '150 g', '16', 'uova, latte, soia'],
+            ['Mini Coni', '40 g', '24', 'uova, latte, soia, glutine'],
+            ['Zuccotto', '130 g', '12', 'uova, latte, soia, glutine']
           ]
         },
         'TORTE': {
@@ -6795,8 +6848,8 @@
             ['Palettine', 'Palettine gelato', '1 Kg'],
             ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '250 a pacchetto'],
             ['Spatola servizio gelato', 'Spatola per servizio gelato, 26 cm', 'su richiesta'],
-            ['Contenitore 1', 'Contenitore servizio piccolo', 'su richiesta'],
-            ['Contenitore 2', 'Contenitore servizio grande', 'su richiesta']
+            ['Espositore Biscotti', 'Espositore da banco per biscotti gelato Badiani. Misure: 235×360 mm, h 48 mm', 'su richiesta'],
+            ['Espositore Stecchi', 'Espositore da banco per stecchi gelato Badiani. Misure: 235×360 mm, h 48 mm', 'su richiesta']
           ]
         },
         'CONTENITORI': {
@@ -6896,7 +6949,16 @@
           'tiramis\u00f9': 'Tiramis\u00f9 gelato',
           'yogurt-mirtillo': 'Yoghurt gelato with blueberry ripple',
           'yogurt': 'Yoghurt gelato made with over 70% yoghurt',
-          'dubai-chocolate': 'Chocolate gelato with pistachio cream and crunchy kadayif, inspired by the famous Dubai bar'
+          'dubai-chocolate': 'Chocolate gelato with pistachio cream and crunchy kadayif, inspired by the famous Dubai bar',
+          'banana': 'Banana gelato',
+          'cioccoriso': 'Chocolate gelato with crispy puffed rice',
+          'vaniglia': 'Vanilla gelato',
+          'stracciatella-menta': 'Mint cream gelato with dark chocolate shavings',
+          'sorbetto-albicocca': 'Apricot sorbet',
+          'sorbetto-cioccolato-venezuela': 'Single-origin Venezuela dark chocolate sorbet, intense and pure',
+          'sorbetto-frutto-passione': 'Passion fruit sorbet',
+          'sorbetto-pera': 'Pear sorbet',
+          'sorbetto-tropical-summer': 'Tropical sorbet with exotic fruit blend'
         },
         fr: {
           'buontalenti': 'Notre parfum embl\u00e9matique, \u00e9labor\u00e9 avec seulement 4 ingr\u00e9dients : cr\u00e8me, lait, sucre, \u0153ufs',
@@ -6928,7 +6990,16 @@
           'tiramis\u00f9': 'Gelato au tiramis\u00f9',
           'yogurt-mirtillo': 'Gelato au yaourt avec coulis de myrtilles',
           'yogurt': 'Gelato au yaourt avec plus de 70% de yaourt',
-          'dubai-chocolate': 'Gelato au chocolat avec cr\u00e8me de pistache et kadayif croustillant, inspir\u00e9 de la c\u00e9l\u00e8bre tablette Duba\u00ef'
+          'dubai-chocolate': 'Gelato au chocolat avec cr\u00e8me de pistache et kadayif croustillant, inspir\u00e9 de la c\u00e9l\u00e8bre tablette Duba\u00ef',
+          'banana': 'Gelato \u00e0 la banane',
+          'cioccoriso': 'Gelato au chocolat avec riz souffl\u00e9 croustillant',
+          'vaniglia': 'Gelato \u00e0 la vanille',
+          'stracciatella-menta': 'Gelato fior di panna \u00e0 la menthe avec copeaux de chocolat noir',
+          'sorbetto-albicocca': 'Sorbet abricot',
+          'sorbetto-cioccolato-venezuela': 'Sorbet au chocolat noir monorigine du Venezuela, intense et pur',
+          'sorbetto-frutto-passione': 'Sorbet fruit de la passion',
+          'sorbetto-pera': 'Sorbet poire',
+          'sorbetto-tropical-summer': 'Sorbet tropical aux fruits exotiques'
         },
         es: {
           'buontalenti': 'Nuestro sabor ic\u00f3nico elaborado con solo 4 ingredientes: nata, leche, az\u00facar, huevos',
@@ -6938,7 +7009,7 @@
           'buontalenti-amarena': 'Nuestro sabor ic\u00f3nico con salsa de guindas',
           'buontalenti-delattosato': 'Nuestro sabor ic\u00f3nico elaborado sin lactosa',
           'buontalenti-fondente': 'Buontalenti con salsa de chocolate negro',
-          'bacio': 'Helado de chocolate negro y avellanas tostadas enteras, inspirado en el famoso bombón italiano',
+          'bacio': 'Helado de chocolate negro y avellanas tostadas enteras, inspirado en el famoso bomb\u00f3n italiano',
           'caffe': 'Helado de caf\u00e9 ar\u00e1bica con un sabor arom\u00e1tico y aterciopelado',
           'caramello-salato': 'Helado de caramelo con un toque de sal para un equilibrio dulce-salado',
           'cassandra': 'Buontalenti, salsa de caramelo, escamas de almendras y avellanas',
@@ -6960,11 +7031,20 @@
           'tiramis\u00f9': 'Helado de tiramis\u00fa',
           'yogurt-mirtillo': 'Helado de yogur con remolino de ar\u00e1ndanos',
           'yogurt': 'Helado de yogur elaborado con m\u00e1s del 70% de yogur',
-          'dubai-chocolate': 'Helado de chocolate con crema de pistacho y kadayif crujiente, inspirado en la famosa tableta Dub\u00e1i'
+          'dubai-chocolate': 'Helado de chocolate con crema de pistacho y kadayif crujiente, inspirado en la famosa tableta Dub\u00e1i',
+          'banana': 'Helado de pl\u00e1tano',
+          'cioccoriso': 'Helado de chocolate con arroz inflado crujiente',
+          'vaniglia': 'Helado de vainilla',
+          'stracciatella-menta': 'Helado fior di panna de menta con virutas de chocolate negro',
+          'sorbetto-albicocca': 'Sorbete de albaricoque',
+          'sorbetto-cioccolato-venezuela': 'Sorbete de chocolate negro monoorigen de Venezuela, intenso y puro',
+          'sorbetto-frutto-passione': 'Sorbete de fruta de la pasi\u00f3n',
+          'sorbetto-pera': 'Sorbete de pera',
+          'sorbetto-tropical-summer': 'Sorbete tropical con mezcla de frutas ex\u00f3ticas'
         }
       };
 
-      /* ── Gelato allergens i18n (IT falls back to gelatoFlavors.js) ── */
+      /* \u2500\u2500 Gelato allergens i18n (IT falls back to gelatoFlavors.js) \u2500\u2500 */
       const GELATO_ALLERGENS_I18N = {
         en: {
           'buontalenti': 'Milk, eggs',
@@ -6996,7 +7076,16 @@
           'tiramis\u00f9': 'Milk, eggs, gluten',
           'yogurt-mirtillo': 'Milk',
           'yogurt': 'Milk',
-          'dubai-chocolate': 'Milk, eggs, tree nuts, gluten'
+          'dubai-chocolate': 'Milk, eggs, tree nuts, gluten',
+          'banana': 'Milk',
+          'cioccoriso': 'Milk, soy',
+          'vaniglia': 'Milk, eggs',
+          'stracciatella-menta': 'Milk, soy',
+          'sorbetto-albicocca': 'May contain soy',
+          'sorbetto-cioccolato-venezuela': 'Soy',
+          'sorbetto-frutto-passione': 'May contain soy',
+          'sorbetto-pera': 'May contain soy',
+          'sorbetto-tropical-summer': 'May contain soy'
         },
         fr: {
           'buontalenti': 'Lait, \u0153ufs',
@@ -7028,7 +7117,16 @@
           'tiramis\u00f9': 'Lait, \u0153ufs, gluten',
           'yogurt-mirtillo': 'Lait',
           'yogurt': 'Lait',
-          'dubai-chocolate': 'Lait, \u0153ufs, fruits \u00e0 coque, gluten'
+          'dubai-chocolate': 'Lait, \u0153ufs, fruits \u00e0 coque, gluten',
+          'banana': 'Lait',
+          'cioccoriso': 'Lait, soja',
+          'vaniglia': 'Lait, \u0153ufs',
+          'stracciatella-menta': 'Lait, soja',
+          'sorbetto-albicocca': 'Peut contenir du soja',
+          'sorbetto-cioccolato-venezuela': 'Soja',
+          'sorbetto-frutto-passione': 'Peut contenir du soja',
+          'sorbetto-pera': 'Peut contenir du soja',
+          'sorbetto-tropical-summer': 'Peut contenir du soja'
         },
         es: {
           'buontalenti': 'Leche, huevos',
@@ -7060,7 +7158,16 @@
           'tiramis\u00f9': 'Leche, huevos, gluten',
           'yogurt-mirtillo': 'Leche',
           'yogurt': 'Leche',
-          'dubai-chocolate': 'Leche, huevos, frutos secos, gluten'
+          'dubai-chocolate': 'Leche, huevos, frutos secos, gluten',
+          'banana': 'Leche',
+          'cioccoriso': 'Leche, soja',
+          'vaniglia': 'Leche, huevos',
+          'stracciatella-menta': 'Leche, soja',
+          'sorbetto-albicocca': 'Puede contener soja',
+          'sorbetto-cioccolato-venezuela': 'Soja',
+          'sorbetto-frutto-passione': 'Puede contener soja',
+          'sorbetto-pera': 'Puede contener soja',
+          'sorbetto-tropical-summer': 'Puede contener soja'
         }
       };
 
@@ -7386,24 +7493,24 @@
           'Cialdine': { name: 'Wafers', desc: 'Badiani branded wafers' },
           'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17', qty: '250 per pack' },
           'Spatola servizio gelato': { name: 'Gelato Spatula', desc: 'Gelato serving spatula, 26 cm', qty: 'on request' },
-          'Contenitore 1': { name: 'Container 1', desc: 'Small serving container', qty: 'on request' },
-          'Contenitore 2': { name: 'Container 2', desc: 'Large serving container', qty: 'on request' }
+          'Espositore Biscotti': { name: 'Biscuit Display Stand', desc: 'Counter display stand for Badiani gelato biscuits. Dimensions: 235×360 mm, h 48 mm', qty: 'on request' },
+          'Espositore Stecchi': { name: 'Stick Display Stand', desc: 'Counter display stand for Badiani gelato sticks. Dimensions: 235×360 mm, h 48 mm', qty: 'on request' }
         },
         fr: {
           'Palettine': { name: 'Spatules', desc: 'Spatules à gelato' },
           'Cialdine': { name: 'Gaufrettes', desc: 'Gaufrettes griffées Badiani' },
           'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17', qty: '250 par paquet' },
           'Spatola servizio gelato': { name: 'Spatule à glace', desc: 'Spatule de service gelato, 26 cm', qty: 'sur demande' },
-          'Contenitore 1': { name: 'Contenant 1', desc: 'Petit contenant de service', qty: 'sur demande' },
-          'Contenitore 2': { name: 'Contenant 2', desc: 'Grand contenant de service', qty: 'sur demande' }
+          'Espositore Biscotti': { name: 'Présentoir Biscuits', desc: 'Présentoir de comptoir pour biscuits glacés Badiani. Dimensions : 235×360 mm, h 48 mm', qty: 'sur demande' },
+          'Espositore Stecchi': { name: 'Présentoir Bâtonnets', desc: 'Présentoir de comptoir pour bâtonnets glacés Badiani. Dimensions : 235×360 mm, h 48 mm', qty: 'sur demande' }
         },
         es: {
           'Palettine': { name: 'Paletas', desc: 'Paletas de helado' },
           'Cialdine': { name: 'Barquillos', desc: 'Barquillos con logo Badiani' },
           'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17', qty: '250 por paquete' },
           'Spatola servizio gelato': { name: 'Espátula para helado', desc: 'Espátula de servicio para helado, 26 cm', qty: 'bajo pedido' },
-          'Contenitore 1': { name: 'Contenedor 1', desc: 'Contenedor pequeño de servicio', qty: 'bajo pedido' },
-          'Contenitore 2': { name: 'Contenedor 2', desc: 'Contenedor grande de servicio', qty: 'bajo pedido' }
+          'Espositore Biscotti': { name: 'Expositor Galletas', desc: 'Expositor de mostrador para galletas heladas Badiani. Medidas: 235×360 mm, h 48 mm', qty: 'bajo pedido' },
+          'Espositore Stecchi': { name: 'Expositor Palitos', desc: 'Expositor de mostrador para palitos helados Badiani. Medidas: 235×360 mm, h 48 mm', qty: 'bajo pedido' }
         }
       };
 
@@ -7453,7 +7560,16 @@
           'Cassandra': 'Cassandra',
           'Cioccolato bianco all\'arancia': 'White Chocolate & Orange',
           'Yogurt Mirtillo': 'Blueberry Yoghurt',
-          'Dubai Chocolate': 'Dubai Chocolate'
+          'Dubai Chocolate': 'Dubai Chocolate',
+          'Banana': 'Banana',
+          'Cioccoriso': 'Cioccoriso',
+          'Vaniglia': 'Vanilla',
+          'Stracciatella alla menta': 'Mint Stracciatella',
+          'Albicocca': 'Apricot',
+          'Cioccolato Monorigine Venezuela': 'Single-Origin Venezuela Chocolate',
+          'Frutto della Passione': 'Passion Fruit',
+          'Pera': 'Pear',
+          'Tropical Summer': 'Tropical Summer'
         },
         fr: {
           'Buontalenti': 'Buontalenti®',
@@ -7484,7 +7600,16 @@
           'Cassandra': 'Cassandra',
           'Cioccolato bianco all\'arancia': 'Chocolat Blanc à l\'Orange',
           'Yogurt Mirtillo': 'Yaourt Myrtille',
-          'Dubai Chocolate': 'Chocolat Dubaï'
+          'Dubai Chocolate': 'Chocolat Dubaï',
+          'Banana': 'Banane',
+          'Cioccoriso': 'Cioccoriso',
+          'Vaniglia': 'Vanille',
+          'Stracciatella alla menta': 'Stracciatella à la Menthe',
+          'Albicocca': 'Abricot',
+          'Cioccolato Monorigine Venezuela': 'Chocolat Monorigine Venezuela',
+          'Frutto della Passione': 'Fruit de la Passion',
+          'Pera': 'Poire',
+          'Tropical Summer': 'Tropical Summer'
         },
         es: {
           'Buontalenti': 'Buontalenti®',
@@ -7515,7 +7640,16 @@
           'Cassandra': 'Cassandra',
           'Cioccolato bianco all\'arancia': 'Chocolate Blanco con Naranja',
           'Yogurt Mirtillo': 'Yogur de Arándano',
-          'Dubai Chocolate': 'Chocolate Dubái'
+          'Dubai Chocolate': 'Chocolate Dubái',
+          'Banana': 'Plátano',
+          'Cioccoriso': 'Cioccoriso',
+          'Vaniglia': 'Vainilla',
+          'Stracciatella alla menta': 'Stracciatella de Menta',
+          'Albicocca': 'Albaricoque',
+          'Cioccolato Monorigine Venezuela': 'Chocolate Monoorigen Venezuela',
+          'Frutto della Passione': 'Fruta de la Pasión',
+          'Pera': 'Pera',
+          'Tropical Summer': 'Tropical Summer'
         }
       };
 
@@ -7613,7 +7747,9 @@
         'Lingotto Buontalenti': '../assets/images/pezziduri/LINGOTTO BUONTALENTI.webp',
         'Lingotto Buontalenti Pistacchio': '../assets/images/pezziduri/LINGOTTO BUONTALENTI PISTACCHIO.webp',
         'Lingotto Dolcevita': '../assets/images/pezziduri/LINGOTTO DOLCEVITA.webp',
-        'Zampa': '../assets/images/pezziduri/zampetta.webp'
+        'Zampa': '../assets/images/pezziduri/zampetta.webp',
+        'Mini Coni': '../assets/images/pezziduri/miniconi.webp',
+        'Zuccotto': '../assets/images/pezziduri/zuccotto.webp'
       };
 
       /* Zoom/fullscreen overrides for specific pezzi duri */
@@ -7772,15 +7908,15 @@
 
       const ACCESSORI_HERO_IMAGE = '../assets/images/accessori/hero accessori.webp';
 
-      const ACCESSORI_ZONE_ORDER = ['Cialdine', 'Palettine', 'Tovagliolini stampati', 'Spatola servizio gelato', 'Contenitore 1', 'Contenitore 2'];
+      const ACCESSORI_ZONE_ORDER = ['Cialdine', 'Palettine', 'Tovagliolini stampati', 'Spatola servizio gelato', 'Espositore Biscotti', 'Espositore Stecchi'];
 
       const ACCESSORI_SHORT_NAMES = {
         'Tovagliolini stampati': 'Fazzoletti',
         'Palettine': 'Palettine',
         'Cialdine': 'Waffers',
         'Spatola servizio gelato': 'Spatola',
-        'Contenitore 1': 'Cont. 1',
-        'Contenitore 2': 'Cont. 2'
+        'Espositore Biscotti': 'Biscotti',
+        'Espositore Stecchi': 'Stecchi'
       };
 
       const ACCESSORI_IMAGES = {
@@ -7788,8 +7924,8 @@
         'Palettine':            '../assets/images/accessori/palettine.webp',
         'Cialdine':             '../assets/images/accessori/cialde.webp',
         'Spatola servizio gelato': '../assets/images/accessori/paletta.webp',
-        'Contenitore 1':        '../assets/images/accessori/confezione 1.webp',
-        'Contenitore 2':        '../assets/images/accessori/confezione 2.webp'
+        'Espositore Biscotti': '../assets/images/accessori/espositore-biscotti.webp',
+        'Espositore Stecchi':  '../assets/images/accessori/espositore-stecchi.webp'
       };
 
       function normalizeLang(lang){
@@ -7842,6 +7978,8 @@
       const fullscreenOverlay = document.getElementById('gelatoFullscreen');
       const fullscreenImage = document.getElementById('gelatoFullscreenImage');
       const fullscreenClose = fullscreenOverlay ? fullscreenOverlay.querySelector('.fullscreen-close') : null;
+      let fullscreenSlides = [];
+      let fullscreenSlideIdx = 0;
       const lingottoCarouselEl = document.getElementById('lingottoCarousel');
       const lingottoCarouselImg = document.getElementById('lingottoCarouselImg');
       const lingottoCarouselDotsEl = document.getElementById('lingottoCarouselDots');
@@ -7918,8 +8056,8 @@
 
       const GELATO_CATEGORIES = {
         iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato', 'buontalenti-amarena'],
-        classici: ['cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt'],
-        sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango'],
+        classici: ['bacio', 'banana', 'cremino-alla-nocciola', 'cremino-al-pistacchio', 'cioccoriso', 'stracciatella', 'stracciatella-menta', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'vaniglia', 'yogurt'],
+        sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango', 'sorbetto-albicocca', 'sorbetto-cioccolato-venezuela', 'sorbetto-frutto-passione', 'sorbetto-pera', 'sorbetto-tropical-summer'],
         limited: ['cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
       };
 
@@ -9068,8 +9206,33 @@
         return baseSrc;
       }
 
-      function openFullscreenImage(src, alt){
+      function goToFullscreenSlide(idx){
+        if(!fullscreenImage || !fullscreenSlides.length) return;
+        fullscreenSlideIdx = (idx + fullscreenSlides.length) % fullscreenSlides.length;
+        const slide = fullscreenSlides[fullscreenSlideIdx];
+        fullscreenImage.src = `${encodeURI(slide.src)}?v=${ASSET_VERSION}`;
+        const dotsEl = document.getElementById('gelatoFullscreenDots');
+        if(dotsEl){
+          dotsEl.querySelectorAll('.fullscreen-dot').forEach((d, i) => d.classList.toggle('is-active', i === fullscreenSlideIdx));
+        }
+      }
+
+      function openFullscreenImage(src, alt, slides){
         if(!fullscreenOverlay || !fullscreenImage || !src) return;
+        fullscreenSlides = slides && slides.length > 1 ? slides : [];
+        fullscreenSlideIdx = 0;
+        fullscreenOverlay.classList.toggle('has-nav', fullscreenSlides.length > 1);
+        const dotsEl = document.getElementById('gelatoFullscreenDots');
+        if(dotsEl){
+          dotsEl.innerHTML = fullscreenSlides.length > 1
+            ? fullscreenSlides.map((_, i) => `<button class="fullscreen-dot${i === 0 ? ' is-active' : ''}" type="button" aria-label="Foto ${i + 1}"></button>`).join('')
+            : '';
+          if(fullscreenSlides.length > 1){
+            dotsEl.querySelectorAll('.fullscreen-dot').forEach((dot, i) => {
+              dot.addEventListener('click', () => goToFullscreenSlide(i));
+            });
+          }
+        }
         fullscreenImage.src = `${encodeURI(src)}?v=${ASSET_VERSION}`;
         fullscreenImage.alt = alt || '';
         fullscreenOverlay.classList.add('is-open');
@@ -9079,7 +9242,9 @@
       function closeFullscreenImage(){
         if(!fullscreenOverlay || !fullscreenImage) return;
         fullscreenOverlay.classList.remove('is-open');
+        fullscreenOverlay.classList.remove('has-nav');
         fullscreenImage.src = '';
+        fullscreenSlides = [];
         unlockPageScroll(SCROLL_LOCK_KEYS.FULLSCREEN);
       }
 
@@ -9087,13 +9252,20 @@
         fullscreenOverlay.addEventListener('click', (event) => {
           if(event.target === fullscreenOverlay) closeFullscreenImage();
         });
+        const fsNavPrev = fullscreenOverlay.querySelector('.fullscreen-nav--prev');
+        const fsNavNext = fullscreenOverlay.querySelector('.fullscreen-nav--next');
+        if(fsNavPrev) fsNavPrev.addEventListener('click', () => goToFullscreenSlide(fullscreenSlideIdx - 1));
+        if(fsNavNext) fsNavNext.addEventListener('click', () => goToFullscreenSlide(fullscreenSlideIdx + 1));
       }
       if(fullscreenClose){
         fullscreenClose.addEventListener('click', closeFullscreenImage);
       }
       document.addEventListener('keydown', (event) => {
-        if(event.key === 'Escape' && fullscreenOverlay && fullscreenOverlay.classList.contains('is-open')){
-          closeFullscreenImage();
+        if(!fullscreenOverlay || !fullscreenOverlay.classList.contains('is-open')) return;
+        if(event.key === 'Escape'){ closeFullscreenImage(); return; }
+        if(fullscreenSlides.length > 1){
+          if(event.key === 'ArrowLeft') goToFullscreenSlide(fullscreenSlideIdx - 1);
+          if(event.key === 'ArrowRight') goToFullscreenSlide(fullscreenSlideIdx + 1);
         }
       });
 
@@ -9298,7 +9470,10 @@
             if(zoomBtn){
               zoomBtn.addEventListener('click', (event) => {
                 event.stopPropagation();
-                openFullscreenImage(flavor.image || getDetailImageSrc(flavor) || baseSrc, flavorName);
+                const mainSrc = flavor.image || baseSrc;
+                const detailForZoom = getDetailImageSrc(flavor);
+                const slides = detailForZoom ? [{src: mainSrc}, {src: detailForZoom}] : null;
+                openFullscreenImage(mainSrc, flavorName, slides);
               });
             }
 
@@ -9868,6 +10043,9 @@
         pwSubmit.addEventListener('click', checkCode);
         pwInput.addEventListener('keydown', (e) => {
           if(e.key === 'Enter'){ e.preventDefault(); checkCode(); }
+        });
+        pwInput.addEventListener('input', () => {
+          if(pwInput.value.length === LISTINO_CODE.length) checkCode();
         });
         pwCancel.addEventListener('click', closePwPrompt);
         pwOverlay.addEventListener('click', (e) => {

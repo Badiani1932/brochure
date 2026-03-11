@@ -849,6 +849,7 @@ python _source/add_cookie_strings.py
 
 | Data | Modifica |
 |------|----------|
+| 2026-03-11 | **B2B Monoporzioni — nuovi prodotti**: aggiunte 2 nuove schede prodotto nella griglia PEZZI DURI: `Mini Coni` (coni ripieni di Buontalenti®) e `Zuccotto` (zuccotto gelato artigianale). Immagini ottimizzate da PNG a WebP (max 1200px, quality 78). Aggiornate tutte le strutture dati: `PEZZI_DURI_IMAGES`, `CATEGORY_DATA.rows`, `PEZZI_DURI_DESC`, `PEZZI_DURI_DESC_I18N` (EN/FR/ES), `PEZZI_DURI_NAMES_I18N` (IT/EN/FR/ES), tabella listino HTML. |
 | 2026-03-11 | **Mercury — pulizia completa**: rimosso `mercury.webp` + tutti i CSS + JS parallax da 5 pagine: `eventi/index.html`, `eventi/evento-esterno/`, `eventi/experience/`, `eventi/saletta-privata-tosinghi/`, `b2b/index.html`. Zero riferimenti residui. |
 | 2026-03-11 | **Hub Eventi — outline nere**: corretto `.ev-types__grid` da `gap:2px` a `gap:0` — eliminava sfondo nero visibile come linee tra le card tipologie evento |
 | 2026-03-11 | **Homepage CTA**: `.choice-cta` ridisegnato da pill bianco pieno (`align-self:stretch`, `padding:20px 40px`, sfondo bianco solido) a pill frosted-glass compatto (`align-self:flex-start`, `padding:11px 22px`, `backdrop-filter:blur(8px)`, bordo `rgba(255,255,255,0.75)`) |
@@ -929,6 +930,50 @@ python _source/add_cookie_strings.py
 2. **Generare thumbnail**: `python scripts/make_gelato_thumbs.py`
 3. **Aggiungere oggetto** in `data/gelatoFlavors.js` seguendo la struttura esistente
 4. Il gusto apparirà automaticamente nella griglia B2B
+
+### Aggiungere una Nuova Monoporzione (Pezzi Duri)
+
+> ⚠️ **CRITICO**: il renderer `renderPezziDuriGallery` filtra via qualsiasi prodotto che non sia presente **sia** in `CATEGORY_DATA['PEZZI DURI'].rows` **sia** in `PEZZI_DURI_IMAGES`. Se manca uno dei due, la card non appare.
+
+**Tutti i punti sono obbligatori, nell'ordine:**
+
+1. **Ottimizzare l'immagine** PNG/JPG → WebP (max 1200px, quality 72-80), salvare in `assets/images/pezziduri/`:
+   ```python
+   from PIL import Image
+   img = Image.open('prodotto.png')
+   img.save('prodotto.webp', 'webp', quality=78)
+   ```
+
+2. **`PEZZI_DURI_IMAGES`** (in `b2b/index.html` ~linea 7600) — aggiungere il path immagine:
+   ```js
+   'Nome Prodotto': '../assets/images/pezziduri/prodotto.webp',
+   ```
+
+3. **`CATEGORY_DATA['PEZZI DURI'].rows`** (~linea 6740) — aggiungere la riga dati:
+   ```js
+   ['Nome Prodotto', '90 g', '24', 'uova, latte, soia'],
+   ```
+   > ⚠️ Questo è il punto che il renderer usa come sorgente lista prodotti. Se manca qui, la card non viene mai creata, anche se l'immagine è presente.
+
+4. **`PEZZI_DURI_DESC`** (~linea 7222) — descrizione in italiano:
+   ```js
+   'Nome Prodotto': 'Descrizione in italiano',
+   ```
+
+5. **`PEZZI_DURI_DESC_I18N`** (~linea 7237) — descrizione EN, FR, ES (stessa struttura).
+
+6. **`PEZZI_DURI_NAMES_I18N`** (~linea 7287) — nome tradotto in IT (solo se ha `®`), EN, FR, ES.
+
+7. **Tabella listino HTML** (~linea 5060) — aggiungere riga `<tr>` prima di `</tbody>`:
+   ```html
+   <tr><td class="listino-flavor">Nome Prodotto</td><td class="listino-price">€ X,XX</td><td class="listino-col-center">90 g</td><td class="listino-col-center">24</td></tr>
+   ```
+
+**Verifica finale** — controllare che questi 4 grep restituiscano tutti risultati:
+```powershell
+Select-String -Path "b2b/index.html" -Pattern "Nome Prodotto" | Select-Object LineNumber
+```
+Devono comparire almeno alle linee di: `CATEGORY_DATA.rows`, `PEZZI_DURI_IMAGES`, `PEZZI_DURI_DESC`, listino `<tr>`.
 
 ### Aggiungere una Nuova Pagina
 
