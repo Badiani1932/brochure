@@ -150,15 +150,20 @@
       gap:0;
       line-height:0;
     }
-    /* Experience card — light placeholder background */
+    /* Experience card — photo background */
     .ev-card--experience{
       background:#d4d0ca;
-      transition:background 0.4s ease;
     }
-    .ev-card--experience:hover{ background:#c5c1bb; }
+    .ev-card--experience .ev-card__img{
+      filter:brightness(0.55);
+      object-position:center top;
+    }
+    .ev-card--experience:hover .ev-card__img{
+      filter:brightness(0.45);
+    }
     .ev-card--experience::after{ display:none; }
     .ev-card--experience .ev-card__title{
-      color:var(--badiani-blue);
+      color:#fff;
       text-shadow:none;
     }
     .ev-card{
@@ -953,13 +958,14 @@
         </div>
       </a>
       <a class="ev-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
-        <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1759" height="1467" />
+        <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1759" height="1467" style="object-position:center top" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card ev-card--experience" href="./experience/" data-i18n-attr="aria-label:eventi.experience.aria">
+        <img class="ev-card__img" src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Experience" loading="lazy" decoding="async" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.experience.title">Experience</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
