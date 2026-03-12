@@ -2463,14 +2463,11 @@
       flex-direction:column;
       cursor:pointer;
       transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position:relative;
     }
     .pezziduri-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.3); }
     .pezziduri-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
     .pezziduri-card.is-expanded{
-      grid-column:span 2;
-      grid-row:span 2;
-      flex-direction:column;
-      align-self:stretch;
       border-color:var(--badiani-pink);
       box-shadow:0 12px 28px rgba(240,103,166,0.2);
       outline:2px solid var(--badiani-pink);
@@ -2483,12 +2480,6 @@
       overflow:hidden;
       position:relative;
     }
-    .pezziduri-card.is-expanded .pezziduri-media{
-      flex:1 1 0;
-      min-height:0;
-      aspect-ratio:auto;
-      width:100%;
-    }
     .pezziduri-media img{
       width:100%;
       height:100%;
@@ -2496,9 +2487,6 @@
       display:block;
     }
     .pezziduri-media .card-zoom{
-      display:none;
-    }
-    .pezziduri-card.is-expanded .pezziduri-media .card-zoom{
       display:flex;
     }
 
@@ -2556,14 +2544,7 @@
       flex:1;
       gap:8px;
     }
-    .pezziduri-card.is-expanded .pezziduri-body{
-      flex:0 0 auto;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:14px 18px 16px;
-      gap:8px;
-    }
+    .pezziduri-card.is-expanded > .pezziduri-body > .pezziduri-title{ opacity:0; pointer-events:none; }
     .pezziduri-title{
       font-size:13px;
       font-weight:600;
@@ -2576,56 +2557,108 @@
       align-items:center;
       justify-content:center;
     }
-    .pezziduri-desc{
-      display:none;
-      font-size:12px;
-      color:rgba(30,57,141,0.75);
-      text-align:center;
-      line-height:1.4;
-      padding:2px 4px 0;
-    }
-    .pezziduri-card.is-expanded .pezziduri-desc{
-      display:block;
-      animation:cardDetailsFadeIn 0.25s ease;
-    }
-    .pezziduri-card.is-expanded .pezziduri-title{
-      font-size:16px;
-      text-align:center;
-      letter-spacing:0.8px;
-    }
-    .pezziduri-meta{
-      display:none;
-      gap:6px;
-      font-size:12px;
-      color:rgba(30,57,141,0.65);
-    }
-    .pezziduri-card.is-expanded .pezziduri-meta{
-      display:grid;
-      width:100%;
-      animation:cardDetailsFadeIn 0.25s ease;
-      gap:8px;
-      font-size:13px;
-    }
-    .pezziduri-meta span{
+    /* ── Pezziduri expanded overlay (aligned with gelato pattern) ── */
+    .pezziduri-card__exp-body{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      max-height:80%;
+      padding:40px 14px 12px;
       display:flex;
+      flex-direction:column;
+      gap:5px;
+      background:linear-gradient(to bottom,
+        rgba(255,255,255,0)    0%,
+        rgba(255,255,255,0.75) 30%,
+        rgba(255,255,255,0.97) 50%,
+        #fff                   65%
+      );
+      backdrop-filter:blur(2px);
+      -webkit-backdrop-filter:blur(2px);
+      overflow:hidden;
+      animation:gelato-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
+      z-index:4;
+    }
+    .pezziduri-card__exp-header{
+      display:flex;
+      align-items:flex-start;
       justify-content:space-between;
       gap:8px;
-      background:transparent;
-      padding:8px 12px;
-      border-radius:10px;
     }
-    .pezziduri-meta strong{
+    .pezziduri-card__exp-name{
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:14px;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      line-height:1.2;
+    }
+    .pezziduri-card__exp-close{
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      border:none;
+      background:rgba(30,57,141,0.08);
+      color:var(--badiani-blue);
+      cursor:pointer;
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      transition:background 0.15s;
+      padding:0;
+      line-height:1;
+    }
+    .pezziduri-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
+    .pezziduri-card__exp-section-label{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:rgba(30,57,141,0.4);
+      margin-bottom:0;
+    }
+    .pezziduri-card__exp-desc{
+      font-size:11px;
+      color:rgba(30,57,141,0.65);
+      line-height:1.4;
+      font-family:'SuperGroteskC',sans-serif;
+    }
+    .pezziduri-card__exp-tag{
+      background:rgba(30,57,141,0.07) !important;
+      color:var(--badiani-blue) !important;
+      border-radius:999px !important;
+      padding:2px 8px !important;
+      font-size:10px !important;
+      font-weight:400 !important;
+      text-transform:uppercase !important;
+      letter-spacing:0.2px !important;
+      font-family:'SuperGroteskC',sans-serif !important;
+      line-height:1.5 !important;
+      display:inline !important;
+      flex:none !important;
+    }
+    .pezziduri-card__exp-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+    }
+    .pezziduri-card__exp-meta span{
+      background:rgba(30,57,141,0.07);
+      color:var(--badiani-blue);
+      border-radius:999px;
+      padding:2px 8px;
+      font-size:10px;
+      font-weight:400;
+      text-transform:uppercase;
+      letter-spacing:0.2px;
+      font-family:'SuperGroteskC',sans-serif;
+      line-height:1.5;
+    }
+    .pezziduri-card__exp-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
-    }
-    .pezziduri-allergens{
-      background:rgba(255,193,7,0.08) !important;
-      border:1px solid rgba(255,193,7,0.25);
-      border-radius:10px;
-    }
-    .pezziduri-allergens em{
-      font-style:normal;
-      text-transform:capitalize;
     }
     @media(max-width:900px){
       .pezziduri-grid{
@@ -2635,37 +2668,6 @@
     @media(max-width:600px){
       .pezziduri-grid{
         grid-template-columns:repeat(2, minmax(0, 1fr));
-      }
-      .pezziduri-card.is-expanded{
-        grid-column:1 / -1;
-        grid-row:span 1;
-        flex-direction:column;
-        height:fit-content;
-      }
-      .pezziduri-card.is-expanded .pezziduri-media{
-        flex:1 1 0;
-        aspect-ratio:auto;
-        max-height:none;
-        min-height:0;
-        width:100%;
-      }
-      .pezziduri-card.is-expanded .pezziduri-media img{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-      }
-      .pezziduri-card.is-expanded .pezziduri-body{
-        flex:0 0 auto;
-        padding:10px 14px 14px;
-        gap:6px;
-      }
-      .pezziduri-card.is-expanded .pezziduri-title{
-        text-align:center;
-        font-size:14px;
-      }
-      .pezziduri-card.is-expanded .pezziduri-meta{
-        font-size:12px;
-        gap:5px;
       }
     }
     .pezziduri-note{
@@ -2691,13 +2693,11 @@
       flex-direction:column;
       cursor:pointer;
       transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      position:relative;
     }
     .accessori-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.3); }
     .accessori-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
     .accessori-card.is-expanded{
-      grid-column:span 2;
-      grid-row:span 2;
-      align-self:stretch;
       border-color:var(--badiani-pink);
       box-shadow:0 12px 28px rgba(240,103,166,0.2);
       outline:2px solid var(--badiani-pink);
@@ -2710,25 +2710,13 @@
       overflow:hidden;
       position:relative;
     }
-    .accessori-card.is-expanded .accessori-media{
-      flex:1 1 auto;
-      min-height:280px;
-      aspect-ratio:1 / 1;
-      width:100%;
-    }
     .accessori-media img{
       width:100%;
       height:100%;
       object-fit:cover;
       display:block;
     }
-    .accessori-card.is-expanded .accessori-media img{
-      object-fit:contain;
-    }
     .accessori-media .card-zoom{
-      display:none;
-    }
-    .accessori-card.is-expanded .accessori-media .card-zoom{
       display:flex;
     }
     .accessori-body{
@@ -2740,14 +2728,7 @@
       flex:1;
       gap:8px;
     }
-    .accessori-card.is-expanded .accessori-body{
-      flex:0 0 auto;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      padding:14px 18px 16px;
-      gap:8px;
-    }
+    .accessori-card.is-expanded > .accessori-body > .accessori-title{ opacity:0; pointer-events:none; }
     .accessori-title{
       font-size:13px;
       font-weight:600;
@@ -2760,33 +2741,92 @@
       align-items:center;
       justify-content:center;
     }
-    .accessori-card.is-expanded .accessori-title{
-      font-size:16px;
-      text-align:center;
-      letter-spacing:0.8px;
-    }
-    .accessori-meta{
-      display:none;
-      gap:6px;
-      font-size:12px;
-      color:rgba(30,57,141,0.65);
-      width:100%;
-    }
-    .accessori-card.is-expanded .accessori-meta{
-      display:grid;
-      animation:cardDetailsFadeIn 0.25s ease;
-      gap:8px;
-      font-size:13px;
-    }
-    .accessori-meta span{
+    /* ── Accessori expanded overlay (aligned with gelato pattern) ── */
+    .accessori-card__exp-body{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      max-height:80%;
+      padding:40px 14px 12px;
       display:flex;
+      flex-direction:column;
+      gap:5px;
+      background:linear-gradient(to bottom,
+        rgba(255,255,255,0)    0%,
+        rgba(255,255,255,0.75) 30%,
+        rgba(255,255,255,0.97) 50%,
+        #fff                   65%
+      );
+      backdrop-filter:blur(2px);
+      -webkit-backdrop-filter:blur(2px);
+      overflow:hidden;
+      animation:gelato-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
+      z-index:4;
+    }
+    .accessori-card__exp-header{
+      display:flex;
+      align-items:flex-start;
       justify-content:space-between;
       gap:8px;
-      background:transparent;
-      padding:8px 12px;
-      border-radius:10px;
     }
-    .accessori-meta strong{
+    .accessori-card__exp-name{
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:14px;
+      color:var(--badiani-blue);
+      text-transform:uppercase;
+      letter-spacing:1px;
+      line-height:1.2;
+    }
+    .accessori-card__exp-close{
+      width:22px;
+      height:22px;
+      border-radius:50%;
+      border:none;
+      background:rgba(30,57,141,0.08);
+      color:var(--badiani-blue);
+      cursor:pointer;
+      font-size:13px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-shrink:0;
+      transition:background 0.15s;
+      padding:0;
+      line-height:1;
+    }
+    .accessori-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
+    .accessori-card__exp-section-label{
+      font-size:10px;
+      text-transform:uppercase;
+      letter-spacing:1.2px;
+      color:rgba(30,57,141,0.4);
+      margin-bottom:0;
+    }
+    .accessori-card__exp-desc{
+      font-size:11px;
+      color:rgba(30,57,141,0.65);
+      line-height:1.4;
+      font-family:'SuperGroteskC',sans-serif;
+    }
+    .accessori-card__exp-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:4px;
+    }
+    .accessori-card__exp-meta span{
+      background:rgba(30,57,141,0.07);
+      color:var(--badiani-blue);
+      border-radius:999px;
+      padding:2px 8px;
+      font-size:10px;
+      font-weight:400;
+      text-transform:uppercase;
+      letter-spacing:0.2px;
+      font-family:'SuperGroteskC',sans-serif;
+      line-height:1.5;
+    }
+    .accessori-card__exp-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
     }
@@ -2881,35 +2921,6 @@
     @media(max-width:600px){
       .accessori-grid{
         grid-template-columns:repeat(2, minmax(0, 1fr));
-      }
-      .accessori-card.is-expanded{
-        grid-column:1 / -1;
-        grid-row:span 1;
-      }
-      .accessori-card.is-expanded .accessori-media{
-        flex:1 1 auto;
-        aspect-ratio:1 / 1;
-        max-height:none;
-        min-height:200px;
-        width:100%;
-      }
-      .accessori-card.is-expanded .accessori-media img{
-        width:100%;
-        height:100%;
-        object-fit:contain;
-      }
-      .accessori-card.is-expanded .accessori-body{
-        flex:0 0 auto;
-        padding:10px 14px 14px;
-        gap:6px;
-      }
-      .accessori-card.is-expanded .accessori-title{
-        text-align:center;
-        font-size:14px;
-      }
-      .accessori-card.is-expanded .accessori-meta{
-        font-size:12px;
-        gap:5px;
       }
       .torte-grid{
         grid-template-columns:1fr;
@@ -8181,21 +8192,6 @@
           })
           .filter(Boolean);
 
-        /* If an item is expanded and would land in the last column
-           (where grid-column:span 2 overflows), swap it one position
-           earlier so it starts in col N-1 and spans into col N. */
-        if(expandedPezziDuriId){
-          const idx = items.findIndex(it => it.name === expandedPezziDuriId);
-          if(idx > 0){
-            const numCols = 4; /* matches grid-template-columns:repeat(4,…) */
-            const col = (idx % numCols) + 1;
-            if(col > numCols - 1){
-              /* swap with previous item */
-              [items[idx - 1], items[idx]] = [items[idx], items[idx - 1]];
-            }
-          }
-        }
-
         const cards = items
           .map(({ name, weight, min, allergens, src }, staggerIdx) => {
             const imageSrc = encodeURI(src);
@@ -8218,6 +8214,36 @@
                    <line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                    <line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                  </svg>`;
+
+            /* ── Expanded overlay body (gelato-style) ── */
+            let expBodyHtml = '';
+            if(isExpanded){
+              const allergenTags = localAllergens
+                ? localAllergens.split(',').map(a => `<span class="pezziduri-card__exp-tag">${a.trim()}</span>`).join('')
+                : '';
+              expBodyHtml = `
+                <div class="pezziduri-card__exp-body">
+                  <div class="pezziduri-card__exp-header">
+                    <div>
+                      <div class="pezziduri-card__exp-name">${localName}</div>
+                    </div>
+                    <button class="pezziduri-card__exp-close" type="button" aria-label="Chiudi">&#x2715;</button>
+                  </div>
+                  ${localDesc ? `<div>
+                    <div class="pezziduri-card__exp-section-label">${t('gelato.detail.description')}</div>
+                    <div class="pezziduri-card__exp-desc">${localDesc}</div>
+                  </div>` : ''}
+                  <div class="pezziduri-card__exp-meta">
+                    <span><strong>${t('b2b.pezziduri.avgWeight')}</strong> ${weight}</span>
+                    <span><strong>${t('b2b.pezziduri.minOrder')}</strong> ${localMin}</span>
+                  </div>
+                  ${allergenTags ? `<div>
+                    <div class="pezziduri-card__exp-section-label">${t('b2b.pezziduri.allergens')}</div>
+                    <div class="pezziduri-card__exp-meta">${allergenTags}</div>
+                  </div>` : ''}
+                </div>`;
+            }
+
             return `
               <article class="pezziduri-card${isExpanded ? ' is-expanded' : ''}" data-pezziduri-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}" style="--stagger-i:${staggerIdx}">
                 <div class="pezziduri-media">
@@ -8226,13 +8252,8 @@
                 </div>
                 <div class="pezziduri-body">
                   <div class="pezziduri-title">${localName}</div>
-                  ${localDesc ? `<div class="pezziduri-desc">${localDesc}</div>` : ''}
-                  <div class="pezziduri-meta">
-                    <span><strong>${t('b2b.pezziduri.avgWeight')}</strong><em>${weight}</em></span>
-                    <span><strong>${t('b2b.pezziduri.minOrder')}</strong><em>${localMin}</em></span>
-                    ${localAllergens ? `<span class="pezziduri-allergens"><strong>${t('b2b.pezziduri.allergens')}</strong><em>${localAllergens}</em></span>` : ''}
-                  </div>
                 </div>
+                ${expBodyHtml}
               </article>
             `;
           })
@@ -8560,42 +8581,64 @@
           });
         }
 
-        const grid = defaultContent ? defaultContent.querySelector('.pezziduri-grid') : null;
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
-
-        /* ── Set correct minHeight on the expanded card (same technique as gelato) ── */
-        if(grid){
-          const expandedCard = grid.querySelector('.pezziduri-card.is-expanded');
-          if(expandedCard){
-            const refCard = grid.querySelector('.pezziduri-card:not(.is-expanded)');
-            if(refCard){
-              expandedCard.style.minHeight = (refCard.offsetHeight * 2 + 16) + 'px';
-            }
-            /* Row fix: if span 2 rows would overflow the grid, pin one row up */
-            const allCards = Array.from(grid.querySelectorAll('.pezziduri-card'));
-            const idx = allCards.indexOf(expandedCard);
-            const numCols  = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
-            const naturalRow = Math.floor(idx / numCols) + 1;
-            const totalRows  = Math.ceil(allCards.length / numCols);
-            if(naturalRow >= totalRows && totalRows > 1){
-              expandedCard.style.gridRowStart = (totalRows - 1) + '';
-              expandedCard.style.gridRowEnd   = 'span 2';
-            }
-          }
-        }
 
         cards.forEach((card) => {
           const id = card.dataset.pezziduriId;
           if(!id) return;
           function handlePezziDuriSelect(){
-            expandedPezziDuriId = expandedPezziDuriId === id ? '' : id;
-            renderCategoryContent('PEZZI DURI');
+            const wasExpanded = expandedPezziDuriId === id;
+            /* Collapse previously expanded card (DOM patch) */
             if(expandedPezziDuriId){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const expanded = defaultContent ? defaultContent.querySelector('.pezziduri-card.is-expanded') : null;
-                if(expanded) expanded.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }); });
+              const prev = defaultContent.querySelector('.pezziduri-card.is-expanded');
+              if(prev){
+                prev.classList.remove('is-expanded');
+                prev.setAttribute('aria-expanded','false');
+                const oldOverlay = prev.querySelector('.pezziduri-card__exp-body');
+                if(oldOverlay) oldOverlay.remove();
+              }
             }
+            if(wasExpanded){ expandedPezziDuriId = ''; return; }
+            /* Expand clicked card (DOM patch) */
+            expandedPezziDuriId = id;
+            card.classList.add('is-expanded');
+            card.setAttribute('aria-expanded','true');
+            const row = (CATEGORY_DATA['PEZZI DURI'].rows || []).find(r => r[0] === id);
+            const weight = row ? row[1] : '';
+            const min   = row ? row[2] : '';
+            const allergens = row ? (row[3] || '') : '';
+            const localName = getPezziDuriName(id);
+            const localDesc = getPezziDuriDesc(id);
+            const localMin  = getPezziDuriMinOrder(min);
+            const localAllergens = getPezziDuriAllergens(allergens);
+            const allergenTags = localAllergens
+              ? localAllergens.split(',').map(a => `<span class="pezziduri-card__exp-tag">${a.trim()}</span>`).join('')
+              : '';
+            const expBody = document.createElement('div');
+            expBody.className = 'pezziduri-card__exp-body';
+            expBody.innerHTML = `
+              <div class="pezziduri-card__exp-header">
+                <div><div class="pezziduri-card__exp-name">${localName}</div></div>
+                <button class="pezziduri-card__exp-close" type="button" aria-label="Chiudi">&#x2715;</button>
+              </div>
+              ${localDesc ? `<div>
+                <div class="pezziduri-card__exp-section-label">${t('gelato.detail.description')}</div>
+                <div class="pezziduri-card__exp-desc">${localDesc}</div>
+              </div>` : ''}
+              <div class="pezziduri-card__exp-meta">
+                <span><strong>${t('b2b.pezziduri.avgWeight')}</strong> ${weight}</span>
+                <span><strong>${t('b2b.pezziduri.minOrder')}</strong> ${localMin}</span>
+              </div>
+              ${allergenTags ? `<div>
+                <div class="pezziduri-card__exp-section-label">${t('b2b.pezziduri.allergens')}</div>
+                <div class="pezziduri-card__exp-meta">${allergenTags}</div>
+              </div>` : ''}`;
+            card.appendChild(expBody);
+            const closeBtn = expBody.querySelector('.pezziduri-card__exp-close');
+            if(closeBtn){ closeBtn.addEventListener('click', (e) => { e.stopPropagation(); handlePezziDuriSelect(); }); }
+            requestAnimationFrame(() => { requestAnimationFrame(() => {
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }); });
           }
           card.addEventListener('click', (event) => {
             if(event.target.closest('.card-zoom')) return;
@@ -8926,6 +8969,28 @@
               <line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           `;
+
+          /* ── Expanded overlay body (gelato-style) ── */
+          let expBodyHtml = '';
+          if(isExpanded){
+            expBodyHtml = `
+              <div class="accessori-card__exp-body">
+                <div class="accessori-card__exp-header">
+                  <div>
+                    <div class="accessori-card__exp-name">${localName}</div>
+                  </div>
+                  <button class="accessori-card__exp-close" type="button" aria-label="Chiudi">&#x2715;</button>
+                </div>
+                <div>
+                  <div class="accessori-card__exp-section-label">${t('b2b.accessori.description')}</div>
+                  <div class="accessori-card__exp-desc">${localDesc}</div>
+                </div>
+                <div class="accessori-card__exp-meta">
+                  <span><strong>${t('b2b.accessori.quantity')}</strong> ${localQty}</span>
+                </div>
+              </div>`;
+          }
+
           return `
             <article class="accessori-card${isExpanded ? ' is-expanded' : ''}" data-accessori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
               <div class="accessori-media">
@@ -8934,11 +8999,8 @@
               </div>
               <div class="accessori-body">
                 <div class="accessori-title">${localName}</div>
-                <div class="accessori-meta">
-                  <span><strong>${t('b2b.accessori.description')}</strong><em>${localDesc}</em></span>
-                  <span><strong>${t('b2b.accessori.quantity')}</strong><em>${localQty}</em></span>
-                </div>
               </div>
+              ${expBodyHtml}
             </article>
           `;
         }).join('');
@@ -8957,14 +9019,48 @@
           const name = card.getAttribute('data-accessori-id');
           if(!name) return;
           function handleAccessoriSelect(){
-            expandedAccessoriId = expandedAccessoriId === name ? '' : name;
-            renderCategoryContent('ACCESSORI');
+            const wasExpanded = expandedAccessoriId === name;
+            /* Collapse previously expanded card (DOM patch) */
             if(expandedAccessoriId){
-              requestAnimationFrame(() => { requestAnimationFrame(() => {
-                const expanded = defaultContent ? defaultContent.querySelector('.accessori-card.is-expanded') : null;
-                if(expanded) expanded.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }); });
+              const prev = defaultContent.querySelector('.accessori-card.is-expanded');
+              if(prev){
+                prev.classList.remove('is-expanded');
+                prev.setAttribute('aria-expanded','false');
+                const oldOverlay = prev.querySelector('.accessori-card__exp-body');
+                if(oldOverlay) oldOverlay.remove();
+              }
             }
+            if(wasExpanded){ expandedAccessoriId = ''; return; }
+            /* Expand clicked card (DOM patch) */
+            expandedAccessoriId = name;
+            card.classList.add('is-expanded');
+            card.setAttribute('aria-expanded','true');
+            const row = (CATEGORY_DATA['ACCESSORI'].rows || []).find(r => r[0] === name);
+            const origDesc = row ? row[1] : '';
+            const qty = row ? row[2] : '';
+            const localName = getAccessoriName(name);
+            const localDesc = getAccessoriDesc(name, origDesc);
+            const localQty  = getAccessoriQty(name, qty);
+            const expBody = document.createElement('div');
+            expBody.className = 'accessori-card__exp-body';
+            expBody.innerHTML = `
+              <div class="accessori-card__exp-header">
+                <div><div class="accessori-card__exp-name">${localName}</div></div>
+                <button class="accessori-card__exp-close" type="button" aria-label="Chiudi">&#x2715;</button>
+              </div>
+              <div>
+                <div class="accessori-card__exp-section-label">${t('b2b.accessori.description')}</div>
+                <div class="accessori-card__exp-desc">${localDesc}</div>
+              </div>
+              <div class="accessori-card__exp-meta">
+                <span><strong>${t('b2b.accessori.quantity')}</strong> ${localQty}</span>
+              </div>`;
+            card.appendChild(expBody);
+            const closeBtn = expBody.querySelector('.accessori-card__exp-close');
+            if(closeBtn){ closeBtn.addEventListener('click', (e) => { e.stopPropagation(); handleAccessoriSelect(); }); }
+            requestAnimationFrame(() => { requestAnimationFrame(() => {
+              card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }); });
           }
           card.addEventListener('click', (event) => {
             if(event.target.closest('.card-zoom')) return;
