@@ -849,6 +849,7 @@ python _source/add_cookie_strings.py
 
 | Data | Modifica |
 |------|----------|
+| 2026-03-12 | **B2B Descrizioni minuscole**: aggiunto `text-transform:none` a tutte le descrizioni nelle schede espanse/pannelli dettaglio delle categorie Monoporzioni (`.pezziduri-card__exp-desc`), Torte (`.torte-detail-meta`), Coni (`.coni-detail-meta`), Coppette (`.coppette-detail-meta`), Contenitori (`.contenitori-detail-meta`), Coni Gluten Free (`.conigf-detail-meta`) e Accessori (`.accessori-card__exp-desc`). Le descrizioni ora appaiono in minuscolo, coerenti con la categoria Gusti. |
 | 2026-03-11 | **B2B Monoporzioni — nuovi prodotti**: aggiunte 2 nuove schede prodotto nella griglia PEZZI DURI: `Mini Coni` (coni ripieni di Buontalenti®) e `Zuccotto` (zuccotto gelato artigianale). Immagini ottimizzate da PNG a WebP (max 1200px, quality 78). Aggiornate tutte le strutture dati: `PEZZI_DURI_IMAGES`, `CATEGORY_DATA.rows`, `PEZZI_DURI_DESC`, `PEZZI_DURI_DESC_I18N` (EN/FR/ES), `PEZZI_DURI_NAMES_I18N` (IT/EN/FR/ES), tabella listino HTML. |
 | 2026-03-11 | **Mercury — pulizia completa**: rimosso `mercury.webp` + tutti i CSS + JS parallax da 5 pagine: `eventi/index.html`, `eventi/evento-esterno/`, `eventi/experience/`, `eventi/saletta-privata-tosinghi/`, `b2b/index.html`. Zero riferimenti residui. |
 | 2026-03-11 | **Hub Eventi — outline nere**: corretto `.ev-types__grid` da `gap:2px` a `gap:0` — eliminava sfondo nero visibile come linee tra le card tipologie evento |

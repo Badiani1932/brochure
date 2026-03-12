@@ -921,9 +921,8 @@
       aspect-ratio:3081 / 4393;
     }
     .gelato-card.is-expanded .gelato-card__media img{
-      object-fit:contain;
+      object-fit:cover;
       object-position:center top;
-      background:#f7f5f2;
     }
     .gelato-card.is-expanded > span{ opacity:0; pointer-events:none; }
     .gelato-card__details{
@@ -952,21 +951,19 @@
       bottom:0;
       left:0;
       right:0;
-      height:175px;
-      padding:50px 14px 12px;
+      max-height:85%;
+      padding:12px 14px 12px;
       display:flex;
       flex-direction:column;
       gap:5px;
-      background:linear-gradient(to bottom,
-        rgba(255,255,255,0)    0%,
-        rgba(255,255,255,0.75) 35%,
-        rgba(255,255,255,0.97) 55%,
-        #fff                   68%
-      );
-      backdrop-filter:blur(2px);
-      -webkit-backdrop-filter:blur(2px);
-      overflow:hidden;
+      text-align:center;
+      align-items:center;
+      background:#fff;
+      overflow-y:auto;
       animation:gelato-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
+    }
+    .gelato-card__exp-body::before{
+      display:none;
     }
     @keyframes gelato-exp-up{
       from{ opacity:0; transform:translateY(100%); }
@@ -975,8 +972,9 @@
     .gelato-card__exp-header{
       display:flex;
       align-items:flex-start;
-      justify-content:space-between;
+      justify-content:center;
       gap:8px;
+      width:100%;
     }
     .gelato-card__exp-category{
       font-size:9px;
@@ -988,39 +986,24 @@
     }
     .gelato-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:15px;
+      font-size:18px;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
       line-height:1.2;
     }
     .gelato-card__exp-close{
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      border:none;
-      background:rgba(30,57,141,0.08);
-      color:var(--badiani-blue);
-      cursor:pointer;
-      font-size:13px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink:0;
-      transition:background 0.15s;
-      padding:0;
-      line-height:1;
+      display:none;
     }
-    .gelato-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
     .gelato-card__exp-section-label{
-      font-size:10px;
+      font-size:12px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .gelato-card__exp-desc{
-      font-size:12px;
+      font-size:15px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskC',sans-serif;
@@ -1029,6 +1012,8 @@
       display:flex;
       flex-wrap:wrap;
       gap:4px;
+      justify-content:center;
+      margin-top:auto;
     }
     /* !important guards protect these values from being overridden by higher-specificity ancestor rules */
     .gelato-card__exp-tag{
@@ -1036,7 +1021,7 @@
       color:var(--badiani-blue) !important;
       border-radius:999px !important;
       padding:2px 8px !important;
-      font-size:10px !important;
+      font-size:12px !important;
       font-weight:400 !important;
       text-transform:uppercase !important;
       letter-spacing:0.2px !important;
@@ -1160,6 +1145,8 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
       gap:6px;
     }
     .tipologia-detail-panel__name{
@@ -1269,6 +1256,7 @@
       padding:12px 14px 14px;
       display:grid;
       gap:8px;
+      text-align:center;
     }
     .coni-title{
       font-size:13px;
@@ -1291,8 +1279,9 @@
     }
     .coni-meta span{
       display:flex;
-      justify-content:space-between;
-      gap:8px;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
       background:transparent;
       padding:6px 8px;
       border-radius:10px;
@@ -1498,10 +1487,12 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
       gap:12px;
     }
     .coppette-detail-name{
-      font-size:18px;
+      font-size:24px;
       font-weight:700;
       color:var(--badiani-blue);
       text-transform:uppercase;
@@ -1512,13 +1503,16 @@
     .coppette-detail-meta{
       display:grid;
       gap:8px;
-      font-size:13px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
+      width:100%;
+      text-transform:none;
     }
     .coppette-detail-meta span{
       display:flex;
-      justify-content:space-between;
-      gap:8px;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
       background:transparent;
       padding:8px 12px;
       border-radius:10px;
@@ -1691,10 +1685,12 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
       gap:12px;
     }
     .coni-detail-name{
-      font-size:18px;
+      font-size:24px;
       font-weight:700;
       color:var(--badiani-blue);
       text-transform:uppercase;
@@ -1705,13 +1701,16 @@
     .coni-detail-meta{
       display:grid;
       gap:8px;
-      font-size:13px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
+      width:100%;
+      text-transform:none;
     }
     .coni-detail-meta span{
       display:flex;
-      justify-content:space-between;
-      gap:8px;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
       background:transparent;
       padding:8px 12px;
       border-radius:10px;
@@ -1889,7 +1888,7 @@
       gap:12px;
     }
     .conigf-detail-name{
-      font-size:18px;
+      font-size:24px;
       font-weight:700;
       color:var(--badiani-blue);
       text-transform:uppercase;
@@ -1899,8 +1898,9 @@
     .conigf-detail-meta{
       display:grid;
       gap:8px;
-      font-size:13px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
+      text-transform:none;
     }
     .conigf-detail-meta span{
       display:flex;
@@ -2411,6 +2411,17 @@
       object-fit:contain;
       object-position:center center;
     }
+    @media(max-width:600px){
+      .pezziduri-hero-overlay{
+        max-height:none;
+        border-radius:12px;
+        margin:0 auto 16px;
+      }
+      .pezziduri-hero-overlay img{
+        max-height:none;
+        width:100%;
+      }
+    }
     @media(min-width:901px){
       .pezziduri-hero-overlay{
         max-height:calc(100vh - 230px);
@@ -2563,74 +2574,66 @@
       bottom:0;
       left:0;
       right:0;
-      max-height:80%;
-      padding:40px 14px 12px;
+      max-height:85%;
+      padding:12px 14px 12px;
       display:flex;
       flex-direction:column;
       gap:5px;
-      background:linear-gradient(to bottom,
-        rgba(255,255,255,0)    0%,
-        rgba(255,255,255,0.75) 30%,
-        rgba(255,255,255,0.97) 50%,
-        #fff                   65%
-      );
-      backdrop-filter:blur(2px);
-      -webkit-backdrop-filter:blur(2px);
-      overflow:hidden;
+      text-align:center;
+      align-items:center;
+      background:#fff;
+      overflow-y:auto;
       animation:gelato-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
       z-index:4;
+    }
+    .pezziduri-card__exp-body::before{
+      content:'';
+      position:absolute;
+      top:-40px;
+      left:0;
+      right:0;
+      height:40px;
+      background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%);
+      pointer-events:none;
     }
     .pezziduri-card__exp-header{
       display:flex;
       align-items:flex-start;
-      justify-content:space-between;
+      justify-content:center;
       gap:8px;
+      width:100%;
     }
     .pezziduri-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:14px;
+      font-size:18px;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
       line-height:1.2;
     }
     .pezziduri-card__exp-close{
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      border:none;
-      background:rgba(30,57,141,0.08);
-      color:var(--badiani-blue);
-      cursor:pointer;
-      font-size:13px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink:0;
-      transition:background 0.15s;
-      padding:0;
-      line-height:1;
+      display:none;
     }
-    .pezziduri-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
     .pezziduri-card__exp-section-label{
-      font-size:10px;
+      font-size:12px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .pezziduri-card__exp-desc{
-      font-size:11px;
+      font-size:15px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskC',sans-serif;
+      text-transform:none;
     }
     .pezziduri-card__exp-tag{
       background:rgba(30,57,141,0.07) !important;
       color:var(--badiani-blue) !important;
       border-radius:999px !important;
       padding:2px 8px !important;
-      font-size:10px !important;
+      font-size:12px !important;
       font-weight:400 !important;
       text-transform:uppercase !important;
       letter-spacing:0.2px !important;
@@ -2643,13 +2646,15 @@
       display:flex;
       flex-wrap:wrap;
       gap:4px;
+      justify-content:center;
+      margin-top:auto;
     }
     .pezziduri-card__exp-meta span{
       background:rgba(30,57,141,0.07);
       color:var(--badiani-blue);
       border-radius:999px;
       padding:2px 8px;
-      font-size:10px;
+      font-size:12px;
       font-weight:400;
       text-transform:uppercase;
       letter-spacing:0.2px;
@@ -2747,84 +2752,92 @@
       bottom:0;
       left:0;
       right:0;
-      max-height:80%;
-      padding:40px 14px 12px;
+      max-height:85%;
+      padding:12px 14px 12px;
       display:flex;
       flex-direction:column;
       gap:5px;
-      background:linear-gradient(to bottom,
-        rgba(255,255,255,0)    0%,
-        rgba(255,255,255,0.75) 30%,
-        rgba(255,255,255,0.97) 50%,
-        #fff                   65%
-      );
-      backdrop-filter:blur(2px);
-      -webkit-backdrop-filter:blur(2px);
-      overflow:hidden;
+      text-align:center;
+      align-items:center;
+      background:#fff;
+      overflow-y:auto;
       animation:gelato-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
       z-index:4;
+    }
+    .accessori-card__exp-body::before{
+      content:'';
+      position:absolute;
+      top:-40px;
+      left:0;
+      right:0;
+      height:40px;
+      background:linear-gradient(to bottom, rgba(255,255,255,0) 0%, #fff 100%);
+      pointer-events:none;
     }
     .accessori-card__exp-header{
       display:flex;
       align-items:flex-start;
-      justify-content:space-between;
+      justify-content:center;
       gap:8px;
+      width:100%;
     }
     .accessori-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:14px;
+      font-size:18px;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
       line-height:1.2;
     }
     .accessori-card__exp-close{
-      width:22px;
-      height:22px;
-      border-radius:50%;
-      border:none;
-      background:rgba(30,57,141,0.08);
-      color:var(--badiani-blue);
-      cursor:pointer;
-      font-size:13px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      flex-shrink:0;
-      transition:background 0.15s;
-      padding:0;
-      line-height:1;
+      display:none;
     }
-    .accessori-card__exp-close:hover{ background:rgba(240,103,166,0.2); }
     .accessori-card__exp-section-label{
-      font-size:10px;
+      font-size:12px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .accessori-card__exp-desc{
-      font-size:11px;
+      font-size:15px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskC',sans-serif;
+      text-transform:none;
     }
     .accessori-card__exp-meta{
       display:flex;
       flex-wrap:wrap;
       gap:4px;
+      justify-content:center;
+      margin-top:auto;
     }
     .accessori-card__exp-meta span{
       background:rgba(30,57,141,0.07);
       color:var(--badiani-blue);
       border-radius:999px;
       padding:2px 8px;
-      font-size:10px;
+      font-size:12px;
       font-weight:400;
       text-transform:uppercase;
       letter-spacing:0.2px;
       font-family:'SuperGroteskC',sans-serif;
       line-height:1.5;
+    }
+    .accessori-card__exp-measures{
+      font-size:14px;
+      color:rgba(30,57,141,0.65);
+      font-family:'SuperGroteskC',sans-serif;
+      margin-top:4px;
+    }
+    .accessori-card__exp-measures-label{
+      color:var(--badiani-pink);
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      font-size:12px;
+      margin-right:4px;
     }
     .accessori-card__exp-meta strong{
       color:var(--badiani-pink);
@@ -3037,10 +3050,12 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
       gap:14px;
     }
     .torte-detail-name{
-      font-size:18px;
+      font-size:24px;
       font-weight:700;
       color:var(--badiani-blue);
       text-transform:uppercase;
@@ -3051,13 +3066,16 @@
     .torte-detail-meta{
       display:grid;
       gap:8px;
-      font-size:13px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
+      width:100%;
+      text-transform:none;
     }
     .torte-detail-meta span{
       display:flex;
-      justify-content:space-between;
-      gap:8px;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
       background:transparent;
       padding:8px 12px;
       border-radius:10px;
@@ -3070,6 +3088,7 @@
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      justify-content:center;
     }
     .torte-size-pill{
       display:inline-flex;
@@ -3277,10 +3296,12 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
       gap:6px;
     }
     .contenitori-detail-name{
-      font-size:18px;
+      font-size:24px;
       font-weight:700;
       color:var(--badiani-blue);
       text-transform:uppercase;
@@ -3291,13 +3312,16 @@
     .contenitori-detail-meta{
       display:grid;
       gap:2px;
-      font-size:13px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
+      width:100%;
+      text-transform:none;
     }
     .contenitori-detail-meta span{
       display:flex;
-      justify-content:space-between;
-      gap:8px;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
       background:transparent;
       padding:4px 8px;
       border-radius:10px;
@@ -5032,7 +5056,7 @@
             <h3 class="listino-header__title" data-i18n="b2b.listino.viewerTitle">Listino Prezzi 2026</h3>
             <span class="listino-header__subtitle" data-i18n="b2b.listino.subtitle">Prezzi al kg · IVA esclusa</span>
           </div>
-          <button class="listino-header__close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">?</button>
+          <button class="listino-header__close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">&#x2715;</button>
         </div>
         <nav class="listino-tabs" aria-label="Sezioni listino">
           <button class="listino-tab is-active" data-listino-tab="gelato" data-i18n="b2b.listino.tab.gelato">Gelato</button>
@@ -5236,7 +5260,7 @@
     <button class="fullscreen-nav fullscreen-nav--prev" type="button" aria-label="Foto precedente">&#8249;</button>
     <button class="fullscreen-nav fullscreen-nav--next" type="button" aria-label="Foto successiva">&#8250;</button>
     <div class="fullscreen-content">
-      <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">?</button>
+      <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">&#x2715;</button>
       <img id="gelatoFullscreenImage" alt="" />
       <div class="fullscreen-dots" id="gelatoFullscreenDots"></div>
     </div>
@@ -7712,6 +7736,11 @@
       function getAccessoriName(name){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.name : name; }
       function getAccessoriDesc(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return a ? a.desc : fallback; }
       function getAccessoriQty(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return (a && a.qty) ? a.qty : fallback; }
+      function splitDescMeasures(desc){
+        const m = desc.match(/^(.*?)\s*(Misure|Dimensions|Medidas)\s*:\s*(.+)$/i);
+        if(m) return { desc: m[1].replace(/\.\s*$/,''), measures: m[3] };
+        return { desc: desc, measures: '' };
+      }
       function getPezziDuriMinOrder(val){ return ((PEZZI_DURI_MINORDER_I18N[currentLang] || {})[val]) || val; }
 
       /* -- Coni size name translations -- */
@@ -8269,7 +8298,7 @@
                     <span><strong>${t('b2b.pezziduri.avgWeight')}</strong> ${weight}</span>
                     <span><strong>${t('b2b.pezziduri.minOrder')}</strong> ${localMin}</span>
                   </div>
-                  ${allergenTags ? `<div>
+                  ${allergenTags ? `<div style="margin-top:auto;width:100%">
                     <div class="pezziduri-card__exp-section-label">${t('b2b.pezziduri.allergens')}</div>
                     <div class="pezziduri-card__exp-meta">${allergenTags}</div>
                   </div>` : ''}
@@ -8661,7 +8690,7 @@
                 <span><strong>${t('b2b.pezziduri.avgWeight')}</strong> ${weight}</span>
                 <span><strong>${t('b2b.pezziduri.minOrder')}</strong> ${localMin}</span>
               </div>
-              ${allergenTags ? `<div>
+              ${allergenTags ? `<div style="margin-top:auto;width:100%">
                 <div class="pezziduri-card__exp-section-label">${t('b2b.pezziduri.allergens')}</div>
                 <div class="pezziduri-card__exp-meta">${allergenTags}</div>
               </div>` : ''}`;
@@ -8705,7 +8734,7 @@
             const gf = getConiGfVariants()[name];
             const gfBlock = gf ? `
               <button class="coni-gf-btn" type="button" data-gf-toggle="${name}">
-                ${t('b2b.coni.gfVariant')} <span class="gf-chevron">?</span>
+                ${t('b2b.coni.gfVariant')} <span class="gf-chevron">&#x25BE;</span>
               </button>
               <div class="coni-gf-details" data-gf-details="${name}">
                 <strong>${gf.gfName}</strong><br>
@@ -9005,6 +9034,7 @@
           /* -- Expanded overlay body (gelato-style) -- */
           let expBodyHtml = '';
           if(isExpanded){
+            const _dm = splitDescMeasures(localDesc);
             expBodyHtml = `
               <div class="accessori-card__exp-body">
                 <div class="accessori-card__exp-header">
@@ -9015,9 +9045,10 @@
                 </div>
                 <div>
                   <div class="accessori-card__exp-section-label">${t('b2b.accessori.description')}</div>
-                  <div class="accessori-card__exp-desc">${localDesc}</div>
+                  <div class="accessori-card__exp-desc">${_dm.desc}</div>
+                  ${_dm.measures ? `<div class="accessori-card__exp-measures"><span class="accessori-card__exp-measures-label">Misure</span>${_dm.measures}</div>` : ''}
                 </div>
-                <div class="accessori-card__exp-meta">
+                <div class="accessori-card__exp-meta" style="margin-top:auto">
                   <span><strong>${t('b2b.accessori.quantity')}</strong> ${localQty}</span>
                 </div>
               </div>`;
@@ -9073,6 +9104,7 @@
             const localName = getAccessoriName(name);
             const localDesc = getAccessoriDesc(name, origDesc);
             const localQty  = getAccessoriQty(name, qty);
+            const _dm2 = splitDescMeasures(localDesc);
             const expBody = document.createElement('div');
             expBody.className = 'accessori-card__exp-body';
             expBody.innerHTML = `
@@ -9082,9 +9114,10 @@
               </div>
               <div>
                 <div class="accessori-card__exp-section-label">${t('b2b.accessori.description')}</div>
-                <div class="accessori-card__exp-desc">${localDesc}</div>
+                <div class="accessori-card__exp-desc">${_dm2.desc}</div>
+                ${_dm2.measures ? `<div class="accessori-card__exp-measures"><span class="accessori-card__exp-measures-label">Misure</span>${_dm2.measures}</div>` : ''}
               </div>
-              <div class="accessori-card__exp-meta">
+              <div class="accessori-card__exp-meta" style="margin-top:auto">
                 <span><strong>${t('b2b.accessori.quantity')}</strong> ${localQty}</span>
               </div>`;
             card.appendChild(expBody);
@@ -9535,7 +9568,7 @@
               <div class="gelato-card__exp-section-label">${t('gelato.detail.description')}</div>
               <div class="gelato-card__exp-desc">${description}</div>
             </div>` : ''}
-            <div>
+            <div style="margin-top:auto;width:100%">
               <div class="gelato-card__exp-section-label">${t('gelato.detail.allergens')}</div>
               <div class="gelato-card__exp-allergens">${allergenTags}</div>
             </div>`;
