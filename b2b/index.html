@@ -1066,28 +1066,32 @@
     /* -- Tipologia vasca gallery -- */
     .tipologia-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
-      gap:12px;
+      grid-template-columns:repeat(5, minmax(0, 1fr));
+      gap:16px;
+      align-content:start;
       align-items:start;
     }
     .tipologia-card{
+      border:none;
       background:#fff;
-      border-radius:16px;
+      border-radius:14px;
       overflow:hidden;
-      border:2px solid rgba(30,57,141,0.08);
+      position:relative;
       box-shadow:0 10px 22px rgba(0,0,0,0.2);
+      cursor:pointer;
+      text-align:left;
+      padding:0;
       display:flex;
       flex-direction:column;
-      cursor:pointer;
-      transition:box-shadow 0.2s ease, border-color 0.2s ease;
+      transition:transform 0.18s ease, box-shadow 0.18s ease, outline-color 0.18s ease;
     }
-    .tipologia-card:hover{ box-shadow:0 16px 30px rgba(0,0,0,0.3); }
-    .tipologia-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
-    .tipologia-card.is-expanded{ border-color:var(--badiani-pink); box-shadow:0 12px 28px rgba(240,103,166,0.35); }
+    .tipologia-card:hover{ transform:translateY(-2px); box-shadow:0 16px 28px rgba(0,0,0,0.25); }
+    .tipologia-card:focus-visible{ outline:2px solid rgba(255,255,255,0.4); outline-offset:2px; }
+    .tipologia-card.is-expanded{ outline:2px solid var(--badiani-pink); outline-offset:2px; box-shadow:0 12px 28px rgba(240,103,166,0.35); }
     .tipologia-media{
       width:100%;
       aspect-ratio:1 / 1;
-      background:transparent;
+      background:#f7f5f2;
       overflow:hidden;
       position:relative;
     }
@@ -1098,103 +1102,83 @@
       display:block;
     }
     .tipologia-body{
-      padding:8px 10px 10px;
-      display:grid;
-      gap:0;
-      text-align:center;
+      padding:8px 10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:1;
     }
     .tipologia-title{
-      font-size:12px;
+      font-size:13px;
       font-weight:600;
-      letter-spacing:0.5px;
+      letter-spacing:0.6px;
       color:var(--badiani-blue);
       text-transform:uppercase;
+      text-align:center;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .tipologia-capacity{ display:none; }
-    /* -- Detail panel shown above the grid on click -- */
-    .tipologia-detail-panel{
-      display:none;
-      margin-bottom:16px;
-      background:#fff;
-      border-radius:20px;
-      border:2px solid var(--badiani-pink);
-      box-shadow:0 12px 36px rgba(240,103,166,0.2);
-      overflow:hidden;
-      animation:tipDetailReveal 0.22s ease;
-    }
-    @keyframes tipDetailReveal{
-      from{ opacity:0; transform:translateY(-8px) scale(0.98); }
-      to{ opacity:1; transform:translateY(0) scale(1); }
-    }
-    .tipologia-detail-panel.is-visible{ display:flex; align-items:stretch; }
-    .tipologia-detail-panel__img{
-      width:clamp(110px, 18vw, 180px);
-      flex-shrink:0;
-      background:#f4f4f4;
-    }
-    .tipologia-detail-panel__img img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-    }
-    .tipologia-detail-panel__body{
-      flex:1;
-      padding:clamp(14px, 2vw, 24px) clamp(16px, 2.5vw, 28px);
+    /* === Expanded tipologia card — overlays bottom of card in place (like gelato) === */
+    .tipologia-card.is-expanded .tipologia-body{ opacity:0; pointer-events:none; }
+    .tipologia-card__exp-body{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      max-height:85%;
+      padding:12px 14px 12px;
       display:flex;
       flex-direction:column;
-      justify-content:center;
-      align-items:center;
+      gap:5px;
       text-align:center;
-      gap:6px;
+      align-items:center;
+      background:#fff;
+      overflow-y:auto;
+      animation:tipologia-exp-up 0.25s cubic-bezier(0.4,0,0.2,1) both;
     }
-    .tipologia-detail-panel__name{
-      font-family:'SuperGroteskB', sans-serif;
-      font-size:clamp(20px, 2.5vw, 30px);
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:1.5px;
+    @keyframes tipologia-exp-up{
+      from{ opacity:0; transform:translateY(100%); }
+      to{ opacity:1; transform:translateY(0); }
+    }
+    .tipologia-card__exp-name{
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:18px;
       color:var(--badiani-blue);
-      line-height:1.1;
-    }
-    .tipologia-detail-panel__capacity{
-      font-size:clamp(15px, 1.6vw, 20px);
-      color:rgba(30,57,141,0.65);
-      font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-transform:uppercase;
       letter-spacing:1px;
+      line-height:1.2;
     }
-    .tipologia-detail-panel__close{
-      position:absolute;
-      top:10px;
-      right:12px;
-      width:28px;
-      height:28px;
-      border-radius:50%;
-      border:none;
-      background:rgba(30,57,141,0.1);
-      cursor:pointer;
-      font-size:16px;
-      line-height:28px;
-      text-align:center;
-      color:var(--badiani-blue);
-      padding:0;
+    .tipologia-card__exp-capacity{
+      font-size:15px;
+      color:rgba(30,57,141,0.65);
+      line-height:1.4;
+      font-family:'SuperGroteskC',sans-serif;
+      text-transform:uppercase;
+      letter-spacing:0.8px;
     }
-    .tipologia-detail-panel__close:hover{ background:rgba(30,57,141,0.2); }
-    .tipologia-detail-panel-wrap{
-      position:relative;
+    .tipologia-card__exp-close{
+      display:none;
+    }
+    @media(prefers-reduced-motion:reduce){
+      .tipologia-card__exp-body{ animation:none; }
+    }
+    /* -- Detail panel (legacy, hidden) -- */
+    .tipologia-detail-panel{
+      display:none !important;
+    }
+    @media(max-width:1200px){
+      .tipologia-grid{ grid-template-columns:repeat(4, minmax(0, 1fr)); }
+    }
+    @media(max-width:1024px){
+      .tipologia-grid{ grid-template-columns:repeat(3, minmax(0, 1fr)); }
+    }
+    @media(max-width:768px){
+      .tipologia-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
     }
     @media(max-width:720px){
-      .tipologia-grid{
-        grid-template-columns:repeat(2, minmax(0, 1fr)) !important;
-        gap:10px;
-      }
       .tipologia-media{ aspect-ratio:1 / 1; }
-      .tipologia-body{ padding:6px 6px 8px; gap:2px; }
+      .tipologia-body{ padding:6px 6px 8px; }
       .tipologia-title{ font-size:11px; letter-spacing:0.3px; }
-      .tipologia-detail-panel__name{ font-size:clamp(18px, 5vw, 24px); }
-      .tipologia-detail-panel__capacity{ font-size:clamp(13px, 3.5vw, 16px); }
     }
 
     /* -- Formato Acquisto scroll button -- */
@@ -1520,6 +1504,7 @@
     .coppette-detail-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
+      text-transform:uppercase;
     }
     @media(max-width:600px){
       .coppette-detail-panel{
@@ -1718,6 +1703,7 @@
     .coni-detail-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
+      text-transform:uppercase;
     }
     @media(max-width:600px){
       .coni-detail-panel{
@@ -1885,6 +1871,8 @@
       display:flex;
       flex-direction:column;
       justify-content:center;
+      align-items:center;
+      text-align:center;
       gap:12px;
     }
     .conigf-detail-name{
@@ -1894,18 +1882,21 @@
       text-transform:uppercase;
       letter-spacing:0.8px;
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
+      text-align:center;
     }
     .conigf-detail-meta{
       display:grid;
       gap:8px;
       font-size:16px;
       color:rgba(30,57,141,0.65);
+      width:100%;
       text-transform:none;
     }
     .conigf-detail-meta span{
       display:flex;
-      justify-content:space-between;
-      gap:8px;
+      flex-direction:column;
+      align-items:center;
+      gap:4px;
       background:transparent;
       padding:8px 12px;
       border-radius:10px;
@@ -1913,6 +1904,7 @@
     .conigf-detail-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
+      text-transform:uppercase;
     }
     @media(max-width:600px){
       .conigf-detail-panel{
@@ -1930,16 +1922,6 @@
       }
       .conigf-detail-info{
         padding:12px 14px;
-      }
-      .conigf-detail-name{
-        font-size:14px;
-      }
-      .conigf-detail-meta{
-        font-size:12px;
-        gap:4px;
-      }
-      .conigf-detail-meta span{
-        padding:5px 8px;
       }
       .conigf-zone-label{
         font-size:10px;
@@ -3083,6 +3065,7 @@
     .torte-detail-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
+      text-transform:uppercase;
     }
     .torte-detail-sizes{
       display:flex;
@@ -3329,6 +3312,7 @@
     .contenitori-detail-meta strong{
       color:var(--badiani-pink);
       font-weight:600;
+      text-transform:uppercase;
     }
     @media(max-width:600px){
       .contenitori-detail-panel{
@@ -8145,7 +8129,8 @@
         pezziDuriShowOverlay = false;
         expandedContenitoriId = '';
         expandedTipologiaId = '';
-        if(tipologiaDetailPanel) tipologiaDetailPanel.classList.remove('is-visible');
+        document.querySelectorAll('#tipologiaContent .tipologia-card__exp-body').forEach(b => b.remove());
+        document.querySelectorAll('#tipologiaContent .tipologia-card.is-expanded').forEach(c => c.classList.remove('is-expanded'));
         expandedConiId = new Set();
         expandedAccessoriId = '';
         selectedTorteMapId = new Set();
@@ -8323,11 +8308,7 @@
         /* -- Hero overlay (shown only on first entry from home) -- */
         const heroHtml = `
           <div class="pezziduri-hero-overlay" role="button" tabindex="0" aria-label="${t('b2b.pezziduri.tapOverlay')}">
-            <picture>
-              <source media="(max-width:600px)" srcset="../assets/images/pezziduri/vetrina-monoporzioni-mobile.webp" type="image/webp">
-              <source media="(min-width:601px)" srcset="../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp" type="image/webp">
-              <img src="../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp" alt="Vetrina Monoporzioni Badiani" loading="eager" decoding="async" />
-            </picture>
+            <img src="../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp" alt="Vetrina Monoporzioni Badiani" loading="eager" decoding="async" />
             <span class="pezziduri-hero-tap">${t('b2b.pezziduri.tapOverlay')}</span>
           </div>
         `;
@@ -8346,6 +8327,7 @@
       function renderTipologiaGallery(){
         const items = TIPOLOGIA_VASCA;
         if(!items || !items.length) return '';
+        const zoomIcon = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;
         const cards = items
           .map(({ name, capacity, image }) => {
             const imageSrc = encodeURI(image);
@@ -8354,6 +8336,7 @@
               <article class="tipologia-card${isExpanded ? ' is-expanded' : ''}" data-tipologia-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
                 <div class="tipologia-media">
                   <img src="${imageSrc}" alt="${getTipologiaName(name)}" loading="lazy" decoding="async" />
+                  <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}">${zoomIcon}</button>
                 </div>
                 <div class="tipologia-body">
                   <div class="tipologia-title">${getTipologiaName(name)}</div>
@@ -8366,22 +8349,31 @@
         return cards;
       }
 
-      /* -- Tipologia detail panel helpers -- */
-      function showTipologiaDetail(id){
+      /* -- Tipologia detail — in-card overlay (like gelato) -- */
+      function showTipologiaDetail(id, card){
         const item = TIPOLOGIA_VASCA.find((v) => v.name === id);
-        if(!item || !tipologiaDetailPanel) return;
-        tipologiaDetailImgEl.src = encodeURI(item.image);
-        tipologiaDetailImgEl.alt = getTipologiaName(id);
-        tipologiaDetailName.textContent = getTipologiaName(id);
-        tipologiaDetailCapacity.textContent = item.capacity;
-        tipologiaDetailPanel.classList.add('is-visible');
+        if(!item || !card) return;
+
+        /* Remove any stale expanded body */
+        const existing = card.querySelector('.tipologia-card__exp-body');
+        if(existing) existing.remove();
+
+        const expBody = document.createElement('div');
+        expBody.className = 'tipologia-card__exp-body';
+        expBody.innerHTML = `
+          <div class="tipologia-card__exp-name">${getTipologiaName(id)}</div>
+          <div class="tipologia-card__exp-capacity">${item.capacity}</div>`;
+        card.appendChild(expBody);
       }
 
       function hideTipologiaDetail(){
-        if(tipologiaDetailPanel) tipologiaDetailPanel.classList.remove('is-visible');
         expandedTipologiaId = '';
         document.querySelectorAll('#tipologiaContent .tipologia-card.is-expanded')
-          .forEach((c) => c.classList.remove('is-expanded'));
+          .forEach((c) => {
+            c.classList.remove('is-expanded');
+            const body = c.querySelector('.tipologia-card__exp-body');
+            if(body) body.remove();
+          });
       }
 
       if(tipologiaDetailClose){
@@ -8395,17 +8387,25 @@
         cards.forEach((card) => {
           const id = card.dataset.tipologiaId;
           if(!id) return;
+          /* Zoom button → fullscreen */
+          const zoomBtn = card.querySelector('.card-zoom');
+          if(zoomBtn){
+            zoomBtn.addEventListener('click', (event) => {
+              event.stopPropagation();
+              const item = TIPOLOGIA_VASCA.find((v) => v.name === id);
+              if(item) openFullscreenImage(item.image, getTipologiaName(id));
+            });
+          }
           card.addEventListener('click', () => {
             if(expandedTipologiaId === id){
               hideTipologiaDetail();
               return;
             }
             /* Deselect previous */
-            document.querySelectorAll('#tipologiaContent .tipologia-card.is-expanded')
-              .forEach((c) => c.classList.remove('is-expanded'));
+            hideTipologiaDetail();
             card.classList.add('is-expanded');
             expandedTipologiaId = id;
-            showTipologiaDetail(id);
+            showTipologiaDetail(id, card);
           });
           card.addEventListener('keydown', (event) => {
             if(event.key === 'Enter' || event.key === ' '){
@@ -9378,13 +9378,7 @@
       }
 
       function getDetailImageSrc(flavor){
-        const src = flavor.detailImage;
-        if(!src) return src;
-        const useLightVersion = window.innerWidth <= 1024;
-        if(useLightVersion && src.endsWith('-2.webp')){
-          return src.replace(/-2\.webp$/i, '-2-light.webp');
-        }
-        return src;
+        return flavor.detailImage;
       }
 
       function getBaseImageSrc(flavor){

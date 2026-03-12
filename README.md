@@ -99,7 +99,7 @@ badianibroshure/
 │   ├── badiani-common.css              # ★ Foglio stile condiviso (tutti i componenti globali)
 │   ├── i18n.js                         # ⚠ i18n legacy (NON USATO — orfano)
 │   ├── fonts/                          # Font custom SuperGrotesk (woff, woff2, otf)
-│   ├── gelato/                         # 27 cartelle gusto (4 immagini ciascuna)
+│   ├── gelato/                         # 27 cartelle gusto (3 immagini ciascuna)
 │   │   ├── Buontalenti/
 │   │   ├── Pistacchio/
 │   │   ├── DUBAI CHOCOLATE/
@@ -474,13 +474,12 @@ La pagina `b2b/index.html` importa i dati e genera dinamicamente:
 
 ### Immagini Gusti
 
-Ogni gusto ha fino a 4 varianti immagine:
+Ogni gusto ha 3 varianti immagine:
 ```
 assets/gelato/{NomeGusto}/
 ├── {gusto}.webp          # Immagine principale (card)
 ├── {gusto}-2.webp        # Immagine dettaglio (modale)
-├── {gusto}-thumb.webp    # Thumbnail (generata da script)
-└── (varianti occasionali)
+└── {gusto}-thumb.webp    # Thumbnail (generata da script)
 ```
 
 ---
@@ -497,7 +496,7 @@ assets/gelato/{NomeGusto}/
 
 ```
 assets/
-├── gelato/           # 27 cartelle × 4 immagini = ~108 file WebP
+├── gelato/           # 27 cartelle × 3 immagini = ~81 file WebP
 ├── images/
 │   ├── branding/     # Logo, favicon (favicon.webp, favicon.ico, apple-touch-icon.png)
 │   ├── categories/   # Immagini categorie B2B (vasche.webp, torte.webp, ecc.)
@@ -849,6 +848,7 @@ python _source/add_cookie_strings.py
 
 | Data | Modifica |
 |------|----------|
+| 2026-03-13 | **Gelato — rimosse varianti mobile light**: eliminato il sistema di immagini `-2-light.webp` per mobile (27 file, ~1 MB). Tutti i dispositivi ora caricano la stessa immagine dettaglio `-2.webp`. Rimossa la funzione `getDetailImageSrc()` che sostituiva il path su `window.innerWidth <= 1024`. Sistema immagini gusti semplificato da 4 a 3 varianti per gusto. |
 | 2026-03-12 | **B2B Descrizioni minuscole**: aggiunto `text-transform:none` a tutte le descrizioni nelle schede espanse/pannelli dettaglio delle categorie Monoporzioni (`.pezziduri-card__exp-desc`), Torte (`.torte-detail-meta`), Coni (`.coni-detail-meta`), Coppette (`.coppette-detail-meta`), Contenitori (`.contenitori-detail-meta`), Coni Gluten Free (`.conigf-detail-meta`) e Accessori (`.accessori-card__exp-desc`). Le descrizioni ora appaiono in minuscolo, coerenti con la categoria Gusti. |
 | 2026-03-11 | **B2B Monoporzioni — nuovi prodotti**: aggiunte 2 nuove schede prodotto nella griglia PEZZI DURI: `Mini Coni` (coni ripieni di Buontalenti®) e `Zuccotto` (zuccotto gelato artigianale). Immagini ottimizzate da PNG a WebP (max 1200px, quality 78). Aggiornate tutte le strutture dati: `PEZZI_DURI_IMAGES`, `CATEGORY_DATA.rows`, `PEZZI_DURI_DESC`, `PEZZI_DURI_DESC_I18N` (EN/FR/ES), `PEZZI_DURI_NAMES_I18N` (IT/EN/FR/ES), tabella listino HTML. |
 | 2026-03-11 | **Mercury — pulizia completa**: rimosso `mercury.webp` + tutti i CSS + JS parallax da 5 pagine: `eventi/index.html`, `eventi/evento-esterno/`, `eventi/experience/`, `eventi/saletta-privata-tosinghi/`, `b2b/index.html`. Zero riferimenti residui. |
