@@ -17,6 +17,7 @@
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <meta property="og:url" content="https://www.badiani1932.com/eventi/evento-esterno/" />
   <meta property="og:site_name" content="Badiani 1932" />
+  <meta property="og:locale" content="it_IT" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Badiani dove vuoi â€” Badiani 1932" />
   <meta name="twitter:description" content="Cool Box e Carretto Gelato per eventi. Gelato artigianale fiorentino ovunque." />
@@ -728,6 +729,38 @@
       transition:opacity 0.15s;
     }
     .img-lightbox__close:hover{ opacity:1; }
+
+    /* Zoom button on modal hero images (same style as B2B .card-zoom) */
+    .modal-hero__img-wrap{
+      position:relative;
+      display:inline-block;
+      flex-shrink:0;
+    }
+    .modal-hero__zoom{
+      position:absolute;
+      top:10px;
+      right:10px;
+      width:46px;
+      height:46px;
+      border-radius:999px;
+      border:1.5px solid rgba(255,255,255,0.7);
+      background:rgba(0,0,0,0.35);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      backdrop-filter:blur(8px);
+      transition:transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+      touch-action:manipulation;
+      z-index:5;
+      pointer-events:auto;
+      box-shadow:0 2px 8px rgba(0,0,0,0.18);
+      padding:0;
+    }
+    .modal-hero__zoom:hover{ transform:scale(1.1); background:rgba(0,0,0,0.48); border-color:#fff; box-shadow:0 4px 16px rgba(0,0,0,0.28); }
+    .modal-hero__zoom svg{ width:20px; height:20px; }
+
     .modal-hero__img--coolbox{
       width:clamp(250px, 30vw, 440px);
       height:clamp(220px, 28vw, 380px);
@@ -872,6 +905,10 @@
       .modal-hero__img{
         width:clamp(140px, 40vw, 220px);
         height:clamp(140px, 40vw, 220px);
+        justify-self:center;
+        order:-1;
+      }
+      .modal-hero__img-wrap{
         justify-self:center;
         order:-1;
       }
@@ -1165,7 +1202,12 @@
             <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
             <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
           </div>
-          <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" data-zoomable data-gallery="coolbox" tabindex="0" role="button" />
+          <div class="modal-hero__img-wrap">
+            <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" data-zoomable data-gallery="coolbox" tabindex="0" role="button" />
+            <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -1210,7 +1252,12 @@
             <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
             <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
           </div>
-          <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
+          <div class="modal-hero__img-wrap">
+            <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
+            <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </button>
+          </div>
         </div>
         <div class="modal-body">
           <div class="specs-grid">
@@ -2131,6 +2178,16 @@
           e.preventDefault();
           openLightbox(this.src, this.alt, this.dataset.gallery || null);
         }
+      });
+    });
+
+    /* Zoom buttons on modal hero images */
+    document.querySelectorAll('.modal-hero__zoom').forEach(function(btn){
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var wrap = this.closest('.modal-hero__img-wrap');
+        var img = wrap ? wrap.querySelector('.modal-hero__img[data-zoomable]') : null;
+        if(img) openLightbox(img.src, img.alt, img.dataset.gallery || null);
       });
     });
 

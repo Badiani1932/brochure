@@ -35,12 +35,31 @@
   <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/" />
 
   <!-- Preload critical font -->
-  <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <!-- Preload critical above-the-fold images -->
   <link rel="preload" as="image" href="assets/images/eventi/evento-esterno-2.webp" />
   <link rel="preload" as="image" href="assets/images/categories/b2b-hero.webp" />
 
   <link rel="stylesheet" href="./assets/badiani-common.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Badiani 1932",
+    "url": "https://www.badiani1932.com",
+    "logo": "https://www.badiani1932.com/assets/images/branding/logo.webp",
+    "foundingDate": "1932",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Firenze",
+      "addressCountry": "IT"
+    },
+    "contactPoint": [
+      {"@type": "ContactPoint", "email": "eventi@badiani1932.com", "contactType": "customer service"}
+    ],
+    "sameAs": []
+  }
+  </script>
   <style>
     /* Page-specific styles for homepage */
     @media(max-width:500px){
@@ -1144,7 +1163,11 @@
       <source src="assets/video/home-b2b.mp4" type="video/mp4">
       <track kind="descriptions" srclang="it" label="Descrizione video" default>
     </video>
-
+    <div class="hero-content">
+      <div class="hero-content__heading-group">
+        <h1 data-i18n="home.hero.title">Badiani 1932</h1>
+      </div>
+    </div>
   </section>
 
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
@@ -1418,6 +1441,7 @@
           'home.contact.retail': 'retail@badiani1932.com',
           'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Seleziona il percorso',
+          'home.hero.title': 'Badiani 1932',
           'home.title': 'Placeholder titolo introduttivo',
           'home.subtitle': 'Placeholder testo breve: scegli il percorso più adatto alle tue esigenze.',
           'home.choices.label': 'Scelte principali',
@@ -1537,6 +1561,7 @@
           'home.contact.retail': 'retail@badiani1932.com',
           'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Select your path',
+          'home.hero.title': 'Badiani 1932',
           'home.title': 'Placeholder intro title',
           'home.subtitle': 'Placeholder short text: choose the path that best fits your needs.',
           'home.choices.label': 'Main choices',
@@ -1656,6 +1681,7 @@
           'home.contact.retail': 'retail@badiani1932.com',
           'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Choisissez votre parcours',
+          'home.hero.title': 'Badiani 1932',
           'home.title': 'Titre d’introduction (placeholder)',
           'home.subtitle': 'Texte court (placeholder) : choisissez le parcours le plus adapté.',
           'home.choices.label': 'Choix principaux',
@@ -1800,6 +1826,7 @@
           'home.contact.retail': 'retail@badiani1932.com',
           'home.contact.site': 'www.badiani1932.com',
           'home.intro.label': 'Selecciona el recorrido',
+          'home.hero.title': 'Badiani 1932',
           'home.title': 'Título introductorio (placeholder)',
           'home.subtitle': 'Texto breve (placeholder): elige el recorrido más adecuado.',
           'home.choices.label': 'Opciones principales',
@@ -2226,30 +2253,7 @@
       });
     })();
 
-    /* JSON-LD Structured Data */
-    (function(){
-      var ld = {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Badiani 1932",
-        "url": "https://www.badiani1932.com",
-        "logo": "https://www.badiani1932.com/assets/images/branding/logo.webp",
-        "foundingDate": "1932",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Firenze",
-          "addressCountry": "IT"
-        },
-        "contactPoint": [
-          {"@type": "ContactPoint", "email": "eventi@badiani1932.com", "contactType": "customer service"},
-        ],
-        "sameAs": []
-      };
-      var s = document.createElement('script');
-      s.type = 'application/ld+json';
-      s.textContent = JSON.stringify(ld);
-      document.head.appendChild(s);
-    })();
+    /* JSON-LD Structured Data — moved to static <head> */
   </script>
 
   <!-- Parallax scroll (optimized) -->
