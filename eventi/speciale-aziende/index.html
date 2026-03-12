@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -181,7 +181,7 @@
       transform:translateY(-3px);
     }
     .use-cases-list li::before{
-      content:"✔";
+      content:"?";
       color:var(--badiani-pink);
       font-weight:700;
       margin-right:8px;
@@ -278,8 +278,26 @@
     <div class="topbar__right">
       <nav class="topbar__nav">
         <a href="../../" data-i18n="nav.home">Home</a>
-        <a href="../" data-i18n="nav.eventi">Eventi</a>
-        <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+        <div class="topbar__dropdown">
+          <a href="../" data-i18n="nav.eventi">Eventi</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+            <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+            <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+            <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
+          </div>
+        </div>
+        <div class="topbar__dropdown">
+          <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+            <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+            <a href="../../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+            <a href="../../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+            <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+            <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+          </div>
+        </div>
       </nav>
       <div class="topbar__lang">
         <select class="topbar__select" data-i18n-attr="aria-label:lang.label">
@@ -297,8 +315,26 @@
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
     <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
     <a href="../../" data-i18n="nav.home">Home</a>
-    <a href="../" data-i18n="nav.eventi">Eventi</a>
-    <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+    <details class="topbar__mobile-group">
+      <summary data-i18n="nav.eventi">Eventi</summary>
+      <div class="topbar__mobile-group-items">
+        <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+        <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+        <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+        <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
+      </div>
+    </details>
+    <details class="topbar__mobile-group">
+      <summary data-i18n="nav.b2b">B2B</summary>
+      <div class="topbar__mobile-group-items">
+        <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+        <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+        <a href="../../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+        <a href="../../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+        <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+        <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+      </div>
+    </details>
   </nav>
 
   <section class="hero" id="main-content">
@@ -366,7 +402,7 @@
           'topbar.label': 'Barra brand',
           'lang.label': 'Selettore lingua',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B',
+          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Saletta Tosinghi', 'nav.eventi.esterno': 'Badiani dove vuoi', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Gusti', 'nav.b2b.monoporzioni': 'Monoporzioni', 'nav.b2b.torte': 'Torte', 'nav.b2b.coni': 'Coni & Coppette', 'nav.b2b.accessori': 'Accessori', 'nav.b2b.contenitori': 'Contenitori',
           'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi', 'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti', 'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
           'az.hero.title': 'SPECIALE AZIENDE',
           'az.hero.subtitle': 'Crea un evento unico, pensato intorno al tuo brand',
@@ -400,7 +436,7 @@
           'topbar.label': 'Brand bar',
           'lang.label': 'Language selector',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B',
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Tosinghi Room', 'nav.eventi.esterno': 'Badiani where you want', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Flavors', 'nav.b2b.monoporzioni': 'Single Servings', 'nav.b2b.torte': 'Cakes', 'nav.b2b.coni': 'Cones & Cups', 'nav.b2b.accessori': 'Accessories', 'nav.b2b.contenitori': 'Containers',
           'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events', 'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts', 'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
           'az.hero.title': 'CORPORATE EVENTS',
           'az.hero.subtitle': 'Create a unique event, designed around your brand',
@@ -434,7 +470,7 @@
           'topbar.label': 'Barre de marque',
           'lang.label': 'Sélecteur de langue',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Accueil', 'nav.eventi': 'Événements', 'nav.b2b': 'B2B',
+          'nav.home': 'Accueil', 'nav.eventi': 'Événements', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Salon Tosinghi', 'nav.eventi.esterno': 'Badiani où vous voulez', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Parfums', 'nav.b2b.monoporzioni': 'Portions Individuelles', 'nav.b2b.torte': 'Gâteaux', 'nav.b2b.coni': 'Cônes & Coupes', 'nav.b2b.accessori': 'Accessoires', 'nav.b2b.contenitori': 'Conteneurs',
           'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': 'Événements', 'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts', 'footer.legale': 'Mentions Légales', 'footer.privacy': 'Politique de Confidentialité', 'footer.cookie': 'Politique de Cookies',
           'az.hero.title': 'ENTREPRISES',
           'az.hero.subtitle': 'Créez un événement unique, pensé autour de votre marque',
@@ -468,7 +504,7 @@
           'topbar.label': 'Barra de marca',
           'lang.label': 'Selector de idioma',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B',
+          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Salón Tosinghi', 'nav.eventi.esterno': 'Badiani donde quieras', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Sabores', 'nav.b2b.monoporzioni': 'Monoporciones', 'nav.b2b.torte': 'Tartas', 'nav.b2b.coni': 'Conos y Copas', 'nav.b2b.accessori': 'Accesorios', 'nav.b2b.contenitori': 'Contenedores',
           'footer.nav': 'Navegación', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos', 'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos', 'footer.legale': 'Legal', 'footer.privacy': 'Política de Privacidad', 'footer.cookie': 'Política de Cookies',
           'az.hero.title': 'EMPRESAS',
           'az.hero.subtitle': 'Crea un evento único, diseñado en torno a tu marca',

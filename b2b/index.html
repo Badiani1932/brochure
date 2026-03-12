@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -376,7 +376,7 @@
     .category-card:hover .category-cta svg{
       transform:translateX(4px);
     }
-    /* Override per-card title pills → full overlay titles */
+    /* Override per-card title pills ? full overlay titles */
     .category-card.b2b-card--gelato .category-title,
     .category-card.b2b-card--torte .category-title,
     .category-card.b2b-card--vasche .category-title,
@@ -1078,7 +1078,7 @@
       border-color:var(--badiani-pink);
     }
     .gelato-vasche__content[hidden]{ display:none; }
-    /* ── Tipologia vasca gallery ── */
+    /* -- Tipologia vasca gallery -- */
     .tipologia-grid{
       display:grid;
       grid-template-columns:repeat(auto-fill, minmax(130px, 1fr));
@@ -1127,7 +1127,7 @@
       font-family:'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .tipologia-capacity{ display:none; }
-    /* ── Detail panel shown above the grid on click ── */
+    /* -- Detail panel shown above the grid on click -- */
     .tipologia-detail-panel{
       display:none;
       margin-bottom:16px;
@@ -1210,7 +1210,7 @@
       .tipologia-detail-panel__capacity{ font-size:clamp(13px, 3.5vw, 16px); }
     }
 
-    /* ── Formato Acquisto scroll button ── */
+    /* -- Formato Acquisto scroll button -- */
     .formato-acquisto-btn{
       display:inline-flex; align-items:center; gap:8px;
       justify-self:start;
@@ -1225,7 +1225,7 @@
     .formato-acquisto-btn:active{ transform:translateY(0); }
     .formato-acquisto-btn svg{ flex-shrink:0; }
 
-    /* ── Coni & Coppette gallery ── */
+    /* -- Coni & Coppette gallery -- */
     .coni-header-img{
       width:100%;
       border-radius:16px;
@@ -1344,7 +1344,7 @@
     }
 
 
-    /* ── Coppette interactive image map ── */
+    /* -- Coppette interactive image map -- */
     .coppette-section-title{
       font-size:16px;
       font-weight:700;
@@ -1571,7 +1571,7 @@
     }
 
 
-    /* ── Coni interactive image map (hero) ── */
+    /* -- Coni interactive image map (hero) -- */
     .coni-hero-section{
       margin-top:4px;
     }
@@ -1760,7 +1760,7 @@
     }
 
 
-    /* ── Coni Gluten Free interactive hero map ── */
+    /* -- Coni Gluten Free interactive hero map -- */
     .conigf-hero-section{
       margin-top:4px;
     }
@@ -1956,7 +1956,7 @@
       .conigf-map-wrapper{ width:calc(100% + 44px); margin-left:-22px; margin-right:-22px; }
     }
 
-    /* ── Accessori interactive hero map ── */
+    /* -- Accessori interactive hero map -- */
     .accessori-map-wrapper{
       position:relative;
       width:calc(100% + 56px);
@@ -2228,7 +2228,7 @@
       touch-action:manipulation;
     }
 
-    /* ── Fullscreen photo navigation ── */
+    /* -- Fullscreen photo navigation -- */
     .fullscreen-nav{
       display:none;
       position:fixed;
@@ -2278,7 +2278,7 @@
       transform:scale(1.35);
     }
 
-    /* ── Lingotto variants carousel ── */
+    /* -- Lingotto variants carousel -- */
     .lingotto-carousel{
       position:fixed;
       inset:0;
@@ -2437,7 +2437,7 @@
     @keyframes pezziduri-fadeIn{ from{opacity:0;transform:scale(1.02)} to{opacity:1;transform:scale(1)} }
     @keyframes pezziduri-pulse{ 0%,100%{opacity:.85} 50%{opacity:1} }
 
-    /* ── Staggered card entrance ── */
+    /* -- Staggered card entrance -- */
     @keyframes cardStaggerIn{
       from{ opacity:0; transform:scale(0.92) translateY(10px); }
       to{ opacity:1; transform:scale(1) translateY(0); }
@@ -2490,7 +2490,7 @@
       display:flex;
     }
 
-    /* ── Plating button variant (Lingotto products) ── */
+    /* -- Plating button variant (Lingotto products) -- */
     .card-zoom--plating{
       background:linear-gradient(135deg,var(--badiani-pink),#c8507a) !important;
       border:none !important;
@@ -2557,7 +2557,7 @@
       align-items:center;
       justify-content:center;
     }
-    /* ── Pezziduri expanded overlay (aligned with gelato pattern) ── */
+    /* -- Pezziduri expanded overlay (aligned with gelato pattern) -- */
     .pezziduri-card__exp-body{
       position:absolute;
       bottom:0;
@@ -2741,7 +2741,7 @@
       align-items:center;
       justify-content:center;
     }
-    /* ── Accessori expanded overlay (aligned with gelato pattern) ── */
+    /* -- Accessori expanded overlay (aligned with gelato pattern) -- */
     .accessori-card__exp-body{
       position:absolute;
       bottom:0;
@@ -2928,7 +2928,7 @@
       }
     }
 
-    /* ── Torte interactive image map ── */
+    /* -- Torte interactive image map -- */
     .torte-map-wrapper{
       position:relative;
       width:calc(100% + 56px);
@@ -3123,13 +3123,13 @@
 
 
 
-    /* ── Card details fade-in animation ── */
+    /* -- Card details fade-in animation -- */
     @keyframes cardDetailsFadeIn{
       from{ opacity:0; transform:translateY(-6px); }
       to{ opacity:1; transform:translateY(0); }
     }
 
-    /* ── Contenitori interactive image map ── */
+    /* -- Contenitori interactive image map -- */
     .contenitori-map-wrapper{
       position:relative;
       width:calc(100% + 56px);
@@ -4066,7 +4066,7 @@
       }
     }
 
-    /* ── Listino Lock Button ── */
+    /* -- Listino Lock Button -- */
     .modal__lock-btn{
       border:none;
       background:transparent;
@@ -4100,7 +4100,7 @@
       stroke-linejoin:round;
     }
 
-    /* ── Password Prompt Overlay ── */
+    /* -- Password Prompt Overlay -- */
     .listino-pw-overlay{
       display:none;
       position:fixed;
@@ -4197,7 +4197,7 @@
     }
     .listino-pw-cancel:hover{ background:rgba(30,57,141,0.14); }
 
-    /* ── Listino Modal Overlay ── */
+    /* -- Listino Modal Overlay -- */
     .listino-viewer-overlay{
       display:none;
       position:fixed;
@@ -4503,7 +4503,15 @@
     <div class="topbar__right">
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
         <a href="../" data-i18n="nav.home">Home</a>
-        <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+        <div class="topbar__dropdown">
+          <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../eventi/saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+            <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+            <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+            <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+          </div>
+        </div>
         <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
       </nav>
       <div class="topbar__lang">
@@ -4522,7 +4530,15 @@
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
     <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
     <a href="../" data-i18n="nav.home">Home</a>
-    <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+    <details class="topbar__mobile-group">
+      <summary data-i18n="nav.eventi">Eventi</summary>
+      <div class="topbar__mobile-group-items">
+        <a href="../eventi/saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+        <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+        <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+        <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+      </div>
+    </details>
     <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
   </nav>
   <main class="page-shell" id="main-content">
@@ -5016,7 +5032,7 @@
             <h3 class="listino-header__title" data-i18n="b2b.listino.viewerTitle">Listino Prezzi 2026</h3>
             <span class="listino-header__subtitle" data-i18n="b2b.listino.subtitle">Prezzi al kg · IVA esclusa</span>
           </div>
-          <button class="listino-header__close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">✕</button>
+          <button class="listino-header__close" id="listinoViewerClose" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.listino.viewerClose">?</button>
         </div>
         <nav class="listino-tabs" aria-label="Sezioni listino">
           <button class="listino-tab is-active" data-listino-tab="gelato" data-i18n="b2b.listino.tab.gelato">Gelato</button>
@@ -5030,7 +5046,7 @@
       <!-- Scrollable body -->
       <div class="listino-body">
 
-        <!-- ═══ GELATO ═══ -->
+        <!-- --- GELATO --- -->
         <div class="listino-section is-active" data-listino-section="gelato">
           <div class="listino-section__banner">
             <h4 class="listino-section__banner-title" data-i18n="b2b.listino.gelato.title">Gelato — Vaschette &amp; Carapine</h4>
@@ -5089,7 +5105,7 @@
           </div>
         </div>
 
-        <!-- ═══ PEZZI DURI ═══ -->
+        <!-- --- PEZZI DURI --- -->
         <div class="listino-section" data-listino-section="pezziDuri">
           <div class="listino-section__banner">
             <h4 class="listino-section__banner-title" data-i18n="b2b.listino.pezziDuri.title">Monoporzioni</h4>
@@ -5129,7 +5145,7 @@
           </div>
         </div>
 
-        <!-- ═══ TORTE ═══ -->
+        <!-- --- TORTE --- -->
         <div class="listino-section" data-listino-section="torte">
           <div class="listino-section__banner">
             <h4 class="listino-section__banner-title" data-i18n="b2b.listino.torte.title">Torte</h4>
@@ -5152,7 +5168,7 @@
           </div>
         </div>
 
-        <!-- ═══ ACCESSORI ═══ -->
+        <!-- --- ACCESSORI --- -->
         <div class="listino-section" data-listino-section="accessori">
           <div class="listino-section__banner">
             <h4 class="listino-section__banner-title" data-i18n="b2b.listino.accessori.title">Accessori</h4>
@@ -5189,7 +5205,7 @@
           </div>
         </div>
 
-        <!-- ═══ SPEDIZIONE ═══ -->
+        <!-- --- SPEDIZIONE --- -->
         <div class="listino-section" data-listino-section="spedizione">
           <div class="listino-section__banner">
             <h4 class="listino-section__banner-title" data-i18n="b2b.listino.spedizione.title">Spedizione</h4>
@@ -5220,7 +5236,7 @@
     <button class="fullscreen-nav fullscreen-nav--prev" type="button" aria-label="Foto precedente">&#8249;</button>
     <button class="fullscreen-nav fullscreen-nav--next" type="button" aria-label="Foto successiva">&#8250;</button>
     <div class="fullscreen-content">
-      <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">✕</button>
+      <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">?</button>
       <img id="gelatoFullscreenImage" alt="" />
       <div class="fullscreen-dots" id="gelatoFullscreenDots"></div>
     </div>
@@ -5259,6 +5275,10 @@
           'nav.label': 'Navigazione principale',
           'nav.home': 'Home',
           'nav.eventi': 'Eventi',
+          'nav.eventi.saletta': 'Saletta Tosinghi',
+          'nav.eventi.esterno': 'Badiani dove vuoi',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
           'nav.magazine': 'Dicono di Noi',
           'footer.nav': 'Navigazione',
           'footer.home': 'Home',
@@ -5632,6 +5652,10 @@
           'nav.label': 'Main navigation',
           'nav.home': 'Home',
           'nav.eventi': 'Events',
+          'nav.eventi.saletta': 'Tosinghi Room',
+          'nav.eventi.esterno': 'Badiani where you want',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
           'nav.magazine': 'They Say About Us',
           'footer.nav': 'Navigation',
           'footer.home': 'Home',
@@ -6009,6 +6033,10 @@
           'nav.label': 'Navigation principale',
           'nav.home': 'Accueil',
           'nav.eventi': 'Événements',
+          'nav.eventi.saletta': 'Salon Tosinghi',
+          'nav.eventi.esterno': 'Badiani où vous voulez',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
           'nav.magazine': 'Ils Parlent de Nous',
           'footer.nav': 'Navigation',
           'footer.home': 'Accueil',
@@ -6386,6 +6414,10 @@
           'nav.label': 'Navegación principal',
           'nav.home': 'Inicio',
           'nav.eventi': 'Eventos',
+          'nav.eventi.saletta': 'Salón Tosinghi',
+          'nav.eventi.esterno': 'Badiani donde quieras',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
           'nav.magazine': 'Dicen de Nosotros',
           'footer.nav': 'Navegación',
           'footer.home': 'Inicio',
@@ -6834,11 +6866,11 @@
           title: 'Coni & Coppette',
           columns: ['Prodotto', 'Descrizione', 'Quantità'],
           rows: [
-            ['PICCOLO', '155mm × ⌀39mm', '264 pz'],
-            ['MEDIO', '162mm × ⌀43mm', '220 pz'],
-            ['GRANDE', '175mm × ⌀48mm', '216 pz'],
-            ['Coni Gluten free (083)', '155mm × ⌀42mm', '240 pz'],
-            ['Coni Gluten free (084)', '165mm × ⌀47mm', '212 pz'],
+            ['PICCOLO', '155mm × ?39mm', '264 pz'],
+            ['MEDIO', '162mm × ?43mm', '220 pz'],
+            ['GRANDE', '175mm × ?48mm', '216 pz'],
+            ['Coni Gluten free (083)', '155mm × ?42mm', '240 pz'],
+            ['Coni Gluten free (084)', '165mm × ?47mm', '212 pz'],
             ['Piccola', '16B', '80 gr', '250 pz'],
             ['Media', '108', '120cc', '250 pz'],
             ['Grande', '4C', '160cc', '200 pz'],
@@ -6922,7 +6954,7 @@
         }
       };
 
-      /* ── Gelato description i18n (IT falls back to gelatoFlavors.js) ── */
+      /* -- Gelato description i18n (IT falls back to gelatoFlavors.js) -- */
       const GELATO_DESC_I18N = {
         en: {
           'buontalenti': 'Our iconic flavour made with just 4 ingredients: cream, milk, sugar, eggs',
@@ -7176,47 +7208,47 @@
         }
       };
 
-      /* ── Coni & Coppette descriptions i18n ── */
+      /* -- Coni & Coppette descriptions i18n -- */
       const CONI_COPPETTE_DESCS_I18N = {
         it: {
-          'PICCOLO': '155mm × ⌀39mm',
-          'MEDIO': '162mm × ⌀43mm',
-          'GRANDE': '175mm × ⌀48mm',
-          'Coni Gluten free (083)': '155mm × ⌀42mm',
-          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'PICCOLO': '155mm × ?39mm',
+          'MEDIO': '162mm × ?43mm',
+          'GRANDE': '175mm × ?48mm',
+          'Coni Gluten free (083)': '155mm × ?42mm',
+          'Coni Gluten free (084)': '165mm × ?47mm',
           'Piccola': 'Piccola',
           'Media': 'Media',
           'Grande': 'Grande',
           'Maxi': 'Maxi'
         },
         en: {
-          'PICCOLO': '155mm × ⌀39mm',
-          'MEDIO': '162mm × ⌀43mm',
-          'GRANDE': '175mm × ⌀48mm',
-          'Coni Gluten free (083)': '155mm × ⌀42mm',
-          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'PICCOLO': '155mm × ?39mm',
+          'MEDIO': '162mm × ?43mm',
+          'GRANDE': '175mm × ?48mm',
+          'Coni Gluten free (083)': '155mm × ?42mm',
+          'Coni Gluten free (084)': '165mm × ?47mm',
           'Piccola': 'Small',
           'Media': 'Medium',
           'Grande': 'Large',
           'Maxi': 'Maxi'
         },
         fr: {
-          'PICCOLO': '155mm × ⌀39mm',
-          'MEDIO': '162mm × ⌀43mm',
-          'GRANDE': '175mm × ⌀48mm',
-          'Coni Gluten free (083)': '155mm × ⌀42mm',
-          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'PICCOLO': '155mm × ?39mm',
+          'MEDIO': '162mm × ?43mm',
+          'GRANDE': '175mm × ?48mm',
+          'Coni Gluten free (083)': '155mm × ?42mm',
+          'Coni Gluten free (084)': '165mm × ?47mm',
           'Piccola': 'Petite',
           'Media': 'Moyenne',
           'Grande': 'Grande',
           'Maxi': 'Maxi'
         },
         es: {
-          'PICCOLO': '155mm × ⌀39mm',
-          'MEDIO': '162mm × ⌀43mm',
-          'GRANDE': '175mm × ⌀48mm',
-          'Coni Gluten free (083)': '155mm × ⌀42mm',
-          'Coni Gluten free (084)': '165mm × ⌀47mm',
+          'PICCOLO': '155mm × ?39mm',
+          'MEDIO': '162mm × ?43mm',
+          'GRANDE': '175mm × ?48mm',
+          'Coni Gluten free (083)': '155mm × ?42mm',
+          'Coni Gluten free (084)': '165mm × ?47mm',
           'Piccola': 'Pequeña',
           'Media': 'Mediana',
           'Grande': 'Grande',
@@ -7224,7 +7256,7 @@
         }
       };
 
-      /* ── Vasche flavor name translations ── */
+      /* -- Vasche flavor name translations -- */
       const VASCHE_NAMES_I18N = {
         en: {
           'Bacio': 'Bacio',
@@ -7330,7 +7362,7 @@
         }
       };
 
-      /* ── Pezzi duri description (IT) ── */
+      /* -- Pezzi duri description (IT) -- */
       const PEZZI_DURI_DESC = {
         'Stecco Buontalenti': 'Stecco con Buontalenti® ricoperto di cioccolato fondente',
         'Stecco stracciatella': 'Stecco con gelato alla stracciatella ricoperto con cioccolato fondente e cioccolato bianco',
@@ -7345,7 +7377,7 @@
         'Donut cioccolato': 'Buontalenti® ricoperto con cioccolato fondente'
       };
 
-      /* ── Pezzi duri description i18n (EN/FR/ES) ── */
+      /* -- Pezzi duri description i18n (EN/FR/ES) -- */
       const PEZZI_DURI_DESC_I18N = {
         en: {
           'Stecco Buontalenti': 'Buontalenti® ice cream bar coated in dark chocolate',
@@ -7388,7 +7420,7 @@
         }
       };
 
-      /* ── Pezzi duri (monoporzioni) name translations ── */
+      /* -- Pezzi duri (monoporzioni) name translations -- */
       const PEZZI_DURI_NAMES_I18N = {
         it: {
           'Lingotto Buontalenti': 'Lingotto Buontalenti®',
@@ -7472,7 +7504,7 @@
         }
       };
 
-      /* ── Torte name translations ── */
+      /* -- Torte name translations -- */
       const TORTE_NAMES_I18N = {
         en: {
           'Millefoglie Buontalenti': 'Buontalenti Millefeuille',
@@ -7491,7 +7523,7 @@
         }
       };
 
-      /* ── Accessori name & description translations ── */
+      /* -- Accessori name & description translations -- */
       const ACCESSORI_I18N = {
         en: {
           'Palettine': { name: 'Spatulas', desc: 'Gelato spatulas' },
@@ -7519,14 +7551,14 @@
         }
       };
 
-      /* ── Pezzi duri min-order text translation ── */
+      /* -- Pezzi duri min-order text translation -- */
       const PEZZI_DURI_MINORDER_I18N = {
         en: { '96 (8 box da 12 pezzi)': '96 (8 boxes of 12 pieces)' },
         fr: { '96 (8 box da 12 pezzi)': '96 (8 boîtes de 12 pièces)' },
         es: { '96 (8 box da 12 pezzi)': '96 (8 cajas de 12 piezas)' }
       };
 
-      /* ── Gelato flavor card name translations ── */
+      /* -- Gelato flavor card name translations -- */
       const GELATO_FLAVOR_NAMES_I18N = {
         it: {
           'Buontalenti': 'Buontalenti®',
@@ -7682,7 +7714,7 @@
       function getAccessoriQty(name, fallback){ const a = (ACCESSORI_I18N[currentLang] || {})[name]; return (a && a.qty) ? a.qty : fallback; }
       function getPezziDuriMinOrder(val){ return ((PEZZI_DURI_MINORDER_I18N[currentLang] || {})[val]) || val; }
 
-      /* ── Coni size name translations ── */
+      /* -- Coni size name translations -- */
       const CONI_NAMES_I18N = {
         en: { 'PICCOLO': 'SMALL', 'MEDIO': 'MEDIUM', 'GRANDE': 'LARGE' },
         fr: { 'PICCOLO': 'PETIT', 'MEDIO': 'MOYEN', 'GRANDE': 'GRAND' },
@@ -7690,7 +7722,7 @@
       };
       function getConiName(name){ return (CONI_NAMES_I18N[currentLang] || {})[name] || name; }
 
-      /* ── Contenitori name translations ── */
+      /* -- Contenitori name translations -- */
       const CONTENITORI_NAMES_I18N = {
         en: { 'Contenitore polistirolo T2': 'Polystyrene container T2' },
         fr: { 'Contenitore polistirolo T2': 'Conteneur polystyrène T2' },
@@ -7698,7 +7730,7 @@
       };
       function getContenitoriName(name){ return (CONTENITORI_NAMES_I18N[currentLang] || {})[name] || name; }
 
-      /* ── Tipologia vasca name translations ── */
+      /* -- Tipologia vasca name translations -- */
       const TIPOLOGIA_NAMES_I18N = {
         en: { 'Vaschetta 3500cc': 'Tub 3500cc', 'Vaschetta 4800cc': 'Tub 4800cc', 'Vaschetta 5000cc': 'Tub 5000cc', 'Vaschetta 8000cc': 'Tub 8000cc', 'Carapina 6000cc': 'Carapina 6000cc' },
         fr: { 'Vaschetta 3500cc': 'Bac 3500cc', 'Vaschetta 4800cc': 'Bac 4800cc', 'Vaschetta 5000cc': 'Bac 5000cc', 'Vaschetta 8000cc': 'Bac 8000cc', 'Carapina 6000cc': 'Carapina 6000cc' },
@@ -7706,7 +7738,7 @@
       };
       function getTipologiaName(name){ return (TIPOLOGIA_NAMES_I18N[currentLang] || {})[name] || name; }
 
-      /* ── Pezzi duri allergen term translations ── */
+      /* -- Pezzi duri allergen term translations -- */
       const PEZZI_DURI_ALLERGEN_TERMS = {
         en: { 'uova': 'eggs', 'latte': 'milk', 'soia': 'soy', 'glutine': 'gluten', 'frutta a guscio': 'tree nuts' },
         fr: { 'uova': 'œufs', 'latte': 'lait', 'soia': 'soja', 'glutine': 'gluten', 'frutta a guscio': 'fruits à coque' },
@@ -7728,7 +7760,7 @@
       function getContenitoriDesc(name){ return (CONTENITORI_DESCS_I18N[currentLang] || CONTENITORI_DESCS_I18N.it)[name]; }
       function getConiCoppetteDesc(name){ return (CONI_COPPETTE_DESCS_I18N[currentLang] || CONI_COPPETTE_DESCS_I18N.it)[name]; }
 
-      /* ── Contenitori capacity + gusti i18n ── */
+      /* -- Contenitori capacity + gusti i18n -- */
       const CONTENITORI_CAPACITY_I18N = {
         it: { 'S': '350cc — fino a 2 gusti', 'M': '500cc — fino a 3 gusti', 'L': '750cc — fino a 4 gusti', 'XL': '1000cc — fino a 5 gusti' },
         en: { 'S': '350cc — up to 2 flavors', 'M': '500cc — up to 3 flavors', 'L': '750cc — up to 4 flavors', 'XL': '1000cc — up to 5 flavors' },
@@ -7823,7 +7855,7 @@
         }
       };
 
-      /* ── Torte details i18n (descriptions + allergens) ── */
+      /* -- Torte details i18n (descriptions + allergens) -- */
       const TORTE_DETAILS_I18N = {
         en: {
           'Millefoglie Buontalenti': {
@@ -7881,20 +7913,20 @@
 
       const CONI_GF_VARIANTS_I18N = {
         it: {
-          'PICCOLO': { gfName: 'Coni Gluten Free (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 pz' },
-          'MEDIO': { gfName: 'Coni Gluten Free (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 pz' }
+          'PICCOLO': { gfName: 'Coni Gluten Free (083)', gfDesc: '155mm × ?42mm', gfQty: '240 pz' },
+          'MEDIO': { gfName: 'Coni Gluten Free (084)', gfDesc: '165mm × ?47mm', gfQty: '212 pz' }
         },
         en: {
-          'PICCOLO': { gfName: 'Gluten Free Cones (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 pcs' },
-          'MEDIO': { gfName: 'Gluten Free Cones (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 pcs' }
+          'PICCOLO': { gfName: 'Gluten Free Cones (083)', gfDesc: '155mm × ?42mm', gfQty: '240 pcs' },
+          'MEDIO': { gfName: 'Gluten Free Cones (084)', gfDesc: '165mm × ?47mm', gfQty: '212 pcs' }
         },
         fr: {
-          'PICCOLO': { gfName: 'Cônes Sans Gluten (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 pcs' },
-          'MEDIO': { gfName: 'Cônes Sans Gluten (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 pcs' }
+          'PICCOLO': { gfName: 'Cônes Sans Gluten (083)', gfDesc: '155mm × ?42mm', gfQty: '240 pcs' },
+          'MEDIO': { gfName: 'Cônes Sans Gluten (084)', gfDesc: '165mm × ?47mm', gfQty: '212 pcs' }
         },
         es: {
-          'PICCOLO': { gfName: 'Conos Sin Gluten (083)', gfDesc: '155mm × ⌀42mm', gfQty: '240 uds' },
-          'MEDIO': { gfName: 'Conos Sin Gluten (084)', gfDesc: '165mm × ⌀47mm', gfQty: '212 uds' }
+          'PICCOLO': { gfName: 'Conos Sin Gluten (083)', gfDesc: '155mm × ?42mm', gfQty: '240 uds' },
+          'MEDIO': { gfName: 'Conos Sin Gluten (084)', gfDesc: '165mm × ?47mm', gfQty: '212 uds' }
         }
       };
 
@@ -8215,7 +8247,7 @@
                    <line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                  </svg>`;
 
-            /* ── Expanded overlay body (gelato-style) ── */
+            /* -- Expanded overlay body (gelato-style) -- */
             let expBodyHtml = '';
             if(isExpanded){
               const allergenTags = localAllergens
@@ -8259,7 +8291,7 @@
           })
           .join('');
 
-        /* ── Hero overlay (shown only on first entry from home) ── */
+        /* -- Hero overlay (shown only on first entry from home) -- */
         const heroHtml = `
           <div class="pezziduri-hero-overlay" role="button" tabindex="0" aria-label="${t('b2b.pezziduri.tapOverlay')}">
             <picture>
@@ -8305,7 +8337,7 @@
         return cards;
       }
 
-      /* ── Tipologia detail panel helpers ── */
+      /* -- Tipologia detail panel helpers -- */
       function showTipologiaDetail(id){
         const item = TIPOLOGIA_VASCA.find((v) => v.name === id);
         if(!item || !tipologiaDetailPanel) return;
@@ -8560,7 +8592,7 @@
       }
 
       function setupPezziDuriZoom(){
-        /* ── Hero overlay click: dismiss and reveal grid ── */
+        /* -- Hero overlay click: dismiss and reveal grid -- */
         const heroOverlay = defaultContent ? defaultContent.querySelector('.pezziduri-hero-overlay') : null;
         if(heroOverlay){
           const dismissHero = () => {
@@ -8662,7 +8694,7 @@
         if(!rows || !rows.length) return '';
         const headerSrc = encodeURI(CONI_GROUP_IMAGE);
 
-        /* ── Coni cards (cone items only) ── */
+        /* -- Coni cards (cone items only) -- */
         const coniRows = rows.filter(([name]) => name.indexOf('Gluten free') === -1 && COPPETTE_ZONE_ORDER.indexOf(name) === -1);
         const coniCards = coniRows
           .map(([name, desc, qty]) => {
@@ -8673,7 +8705,7 @@
             const gf = getConiGfVariants()[name];
             const gfBlock = gf ? `
               <button class="coni-gf-btn" type="button" data-gf-toggle="${name}">
-                ${t('b2b.coni.gfVariant')} <span class="gf-chevron">▼</span>
+                ${t('b2b.coni.gfVariant')} <span class="gf-chevron">?</span>
               </button>
               <div class="coni-gf-details" data-gf-details="${name}">
                 <strong>${gf.gfName}</strong><br>
@@ -8699,7 +8731,7 @@
           .filter(Boolean)
           .join('');
 
-        /* ── Coppette interactive image map (cups only) ── */
+        /* -- Coppette interactive image map (cups only) -- */
         const coppetteRows = rows.filter(([name]) => COPPETTE_ZONE_ORDER.indexOf(name) !== -1);
         const coppetteDataMap = {};
         coppetteRows.forEach(([name, code, capacity, pack]) => { coppetteDataMap[name] = { code, capacity, pack }; });
@@ -8749,7 +8781,7 @@
           ${detailPanels}
         `;
 
-        /* ── Coni interactive image map (cones hero) ── */
+        /* -- Coni interactive image map (cones hero) -- */
         const coniHeroSrc = encodeURI('../assets/images/coni-coppette/conigroup.webp');
         const coniDataMap = {};
         coniRows.forEach(([name, desc, qty]) => { coniDataMap[name] = { desc, qty }; });
@@ -8798,7 +8830,7 @@
           </div>
         `;
 
-        /* ── Coni Gluten Free interactive hero map ── */
+        /* -- Coni Gluten Free interactive hero map -- */
         const conigfHeroSrc = encodeURI(CONIGF_HERO_IMAGE);
         const conigfRows = rows.filter(([name]) => name.indexOf('Gluten free') !== -1);
         const conigfDataMap = {};
@@ -8970,7 +9002,7 @@
             </svg>
           `;
 
-          /* ── Expanded overlay body (gelato-style) ── */
+          /* -- Expanded overlay body (gelato-style) -- */
           let expBodyHtml = '';
           if(isExpanded){
             expBodyHtml = `
@@ -9393,7 +9425,7 @@
         }
       });
 
-      /* ── Lingotto variants carousel ── */
+      /* -- Lingotto variants carousel -- */
       function updateLingottoCarouselSlide(idx){
         const slide = LINGOTTO_CAROUSEL_SLIDES[idx];
         if(!slide || !lingottoCarouselImg || !lingottoCarouselDotsEl) return;
@@ -9745,11 +9777,7 @@
         if(e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
       });
 
-      /* Deep-link: open category from ?cat= URL parameter (from homepage mega menu) */
-      try {
-        const urlCat = new URLSearchParams(window.location.search).get('cat');
-        if(urlCat) openModal(urlCat);
-      } catch(e){}
+      /* Deep-link: deferred to after initI18n — see below */
 
 
 
@@ -9841,6 +9869,11 @@
         setGelatoLanguage(currentLang);
         applyGelatoTranslations();
         renderGelatoGrid();
+        /* Deep-link: open category from ?cat= URL parameter (from nav mega menu) */
+        try {
+          const urlCat = new URLSearchParams(window.location.search).get('cat');
+          if(urlCat) openModal(urlCat);
+        } catch(e){}
       });
       applyTranslations();
 
@@ -10082,11 +10115,11 @@
         });
       });
 
-      /* ═══════════════════════════════════════════════════════
+      /* -------------------------------------------------------
          Listino Prezzi – Password-protected tabbed modal
-         ═══════════════════════════════════════════════════════ */
+         ------------------------------------------------------- */
       (function initListino(){
-        const LISTINO_CODE = '182115';
+        const LISTINO_CODE = '336699';
 
         const lockBtn       = document.getElementById('listinoLockBtn');
         const pwOverlay     = document.getElementById('listinoPwOverlay');

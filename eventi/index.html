@@ -905,7 +905,17 @@
     <div class="topbar__right">
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
         <a href="../" data-i18n="nav.home">Home</a>
-        <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+        <div class="topbar__dropdown">
+          <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+            <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+            <a href="../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+            <a href="../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+            <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+            <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+          </div>
+        </div>
       </nav>
       <div class="topbar__lang">
         <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
@@ -923,7 +933,17 @@
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
     <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
     <a href="../" data-i18n="nav.home">Home</a>
-    <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+    <details class="topbar__mobile-group">
+      <summary data-i18n="nav.b2b">B2B</summary>
+      <div class="topbar__mobile-group-items">
+        <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+        <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+        <a href="../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+        <a href="../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+        <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+        <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+      </div>
+    </details>
   </nav>
 
   <!-- HERO -->
@@ -951,7 +971,7 @@
         </div>
       </a>
       <a class="ev-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
-        <img class="ev-card__img" src="../assets/images/eventi/cool-box.webp" alt="BADIANI DOVE VUOI" loading="lazy" decoding="async" width="1200" height="669" />
+        <img class="ev-card__img" src="../assets/images/eventi/gelatobox-2.webp" alt="BADIANI DOVE VUOI" loading="lazy" decoding="async" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.external.title">Badiani dove vuoi</h2>
           <p class="ev-card__desc"><span data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
@@ -1285,6 +1305,7 @@
           'lang.label': 'Selettore lingua',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
           'nav.home': 'Home', 'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Gusti', 'nav.b2b.monoporzioni': 'Monoporzioni', 'nav.b2b.torte': 'Torte', 'nav.b2b.coni': 'Coni & Coppette', 'nav.b2b.accessori': 'Accessori', 'nav.b2b.contenitori': 'Contenitori',
           'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
           'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
@@ -1373,6 +1394,7 @@
           'lang.label': 'Language selector',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
           'nav.home': 'Home', 'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Flavors', 'nav.b2b.monoporzioni': 'Single Servings', 'nav.b2b.torte': 'Cakes', 'nav.b2b.coni': 'Cones & Cups', 'nav.b2b.accessori': 'Accessories', 'nav.b2b.contenitori': 'Containers',
           'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
           'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
           'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
@@ -1461,6 +1483,7 @@
           'lang.label': 'S\u00e9lecteur de langue',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
           'nav.home': 'Accueil', 'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Parfums', 'nav.b2b.monoporzioni': 'Portions Individuelles', 'nav.b2b.torte': 'Gâteaux', 'nav.b2b.coni': 'Cônes & Coupes', 'nav.b2b.accessori': 'Accessoires', 'nav.b2b.contenitori': 'Conteneurs',
           'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': '\u00c9v\u00e9nements',
           'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts',
           'footer.legale': 'Mentions L\u00e9gales', 'footer.privacy': 'Politique de Confidentialit\u00e9', 'footer.cookie': 'Politique de Cookies',
@@ -1549,6 +1572,7 @@
           'lang.label': 'Selector de idioma',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
           'nav.home': 'Inicio', 'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Sabores', 'nav.b2b.monoporzioni': 'Monoporciones', 'nav.b2b.torte': 'Tartas', 'nav.b2b.coni': 'Conos y Copas', 'nav.b2b.accessori': 'Accesorios', 'nav.b2b.contenitori': 'Contenedores',
           'footer.nav': 'Navegaci\u00f3n', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos',
           'footer.legale': 'Legal', 'footer.privacy': 'Pol\u00edtica de Privacidad', 'footer.cookie': 'Pol\u00edtica de Cookies',

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
@@ -330,8 +330,27 @@
     </a>
     <div class="topbar__right">
       <nav class="topbar__nav">
-        <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
-        <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+        <a href="../" data-i18n="nav.home">Home</a>
+        <div class="topbar__dropdown">
+          <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../eventi/saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+            <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+            <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+            <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+          </div>
+        </div>
+        <div class="topbar__dropdown">
+          <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+            <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+            <a href="../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+            <a href="../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+            <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+            <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+          </div>
+        </div>
         <a href="./" data-i18n="nav.magazine">Dicono di Noi</a>
       </nav>
       <div class="topbar__lang">
@@ -349,8 +368,27 @@
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
     <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
-    <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
-    <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+    <a href="../" data-i18n="nav.home">Home</a>
+    <details class="topbar__mobile-group">
+      <summary data-i18n="nav.eventi">Eventi</summary>
+      <div class="topbar__mobile-group-items">
+        <a href="../eventi/saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+        <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+        <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+        <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+      </div>
+    </details>
+    <details class="topbar__mobile-group">
+      <summary data-i18n="nav.b2b">B2B</summary>
+      <div class="topbar__mobile-group-items">
+        <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+        <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+        <a href="../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+        <a href="../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+        <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+        <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+      </div>
+    </details>
     <a href="./" data-i18n="nav.magazine">Dicono di Noi</a>
   </nav>
 
@@ -394,13 +432,24 @@
           'lang.en': 'EN',
           'lang.fr': 'FR',
           'lang.es': 'ES',
+          'nav.home': 'Home',
           'nav.eventi': 'Eventi',
           'nav.b2b': 'B2B',
           'nav.magazine': 'Dicono di Noi',
+          'nav.eventi.saletta': 'Saletta Tosinghi',
+          'nav.eventi.esterno': 'Badiani dove vuoi',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
+          'nav.b2b.gusti': 'Gusti',
+          'nav.b2b.monoporzioni': 'Monoporzioni',
+          'nav.b2b.torte': 'Torte',
+          'nav.b2b.coni': 'Coni & Coppette',
+          'nav.b2b.accessori': 'Accessori',
+          'nav.b2b.contenitori': 'Contenitori',
           'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
           'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
-          'magazine.back': '← Torna alla home',
+          'magazine.back': '? Torna alla home',
           'magazine.tag': 'Dicono di Noi',
           'magazine.hero.label': 'Hero magazine',
           'magazine.hero.title': 'Dicono di Noi',
@@ -427,13 +476,24 @@
           'lang.en': 'EN',
           'lang.fr': 'FR',
           'lang.es': 'ES',
+          'nav.home': 'Home',
           'nav.eventi': 'Events',
           'nav.b2b': 'B2B',
           'nav.magazine': 'They Say About Us',
+          'nav.eventi.saletta': 'Tosinghi Room',
+          'nav.eventi.esterno': 'Badiani where you want',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
+          'nav.b2b.gusti': 'Flavors',
+          'nav.b2b.monoporzioni': 'Single Servings',
+          'nav.b2b.torte': 'Cakes',
+          'nav.b2b.coni': 'Cones & Cups',
+          'nav.b2b.accessori': 'Accessories',
+          'nav.b2b.contenitori': 'Containers',
           'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
           'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
           'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
-          'magazine.back': '← Back to home',
+          'magazine.back': '? Back to home',
           'magazine.tag': 'They Say About Us',
           'magazine.hero.label': 'Magazine hero',
           'magazine.hero.title': 'They Say About Us',
@@ -462,9 +522,20 @@
           'lang.es': 'ES',
           'nav.eventi': 'Événements',
           'nav.b2b': 'B2B',
-          'nav.magazine': 'Ils Parlent de Nous',          'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': 'Événements',
+          'nav.magazine': 'Ils Parlent de Nous',
+          'nav.home': 'Accueil',
+          'nav.eventi.saletta': 'Salon Tosinghi',
+          'nav.eventi.esterno': 'Badiani o\u00f9 vous voulez',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
+          'nav.b2b.gusti': 'Parfums',
+          'nav.b2b.monoporzioni': 'Portions Individuelles',
+          'nav.b2b.torte': 'G\u00e2teaux',
+          'nav.b2b.coni': 'C\u00f4nes & Coupes',
+          'nav.b2b.accessori': 'Accessoires',
+          'nav.b2b.contenitori': 'Conteneurs',          'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': 'Événements',
           'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts',
-          'footer.legale': 'Mentions légales', 'footer.privacy': 'Politique de confidentialité', 'footer.cookie': 'Politique des cookies',          'magazine.back': '← Retour à l’accueil',
+          'footer.legale': 'Mentions légales', 'footer.privacy': 'Politique de confidentialité', 'footer.cookie': 'Politique des cookies',          'magazine.back': '? Retour à l’accueil',
           'magazine.tag': 'Ils Parlent de Nous',
           'magazine.hero.label': 'Hero magazine',
           'magazine.hero.title': 'Ils Parlent de Nous',
@@ -494,10 +565,21 @@
           'nav.eventi': 'Eventos',
           'nav.b2b': 'B2B',
           'nav.magazine': 'Dicen de Nosotros',
+          'nav.home': 'Inicio',
+          'nav.eventi.saletta': 'Salón Tosinghi',
+          'nav.eventi.esterno': 'Badiani donde quieras',
+          'nav.eventi.gelatovan': 'Gelato Van',
+          'nav.eventi.experience': 'Experience',
+          'nav.b2b.gusti': 'Sabores',
+          'nav.b2b.monoporzioni': 'Monoporciones',
+          'nav.b2b.torte': 'Tartas',
+          'nav.b2b.coni': 'Conos y Copas',
+          'nav.b2b.accessori': 'Accesorios',
+          'nav.b2b.contenitori': 'Contenedores',
           'footer.nav': 'Navegación', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos',
           'footer.legale': 'Legal', 'footer.privacy': 'Política de privacidad', 'footer.cookie': 'Política de cookies',
-          'magazine.back': '← Volver al inicio',
+          'magazine.back': '? Volver al inicio',
           'magazine.tag': 'Dicen de Nosotros',
           'magazine.hero.label': 'Hero magazine',
           'magazine.hero.title': 'Dicen de Nosotros',
