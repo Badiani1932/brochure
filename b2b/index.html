@@ -689,6 +689,16 @@
       font-weight:600;
       border-bottom-color:var(--badiani-pink);
     }
+    /* Hide all scrollbars globally in B2B modal */
+    .modal__content,
+    .modal__content *{
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+    .modal__content::-webkit-scrollbar,
+    .modal__content *::-webkit-scrollbar{
+      display:none;
+    }
     .modal__content{
       padding:24px 28px 28px;
       overflow-y:auto;
@@ -707,8 +717,20 @@
     }
     .modal__content.is-pezziduri.is-pezziduri-overlay{
       overflow-y:auto;
+      -webkit-overflow-scrolling:touch;
       display:grid;
       align-content:start;
+      padding:0;
+      scrollbar-width:none;
+      -ms-overflow-style:none;
+    }
+    .modal__content.is-pezziduri.is-pezziduri-overlay::-webkit-scrollbar{
+      display:none;
+    }
+    .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-hero-overlay{
+      margin:0;
+      width:100%;
+      height:auto;
     }
     .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-note{
       display:none;
@@ -1508,20 +1530,31 @@
     }
     @media(max-width:600px){
       .coppette-detail-panel{
-        flex-direction:column;
+        flex-direction:row;
         gap:0;
       }
       .coppette-detail-img{
-        flex:none;
-        max-width:100%;
+        flex:0 0 38%;
+        max-width:38%;
         min-height:auto;
         max-height:none;
       }
       .coppette-detail-img img{
-        object-fit:contain;
+        object-fit:cover;
       }
       .coppette-detail-info{
-        padding:12px 14px;
+        padding:10px 12px;
+        gap:6px;
+      }
+      .coppette-detail-name{
+        font-size:15px;
+      }
+      .coppette-detail-meta{
+        font-size:12px;
+        gap:2px;
+      }
+      .coppette-detail-meta span{
+        padding:3px 6px;
       }
       .coppette-zone-label{
         font-size:10px;
@@ -1707,20 +1740,31 @@
     }
     @media(max-width:600px){
       .coni-detail-panel{
-        flex-direction:column;
+        flex-direction:row;
         gap:0;
       }
       .coni-detail-img{
-        flex:none;
-        max-width:100%;
+        flex:0 0 38%;
+        max-width:38%;
         min-height:auto;
         max-height:none;
       }
       .coni-detail-img img{
-        object-fit:contain;
+        object-fit:cover;
       }
       .coni-detail-info{
-        padding:12px 14px;
+        padding:10px 12px;
+        gap:6px;
+      }
+      .coni-detail-name{
+        font-size:15px;
+      }
+      .coni-detail-meta{
+        font-size:12px;
+        gap:2px;
+      }
+      .coni-detail-meta span{
+        padding:3px 6px;
       }
       .coni-zone-label{
         font-size:10px;
@@ -1908,20 +1952,31 @@
     }
     @media(max-width:600px){
       .conigf-detail-panel{
-        flex-direction:column;
+        flex-direction:row;
         gap:0;
       }
       .conigf-detail-img{
-        flex:none;
-        max-width:100%;
+        flex:0 0 38%;
+        max-width:38%;
         min-height:auto;
         max-height:none;
       }
       .conigf-detail-img img{
-        object-fit:contain;
+        object-fit:cover;
       }
       .conigf-detail-info{
-        padding:12px 14px;
+        padding:10px 12px;
+        gap:6px;
+      }
+      .conigf-detail-name{
+        font-size:15px;
+      }
+      .conigf-detail-meta{
+        font-size:12px;
+        gap:2px;
+      }
+      .conigf-detail-meta span{
+        padding:3px 6px;
       }
       .conigf-zone-label{
         font-size:10px;
@@ -2368,48 +2423,37 @@
       grid-auto-flow:dense;
     }
 
-    /* Monoporzioni hero overlay */
+    /* Monoporzioni hero overlay – full-bleed */
     .pezziduri-hero-overlay{
       position:relative;
       cursor:pointer;
-      border-radius:18px;
       overflow:hidden;
-      margin:0 auto 20px;
-      box-shadow:0 12px 32px rgba(0,0,0,0.25);
       animation:pezziduri-fadeIn 0.4s ease;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      max-height:calc(100vh - 220px);
-      max-height:calc(100dvh - 220px);
+      /* cancel modal__content padding to go edge-to-edge */
+      margin:-24px -28px 0;
+      width:calc(100% + 56px);
     }
     .pezziduri-hero-overlay img{
       display:block;
-      width:auto;
-      max-width:100%;
+      width:100%;
       height:auto;
-      max-height:calc(100vh - 220px);
-      max-height:calc(100dvh - 220px);
       object-fit:contain;
-      object-position:center center;
+      object-position:center top;
     }
-    @media(max-width:600px){
+    @media(max-width:1024px){
       .pezziduri-hero-overlay{
-        max-height:none;
-        border-radius:12px;
-        margin:0 auto 16px;
-      }
-      .pezziduri-hero-overlay img{
-        max-height:none;
-        width:100%;
+        margin:-20px -22px 0;
+        width:calc(100% + 44px);
       }
     }
-    @media(min-width:901px){
+    @media(max-width:768px){
       .pezziduri-hero-overlay{
-        max-height:calc(100vh - 230px);
+        margin:-16px -18px 0;
+        width:calc(100% + 36px);
       }
       .pezziduri-hero-overlay img{
-        max-height:calc(100vh - 230px);
+        width:140%;
+        margin-left:calc(-20% - 20px);
       }
     }
     .pezziduri-hero-overlay .pezziduri-hero-tap{
@@ -3096,20 +3140,38 @@
     }
     @media(max-width:600px){
       .torte-detail-panel{
-        flex-direction:column;
+        flex-direction:row;
         gap:0;
       }
       .torte-detail-img{
-        flex:none;
-        max-width:100%;
+        flex:0 0 38%;
+        max-width:38%;
         min-height:auto;
         max-height:none;
       }
       .torte-detail-img img{
-        object-fit:contain;
+        object-fit:cover;
       }
       .torte-detail-info{
-        padding:12px 14px;
+        padding:10px 12px;
+        gap:6px;
+      }
+      .torte-detail-name{
+        font-size:15px;
+      }
+      .torte-detail-meta{
+        font-size:12px;
+        gap:2px;
+      }
+      .torte-detail-meta span{
+        padding:3px 6px;
+      }
+      .torte-detail-sizes{
+        gap:6px;
+      }
+      .torte-size-pill{
+        font-size:10px;
+        padding:4px 10px;
       }
       .torte-zone-label{
         font-size:10px;
@@ -3316,30 +3378,31 @@
     }
     @media(max-width:600px){
       .contenitori-detail-panel{
-        flex-direction:column;
+        flex-direction:row;
         gap:0;
       }
       .contenitori-detail-img{
-        flex:none;
-        max-width:100%;
+        flex:0 0 38%;
+        max-width:38%;
         min-height:auto;
         max-height:none;
       }
       .contenitori-detail-img img{
-        object-fit:contain;
+        object-fit:cover;
       }
       .contenitori-detail-info{
-        padding:12px 14px;
+        padding:10px 12px;
+        gap:4px;
       }
       .contenitori-detail-name{
-        font-size:14px;
+        font-size:15px;
       }
       .contenitori-detail-meta{
         font-size:12px;
-        gap:4px;
+        gap:2px;
       }
       .contenitori-detail-meta span{
-        padding:5px 8px;
+        padding:3px 6px;
       }
       .contenitori-zone-label{
         font-size:10px;
@@ -3461,6 +3524,13 @@
     }
     @media(max-width:768px){
       .gelato-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .gelato-card__exp-body{ padding:10px 12px 10px; gap:4px; max-height:80%; }
+      .gelato-card__exp-name{ font-size:15px; letter-spacing:0.8px; }
+      .gelato-card__exp-category{ font-size:8px; letter-spacing:1.8px; }
+      .gelato-card__exp-section-label{ font-size:10px; letter-spacing:1px; }
+      .gelato-card__exp-desc{ font-size:13px; line-height:1.35; }
+      .gelato-card__exp-tag{ font-size:10px !important; padding:2px 7px !important; }
+      .gelato-card__exp-allergens{ gap:3px; }
     }
     @media(prefers-reduced-motion:reduce){
       .gelato-card{ transition:none; }
@@ -6798,8 +6868,8 @@
           columns: ['Gusto'],
           rows: [
             ['Bacio'],
-            ['Banana'],
             ['Buontalenti®'],
+            ['Buontalenti® all\'Amarena'],
             ['Buontalenti® Caramello'],
             ['Buontalenti® Delattosato'],
             ['Buontalenti® Fondente'],
@@ -6811,8 +6881,12 @@
             ['Cioccolata'],
             ['Cioccolata all Arancia'],
             ['Cocco'],
-            ['Cremino'],
+            ['Cremino al Pistacchio'],
+            ['Cremino alla Nocciola'],
+            ['Dubai Chocolate'],
+            ['Fondente'],
             ['La Dolcevita'],
+            ['Malaga'],
             ['Nocciola'],
             ['Pistacchio'],
             ['Sorbetto: Albicocca'],
@@ -6823,11 +6897,11 @@
             ['Sorbetto: Limone'],
             ['Sorbetto: Mango'],
             ['Sorbetto: Pera'],
-            ['Sorbetto Tropical Summer'],
             ['Stracciatella'],
             ['Stracciatella alla menta'],
-            ['Vaniglia'],
-            ['Yogurt']
+            ['Tiramisù'],
+            ['Yogurt'],
+            ['Yogurt Mirtillo']
           ]
         },
         'PEZZI DURI': {
@@ -7261,8 +7335,8 @@
       const VASCHE_NAMES_I18N = {
         en: {
           'Bacio': 'Bacio',
-          'Banana': 'Banana',
           'Buontalenti': 'Buontalenti',
+          'Buontalenti all\'Amarena': 'Buontalenti Amarena Cherry',
           'Buontalenti Caramello': 'Buontalenti Caramel',
           'Buontalenti Delattosato': 'Buontalenti Lactose-Free',
           'Buontalenti Fondente': 'Buontalenti Dark Chocolate',
@@ -7274,8 +7348,12 @@
           'Cioccolata': 'Chocolate',
           'Cioccolata all Arancia': 'Chocolate & Orange',
           'Cocco': 'Coconut',
-          'Cremino': 'Cremino',
+          'Cremino al Pistacchio': 'Pistachio Cremino',
+          'Cremino alla Nocciola': 'Hazelnut Cremino',
+          'Dubai Chocolate': 'Dubai Chocolate',
+          'Fondente': 'Dark Chocolate',
           'La Dolcevita': 'La Dolcevita',
+          'Malaga': 'Malaga',
           'Nocciola': 'Hazelnut',
           'Pistacchio': 'Pistachio',
           'Sorbetto: Albicocca': 'Sorbet: Apricot',
@@ -7286,16 +7364,16 @@
           'Sorbetto: Limone': 'Sorbet: Lemon',
           'Sorbetto: Mango': 'Sorbet: Mango',
           'Sorbetto: Pera': 'Sorbet: Pear',
-          'Sorbetto Tropical Summer': 'Tropical Summer Sorbet',
           'Stracciatella': 'Stracciatella',
           'Stracciatella alla menta': 'Mint Stracciatella',
-          'Vaniglia': 'Vanilla',
-          'Yogurt': 'Yoghurt'
+          'Tiramisù': 'Tiramisù',
+          'Yogurt': 'Yoghurt',
+          'Yogurt Mirtillo': 'Blueberry Yoghurt'
         },
         fr: {
           'Bacio': 'Bacio',
-          'Banana': 'Banane',
           'Buontalenti': 'Buontalenti',
+          'Buontalenti all\'Amarena': 'Buontalenti à l\'Amarena',
           'Buontalenti Caramello': 'Buontalenti Caramel',
           'Buontalenti Delattosato': 'Buontalenti Sans Lactose',
           'Buontalenti Fondente': 'Buontalenti Chocolat Noir',
@@ -7307,8 +7385,12 @@
           'Cioccolata': 'Chocolat',
           'Cioccolata all Arancia': 'Chocolat & Orange',
           'Cocco': 'Noix de Coco',
-          'Cremino': 'Cremino',
+          'Cremino al Pistacchio': 'Cremino Pistache',
+          'Cremino alla Nocciola': 'Cremino Noisette',
+          'Dubai Chocolate': 'Dubai Chocolate',
+          'Fondente': 'Chocolat Noir',
           'La Dolcevita': 'La Dolcevita',
+          'Malaga': 'Malaga',
           'Nocciola': 'Noisette',
           'Pistacchio': 'Pistache',
           'Sorbetto: Albicocca': 'Sorbet : Abricot',
@@ -7319,16 +7401,16 @@
           'Sorbetto: Limone': 'Sorbet : Citron',
           'Sorbetto: Mango': 'Sorbet : Mangue',
           'Sorbetto: Pera': 'Sorbet : Poire',
-          'Sorbetto Tropical Summer': 'Sorbet Tropical Summer',
           'Stracciatella': 'Stracciatella',
           'Stracciatella alla menta': 'Stracciatella Menthe',
-          'Vaniglia': 'Vanille',
-          'Yogurt': 'Yaourt'
+          'Tiramisù': 'Tiramisù',
+          'Yogurt': 'Yaourt',
+          'Yogurt Mirtillo': 'Yaourt Myrtille'
         },
         es: {
           'Bacio': 'Bacio',
-          'Banana': 'Banana',
           'Buontalenti': 'Buontalenti',
+          'Buontalenti all\'Amarena': 'Buontalenti a la Amarena',
           'Buontalenti Caramello': 'Buontalenti Caramelo',
           'Buontalenti Delattosato': 'Buontalenti Sin Lactosa',
           'Buontalenti Fondente': 'Buontalenti Chocolate Negro',
@@ -7340,8 +7422,12 @@
           'Cioccolata': 'Chocolate',
           'Cioccolata all Arancia': 'Chocolate y Naranja',
           'Cocco': 'Coco',
-          'Cremino': 'Cremino',
+          'Cremino al Pistacchio': 'Cremino de Pistacho',
+          'Cremino alla Nocciola': 'Cremino de Avellana',
+          'Dubai Chocolate': 'Dubai Chocolate',
+          'Fondente': 'Chocolate Negro',
           'La Dolcevita': 'La Dolcevita',
+          'Malaga': 'Malaga',
           'Nocciola': 'Avellana',
           'Pistacchio': 'Pistacho',
           'Sorbetto: Albicocca': 'Sorbete: Albaricoque',
@@ -7352,11 +7438,11 @@
           'Sorbetto: Limone': 'Sorbete: Limón',
           'Sorbetto: Mango': 'Sorbete: Mango',
           'Sorbetto: Pera': 'Sorbete: Pera',
-          'Sorbetto Tropical Summer': 'Sorbete Tropical Summer',
           'Stracciatella': 'Stracciatella',
           'Stracciatella alla menta': 'Stracciatella de Menta',
-          'Vaniglia': 'Vainilla',
-          'Yogurt': 'Yogur'
+          'Tiramisù': 'Tiramisú',
+          'Yogurt': 'Yogur',
+          'Yogurt Mirtillo': 'Yogur de Arándano'
         }
       };
 
@@ -8093,9 +8179,9 @@
 
       const GELATO_CATEGORIES = {
         iconici: ['buontalenti', 'la-dolcevita', 'buontalenti-pistacchio', 'buontalenti-caramello', 'buontalenti-fondente', 'buontalenti-delattosato', 'buontalenti-amarena'],
-        classici: ['bacio', 'banana', 'cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'stracciatella-menta', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'vaniglia', 'yogurt'],
-        sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango', 'sorbetto-albicocca', 'sorbetto-cioccolato-venezuela', 'sorbetto-frutto-passione', 'sorbetto-pera', 'sorbetto-tropical-summer'],
-        limited: ['cassandra', 'cioccolato-bianco-arancia', 'yogurt-mirtillo']
+        classici: ['bacio', 'cremino-alla-nocciola', 'cremino-al-pistacchio', 'stracciatella', 'stracciatella-menta', 'caffe', 'cioccolato-al-latte', 'caramello-salato', 'cheesecake-frutti-rossi', 'cocco', 'malaga', 'nocciola', 'pistacchio', 'tiramisù', 'yogurt'],
+        sorbetti: ['fondente', 'fragola', 'limone', 'lampone', 'mango', 'sorbetto-albicocca', 'sorbetto-cioccolato-venezuela', 'sorbetto-frutto-passione', 'sorbetto-pera'],
+        limited: ['cassandra', 'cioccolato-bianco-arancia', 'dubai-chocolate', 'yogurt-mirtillo']
       };
 
       function getFlavorCategory(flavorId){

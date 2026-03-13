@@ -100,6 +100,30 @@ Pattern riutilizzabile per espandere immagini a tutto schermo. Cerchio semitrasp
 | B2B Pezzi Duri Lingotto | `.card-zoom--plating` | `.pezziduri-media` (variante rosa con gradiente) |
 | Eventi Modali (Cool Box, Carretto) | `.modal-hero__zoom` | `.modal-hero__img-wrap` |
 
+### Scrollbar Nascoste (B2B Modale)
+
+Tutte le scrollbar nel modale B2B sono nascoste globalmente:
+
+```css
+.modal__content, .modal__content * {
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* Edge/IE */
+}
+.modal__content::-webkit-scrollbar,
+.modal__content *::-webkit-scrollbar {
+  display: none;                /* Chrome/Safari */
+}
+```
+
+Lo scroll funziona normalmente via touch/mouse/trackpad, solo la barra visiva è rimossa.
+
+### Monoporzioni Hero Overlay (Vetrina)
+
+L'immagine vetrina monoporzioni (`.pezziduri-hero-overlay`) è full-bleed edge-to-edge nel tab modale.
+Usa margini negativi per annullare il padding di `.modal__content`, `object-fit:contain` e `height:auto`
+per mostrare l'intera foto scrollabile verticalmente. In stato overlay `.is-pezziduri-overlay` il padding
+del contenitore è azzerato.
+
 ```css
 /* Pattern base (B2B) */
 .card-zoom {
