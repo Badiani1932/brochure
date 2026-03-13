@@ -1,1704 +1,3425 @@
-<!DOCTYPE html>
-<html lang="it">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
-  <title>Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Un viaggio esperienziale tra i gusti iconici di Paolo Pomposi. Tasting guidato nella saletta privata Badiani in Via de' Tosinghi, Firenze." />
-  <meta name="theme-color" content="#1e398d" />
-  <link rel="icon" href="../../assets/images/branding/favicon.ico" sizes="32x32" />
-  <link rel="icon" href="../../assets/images/branding/favicon.webp" type="image/webp" />
-  <link rel="apple-touch-icon" href="../../assets/images/branding/apple-touch-icon.png" />
-  <link rel="canonical" href="https://www.badiani1932.com/eventi/experience/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi" />
-  <meta property="og:description" content="Un tasting esperienziale dei gusti iconici creati da Paolo Pomposi. Degustazione guidata nella saletta privata Badiani a Firenze." />
-  <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
-  <meta property="og:url" content="https://www.badiani1932.com/eventi/experience/" />
-  <meta property="og:site_name" content="Badiani 1932" />
-  <meta property="og:locale" content="it_IT" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi" />
-  <meta name="twitter:description" content="Un tasting esperienziale dei gusti iconici creati da Paolo Pomposi." />
-  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
-  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/experience/" />
-  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/experience/" />
-  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/experience/" />
-  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/experience/" />
-  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/experience/" />
-  <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <link rel="stylesheet" href="../../assets/badiani-common.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Experience — Gli Iconici di Paolo Pomposi",
-    "description": "Tasting esperienziale dei gusti iconici Badiani creati da Paolo Pomposi, nella saletta privata in Via de' Tosinghi, Firenze.",
-    "url": "https://www.badiani1932.com/eventi/experience/",
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
-        {"@type": "ListItem", "position": 2, "name": "Eventi", "item": "https://www.badiani1932.com/eventi/"},
-        {"@type": "ListItem", "position": 3, "name": "Experience"}
-      ]
-    },
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Badiani 1932",
-      "url": "https://www.badiani1932.com/"
-    }
-  }
-  </script>
-  <style>
-    /* ============================================================
-       EXPERIENCE PAGE — aligned with eventi + saletta design
-       Full-bleed sections, dark overlays, SuperGrotesk typography
-       ============================================================ */
-
-    /* ===== HERO ===== */
-    .exp-hero{
-      position:relative;
-      overflow:hidden;
-      min-height:60vh;
-      display:flex;
-      align-items:flex-end;
-      background:#0a1440;
-    }
-    .exp-hero__bg{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center center;
-      filter:brightness(0.5);
-      /* placeholder: swap with a dedicated Experience photo/video when available */
-    }
-    .exp-hero__content{
-      position:relative;
-      z-index:2;
-      width:100%;
-      padding:48px 52px;
-      display:flex;
-      flex-direction:row;
-      align-items:flex-end;
-      gap:24px;
-    }
-    .exp-hero__heading{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      flex-shrink:0;
-    }
-    .exp-hero__label{
-      display:block;
-      font-size:clamp(11px, 1vw, 14px);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      font-weight:400;
-      color:var(--badiani-pink);
-      margin-bottom:16px;
-      line-height:1.6;
-    }
-    .exp-hero__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(72px, 9vw, 140px);
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      line-height:0.9;
-      color:#fff;
-      text-shadow:none;
-    }
-    .exp-hero__desc{
-      font-size:clamp(14px, 1.2vw, 17px);
-      color:rgba(255,255,255,0.85);
-      line-height:1.5;
-      max-width:300px;
-      padding-bottom:8px;
-      font-weight:300;
-    }
-
-    /* ===== CONCEPT — dark-blue split layout ===== */
-    .exp-concept{
-      background:var(--badiani-blue);
-      padding:0;
-    }
-    .exp-concept__grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:0;
-    }
-    .exp-concept__info{
-      background:var(--badiani-blue);
-      color:#fff;
-      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-    }
-    .exp-concept__details{
-      background:rgba(255,255,255,0.04);
-      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
-      display:flex;
-      flex-direction:column;
-      gap:0;
-      justify-content:center;
-    }
-    .exp-concept__label{
-      display:block;
-      font-size:clamp(11px, 1vw, 14px);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      color:var(--badiani-pink);
-      font-weight:600;
-      margin-bottom:16px;
-    }
-    .exp-concept__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.5vw, 72px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#fff;
-      font-weight:700;
-      line-height:0.95;
-      margin-bottom:16px;
-      text-shadow:none;
-    }
-    .exp-concept__subtitle{
-      font-size:clamp(14px, 1.4vw, 18px);
-      font-style:italic;
-      font-weight:300;
-      color:rgba(255,255,255,0.75);
-      margin-bottom:24px;
-      line-height:1.5;
-    }
-    .exp-concept__desc{
-      font-size:clamp(14px, 1.2vw, 17px);
-      color:rgba(255,255,255,0.7);
-      line-height:1.7;
-      font-weight:300;
-      margin-bottom:14px;
-      max-width:520px;
-    }
-    .exp-concept__highlight{
-      font-size:clamp(15px, 1.3vw, 18px);
-      color:rgba(255,255,255,0.9);
-      font-style:italic;
-      font-weight:400;
-      padding-top:12px;
-      border-top:1px solid rgba(255,255,255,0.12);
-      line-height:1.6;
-    }
-    .exp-concept__detail-item{
-      padding:clamp(20px, 2.5vw, 32px) 0;
-      border-top:1px solid rgba(255,255,255,0.1);
-    }
-    .exp-concept__detail-item:last-child{
-      border-bottom:1px solid rgba(255,255,255,0.1);
-    }
-    .exp-concept__detail-label{
-      display:block;
-      font-size:clamp(10px, 0.85vw, 12px);
-      text-transform:uppercase;
-      letter-spacing:2.5px;
-      color:var(--badiani-pink);
-      font-weight:700;
-      margin-bottom:8px;
-    }
-    .exp-concept__detail-value{
-      font-size:clamp(13px, 1.1vw, 16px);
-      color:rgba(255,255,255,0.85);
-      line-height:1.65;
-      font-weight:300;
-    }
-
-    /* ===== FORMAT — single-format dark card ===== */
-    .exp-format{
-      position:relative;
-      padding:clamp(60px, 8vw, 100px) clamp(32px, 4vw, 64px);
-      background:#000;
-      overflow:hidden;
-    }
-    .exp-format::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      /* placeholder background — swap with dedicated photo when available */
-      background:url('../../assets/images/migrated/eventi/foto%20eventi/4.webp') center/cover no-repeat;
-      opacity:0.28;
-      z-index:0;
-    }
-    .exp-format__inner{
-      position:relative;
-      z-index:1;
-      max-width:960px;
-      margin:0 auto;
-    }
-    .exp-format__header{
-      text-align:center;
-      margin-bottom:clamp(36px, 4vw, 56px);
-    }
-    .exp-format__tag{
-      display:block;
-      font-size:clamp(11px, 1vw, 14px);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      color:var(--badiani-pink);
-      font-weight:600;
-      margin-bottom:14px;
-    }
-    .exp-format__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(40px, 5vw, 80px);
-      font-weight:700;
-      letter-spacing:3px;
-      text-transform:uppercase;
-      line-height:0.92;
-      color:#fff;
-      text-shadow:none;
-      margin-bottom:16px;
-    }
-    .exp-format__price{
-      display:block;
-      font-size:clamp(22px, 2.4vw, 36px);
-      font-weight:700;
-      color:var(--badiani-pink);
-      margin-bottom:6px;
-    }
-    .exp-format__note{
-      font-size:clamp(13px, 1.1vw, 15px);
-      color:rgba(255,255,255,0.5);
-      font-weight:300;
-    }
-    .exp-format__specs{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:0;
-      border:1px solid rgba(255,255,255,0.12);
-      border-radius:16px;
-      overflow:hidden;
-      background:rgba(0,0,0,0.65);
-      -webkit-backdrop-filter:blur(12px);
-      backdrop-filter:blur(12px);
-    }
-    .exp-spec{
-      padding:clamp(22px, 2.5vw, 36px) clamp(22px, 2.5vw, 36px);
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      border-right:1px solid rgba(255,255,255,0.06);
-    }
-    .exp-spec:nth-child(3n){ border-right:none; }
-    .exp-spec:nth-last-child(-n+3){ border-bottom:none; }
-    .exp-spec__label{
-      display:block;
-      font-size:clamp(10px, 0.85vw, 12px);
-      text-transform:uppercase;
-      letter-spacing:2.5px;
-      color:rgba(255,255,255,0.45);
-      font-weight:700;
-      margin-bottom:8px;
-    }
-    .exp-spec:nth-child(2n) .exp-spec__label{ color:var(--badiani-pink); }
-    .exp-spec__value{
-      font-size:clamp(14px, 1.2vw, 17px);
-      font-weight:300;
-      color:rgba(255,255,255,0.88);
-      line-height:1.6;
-    }
-    .exp-format__cta{
-      display:flex;
-      justify-content:center;
-      margin-top:clamp(40px, 5vw, 60px);
-    }
-    .exp-cta-btn{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      background:var(--badiani-pink);
-      color:#fff;
-      border:none;
-      padding:18px 56px;
-      border-radius:999px;
-      font-size:14px;
-      text-transform:uppercase;
-      letter-spacing:2.5px;
-      font-family:inherit;
-      font-weight:600;
-      cursor:pointer;
-      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow:0 10px 32px rgba(240,103,166,0.4);
-    }
-    .exp-cta-btn:hover{
-      background:#fff;
-      color:var(--badiani-blue);
-      transform:translateY(-3px);
-      box-shadow:0 14px 40px rgba(255,255,255,0.2);
-    }
-    .exp-cta-btn:focus-visible{
-      outline:2px solid #fff;
-      outline-offset:3px;
-    }
-    .exp-cta-btn svg{ width:18px; height:18px; fill:currentColor; }
-
-    /* ===== STRUCTURE — 3-step tasting timeline ===== */
-    .exp-structure{
-      background:var(--badiani-blue);
-      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
-    }
-    .exp-structure__label{
-      font-size:clamp(11px, 1vw, 14px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.5);
-      margin-bottom:8px;
-    }
-    .exp-structure__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.5vw, 72px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#fff;
-      margin-bottom:clamp(32px, 4vw, 52px);
-      font-weight:700;
-      line-height:0.95;
-      text-shadow:none;
-    }
-    .exp-structure__steps{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:clamp(24px, 3vw, 48px);
-      max-width:1400px;
-    }
-    .exp-step{
-      padding:clamp(24px, 2.5vw, 36px) 0 clamp(20px, 2vw, 28px);
-      border-top:2px solid rgba(255,255,255,0.15);
-    }
-    .exp-step__number{
-      display:block;
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(52px, 6.5vw, 100px);
-      font-weight:700;
-      color:var(--badiani-pink);
-      line-height:0.9;
-      margin-bottom:14px;
-      opacity:0.55;
-      letter-spacing:2px;
-    }
-    .exp-step__title{
-      display:block;
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(20px, 2.2vw, 30px);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      color:#fff;
-      font-weight:700;
-      margin-bottom:6px;
-      line-height:1.05;
-      text-shadow:none;
-    }
-    .exp-step__duration{
-      display:block;
-      font-size:clamp(12px, 1vw, 14px);
-      text-transform:uppercase;
-      letter-spacing:2.5px;
-      color:var(--badiani-pink);
-      font-weight:600;
-      margin-bottom:14px;
-    }
-    .exp-step__desc{
-      font-size:clamp(14px, 1.1vw, 16px);
-      color:rgba(255,255,255,0.72);
-      line-height:1.7;
-      font-weight:300;
-    }
-    .exp-step__items{
-      list-style:none;
-      padding:0;
-      margin:12px 0 0;
-    }
-    .exp-step__items li{
-      font-size:clamp(13px, 1.05vw, 15px);
-      color:rgba(255,255,255,0.72);
-      line-height:1.5;
-      padding:8px 0;
-      border-bottom:1px solid rgba(255,255,255,0.06);
-      font-weight:300;
-      padding-left:12px;
-      position:relative;
-    }
-    .exp-step__items li::before{
-      content:'—';
-      position:absolute;
-      left:0;
-      color:var(--badiani-pink);
-      opacity:0.7;
-    }
-    .exp-step__items li:last-child{ border-bottom:none; }
-
-    /* ===== FLAVORS — 4-column gelato grid ===== */
-    .exp-flavors{
-      background:#0a1440;
-      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
-    }
-    .exp-flavors__label{
-      font-size:clamp(11px, 1vw, 14px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.45);
-      margin-bottom:8px;
-    }
-    .exp-flavors__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.5vw, 72px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#fff;
-      margin-bottom:clamp(28px, 4vw, 48px);
-      font-weight:700;
-      line-height:0.95;
-      text-shadow:none;
-    }
-    .exp-flavors__grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:clamp(12px, 1.5vw, 20px);
-      margin-bottom:clamp(28px, 3.5vw, 48px);
-    }
-    .exp-flavor{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.09);
-      border-radius:12px;
-      overflow:hidden;
-      display:flex;
-      flex-direction:column;
-      transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-    }
-    .exp-flavor:hover{
-      transform:translateY(-4px);
-      box-shadow:0 14px 40px rgba(0,0,0,0.5);
-      border-color:rgba(240,103,166,0.35);
-    }
-    .exp-flavor__img-wrap{
-      overflow:hidden;
-      height:clamp(150px, 20vh, 210px);
-    }
-    .exp-flavor__img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      filter:brightness(0.8);
-      transition:filter 0.4s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
-    }
-    .exp-flavor:hover .exp-flavor__img{
-      filter:brightness(1);
-      transform:scale(1.06);
-    }
-    .exp-flavor__body{
-      padding:clamp(16px, 1.8vw, 24px);
-      flex:1;
-      display:flex;
-      flex-direction:column;
-    }
-    .exp-flavor__index{
-      display:inline-block;
-      font-size:clamp(10px, 0.85vw, 12px);
-      font-weight:700;
-      text-transform:uppercase;
-      letter-spacing:2.5px;
-      color:var(--badiani-pink);
-      margin-bottom:8px;
-    }
-    .exp-flavor__name{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(18px, 2vw, 26px);
-      text-transform:uppercase;
-      letter-spacing:1.5px;
-      color:#fff;
-      font-weight:700;
-      line-height:1.1;
-      margin-bottom:10px;
-      text-shadow:none;
-    }
-    .exp-flavor__desc{
-      font-size:clamp(13px, 1.05vw, 15px);
-      color:rgba(255,255,255,0.6);
-      line-height:1.65;
-      font-weight:300;
-      margin-top:auto;
-    }
-    .exp-flavors__allergie{
-      text-align:center;
-      font-size:clamp(13px, 1.05vw, 15px);
-      color:rgba(255,255,255,0.5);
-      border-top:1px solid rgba(255,255,255,0.08);
-      padding-top:clamp(20px, 2.5vw, 32px);
-      max-width:650px;
-      margin:0 auto;
-      line-height:1.7;
-    }
-    .exp-flavors__allergie strong{ color:var(--badiani-pink); }
-
-    /* ===== GALLERY — placeholder blue section ===== */
-    .exp-gallery{
-      background:var(--badiani-blue);
-      padding:clamp(28px, 3vw, 44px) clamp(24px, 4vw, 56px) clamp(48px, 6vw, 80px);
-    }
-    .exp-gallery__label{
-      font-size:clamp(11px, 1vw, 14px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.5);
-      margin-bottom:8px;
-    }
-    .exp-gallery__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.5vw, 72px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#fff;
-      margin-bottom:clamp(28px, 4vw, 48px);
-      font-weight:700;
-      line-height:0.95;
-      text-shadow:none;
-    }
-    .exp-gallery__grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:clamp(8px, 1vw, 16px);
-    }
-    .exp-gallery__photo{
-      position:relative;
-      overflow:hidden;
-      cursor:pointer;
-      aspect-ratio:1 / 1;
-      border-radius:4px;
-    }
-    .exp-gallery__photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      display:block;
-      transition:transform 0.5s cubic-bezier(0.4,0,0.2,1), filter 0.4s ease;
-      filter:brightness(0.85);
-    }
-    .exp-gallery__photo:hover img{
-      transform:scale(1.08);
-      filter:brightness(1.05);
-    }
-    .exp-gallery__placeholder{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(255,255,255,0.05);
-      border:1px dashed rgba(255,255,255,0.15);
-      border-radius:4px;
-      aspect-ratio:1 / 1;
-      color:rgba(255,255,255,0.3);
-      font-size:clamp(11px, 1vw, 14px);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      font-weight:400;
-      text-align:center;
-      padding:16px;
-      line-height:1.6;
-    }
-
-    /* ===== TERMS — pricing & booking ===== */
-    .exp-terms{
-      background:var(--badiani-blue);
-      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
-      border-top:1px solid rgba(255,255,255,0.06);
-    }
-    .exp-terms__label{
-      font-size:clamp(11px, 1vw, 14px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:rgba(255,255,255,0.5);
-      margin-bottom:8px;
-    }
-    .exp-terms__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.5vw, 72px);
-      letter-spacing:3px;
-      text-transform:uppercase;
-      color:#fff;
-      margin-bottom:clamp(28px, 4vw, 48px);
-      font-weight:700;
-      line-height:0.95;
-      text-shadow:none;
-    }
-    .exp-terms__grid{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:clamp(16px, 2vw, 28px);
-      max-width:1200px;
-    }
-    .exp-terms__item{
-      padding:clamp(20px, 2vw, 32px) 0;
-      border-top:1px solid rgba(255,255,255,0.15);
-    }
-    .exp-terms__item-label{
-      font-size:clamp(11px, 0.9vw, 13px);
-      text-transform:uppercase;
-      letter-spacing:2px;
-      color:var(--badiani-pink);
-      font-weight:700;
-      margin-bottom:10px;
-      display:block;
-    }
-    .exp-terms__item-value{
-      font-size:clamp(14px, 1.1vw, 16px);
-      color:rgba(255,255,255,0.85);
-      line-height:1.7;
-      font-weight:300;
-    }
-
-    /* ===== FORM — booking section with sfondo bg ===== */
-    .exp-form-section{
-      position:relative;
-      overflow:visible;
-      padding:clamp(40px, 6vw, 80px) clamp(16px, 4vw, 80px);
-      background:transparent;
-    }
-    .exp-form-section::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url('../../assets/images/branding/sfondo.webp') center/cover no-repeat;
-      transform:scaleX(-1);
-      z-index:0;
-    }
-    .exp-form-section > *{
-      position:relative;
-      z-index:1;
-    }
-    .exp-form-block{
-      max-width:900px;
-      margin:0 auto;
-      background:#fff;
-      border-radius:28px;
-      overflow:hidden;
-      box-shadow:0 20px 60px rgba(30,57,141,0.10);
-      position:relative;
-      z-index:2;
-    }
-    .exp-form-header{
-      background:linear-gradient(135deg, var(--badiani-blue) 0%, #2a4faf 100%);
-      padding:clamp(28px, 4vw, 44px) clamp(24px, 4vw, 60px);
-      text-align:center;
-      color:#fff;
-    }
-    .exp-form-header h2{
-      font-size:clamp(22px, 2.8vw, 34px);
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#fff;
-      margin-bottom:8px;
-    }
-    .exp-form-header p{
-      font-size:clamp(14px, 1.2vw, 17px);
-      color:rgba(255,255,255,0.75);
-      line-height:1.5;
-    }
-    .exp-form-body{
-      padding:clamp(28px, 4vw, 48px) clamp(24px, 4vw, 60px);
-    }
-    .exp-form-grid{
-      display:grid;
-      grid-template-columns:repeat(2, 1fr);
-      gap:20px;
-    }
-    .ef2-field{
-      display:flex;
-      flex-direction:column;
-      gap:6px;
-    }
-    .ef2-field.full-width{
-      grid-column:1 / -1;
-    }
-    .exp-form-grid label{
-      font-size:12px;
-      text-transform:uppercase;
-      letter-spacing:1.2px;
-      color:#6a6b6e;
-      font-weight:600;
-    }
-    .exp-form-grid input,
-    .exp-form-grid textarea{
-      width:100%;
-      border:1px solid rgba(30,57,141,0.15);
-      border-radius:12px;
-      padding:12px 14px;
-      font-family:inherit;
-      font-size:14px;
-      background:#f8f9fc;
-      color:#4a4f57;
-      transition:border-color 0.3s, box-shadow 0.3s;
-      resize:vertical;
-    }
-    .exp-form-grid input:focus-visible,
-    .exp-form-grid textarea:focus-visible{
-      outline:2px solid var(--badiani-blue);
-      outline-offset:2px;
-      border-color:var(--badiani-blue);
-      box-shadow:0 0 0 3px rgba(30,57,141,0.1);
-    }
-    .exp-form-grid input::placeholder,
-    .exp-form-grid textarea::placeholder{
-      color:#b0b4ba;
-    }
-    .exp-form-grid textarea{
-      min-height:100px;
-      line-height:1.5;
-    }
-    .exp-form-actions{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:16px;
-      margin-top:28px;
-      padding-top:24px;
-      border-top:1px solid rgba(30,57,141,0.08);
-    }
-    .exp-form-actions .ef2-privacy{
-      display:flex;
-      align-items:flex-start;
-      gap:10px;
-      font-size:13px;
-      color:#6a6b6e;
-      line-height:1.5;
-    }
-    .exp-form-actions .ef2-privacy input{
-      margin-top:2px;
-      width:16px;
-      height:16px;
-      accent-color:var(--badiani-blue);
-      flex-shrink:0;
-    }
-    .exp-form-submit{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      border:none;
-      background:var(--badiani-blue);
-      color:#fff;
-      padding:14px 36px;
-      border-radius:999px;
-      font-size:13px;
-      text-transform:uppercase;
-      letter-spacing:2px;
-      font-family:inherit;
-      font-weight:600;
-      cursor:pointer;
-      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
-      box-shadow:0 8px 24px rgba(30,57,141,0.2);
-    }
-    .exp-form-submit:hover{
-      background:var(--badiani-pink);
-      transform:translateY(-2px);
-      box-shadow:0 12px 32px rgba(240,103,166,0.25);
-    }
-    .exp-form-submit:focus-visible{
-      outline:2px solid var(--badiani-pink);
-      outline-offset:3px;
-    }
-    .exp-form-submit svg{
-      width:18px; height:18px; fill:currentColor;
-    }
-
-
-    /* ===== TEXT SHADOW OVERRIDE ===== */
-    :where(.exp-hero, .exp-concept, .exp-format, .exp-structure, .exp-flavors, .exp-gallery, .exp-terms, .exp-form-section)
-    :is(h1, h2, h3, h4, p, span, small, strong, label, li){
-      text-shadow:none !important;
-    }
-
-    /* ===== RESPONSIVE ===== */
-    @media(max-width:900px){
-      .exp-hero__content{
-        padding:32px 28px;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-      }
-      .exp-hero__title{
-        font-size:clamp(48px, 9vw, 72px);
-        letter-spacing:2px;
-      }
-      .exp-hero__desc{ max-width:none; }
-
-      .exp-concept__grid{
-        grid-template-columns:1fr;
-      }
-      .exp-concept__details{
-        padding-top:clamp(32px, 4vw, 48px);
-      }
-
-      .exp-format__specs{
-        grid-template-columns:1fr 1fr;
-      }
-      .exp-spec:nth-child(3n){ border-right:1px solid rgba(255,255,255,0.06); }
-      .exp-spec:nth-child(2n){ border-right:none; }
-      .exp-spec:nth-last-child(-n+3){ border-bottom:1px solid rgba(255,255,255,0.06); }
-      .exp-spec:nth-last-child(-n+2){ border-bottom:none; }
-
-      .exp-structure__steps{
-        grid-template-columns:1fr;
-        gap:0;
-      }
-      .exp-step{ border-top:1px solid rgba(255,255,255,0.12); }
-
-      .exp-flavors__grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .exp-gallery__grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .exp-terms__grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-    }
-
-    @media(max-width:600px){
-      .exp-hero{ min-height:45vh; }
-      .exp-hero__content{ padding:24px 20px; }
-      .exp-hero__title{ font-size:clamp(40px, 12vw, 72px); }
-
-      .exp-format{ padding:clamp(40px, 6vw, 60px) 20px; }
-      .exp-format__specs{
-        grid-template-columns:1fr;
-      }
-      .exp-spec{ border-right:none !important; }
-      .exp-spec:nth-last-child(n+2){ border-bottom:1px solid rgba(255,255,255,0.06); }
-      .exp-spec:last-child{ border-bottom:none; }
-
-      .exp-flavors__grid{
-        grid-template-columns:1fr;
-      }
-
-      .exp-gallery__grid{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .exp-terms__grid{
-        grid-template-columns:1fr;
-      }
-
-      .exp-form-grid{
-        grid-template-columns:1fr;
-      }
-      .exp-form-actions{
-        flex-direction:column;
-        align-items:stretch;
-        text-align:center;
-      }
-      .exp-form-submit{
-        justify-content:center;
-      }
-    }
-
-    @media(prefers-reduced-motion: reduce){
-      .exp-hero__bg,
-      .exp-flavor__img,
-      .exp-gallery__photo img{
-        transition:none !important;
-        transform:none !important;
-      }
-    }
-  </style>
-</head>
-<body>
-  <a href="#main-content" class="skip-link">Salta al contenuto</a>
-
-  <!-- TOPBAR -->
-  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
-    <a href="../../" class="topbar__logo">
-      <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
-    </a>
-    <div class="topbar__right">
-      <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
-        <a href="../../" data-i18n="nav.home">Home</a>
-        <div class="topbar__dropdown">
-          <a href="../" data-i18n="nav.eventi">Eventi</a>
-          <div class="topbar__dropdown-menu">
-            <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
-            <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
-            <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
-            <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
-          </div>
-        </div>
-        <div class="topbar__dropdown">
-          <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
-          <div class="topbar__dropdown-menu">
-            <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
-            <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
-            <a href="../../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
-            <a href="../../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
-            <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
-            <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
-          </div>
-        </div>
-      </nav>
-      <div class="topbar__lang">
-        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
-          <option value="it" data-i18n="lang.it"></option>
-          <option value="en" data-i18n="lang.en"></option>
-          <option value="es" data-i18n="lang.es"></option>
-          <option value="fr" data-i18n="lang.fr"></option>
-        </select>
-      </div>
-      <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
-        <span></span>
-      </button>
-    </div>
-  </header>
-  <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
-    <a href="../../" data-i18n="nav.home">Home</a>
-    <details class="topbar__mobile-group">
-      <summary data-i18n="nav.eventi">Eventi</summary>
-      <div class="topbar__mobile-group-items">
-        <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
-        <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
-        <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
-        <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
-      </div>
-    </details>
-    <details class="topbar__mobile-group">
-      <summary data-i18n="nav.b2b">B2B</summary>
-      <div class="topbar__mobile-group-items">
-        <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
-        <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
-        <a href="../../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
-        <a href="../../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
-        <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
-        <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
-      </div>
-    </details>
-  </nav>
-
-  <!-- HERO — immagine/video placeholder; sostituire con contenuto definitivo -->
-  <section class="exp-hero" id="main-content">
-    <!-- VIDEO (da aggiungere quando disponibile):
-    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-      <source src="../../assets/video/videoexperience.mp4" type="video/mp4">
-    </video> -->
-    <img class="exp-hero__bg"
-      src="../../assets/images/wxperience-bicchierini.png"
-      alt=""
-      loading="eager"
-      decoding="async"
-      aria-hidden="true"
-      width="1200"
-      height="800" />
-    <div class="exp-hero__content">
-      <div class="exp-hero__heading">
-        <h1 class="exp-hero__title title-accent title-accent--light">Gli Iconici</h1>
-      </div>
-      <p class="exp-hero__desc">Un racconto esperienziale dei gusti iconici di Paolo Pomposi</p>
-    </div>
-  </section>
-
-  <!-- CONCEPT — dark blue split intro -->
-  <section class="exp-concept" aria-label="Il Concept dell'Experience">
-    <div class="exp-concept__grid">
-      <div class="exp-concept__info">
-        <span class="exp-concept__label">Il Concept</span>
-        <h2 class="exp-concept__title title-accent title-accent--light">Un Racconto Esperienziale</h2>
-        <p class="exp-concept__subtitle">Firmata Paolo Pomposi per Badiani 1932</p>
-        <p class="exp-concept__desc">Un viaggio guidato alla scoperta dei gusti iconici creati da Paolo Pomposi, raccontati attraverso la storia dell'azienda, la filosofia produttiva, una degustazione guidata e un momento conviviale e narrativo.</p>
-        <p class="exp-concept__highlight">Non è solo una degustazione, ma un racconto esperienziale.</p>
-      </div>
-      <div class="exp-concept__details">
-        <div class="exp-concept__detail-item">
-          <span class="exp-concept__detail-label">Luogo</span>
-          <span class="exp-concept__detail-value">Saletta — Via de' Tosinghi, Firenze<br>Centro storico</span>
-        </div>
-        <div class="exp-concept__detail-item">
-          <span class="exp-concept__detail-label">Atmosfera</span>
-          <span class="exp-concept__detail-value">Experience immersiva · Ispirata da Paolo Pomposi<br>1 operatore dedicato per ogni esperienza</span>
-        </div>
-        <div class="exp-concept__detail-item">
-          <span class="exp-concept__detail-label">Temi</span>
-          <span class="exp-concept__detail-value">Storia del Buontalenti · Filosofia produttiva · Degustazione guidata · Convivialità</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORMAT — single-format card with all specs -->
-  <section class="exp-format" aria-label="Format e prezzi">
-    <div class="exp-format__inner">
-      <div class="exp-format__header">
-        <span class="exp-format__tag">Unico Formato Disponibile</span>
-        <h2 class="exp-format__title">Tasting<br>&#8220;Gli Iconici&#8221;</h2>
-        <span class="exp-format__price">&euro;25,00 / persona</span>
-        <p class="exp-format__note">IVA inclusa &mdash; prenotazione obbligatoria entro 4 giorni</p>
-      </div>
-      <div class="exp-format__specs">
-        <div class="exp-spec">
-          <span class="exp-spec__label">Durata</span>
-          <span class="exp-spec__value">1 ora</span>
-        </div>
-        <div class="exp-spec">
-          <span class="exp-spec__label">Orario</span>
-          <span class="exp-spec__value">12:30 &ndash; 13:30</span>
-        </div>
-        <div class="exp-spec">
-          <span class="exp-spec__label">Giorni</span>
-          <span class="exp-spec__value">Da martedì a venerdì</span>
-        </div>
-        <div class="exp-spec">
-          <span class="exp-spec__label">Partecipanti</span>
-          <span class="exp-spec__value">Min&nbsp;10 &mdash; Max&nbsp;20</span>
-        </div>
-        <div class="exp-spec">
-          <span class="exp-spec__label">Spazio</span>
-          <span class="exp-spec__value">Metà saletta privata<br>lato bancone gelato</span>
-        </div>
-        <div class="exp-spec">
-          <span class="exp-spec__label">Staff</span>
-          <span class="exp-spec__value">1 operatore dedicato</span>
-        </div>
-      </div>
-      <div class="exp-format__cta">
-        <button type="button" class="exp-cta-btn" id="scrollToContattiBtn">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          Prenota l&rsquo;Experience
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRUCTURE — 3-step tasting timeline -->
-  <section class="exp-structure" aria-label="Struttura dell'evento">
-    <p class="exp-structure__label">Il Programma</p>
-    <h2 class="exp-structure__title title-accent title-accent--light">Struttura dell'Ora</h2>
-    <div class="exp-structure__steps">
-      <div class="exp-step">
-        <span class="exp-step__number">01</span>
-        <span class="exp-step__title">Accoglienza</span>
-        <span class="exp-step__duration">5 minuti</span>
-        <p class="exp-step__desc">Gli ospiti saranno accolti dal nostro operatore</p>
-      </div>
-      <div class="exp-step">
-        <span class="exp-step__number">02</span>
-        <span class="exp-step__title">Introduzione</span>
-        <span class="exp-step__duration">10 &ndash; 15 minuti</span>
-        <p class="exp-step__desc">Racconto della storia di Badiani 1932, della figura di Paolo Pomposi e della nascita dei gusti iconici che hanno reso celebre la gelateria nel mondo.</p>
-      </div>
-      <div class="exp-step">
-        <span class="exp-step__number">03</span>
-        <span class="exp-step__title">Degustazione Guidata</span>
-        <span class="exp-step__duration">40 minuti</span>
-        <p class="exp-step__desc">Presentazione, distribuzione e assaggio guidato di 4 gusti iconici, ciascuno accompagnato da note di gusto e racconto narrativo.</p>
-        <ul class="exp-step__items">
-          <li>Presentazione del gusto</li>
-          <li>Assaggio guidato</li>
-          <li>Ripetizione per tutti e 4 i gusti</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- GUSTI IN DEGUSTAZIONE — 4 flavors -->
-  <section class="exp-flavors" aria-label="I gusti in degustazione">
-    <p class="exp-flavors__label">Degustazione</p>
-    <h2 class="exp-flavors__title title-accent title-accent--light">I Gusti in Degustazione</h2>
-    <div class="exp-flavors__grid">
-      <div class="exp-flavor">
-        <div class="exp-flavor__img-wrap">
-          <img class="exp-flavor__img"
-            src="../../assets/gelato/Buontalenti/buontalenti-2.webp"
-            alt="Buontalenti"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600" />
-        </div>
-        <div class="exp-flavor__body">
-          <span class="exp-flavor__index">Gusto 01</span>
-          <h3 class="exp-flavor__name">Buontalenti</h3>
-          <p class="exp-flavor__desc">Il gusto che racconta le origini. Cremoso, esclusivo, senza tempo. Il capostipite degli iconici Badiani.</p>
-        </div>
-      </div>
-      <div class="exp-flavor">
-        <div class="exp-flavor__img-wrap">
-          <img class="exp-flavor__img"
-            src="../../assets/gelato/Buontalenti%20al%20Pistacchio/buontalenti_pistachio-2.webp"
-            alt="Buontalenti al Pistacchio"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600" />
-        </div>
-        <div class="exp-flavor__body">
-          <span class="exp-flavor__index">Gusto 02</span>
-          <h3 class="exp-flavor__name">Buontalenti al Pistacchio</h3>
-          <p class="exp-flavor__desc">La firma Badiani arricchita dalle note intense di pistacchio selezionato. Elegante e riconoscibile.</p>
-        </div>
-      </div>
-      <div class="exp-flavor">
-        <div class="exp-flavor__img-wrap">
-          <img class="exp-flavor__img"
-            src="../../assets/gelato/La%20Dolcevita/la_dolcevita-2.webp"
-            alt="La Dolcevita"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600" />
-        </div>
-        <div class="exp-flavor__body">
-          <span class="exp-flavor__index">Gusto 03</span>
-          <h3 class="exp-flavor__name">La Dolcevita</h3>
-          <p class="exp-flavor__desc">Un incontro goloso di sapori in un gusto dalla personalità decisa, dedicato alla filosofia della dolce vita italiana.</p>
-        </div>
-      </div>
-      <div class="exp-flavor">
-        <div class="exp-flavor__img-wrap">
-          <img class="exp-flavor__img"
-            src="../../assets/gelato/Fondente/fondente-2.webp"
-            alt="Sorbetto Cioccolato Fondente Monorigine"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600" />
-        </div>
-        <div class="exp-flavor__body">
-          <span class="exp-flavor__index">Gusto 04</span>
-          <h3 class="exp-flavor__name">Sorbetto Fondente 72%</h3>
-          <p class="exp-flavor__desc">Sorbetto intenso da cacao monorigine al 72%. Puro, vibrante, senza compromessi. La chiusura perfetta per il tasting.</p>
-        </div>
-      </div>
-    </div>
-    <p class="exp-flavors__allergie"><strong>Allergie &amp; Intolleranze</strong><br>In caso di intolleranze o allergie alimentari, è necessario comunicarlo al momento della prenotazione.</p>
-  </section>
-
-  <!-- GALLERY — placeholder section; sostituire con foto Experience -->
-  <section class="exp-gallery" aria-label="Galleria">
-    <p class="exp-gallery__label">La nostra saletta</p>
-    <h2 class="exp-gallery__title title-accent title-accent--light">Galleria</h2>
-    <div class="exp-gallery__grid">
-      <!-- Le seguenti immagini sono placeholder. Sostituire con foto dell'Experience quando disponibili. -->
-      <div class="exp-gallery__photo" data-index="0">
-        <img src="../../assets/images/migrated/eventi/foto%20eventi/1.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
-      </div>
-      <div class="exp-gallery__photo" data-index="1">
-        <img src="../../assets/images/migrated/eventi/foto%20eventi/2.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
-      </div>
-      <div class="exp-gallery__photo" data-index="2">
-        <img src="../../assets/images/migrated/eventi/foto%20eventi/3.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="2668" height="4000" />
-      </div>
-      <div class="exp-gallery__photo" data-index="3">
-        <img src="../../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
-      </div>
-    </div>
-  </section>
-
-  <!-- LIGHTBOX for gallery -->
-  <div class="lightbox" id="expLightbox">
-    <button class="lightbox-close" aria-label="Chiudi">&times;</button>
-    <button class="lightbox-nav lightbox-prev" aria-label="Precedente">&#10094;</button>
-    <img id="expLightbox-img" src="" alt="" loading="lazy" decoding="async" />
-    <button class="lightbox-nav lightbox-next" aria-label="Successiva">&#10095;</button>
-  </div>
-
-  <!-- TERMS — pricing & booking conditions -->
-  <section class="exp-terms" aria-label="Termini e condizioni">
-    <p class="exp-terms__label">Condizioni</p>
-    <h2 class="exp-terms__title title-accent title-accent--light">Pricing &amp; Prenotazione</h2>
-    <div class="exp-terms__grid">
-      <div class="exp-terms__item">
-        <span class="exp-terms__item-label">Costo</span>
-        <p class="exp-terms__item-value">&euro;25,00 a persona<br>IVA inclusa</p>
-      </div>
-      <div class="exp-terms__item">
-        <span class="exp-terms__item-label">Partecipanti</span>
-        <p class="exp-terms__item-value">Minimo 10 pax<br>Massimo 20 pax</p>
-      </div>
-      <div class="exp-terms__item">
-        <span class="exp-terms__item-label">Prenotazione</span>
-        <p class="exp-terms__item-value">Obbligatoria entro 4 giorni dalla data dell&rsquo;esperienza</p>
-      </div>
-      <div class="exp-terms__item">
-        <span class="exp-terms__item-label">Pagamento</span>
-        <p class="exp-terms__item-value">Alla conferma della prenotazione. Modalità da concordare.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FORM — booking section -->
-  <section id="contatti" class="exp-form-section" aria-label="Prenota l'Experience">
-    <div class="exp-form-block">
-      <div class="exp-form-header">
-        <h2>Prenota l&rsquo;Experience</h2>
-        <p>Compila il modulo e ti ricontatteremo per confermare la prenotazione.<br>Ricorda: minimo 10 &mdash; massimo 20 partecipanti.</p>
-      </div>
-      <div class="exp-form-body">
-        <form id="experienceRequestForm" method="post">
-          <div class="exp-form-grid">
-            <div class="ef2-field">
-              <label for="exp-nome">Nome *</label>
-              <input id="exp-nome" name="nome" type="text" placeholder="Il tuo nome&hellip;" autocomplete="given-name" required />
-            </div>
-            <div class="ef2-field">
-              <label for="exp-cognome">Cognome *</label>
-              <input id="exp-cognome" name="cognome" type="text" placeholder="Il tuo cognome&hellip;" autocomplete="family-name" required />
-            </div>
-            <div class="ef2-field">
-              <label for="exp-email">Email *</label>
-              <input id="exp-email" name="email" type="email" placeholder="email@esempio.com" autocomplete="email" required />
-            </div>
-            <div class="ef2-field">
-              <label for="exp-telefono">Telefono *</label>
-              <input id="exp-telefono" name="telefono" type="tel" placeholder="+39 &hellip;" autocomplete="tel" required />
-            </div>
-            <div class="ef2-field">
-              <label for="exp-data">Data preferita</label>
-              <input id="exp-data" name="data" type="date" />
-            </div>
-            <div class="ef2-field">
-              <label for="exp-persone">Numero partecipanti * <small style="font-weight:400;text-transform:none;letter-spacing:0;">(min 10, max 20)</small></label>
-              <input id="exp-persone" name="persone" type="number" min="10" max="20" placeholder="Es. 15" required />
-            </div>
-            <div class="ef2-field full-width">
-              <label for="exp-allergie">Allergie / Intolleranze alimentari</label>
-              <textarea id="exp-allergie" name="allergie" placeholder="Segnala eventuali allergie o intolleranze alimentari dei partecipanti&hellip;"></textarea>
-            </div>
-          </div>
-          <div class="exp-form-actions">
-            <label class="ef2-privacy">
-              <input type="checkbox" required />
-              <span>Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.</span>
-            </label>
-            <button type="submit" class="exp-form-submit">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
-              Invia Richiesta
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col footer-brand">
-        <a href="../../" class="footer-logo-link"><img src="../../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
-        <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
-      </div>
-      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
-      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
-      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
-  </footer>
-
-  <!-- COOKIE BANNER -->
-  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
-    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
-    <div class="cookie-banner__actions">
-      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
-      <a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
-    </div>
-  </div>
-
-  <!-- SCRIPTS -->
-  <script>
-    // Gallery lightbox
-    var expGalleryImages = [
-      '../../assets/images/migrated/eventi/foto%20eventi/1.webp',
-      '../../assets/images/migrated/eventi/foto%20eventi/2.webp',
-      '../../assets/images/migrated/eventi/foto%20eventi/3.webp',
-      '../../assets/images/migrated/eventi/foto%20eventi/4.webp'
-    ];
-    var expCurrentIndex = 0;
-
-    function openExpLightbox(index) {
-      expCurrentIndex = index;
-      var lb = document.getElementById('expLightbox');
-      var img = document.getElementById('expLightbox-img');
-      img.src = expGalleryImages[index];
-      lb.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeExpLightbox(e) {
-      if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
-      document.getElementById('expLightbox').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function prevExpImage(e) {
-      e.stopPropagation();
-      expCurrentIndex = (expCurrentIndex - 1 + expGalleryImages.length) % expGalleryImages.length;
-      document.getElementById('expLightbox-img').src = expGalleryImages[expCurrentIndex];
-    }
-    function nextExpImage(e) {
-      e.stopPropagation();
-      expCurrentIndex = (expCurrentIndex + 1) % expGalleryImages.length;
-      document.getElementById('expLightbox-img').src = expGalleryImages[expCurrentIndex];
-    }
-
-    document.querySelectorAll('.exp-gallery__photo[data-index]').forEach(function(photo) {
-      photo.addEventListener('click', function() {
-        openExpLightbox(parseInt(this.getAttribute('data-index'), 10));
-      });
-    });
-
-    document.getElementById('expLightbox').addEventListener('click', function(e) { closeExpLightbox(e); });
-    document.querySelector('#expLightbox .lightbox-close').addEventListener('click', function() { closeExpLightbox(); });
-    document.querySelector('#expLightbox .lightbox-prev').addEventListener('click', function(e) { prevExpImage(e); });
-    document.querySelector('#expLightbox .lightbox-next').addEventListener('click', function(e) { nextExpImage(e); });
-
-    document.addEventListener('keydown', function(e) {
-      var lb = document.getElementById('expLightbox');
-      if (lb && lb.classList.contains('active')) {
-        if (e.key === 'Escape') closeExpLightbox();
-        if (e.key === 'ArrowLeft') prevExpImage(e);
-        if (e.key === 'ArrowRight') nextExpImage(e);
-      }
-    });
-
-    // Scroll CTA
-    document.getElementById('scrollToContattiBtn').addEventListener('click', function() {
-      document.getElementById('contatti').scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Hamburger
-    (function(){
-      var b = document.getElementById('hamburgerBtn'), n = document.getElementById('mobileNav');
-      if (!b || !n) return;
-      b.addEventListener('click', function(){
-        var o = b.getAttribute('aria-expanded') === 'true';
-        b.setAttribute('aria-expanded', String(!o));
-        n.classList.toggle('is-open');
-        document.body.style.overflow = o ? '' : 'hidden';
-      });
-      n.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          b.setAttribute('aria-expanded', 'false');
-          n.classList.remove('is-open');
-          document.body.style.overflow = '';
-        });
-      });
-    })();
-
-    // Cookie banner
-    (function(){
-      var k = 'badianiCookieConsent', b = document.getElementById('cookieBanner'), a = document.getElementById('cookieAccept');
-      if (!b || !a) return;
-      try { if (localStorage.getItem(k) === 'accepted') { b.style.display = 'none'; return; } } catch(e) {}
-      a.addEventListener('click', function(){
-        try { localStorage.setItem(k, 'accepted'); } catch(e) {}
-        b.classList.add('is-hidden');
-        setTimeout(function(){ b.style.display = 'none'; }, 500);
-      });
-    })();
-
-    // Experience form submit handler
-    (function(){
-      var form = document.getElementById('experienceRequestForm');
-      if (!form) return;
-      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
-
-      function getSubmitButton() {
-        return form.querySelector('button[type="submit"]');
-      }
-      function setSubmitting(submitting) {
-        var btn = getSubmitButton();
-        if (!btn) return;
-        if (submitting) {
-          if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent.trim();
-          btn.disabled = true;
-          btn.setAttribute('aria-busy', 'true');
-          btn.textContent = 'Invio in corso...';
-          return;
-        }
-        btn.disabled = false;
-        btn.removeAttribute('aria-busy');
-        if (btn.dataset.originalText) btn.textContent = btn.dataset.originalText;
-      }
-      function showFeedback(message, isError) {
-        var feedback = form.querySelector('.form-feedback');
-        if (!feedback) {
-          feedback = document.createElement('p');
-          feedback.className = 'form-feedback';
-          feedback.setAttribute('role', 'status');
-          feedback.setAttribute('aria-live', 'polite');
-          feedback.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;';
-          form.appendChild(feedback);
-        }
-        feedback.style.color = isError ? '#b42318' : '#127c56';
-        feedback.textContent = message;
-        if (!/in corso/i.test(message)) feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-      async function postToApi(payload) {
-        var response = await fetch(CONTACT_API_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        });
-        var body = null;
-        try { body = await response.json(); } catch(e) {}
-        if (!response.ok) {
-          throw new Error((body && (body.error || body.message)) || ('HTTP ' + response.status));
-        }
-        return body;
-      }
-
-      form.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        var fd = new FormData(form);
-        var nome = (fd.get('nome') || '').toString().trim();
-        var cognome = (fd.get('cognome') || '').toString().trim();
-        var email = (fd.get('email') || '').toString().trim();
-        var telefono = (fd.get('telefono') || '').toString().trim();
-        var data = (fd.get('data') || '').toString().trim();
-        var persone = (fd.get('persone') || '').toString().trim();
-        var allergie = (fd.get('allergie') || '').toString().trim();
-
-        var lines = [
-          '=== PRENOTAZIONE EXPERIENCE — "GLI ICONICI DI PAOLO POMPOSI" ===',
-          ''
-        ];
-        function addLine(label, value) {
-          if (value) lines.push(label + ': ' + value);
-        }
-        addLine('Nome', nome);
-        addLine('Cognome', cognome);
-        addLine('Email', email);
-        addLine('Telefono', telefono);
-        addLine('Data preferita', data);
-        addLine('Numero partecipanti', persone);
-        if (allergie) {
-          lines.push('Allergie / Intolleranze:');
-          lines.push('  ' + allergie);
-        }
-        lines.push('', '--- Fine richiesta ---');
-
-        var subject = 'Prenotazione Experience "Gli Iconici" — ' + (nome + ' ' + cognome).trim() + (persone ? ' (' + persone + ' pax)' : '');
-
-        var payload = {
-          source: 'eventi-experience',
-          formId: form.id,
-          subject: subject,
-          message: lines.join('\n'),
-          body: lines.join('\n'),
-          fields: { nome: nome, cognome: cognome, email: email, telefono: telefono, data: data, persone: persone, allergie: allergie },
-          structured: { nome: nome, cognome: cognome, email: email, telefono: telefono, data: data, persone: persone, allergie: allergie }
-        };
-
-        setSubmitting(true);
-        showFeedback('Invio in corso... ti risponderemo a breve.', false);
-
-        try {
-          await postToApi(payload);
-          showFeedback('Richiesta inviata! Ti contatteremo a breve per confermare la prenotazione.', false);
-          form.reset();
-        } catch (error) {
-          console.error('Experience form submit error:', error);
-          showFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
-        } finally {
-          setSubmitting(false);
-        }
-      });
-    })();
-
-    // i18n System
-    (function(){
-      var SUPPORTED = ['it','en','fr','es'];
-      var DEFAULT_LANG = 'it';
-      var STORAGE_KEY = 'badianiLang';
-
-      var STRINGS = {
-        it: {
-          'meta.title': 'Experience \u2014 Gli Iconici di Paolo Pomposi | Badiani 1932',
-          'topbar.label': 'Barra brand',
-          'nav.label': 'Navigazione principale',
-          'lang.label': 'Selettore lingua',
-          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Saletta Tosinghi', 'nav.eventi.esterno': 'Badiani dove vuoi', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Gusti', 'nav.b2b.monoporzioni': 'Monoporzioni', 'nav.b2b.torte': 'Torte', 'nav.b2b.coni': 'Coni & Coppette', 'nav.b2b.accessori': 'Accessori', 'nav.b2b.contenitori': 'Contenitori',
-          'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
-          'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
-          'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
-          'cookie.aria': 'Informativa cookie',
-          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a>',
-          'cookie.accept': 'Accetto',
-          'cookie.link': 'Cookie Policy',
-        },
-        en: {
-          'meta.title': 'Experience \u2014 The Iconic Flavors of Paolo Pomposi | Badiani 1932',
-          'topbar.label': 'Brand bar',
-          'nav.label': 'Main navigation',
-          'lang.label': 'Language selector',
-          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Tosinghi Room', 'nav.eventi.esterno': 'Badiani where you want', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Flavors', 'nav.b2b.monoporzioni': 'Single Servings', 'nav.b2b.torte': 'Cakes', 'nav.b2b.coni': 'Cones & Cups', 'nav.b2b.accessori': 'Accessories', 'nav.b2b.contenitori': 'Containers',
-          'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
-          'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
-          'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
-          'cookie.aria': 'Cookie notice',
-          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../../cookie-policy.html">More information</a>',
-          'cookie.accept': 'Accept',
-          'cookie.link': 'Cookie Policy',
-        },
-        fr: {
-          'meta.title': 'Experience \u2014 Les Iconiques de Paolo Pomposi | Badiani 1932',
-          'topbar.label': 'Barre de marque',
-          'nav.label': 'Navigation principale',
-          'lang.label': 'S\u00e9lecteur de langue',
-          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Accueil', 'nav.eventi': '\u00c9v\u00e9nements', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Salon Tosinghi', 'nav.eventi.esterno': 'Badiani o\u00f9 vous voulez', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Parfums', 'nav.b2b.monoporzioni': 'Portions Individuelles', 'nav.b2b.torte': 'G\u00e2teaux', 'nav.b2b.coni': 'C\u00f4nes & Coupes', 'nav.b2b.accessori': 'Accessoires', 'nav.b2b.contenitori': 'Conteneurs',
-          'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': '\u00c9v\u00e9nements',
-          'footer.b2b': 'B2B', 'footer.magazine': 'Ils parlent de nous', 'footer.contatti': 'Contacts',
-          'footer.legale': 'L\u00e9gal', 'footer.privacy': 'Politique de confidentialit\u00e9', 'footer.cookie': 'Cookie Policy',
-          'cookie.aria': 'Avis sur les cookies',
-          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../../cookie-policy.html">Plus d\'informations</a>',
-          'cookie.accept': 'Accepter',
-          'cookie.link': 'Cookie Policy',
-        },
-        es: {
-          'meta.title': 'Experience \u2014 Los Ic\u00f3nicos de Paolo Pomposi | Badiani 1932',
-          'topbar.label': 'Barra de marca',
-          'nav.label': 'Navegaci\u00f3n principal',
-          'lang.label': 'Selector de idioma',
-          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Sal\u00f3n Tosinghi', 'nav.eventi.esterno': 'Badiani donde quieras', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Sabores', 'nav.b2b.monoporzioni': 'Monoporciones', 'nav.b2b.torte': 'Tartas', 'nav.b2b.coni': 'Conos y Copas', 'nav.b2b.accessori': 'Accesorios', 'nav.b2b.contenitori': 'Contenedores',
-          'footer.nav': 'Navegaci\u00f3n', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
-          'footer.b2b': 'B2B', 'footer.magazine': 'Hablan de nosotros', 'footer.contatti': 'Contactos',
-          'footer.legale': 'Legal', 'footer.privacy': 'Pol\u00edtica de privacidad', 'footer.cookie': 'Cookie Policy',
-          'cookie.aria': 'Aviso de cookies',
-          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
-          'cookie.accept': 'Aceptar',
-          'cookie.link': 'Cookie Policy',
-        }
-      };
-
-      function normalizeLang(lang) {
-        if (!lang) return DEFAULT_LANG;
-        var l = lang.substring(0, 2).toLowerCase();
-        return SUPPORTED.indexOf(l) !== -1 ? l : DEFAULT_LANG;
-      }
-      function getSavedLang() {
-        try { return normalizeLang(localStorage.getItem(STORAGE_KEY)); } catch(e) { return DEFAULT_LANG; }
-      }
-      function saveLang(lang) {
-        try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
-      }
-      function getString(lang, key) {
-        var strings = STRINGS[lang] || STRINGS[DEFAULT_LANG];
-        return (strings && strings[key] !== undefined) ? strings[key] : ((STRINGS[DEFAULT_LANG] && STRINGS[DEFAULT_LANG][key]) || key);
-      }
-      function applyStrings(lang) {
-        document.documentElement.setAttribute('lang', lang);
-        var metaTitleStr = getString(lang, 'meta.title');
-        if (metaTitleStr) document.title = metaTitleStr;
-        document.querySelectorAll('[data-i18n]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n');
-          var str = getString(lang, key);
-          if (str !== undefined) el.textContent = str;
-        });
-        document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
-          var key = el.getAttribute('data-i18n-html');
-          var str = getString(lang, key);
-          if (str !== undefined) el.innerHTML = str;
-        });
-        document.querySelectorAll('[data-i18n-attr]').forEach(function(el) {
-          var pairs = el.getAttribute('data-i18n-attr').split(';');
-          pairs.forEach(function(pair) {
-            var kv = pair.split(':');
-            if (kv.length < 2) return;
-            var attr = kv[0].trim(), strKey = kv.slice(1).join(':').trim();
-            var str = getString(lang, strKey);
-            if (str !== undefined) el.setAttribute(attr, str);
-          });
-        });
-        var select = document.getElementById('langSelect');
-        if (select) select.value = lang;
-      }
-
-      var currentLang = getSavedLang();
-      applyStrings(currentLang);
-
-      var select = document.getElementById('langSelect');
-      if (select) {
-        select.addEventListener('change', function() {
-          var lang = normalizeLang(this.value);
-          saveLang(lang);
-          applyStrings(lang);
-        });
-      }
-    })();
-  </script>
-
-  <!-- LIGHTBOX CSS (shared pattern — must align with badiani-common.css) -->
-  <style>
-    .lightbox{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,0.96);
-      -webkit-backdrop-filter:blur(16px);
-      backdrop-filter:blur(16px);
-      z-index:10000;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      padding:20px;
-      opacity:0;
-      transition:opacity 0.3s ease;
-    }
-    .lightbox.active{ display:flex; opacity:1; }
-    .lightbox img{
-      max-width:90vw;
-      max-height:90vh;
-      object-fit:contain;
-      border-radius:12px;
-      box-shadow:0 20px 60px rgba(0,0,0,0.5);
-    }
-    .lightbox-close{
-      position:absolute;
-      top:20px; right:20px;
-      background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7);
-      border:none;
-      color:#fff;
-      font-size:28px;
-      width:55px; height:55px;
-      border-radius:50%;
-      cursor:pointer;
-      transition:transform 0.3s, background 0.3s;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 5px 20px rgba(240,103,166,0.5);
-    }
-    .lightbox-close:hover{
-      background:linear-gradient(135deg, var(--badiani-blue), #2a4ab0);
-      transform:rotate(90deg) scale(1.1);
-    }
-    .lightbox-nav{
-      position:absolute;
-      top:50%;
-      transform:translateY(-50%);
-      background:rgba(255,255,255,0.1);
-      border:1px solid rgba(255,255,255,0.15);
-      color:#fff;
-      font-size:28px;
-      width:56px; height:56px;
-      border-radius:50%;
-      cursor:pointer;
-      transition:background 0.3s;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .lightbox-nav:hover{ background:var(--badiani-pink); border-color:var(--badiani-pink); }
-    .lightbox-prev{ left:20px; }
-    .lightbox-next{ right:20px; }
-  </style>
-</body>
-</html>
+<!DOCTYPE html>
+
+<html lang="it">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+
+  <title>Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="description" content="Un viaggio esperienziale tra i gusti iconici di Paolo Pomposi. Tasting guidato nella saletta privata Badiani in Via de' Tosinghi, Firenze." />
+
+  <meta name="theme-color" content="#1e398d" />
+
+  <link rel="icon" href="../../assets/images/branding/favicon.ico" sizes="32x32" />
+
+  <link rel="icon" href="../../assets/images/branding/favicon.webp" type="image/webp" />
+
+  <link rel="apple-touch-icon" href="../../assets/images/branding/apple-touch-icon.png" />
+
+  <link rel="canonical" href="https://www.badiani1932.com/eventi/experience/" />
+
+  <meta property="og:type" content="website" />
+
+  <meta property="og:title" content="Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi" />
+
+  <meta property="og:description" content="Un tasting esperienziale dei gusti iconici creati da Paolo Pomposi. Degustazione guidata nella saletta privata Badiani a Firenze." />
+
+  <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+
+  <meta property="og:url" content="https://www.badiani1932.com/eventi/experience/" />
+
+  <meta property="og:site_name" content="Badiani 1932" />
+
+  <meta property="og:locale" content="it_IT" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <meta name="twitter:title" content="Experience — Badiani 1932 | Gli Iconici di Paolo Pomposi" />
+
+  <meta name="twitter:description" content="Un tasting esperienziale dei gusti iconici creati da Paolo Pomposi." />
+
+  <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+
+  <!-- OG image dimensions -->
+  <meta property="og:image:width" content="1665" />
+  <meta property="og:image:height" content="643" />
+  <meta property="og:image:type" content="image/webp" />
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
+  <link rel="dns-prefetch" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
+
+  <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/experience/" />
+
+  <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/experience/" />
+
+  <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/experience/" />
+
+  <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/experience/" />
+
+  <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/experience/" />
+
+  <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
+
+  <link rel="stylesheet" href="../../assets/badiani-common.css" />
+
+  <script type="application/ld+json">
+
+  {
+
+    "@context": "https://schema.org",
+
+    "@type": "WebPage",
+
+    "name": "Experience — Gli Iconici di Paolo Pomposi",
+
+    "description": "Tasting esperienziale dei gusti iconici Badiani creati da Paolo Pomposi, nella saletta privata in Via de' Tosinghi, Firenze.",
+
+    "url": "https://www.badiani1932.com/eventi/experience/",
+
+    "breadcrumb": {
+
+      "@type": "BreadcrumbList",
+
+      "itemListElement": [
+
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.badiani1932.com/"},
+
+        {"@type": "ListItem", "position": 2, "name": "Eventi", "item": "https://www.badiani1932.com/eventi/"},
+
+        {"@type": "ListItem", "position": 3, "name": "Experience"}
+
+      ]
+
+    },
+
+    "isPartOf": {
+
+      "@type": "WebSite",
+
+      "name": "Badiani 1932",
+
+      "url": "https://www.badiani1932.com/"
+
+    }
+
+  }
+
+  </script>
+
+  <style>
+
+    /* ============================================================
+
+       EXPERIENCE PAGE — aligned with eventi + saletta design
+
+       Full-bleed sections, dark overlays, SuperGrotesk typography
+
+       ============================================================ */
+
+
+
+    /* ===== HERO ===== */
+
+    .exp-hero{
+
+      position:relative;
+
+      overflow:hidden;
+
+      min-height:60vh;
+
+      display:flex;
+
+      align-items:flex-end;
+
+      background:#0a1440;
+
+    }
+
+    .exp-hero__bg{
+
+      position:absolute;
+
+      inset:0;
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      object-position:center center;
+
+      filter:brightness(0.5);
+
+      /* placeholder: swap with a dedicated Experience photo/video when available */
+
+    }
+
+    .exp-hero__content{
+
+      position:relative;
+
+      z-index:2;
+
+      width:100%;
+
+      padding:48px 52px;
+
+      display:flex;
+
+      flex-direction:row;
+
+      align-items:flex-end;
+
+      gap:24px;
+
+    }
+
+    .exp-hero__heading{
+
+      display:flex;
+
+      flex-direction:column;
+
+      align-items:flex-start;
+
+      flex-shrink:0;
+
+    }
+
+    .exp-hero__label{
+
+      display:block;
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      text-transform:uppercase;
+
+      letter-spacing:3px;
+
+      font-weight:400;
+
+      color:var(--badiani-pink);
+
+      margin-bottom:16px;
+
+      line-height:1.6;
+
+    }
+
+    .exp-hero__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(72px, 9vw, 140px);
+
+      font-weight:700;
+
+      letter-spacing:4px;
+
+      text-transform:uppercase;
+
+      line-height:0.9;
+
+      color:#fff;
+
+      text-shadow:none;
+
+    }
+
+    .exp-hero__desc{
+
+      font-size:clamp(14px, 1.2vw, 17px);
+
+      color:rgba(255,255,255,0.85);
+
+      line-height:1.5;
+
+      max-width:300px;
+
+      padding-bottom:8px;
+
+      font-weight:300;
+
+    }
+
+
+
+    /* ===== CONCEPT — dark-blue split layout ===== */
+
+    .exp-concept{
+
+      background:var(--badiani-blue);
+
+      padding:0;
+
+    }
+
+    .exp-concept__grid{
+
+      display:grid;
+
+      grid-template-columns:1fr 1fr;
+
+      gap:0;
+
+    }
+
+    .exp-concept__info{
+
+      background:var(--badiani-blue);
+
+      color:#fff;
+
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+
+      display:flex;
+
+      flex-direction:column;
+
+      justify-content:center;
+
+    }
+
+    .exp-concept__details{
+
+      background:rgba(255,255,255,0.04);
+
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:0;
+
+      justify-content:center;
+
+    }
+
+    .exp-concept__label{
+
+      display:block;
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      text-transform:uppercase;
+
+      letter-spacing:3px;
+
+      color:var(--badiani-pink);
+
+      font-weight:600;
+
+      margin-bottom:16px;
+
+    }
+
+    .exp-concept__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(36px, 4.5vw, 72px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:#fff;
+
+      font-weight:700;
+
+      line-height:0.95;
+
+      margin-bottom:16px;
+
+      text-shadow:none;
+
+    }
+
+    .exp-concept__subtitle{
+
+      font-size:clamp(14px, 1.4vw, 18px);
+
+      font-style:italic;
+
+      font-weight:300;
+
+      color:rgba(255,255,255,0.75);
+
+      margin-bottom:24px;
+
+      line-height:1.5;
+
+    }
+
+    .exp-concept__desc{
+
+      font-size:clamp(14px, 1.2vw, 17px);
+
+      color:rgba(255,255,255,0.7);
+
+      line-height:1.7;
+
+      font-weight:300;
+
+      margin-bottom:14px;
+
+      max-width:520px;
+
+    }
+
+    .exp-concept__highlight{
+
+      font-size:clamp(15px, 1.3vw, 18px);
+
+      color:rgba(255,255,255,0.9);
+
+      font-style:italic;
+
+      font-weight:400;
+
+      padding-top:12px;
+
+      border-top:1px solid rgba(255,255,255,0.12);
+
+      line-height:1.6;
+
+    }
+
+    .exp-concept__detail-item{
+
+      padding:clamp(20px, 2.5vw, 32px) 0;
+
+      border-top:1px solid rgba(255,255,255,0.1);
+
+    }
+
+    .exp-concept__detail-item:last-child{
+
+      border-bottom:1px solid rgba(255,255,255,0.1);
+
+    }
+
+    .exp-concept__detail-label{
+
+      display:block;
+
+      font-size:clamp(10px, 0.85vw, 12px);
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      color:var(--badiani-pink);
+
+      font-weight:700;
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-concept__detail-value{
+
+      font-size:clamp(13px, 1.1vw, 16px);
+
+      color:rgba(255,255,255,0.85);
+
+      line-height:1.65;
+
+      font-weight:300;
+
+    }
+
+
+
+    /* ===== FORMAT — single-format dark card ===== */
+
+    .exp-format{
+
+      position:relative;
+
+      padding:clamp(60px, 8vw, 100px) clamp(32px, 4vw, 64px);
+
+      background:#000;
+
+      overflow:hidden;
+
+    }
+
+    .exp-format::before{
+
+      content:'';
+
+      position:absolute;
+
+      inset:0;
+
+      /* placeholder background — swap with dedicated photo when available */
+
+      background:url('../../assets/images/migrated/eventi/foto%20eventi/4.webp') center/cover no-repeat;
+
+      opacity:0.28;
+
+      z-index:0;
+
+    }
+
+    .exp-format__inner{
+
+      position:relative;
+
+      z-index:1;
+
+      max-width:960px;
+
+      margin:0 auto;
+
+    }
+
+    .exp-format__header{
+
+      text-align:center;
+
+      margin-bottom:clamp(36px, 4vw, 56px);
+
+    }
+
+    .exp-format__tag{
+
+      display:block;
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      text-transform:uppercase;
+
+      letter-spacing:3px;
+
+      color:var(--badiani-pink);
+
+      font-weight:600;
+
+      margin-bottom:14px;
+
+    }
+
+    .exp-format__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(40px, 5vw, 80px);
+
+      font-weight:700;
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      line-height:0.92;
+
+      color:#fff;
+
+      text-shadow:none;
+
+      margin-bottom:16px;
+
+    }
+
+    .exp-format__price{
+
+      display:block;
+
+      font-size:clamp(22px, 2.4vw, 36px);
+
+      font-weight:700;
+
+      color:var(--badiani-pink);
+
+      margin-bottom:6px;
+
+    }
+
+    .exp-format__note{
+
+      font-size:clamp(13px, 1.1vw, 15px);
+
+      color:rgba(255,255,255,0.5);
+
+      font-weight:300;
+
+    }
+
+    .exp-format__specs{
+
+      display:grid;
+
+      grid-template-columns:repeat(3, 1fr);
+
+      gap:0;
+
+      border:1px solid rgba(255,255,255,0.12);
+
+      border-radius:16px;
+
+      overflow:hidden;
+
+      background:rgba(0,0,0,0.65);
+
+      -webkit-backdrop-filter:blur(12px);
+
+      backdrop-filter:blur(12px);
+
+    }
+
+    .exp-spec{
+
+      padding:clamp(22px, 2.5vw, 36px) clamp(22px, 2.5vw, 36px);
+
+      border-bottom:1px solid rgba(255,255,255,0.06);
+
+      border-right:1px solid rgba(255,255,255,0.06);
+
+    }
+
+    .exp-spec:nth-child(3n){ border-right:none; }
+
+    .exp-spec:nth-last-child(-n+3){ border-bottom:none; }
+
+    .exp-spec__label{
+
+      display:block;
+
+      font-size:clamp(10px, 0.85vw, 12px);
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      color:rgba(255,255,255,0.45);
+
+      font-weight:700;
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-spec:nth-child(2n) .exp-spec__label{ color:var(--badiani-pink); }
+
+    .exp-spec__value{
+
+      font-size:clamp(14px, 1.2vw, 17px);
+
+      font-weight:300;
+
+      color:rgba(255,255,255,0.88);
+
+      line-height:1.6;
+
+    }
+
+    .exp-format__cta{
+
+      display:flex;
+
+      justify-content:center;
+
+      margin-top:clamp(40px, 5vw, 60px);
+
+    }
+
+    .exp-cta-btn{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      gap:12px;
+
+      background:var(--badiani-pink);
+
+      color:#fff;
+
+      border:none;
+
+      padding:18px 56px;
+
+      border-radius:999px;
+
+      font-size:14px;
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      font-family:inherit;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
+
+      box-shadow:0 10px 32px rgba(240,103,166,0.4);
+
+    }
+
+    .exp-cta-btn:hover{
+
+      background:#fff;
+
+      color:var(--badiani-blue);
+
+      transform:translateY(-3px);
+
+      box-shadow:0 14px 40px rgba(255,255,255,0.2);
+
+    }
+
+    .exp-cta-btn:focus-visible{
+
+      outline:2px solid #fff;
+
+      outline-offset:3px;
+
+    }
+
+    .exp-cta-btn svg{ width:18px; height:18px; fill:currentColor; }
+
+
+
+    /* ===== STRUCTURE — 3-step tasting timeline ===== */
+
+    .exp-structure{
+
+      background:var(--badiani-blue);
+
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+
+    }
+
+    .exp-structure__label{
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,0.5);
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-structure__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(36px, 4.5vw, 72px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:#fff;
+
+      margin-bottom:clamp(32px, 4vw, 52px);
+
+      font-weight:700;
+
+      line-height:0.95;
+
+      text-shadow:none;
+
+    }
+
+    .exp-structure__steps{
+
+      display:grid;
+
+      grid-template-columns:repeat(3, 1fr);
+
+      gap:clamp(24px, 3vw, 48px);
+
+      max-width:1400px;
+
+    }
+
+    .exp-step{
+
+      padding:clamp(24px, 2.5vw, 36px) 0 clamp(20px, 2vw, 28px);
+
+      border-top:2px solid rgba(255,255,255,0.15);
+
+    }
+
+    .exp-step__number{
+
+      display:block;
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(52px, 6.5vw, 100px);
+
+      font-weight:700;
+
+      color:var(--badiani-pink);
+
+      line-height:0.9;
+
+      margin-bottom:14px;
+
+      opacity:0.55;
+
+      letter-spacing:2px;
+
+    }
+
+    .exp-step__title{
+
+      display:block;
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(20px, 2.2vw, 30px);
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      color:#fff;
+
+      font-weight:700;
+
+      margin-bottom:6px;
+
+      line-height:1.05;
+
+      text-shadow:none;
+
+    }
+
+    .exp-step__duration{
+
+      display:block;
+
+      font-size:clamp(12px, 1vw, 14px);
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      color:var(--badiani-pink);
+
+      font-weight:600;
+
+      margin-bottom:14px;
+
+    }
+
+    .exp-step__desc{
+
+      font-size:clamp(14px, 1.1vw, 16px);
+
+      color:rgba(255,255,255,0.72);
+
+      line-height:1.7;
+
+      font-weight:300;
+
+    }
+
+    .exp-step__items{
+
+      list-style:none;
+
+      padding:0;
+
+      margin:12px 0 0;
+
+    }
+
+    .exp-step__items li{
+
+      font-size:clamp(13px, 1.05vw, 15px);
+
+      color:rgba(255,255,255,0.72);
+
+      line-height:1.5;
+
+      padding:8px 0;
+
+      border-bottom:1px solid rgba(255,255,255,0.06);
+
+      font-weight:300;
+
+      padding-left:12px;
+
+      position:relative;
+
+    }
+
+    .exp-step__items li::before{
+
+      content:'—';
+
+      position:absolute;
+
+      left:0;
+
+      color:var(--badiani-pink);
+
+      opacity:0.7;
+
+    }
+
+    .exp-step__items li:last-child{ border-bottom:none; }
+
+
+
+    /* ===== FLAVORS — 4-column gelato grid ===== */
+
+    .exp-flavors{
+
+      background:#0a1440;
+
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+
+    }
+
+    .exp-flavors__label{
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,0.45);
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-flavors__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(36px, 4.5vw, 72px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:#fff;
+
+      margin-bottom:clamp(28px, 4vw, 48px);
+
+      font-weight:700;
+
+      line-height:0.95;
+
+      text-shadow:none;
+
+    }
+
+    .exp-flavors__grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(4, 1fr);
+
+      gap:clamp(12px, 1.5vw, 20px);
+
+      margin-bottom:clamp(28px, 3.5vw, 48px);
+
+    }
+
+    .exp-flavor{
+
+      background:rgba(255,255,255,0.04);
+
+      border:1px solid rgba(255,255,255,0.09);
+
+      border-radius:12px;
+
+      overflow:hidden;
+
+      display:flex;
+
+      flex-direction:column;
+
+      transition:transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+
+    }
+
+    .exp-flavor:hover{
+
+      transform:translateY(-4px);
+
+      box-shadow:0 14px 40px rgba(0,0,0,0.5);
+
+      border-color:rgba(240,103,166,0.35);
+
+    }
+
+    .exp-flavor__img-wrap{
+
+      overflow:hidden;
+
+      height:clamp(150px, 20vh, 210px);
+
+    }
+
+    .exp-flavor__img{
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+
+      filter:brightness(0.8);
+
+      transition:filter 0.4s ease, transform 0.4s cubic-bezier(0.4,0,0.2,1);
+
+    }
+
+    .exp-flavor:hover .exp-flavor__img{
+
+      filter:brightness(1);
+
+      transform:scale(1.06);
+
+    }
+
+    .exp-flavor__body{
+
+      padding:clamp(16px, 1.8vw, 24px);
+
+      flex:1;
+
+      display:flex;
+
+      flex-direction:column;
+
+    }
+
+    .exp-flavor__index{
+
+      display:inline-block;
+
+      font-size:clamp(10px, 0.85vw, 12px);
+
+      font-weight:700;
+
+      text-transform:uppercase;
+
+      letter-spacing:2.5px;
+
+      color:var(--badiani-pink);
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-flavor__name{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(18px, 2vw, 26px);
+
+      text-transform:uppercase;
+
+      letter-spacing:1.5px;
+
+      color:#fff;
+
+      font-weight:700;
+
+      line-height:1.1;
+
+      margin-bottom:10px;
+
+      text-shadow:none;
+
+    }
+
+    .exp-flavor__desc{
+
+      font-size:clamp(13px, 1.05vw, 15px);
+
+      color:rgba(255,255,255,0.6);
+
+      line-height:1.65;
+
+      font-weight:300;
+
+      margin-top:auto;
+
+    }
+
+    .exp-flavors__allergie{
+
+      text-align:center;
+
+      font-size:clamp(13px, 1.05vw, 15px);
+
+      color:rgba(255,255,255,0.5);
+
+      border-top:1px solid rgba(255,255,255,0.08);
+
+      padding-top:clamp(20px, 2.5vw, 32px);
+
+      max-width:650px;
+
+      margin:0 auto;
+
+      line-height:1.7;
+
+    }
+
+    .exp-flavors__allergie strong{ color:var(--badiani-pink); }
+
+
+
+    /* ===== GALLERY — placeholder blue section ===== */
+
+    .exp-gallery{
+
+      background:var(--badiani-blue);
+
+      padding:clamp(28px, 3vw, 44px) clamp(24px, 4vw, 56px) clamp(48px, 6vw, 80px);
+
+    }
+
+    .exp-gallery__label{
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,0.5);
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-gallery__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(36px, 4.5vw, 72px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:#fff;
+
+      margin-bottom:clamp(28px, 4vw, 48px);
+
+      font-weight:700;
+
+      line-height:0.95;
+
+      text-shadow:none;
+
+    }
+
+    .exp-gallery__grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(4, 1fr);
+
+      gap:clamp(8px, 1vw, 16px);
+
+    }
+
+    .exp-gallery__photo{
+
+      position:relative;
+
+      overflow:hidden;
+
+      cursor:pointer;
+
+      aspect-ratio:1 / 1;
+
+      border-radius:4px;
+
+    }
+
+    .exp-gallery__photo img{
+
+      width:100%;
+
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+
+      transition:transform 0.5s cubic-bezier(0.4,0,0.2,1), filter 0.4s ease;
+
+      filter:brightness(0.85);
+
+    }
+
+    .exp-gallery__photo:hover img{
+
+      transform:scale(1.08);
+
+      filter:brightness(1.05);
+
+    }
+
+    .exp-gallery__placeholder{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      background:rgba(255,255,255,0.05);
+
+      border:1px dashed rgba(255,255,255,0.15);
+
+      border-radius:4px;
+
+      aspect-ratio:1 / 1;
+
+      color:rgba(255,255,255,0.3);
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      font-weight:400;
+
+      text-align:center;
+
+      padding:16px;
+
+      line-height:1.6;
+
+    }
+
+
+
+    /* ===== TERMS — pricing & booking ===== */
+
+    .exp-terms{
+
+      background:var(--badiani-blue);
+
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
+
+      border-top:1px solid rgba(255,255,255,0.06);
+
+    }
+
+    .exp-terms__label{
+
+      font-size:clamp(11px, 1vw, 14px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:rgba(255,255,255,0.5);
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-terms__title{
+
+      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
+
+      font-size:clamp(36px, 4.5vw, 72px);
+
+      letter-spacing:3px;
+
+      text-transform:uppercase;
+
+      color:#fff;
+
+      margin-bottom:clamp(28px, 4vw, 48px);
+
+      font-weight:700;
+
+      line-height:0.95;
+
+      text-shadow:none;
+
+    }
+
+    .exp-terms__grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(4, 1fr);
+
+      gap:clamp(16px, 2vw, 28px);
+
+      max-width:1200px;
+
+    }
+
+    .exp-terms__item{
+
+      padding:clamp(20px, 2vw, 32px) 0;
+
+      border-top:1px solid rgba(255,255,255,0.15);
+
+    }
+
+    .exp-terms__item-label{
+
+      font-size:clamp(11px, 0.9vw, 13px);
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      color:var(--badiani-pink);
+
+      font-weight:700;
+
+      margin-bottom:10px;
+
+      display:block;
+
+    }
+
+    .exp-terms__item-value{
+
+      font-size:clamp(14px, 1.1vw, 16px);
+
+      color:rgba(255,255,255,0.85);
+
+      line-height:1.7;
+
+      font-weight:300;
+
+    }
+
+
+
+    /* ===== FORM — booking section with sfondo bg ===== */
+
+    .exp-form-section{
+
+      position:relative;
+
+      overflow:visible;
+
+      padding:clamp(40px, 6vw, 80px) clamp(16px, 4vw, 80px);
+
+      background:transparent;
+
+    }
+
+    .exp-form-section::before{
+
+      content:'';
+
+      position:absolute;
+
+      inset:0;
+
+      background:url('../../assets/images/branding/sfondo.webp') center/cover no-repeat;
+
+      transform:scaleX(-1);
+
+      z-index:0;
+
+    }
+
+    .exp-form-section > *{
+
+      position:relative;
+
+      z-index:1;
+
+    }
+
+    .exp-form-block{
+
+      max-width:900px;
+
+      margin:0 auto;
+
+      background:#fff;
+
+      border-radius:28px;
+
+      overflow:hidden;
+
+      box-shadow:0 20px 60px rgba(30,57,141,0.10);
+
+      position:relative;
+
+      z-index:2;
+
+    }
+
+    .exp-form-header{
+
+      background:linear-gradient(135deg, var(--badiani-blue) 0%, #2a4faf 100%);
+
+      padding:clamp(28px, 4vw, 44px) clamp(24px, 4vw, 60px);
+
+      text-align:center;
+
+      color:#fff;
+
+    }
+
+    .exp-form-header h2{
+
+      font-size:clamp(22px, 2.8vw, 34px);
+
+      letter-spacing:2px;
+
+      text-transform:uppercase;
+
+      color:#fff;
+
+      margin-bottom:8px;
+
+    }
+
+    .exp-form-header p{
+
+      font-size:clamp(14px, 1.2vw, 17px);
+
+      color:rgba(255,255,255,0.75);
+
+      line-height:1.5;
+
+    }
+
+    .exp-form-body{
+
+      padding:clamp(28px, 4vw, 48px) clamp(24px, 4vw, 60px);
+
+    }
+
+    .exp-form-grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(2, 1fr);
+
+      gap:20px;
+
+    }
+
+    .ef2-field{
+
+      display:flex;
+
+      flex-direction:column;
+
+      gap:6px;
+
+    }
+
+    .ef2-field.full-width{
+
+      grid-column:1 / -1;
+
+    }
+
+    .exp-form-grid label{
+
+      font-size:12px;
+
+      text-transform:uppercase;
+
+      letter-spacing:1.2px;
+
+      color:#6a6b6e;
+
+      font-weight:600;
+
+    }
+
+    .exp-form-grid input,
+
+    .exp-form-grid textarea{
+
+      width:100%;
+
+      border:1px solid rgba(30,57,141,0.15);
+
+      border-radius:12px;
+
+      padding:12px 14px;
+
+      font-family:inherit;
+
+      font-size:14px;
+
+      background:#f8f9fc;
+
+      color:#4a4f57;
+
+      transition:border-color 0.3s, box-shadow 0.3s;
+
+      resize:vertical;
+
+    }
+
+    .exp-form-grid input:focus-visible,
+
+    .exp-form-grid textarea:focus-visible{
+
+      outline:2px solid var(--badiani-blue);
+
+      outline-offset:2px;
+
+      border-color:var(--badiani-blue);
+
+      box-shadow:0 0 0 3px rgba(30,57,141,0.1);
+
+    }
+
+    .exp-form-grid input::placeholder,
+
+    .exp-form-grid textarea::placeholder{
+
+      color:#b0b4ba;
+
+    }
+
+    .exp-form-grid textarea{
+
+      min-height:100px;
+
+      line-height:1.5;
+
+    }
+
+    .exp-form-actions{
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:space-between;
+
+      flex-wrap:wrap;
+
+      gap:16px;
+
+      margin-top:28px;
+
+      padding-top:24px;
+
+      border-top:1px solid rgba(30,57,141,0.08);
+
+    }
+
+    .exp-form-actions .ef2-privacy{
+
+      display:flex;
+
+      align-items:flex-start;
+
+      gap:10px;
+
+      font-size:13px;
+
+      color:#6a6b6e;
+
+      line-height:1.5;
+
+    }
+
+    .exp-form-actions .ef2-privacy input{
+
+      margin-top:2px;
+
+      width:16px;
+
+      height:16px;
+
+      accent-color:var(--badiani-blue);
+
+      flex-shrink:0;
+
+    }
+
+    .exp-form-submit{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      gap:10px;
+
+      border:none;
+
+      background:var(--badiani-blue);
+
+      color:#fff;
+
+      padding:14px 36px;
+
+      border-radius:999px;
+
+      font-size:13px;
+
+      text-transform:uppercase;
+
+      letter-spacing:2px;
+
+      font-family:inherit;
+
+      font-weight:600;
+
+      cursor:pointer;
+
+      transition:background 0.3s, transform 0.3s, box-shadow 0.3s;
+
+      box-shadow:0 8px 24px rgba(30,57,141,0.2);
+
+    }
+
+    .exp-form-submit:hover{
+
+      background:var(--badiani-pink);
+
+      transform:translateY(-2px);
+
+      box-shadow:0 12px 32px rgba(240,103,166,0.25);
+
+    }
+
+    .exp-form-submit:focus-visible{
+
+      outline:2px solid var(--badiani-pink);
+
+      outline-offset:3px;
+
+    }
+
+    .exp-form-submit svg{
+
+      width:18px; height:18px; fill:currentColor;
+
+    }
+
+
+
+
+
+    /* ===== TEXT SHADOW OVERRIDE ===== */
+
+    :where(.exp-hero, .exp-concept, .exp-format, .exp-structure, .exp-flavors, .exp-gallery, .exp-terms, .exp-form-section)
+
+    :is(h1, h2, h3, h4, p, span, small, strong, label, li){
+
+      text-shadow:none !important;
+
+    }
+
+
+
+    /* ===== RESPONSIVE ===== */
+
+    @media(max-width:900px){
+
+      .exp-hero__content{
+
+        padding:32px 28px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+      }
+
+      .exp-hero__title{
+
+        font-size:clamp(48px, 9vw, 72px);
+
+        letter-spacing:2px;
+
+      }
+
+      .exp-hero__desc{ max-width:none; }
+
+
+
+      .exp-concept__grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .exp-concept__details{
+
+        padding-top:clamp(32px, 4vw, 48px);
+
+      }
+
+
+
+      .exp-format__specs{
+
+        grid-template-columns:1fr 1fr;
+
+      }
+
+      .exp-spec:nth-child(3n){ border-right:1px solid rgba(255,255,255,0.06); }
+
+      .exp-spec:nth-child(2n){ border-right:none; }
+
+      .exp-spec:nth-last-child(-n+3){ border-bottom:1px solid rgba(255,255,255,0.06); }
+
+      .exp-spec:nth-last-child(-n+2){ border-bottom:none; }
+
+
+
+      .exp-structure__steps{
+
+        grid-template-columns:1fr;
+
+        gap:0;
+
+      }
+
+      .exp-step{ border-top:1px solid rgba(255,255,255,0.12); }
+
+
+
+      .exp-flavors__grid{
+
+        grid-template-columns:repeat(2, 1fr);
+
+      }
+
+
+
+      .exp-gallery__grid{
+
+        grid-template-columns:repeat(2, 1fr);
+
+      }
+
+
+
+      .exp-terms__grid{
+
+        grid-template-columns:repeat(2, 1fr);
+
+      }
+
+    }
+
+
+
+    @media(max-width:600px){
+
+      .exp-hero{ min-height:45vh; }
+
+      .exp-hero__content{ padding:24px 20px; }
+
+      .exp-hero__title{ font-size:clamp(40px, 12vw, 72px); }
+
+
+
+      .exp-format{ padding:clamp(40px, 6vw, 60px) 20px; }
+
+      .exp-format__specs{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .exp-spec{ border-right:none !important; }
+
+      .exp-spec:nth-last-child(n+2){ border-bottom:1px solid rgba(255,255,255,0.06); }
+
+      .exp-spec:last-child{ border-bottom:none; }
+
+
+
+      .exp-flavors__grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+
+      .exp-gallery__grid{
+
+        grid-template-columns:repeat(2, 1fr);
+
+      }
+
+
+
+      .exp-terms__grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+
+
+      .exp-form-grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .exp-form-actions{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        text-align:center;
+
+      }
+
+      .exp-form-submit{
+
+        justify-content:center;
+
+      }
+
+    }
+
+
+
+    @media(prefers-reduced-motion: reduce){
+
+      .exp-hero__bg,
+
+      .exp-flavor__img,
+
+      .exp-gallery__photo img{
+
+        transition:none !important;
+
+        transform:none !important;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Salta al contenuto</a>
+
+
+
+  <!-- TOPBAR -->
+
+  <header class="topbar" data-i18n-attr="aria-label:topbar.label">
+
+    <a href="../../" class="topbar__logo">
+
+      <img src="../../assets/images/branding/logo.webp" alt="Badiani 1932" width="1665" height="643" />
+
+    </a>
+
+    <div class="topbar__right">
+
+      <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
+
+        <a href="../../" data-i18n="nav.home">Home</a>
+
+        <div class="topbar__dropdown">
+
+          <a href="../" data-i18n="nav.eventi">Eventi</a>
+
+          <div class="topbar__dropdown-menu">
+
+            <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+
+            <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+
+            <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+
+            <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
+
+          </div>
+
+        </div>
+
+        <div class="topbar__dropdown">
+
+          <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+
+          <div class="topbar__dropdown-menu">
+
+            <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+
+            <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+
+            <a href="../../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+
+            <a href="../../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+
+            <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+
+            <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+      <div class="topbar__lang">
+        <select class="topbar__select" id="langSelect" hidden data-i18n-attr="aria-label:lang.label">
+          <option value="it" data-i18n="lang.it"></option>
+          <option value="en" data-i18n="lang.en"></option>
+          <option value="es" data-i18n="lang.es"></option>
+          <option value="fr" data-i18n="lang.fr"></option>
+        </select>
+        <div class="topbar__lang-dd">
+          <button class="topbar__lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="topbar__lang-cur">IT</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path fill="#ffffff" d="M6 8L1 3h10z"/></svg>
+          </button>
+          <div class="topbar__lang-panel" role="listbox" aria-hidden="true">
+            <button class="topbar__lang-opt" data-lang="it" role="option" data-i18n="lang.it">IT</button>
+            <button class="topbar__lang-opt" data-lang="en" role="option" data-i18n="lang.en">EN</button>
+            <button class="topbar__lang-opt" data-lang="es" role="option" data-i18n="lang.es">ES</button>
+            <button class="topbar__lang-opt" data-lang="fr" role="option" data-i18n="lang.fr">FR</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+
+        <span></span>
+
+      </button>
+
+    </div>
+
+  </header>
+
+  <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
+
+    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
+
+    <a href="../../" data-i18n="nav.home">Home</a>
+
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
+        <a href="../" data-i18n="nav.eventi">Eventi</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="topbar__mobile-group-items">
+        <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+        <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+        <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+        <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
+      </div>
+    </div>
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
+        <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="topbar__mobile-group-items">
+        <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+        <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+        <a href="../../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+        <a href="../../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+        <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+        <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+      </div>
+    </div>
+    <div class="topbar__mobile-lang">
+      <button class="topbar__mobile-lang-btn" data-lang="it" data-i18n="lang.it">IT</button>
+      <button class="topbar__mobile-lang-btn" data-lang="en" data-i18n="lang.en">EN</button>
+      <button class="topbar__mobile-lang-btn" data-lang="es" data-i18n="lang.es">ES</button>
+      <button class="topbar__mobile-lang-btn" data-lang="fr" data-i18n="lang.fr">FR</button>
+    </div>
+
+  </nav>
+
+
+
+  <!-- HERO — immagine/video placeholder; sostituire con contenuto definitivo -->
+
+  <section class="exp-hero" id="main-content">
+
+    <!-- VIDEO (da aggiungere quando disponibile):
+
+    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+
+      <source src="../../assets/video/videoexperience.mp4" type="video/mp4">
+
+    </video> -->
+
+    <img class="exp-hero__bg"
+
+      src="../../assets/images/wxperience-bicchierini.png"
+
+      alt=""
+
+      loading="eager"
+
+      decoding="async"
+
+      aria-hidden="true"
+
+      width="1200"
+
+      height="800" />
+
+    <div class="exp-hero__content">
+
+      <div class="exp-hero__heading">
+
+        <h1 class="exp-hero__title title-accent title-accent--light">Gli Iconici</h1>
+
+      </div>
+
+      <p class="exp-hero__desc">Un racconto esperienziale dei gusti iconici di Paolo Pomposi</p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- CONCEPT — dark blue split intro -->
+
+  <section class="exp-concept" aria-label="Il Concept dell'Experience">
+
+    <div class="exp-concept__grid">
+
+      <div class="exp-concept__info">
+
+        <span class="exp-concept__label">Il Concept</span>
+
+        <h2 class="exp-concept__title title-accent title-accent--light">Un Racconto Esperienziale</h2>
+
+        <p class="exp-concept__subtitle">Firmata Paolo Pomposi per Badiani 1932</p>
+
+        <p class="exp-concept__desc">Un viaggio guidato alla scoperta dei gusti iconici creati da Paolo Pomposi, raccontati attraverso la storia dell'azienda, la filosofia produttiva, una degustazione guidata e un momento conviviale e narrativo.</p>
+
+        <p class="exp-concept__highlight">Non è solo una degustazione, ma un racconto esperienziale.</p>
+
+      </div>
+
+      <div class="exp-concept__details">
+
+        <div class="exp-concept__detail-item">
+
+          <span class="exp-concept__detail-label">Luogo</span>
+
+          <span class="exp-concept__detail-value">Saletta — Via de' Tosinghi, Firenze<br>Centro storico</span>
+
+        </div>
+
+        <div class="exp-concept__detail-item">
+
+          <span class="exp-concept__detail-label">Atmosfera</span>
+
+          <span class="exp-concept__detail-value">Experience immersiva · Ispirata da Paolo Pomposi<br>1 operatore dedicato per ogni esperienza</span>
+
+        </div>
+
+        <div class="exp-concept__detail-item">
+
+          <span class="exp-concept__detail-label">Temi</span>
+
+          <span class="exp-concept__detail-value">Storia del Buontalenti · Filosofia produttiva · Degustazione guidata · Convivialità</span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FORMAT — single-format card with all specs -->
+
+  <section class="exp-format" aria-label="Format e prezzi">
+
+    <div class="exp-format__inner">
+
+      <div class="exp-format__header">
+
+        <span class="exp-format__tag">Unico Formato Disponibile</span>
+
+        <h2 class="exp-format__title">Tasting<br>&#8220;Gli Iconici&#8221;</h2>
+
+        <span class="exp-format__price">&euro;25,00 / persona</span>
+
+        <p class="exp-format__note">IVA inclusa &mdash; prenotazione obbligatoria entro 4 giorni</p>
+
+      </div>
+
+      <div class="exp-format__specs">
+
+        <div class="exp-spec">
+
+          <span class="exp-spec__label">Durata</span>
+
+          <span class="exp-spec__value">1 ora</span>
+
+        </div>
+
+        <div class="exp-spec">
+
+          <span class="exp-spec__label">Orario</span>
+
+          <span class="exp-spec__value">12:30 &ndash; 13:30</span>
+
+        </div>
+
+        <div class="exp-spec">
+
+          <span class="exp-spec__label">Giorni</span>
+
+          <span class="exp-spec__value">Da martedì a venerdì</span>
+
+        </div>
+
+        <div class="exp-spec">
+
+          <span class="exp-spec__label">Partecipanti</span>
+
+          <span class="exp-spec__value">Min&nbsp;10 &mdash; Max&nbsp;20</span>
+
+        </div>
+
+        <div class="exp-spec">
+
+          <span class="exp-spec__label">Spazio</span>
+
+          <span class="exp-spec__value">Metà saletta privata<br>lato bancone gelato</span>
+
+        </div>
+
+        <div class="exp-spec">
+
+          <span class="exp-spec__label">Staff</span>
+
+          <span class="exp-spec__value">1 operatore dedicato</span>
+
+        </div>
+
+      </div>
+
+      <div class="exp-format__cta">
+
+        <button type="button" class="exp-cta-btn" id="scrollToContattiBtn">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+
+          Prenota l&rsquo;Experience
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- STRUCTURE — 3-step tasting timeline -->
+
+  <section class="exp-structure" aria-label="Struttura dell'evento">
+
+    <p class="exp-structure__label">Il Programma</p>
+
+    <h2 class="exp-structure__title title-accent title-accent--light">Struttura dell'Ora</h2>
+
+    <div class="exp-structure__steps">
+
+      <div class="exp-step">
+
+        <span class="exp-step__number">01</span>
+
+        <span class="exp-step__title">Accoglienza</span>
+
+        <span class="exp-step__duration">5 minuti</span>
+
+        <p class="exp-step__desc">Gli ospiti saranno accolti dal nostro operatore</p>
+
+      </div>
+
+      <div class="exp-step">
+
+        <span class="exp-step__number">02</span>
+
+        <span class="exp-step__title">Introduzione</span>
+
+        <span class="exp-step__duration">10 &ndash; 15 minuti</span>
+
+        <p class="exp-step__desc">Racconto della storia di Badiani 1932, della figura di Paolo Pomposi e della nascita dei gusti iconici che hanno reso celebre la gelateria nel mondo.</p>
+
+      </div>
+
+      <div class="exp-step">
+
+        <span class="exp-step__number">03</span>
+
+        <span class="exp-step__title">Degustazione Guidata</span>
+
+        <span class="exp-step__duration">40 minuti</span>
+
+        <p class="exp-step__desc">Presentazione, distribuzione e assaggio guidato di 4 gusti iconici, ciascuno accompagnato da note di gusto e racconto narrativo.</p>
+
+        <ul class="exp-step__items">
+
+          <li>Presentazione del gusto</li>
+
+          <li>Assaggio guidato</li>
+
+          <li>Ripetizione per tutti e 4 i gusti</li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- GUSTI IN DEGUSTAZIONE — 4 flavors -->
+
+  <section class="exp-flavors" aria-label="I gusti in degustazione">
+
+    <p class="exp-flavors__label">Degustazione</p>
+
+    <h2 class="exp-flavors__title title-accent title-accent--light">I Gusti in Degustazione</h2>
+
+    <div class="exp-flavors__grid">
+
+      <div class="exp-flavor">
+
+        <div class="exp-flavor__img-wrap">
+
+          <img class="exp-flavor__img"
+
+            src="../../assets/gelato/Buontalenti/buontalenti-2.webp"
+
+            alt="Buontalenti"
+
+            loading="lazy"
+
+            decoding="async"
+
+            width="800"
+
+            height="600" />
+
+        </div>
+
+        <div class="exp-flavor__body">
+
+          <span class="exp-flavor__index">Gusto 01</span>
+
+          <h3 class="exp-flavor__name">Buontalenti</h3>
+
+          <p class="exp-flavor__desc">Il gusto che racconta le origini. Cremoso, esclusivo, senza tempo. Il capostipite degli iconici Badiani.</p>
+
+        </div>
+
+      </div>
+
+      <div class="exp-flavor">
+
+        <div class="exp-flavor__img-wrap">
+
+          <img class="exp-flavor__img"
+
+            src="../../assets/gelato/Buontalenti%20al%20Pistacchio/buontalenti_pistachio-2.webp"
+
+            alt="Buontalenti al Pistacchio"
+
+            loading="lazy"
+
+            decoding="async"
+
+            width="800"
+
+            height="600" />
+
+        </div>
+
+        <div class="exp-flavor__body">
+
+          <span class="exp-flavor__index">Gusto 02</span>
+
+          <h3 class="exp-flavor__name">Buontalenti al Pistacchio</h3>
+
+          <p class="exp-flavor__desc">La firma Badiani arricchita dalle note intense di pistacchio selezionato. Elegante e riconoscibile.</p>
+
+        </div>
+
+      </div>
+
+      <div class="exp-flavor">
+
+        <div class="exp-flavor__img-wrap">
+
+          <img class="exp-flavor__img"
+
+            src="../../assets/gelato/La%20Dolcevita/la_dolcevita-2.webp"
+
+            alt="La Dolcevita"
+
+            loading="lazy"
+
+            decoding="async"
+
+            width="800"
+
+            height="600" />
+
+        </div>
+
+        <div class="exp-flavor__body">
+
+          <span class="exp-flavor__index">Gusto 03</span>
+
+          <h3 class="exp-flavor__name">La Dolcevita</h3>
+
+          <p class="exp-flavor__desc">Un incontro goloso di sapori in un gusto dalla personalità decisa, dedicato alla filosofia della dolce vita italiana.</p>
+
+        </div>
+
+      </div>
+
+      <div class="exp-flavor">
+
+        <div class="exp-flavor__img-wrap">
+
+          <img class="exp-flavor__img"
+
+            src="../../assets/gelato/Fondente/fondente-2.webp"
+
+            alt="Sorbetto Cioccolato Fondente Monorigine"
+
+            loading="lazy"
+
+            decoding="async"
+
+            width="800"
+
+            height="600" />
+
+        </div>
+
+        <div class="exp-flavor__body">
+
+          <span class="exp-flavor__index">Gusto 04</span>
+
+          <h3 class="exp-flavor__name">Sorbetto Fondente 72%</h3>
+
+          <p class="exp-flavor__desc">Sorbetto intenso da cacao monorigine al 72%. Puro, vibrante, senza compromessi. La chiusura perfetta per il tasting.</p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <p class="exp-flavors__allergie"><strong>Allergie &amp; Intolleranze</strong><br>In caso di intolleranze o allergie alimentari, è necessario comunicarlo al momento della prenotazione.</p>
+
+  </section>
+
+
+
+  <!-- GALLERY — placeholder section; sostituire con foto Experience -->
+
+  <section class="exp-gallery" aria-label="Galleria">
+
+    <p class="exp-gallery__label">La nostra saletta</p>
+
+    <h2 class="exp-gallery__title title-accent title-accent--light">Galleria</h2>
+
+    <div class="exp-gallery__grid">
+
+      <!-- Le seguenti immagini sono placeholder. Sostituire con foto dell'Experience quando disponibili. -->
+
+      <div class="exp-gallery__photo" data-index="0">
+
+        <img src="../../assets/images/migrated/eventi/foto%20eventi/1.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
+
+      </div>
+
+      <div class="exp-gallery__photo" data-index="1">
+
+        <img src="../../assets/images/migrated/eventi/foto%20eventi/2.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
+
+      </div>
+
+      <div class="exp-gallery__photo" data-index="2">
+
+        <img src="../../assets/images/migrated/eventi/foto%20eventi/3.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="2668" height="4000" />
+
+      </div>
+
+      <div class="exp-gallery__photo" data-index="3">
+
+        <img src="../../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- LIGHTBOX for gallery -->
+
+  <div class="lightbox" id="expLightbox">
+
+    <button class="lightbox-close" aria-label="Chiudi">&times;</button>
+
+    <button class="lightbox-nav lightbox-prev" aria-label="Precedente">&#10094;</button>
+
+    <img id="expLightbox-img" src="" alt="" loading="lazy" decoding="async" />
+
+    <button class="lightbox-nav lightbox-next" aria-label="Successiva">&#10095;</button>
+
+  </div>
+
+
+
+  <!-- TERMS — pricing & booking conditions -->
+
+  <section class="exp-terms" aria-label="Termini e condizioni">
+
+    <p class="exp-terms__label">Condizioni</p>
+
+    <h2 class="exp-terms__title title-accent title-accent--light">Pricing &amp; Prenotazione</h2>
+
+    <div class="exp-terms__grid">
+
+      <div class="exp-terms__item">
+
+        <span class="exp-terms__item-label">Costo</span>
+
+        <p class="exp-terms__item-value">&euro;25,00 a persona<br>IVA inclusa</p>
+
+      </div>
+
+      <div class="exp-terms__item">
+
+        <span class="exp-terms__item-label">Partecipanti</span>
+
+        <p class="exp-terms__item-value">Minimo 10 pax<br>Massimo 20 pax</p>
+
+      </div>
+
+      <div class="exp-terms__item">
+
+        <span class="exp-terms__item-label">Prenotazione</span>
+
+        <p class="exp-terms__item-value">Obbligatoria entro 4 giorni dalla data dell&rsquo;esperienza</p>
+
+      </div>
+
+      <div class="exp-terms__item">
+
+        <span class="exp-terms__item-label">Pagamento</span>
+
+        <p class="exp-terms__item-value">Alla conferma della prenotazione. Modalità da concordare.</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FORM — booking section -->
+
+  <section id="contatti" class="exp-form-section" aria-label="Prenota l'Experience">
+
+    <div class="exp-form-block">
+
+      <div class="exp-form-header">
+
+        <h2>Prenota l&rsquo;Experience</h2>
+
+        <p>Compila il modulo e ti ricontatteremo per confermare la prenotazione.<br>Ricorda: minimo 10 &mdash; massimo 20 partecipanti.</p>
+
+      </div>
+
+      <div class="exp-form-body">
+
+        <form id="experienceRequestForm" method="post">
+
+          <div class="exp-form-grid">
+
+            <div class="ef2-field">
+
+              <label for="exp-nome">Nome *</label>
+
+              <input id="exp-nome" name="nome" type="text" placeholder="Il tuo nome&hellip;" autocomplete="given-name" required />
+
+            </div>
+
+            <div class="ef2-field">
+
+              <label for="exp-cognome">Cognome *</label>
+
+              <input id="exp-cognome" name="cognome" type="text" placeholder="Il tuo cognome&hellip;" autocomplete="family-name" required />
+
+            </div>
+
+            <div class="ef2-field">
+
+              <label for="exp-email">Email *</label>
+
+              <input id="exp-email" name="email" type="email" placeholder="email@esempio.com" autocomplete="email" required />
+
+            </div>
+
+            <div class="ef2-field">
+
+              <label for="exp-telefono">Telefono *</label>
+
+              <input id="exp-telefono" name="telefono" type="tel" placeholder="+39 &hellip;" autocomplete="tel" required />
+
+            </div>
+
+            <div class="ef2-field">
+
+              <label for="exp-data">Data preferita</label>
+
+              <input id="exp-data" name="data" type="date" />
+
+            </div>
+
+            <div class="ef2-field">
+
+              <label for="exp-persone">Numero partecipanti * <small style="font-weight:400;text-transform:none;letter-spacing:0;">(min 10, max 20)</small></label>
+
+              <input id="exp-persone" name="persone" type="number" min="10" max="20" placeholder="Es. 15" required />
+
+            </div>
+
+            <div class="ef2-field full-width">
+
+              <label for="exp-allergie">Allergie / Intolleranze alimentari</label>
+
+              <textarea id="exp-allergie" name="allergie" placeholder="Segnala eventuali allergie o intolleranze alimentari dei partecipanti&hellip;"></textarea>
+
+            </div>
+
+          </div>
+
+          <div class="exp-form-actions">
+
+            <label class="ef2-privacy">
+
+              <input type="checkbox" required />
+
+              <span>Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.</span>
+
+            </label>
+
+            <button type="submit" class="exp-form-submit">
+
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+
+              Invia Richiesta
+
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <div class="footer-inner">
+
+      <div class="footer-col footer-brand">
+
+        <a href="../../" class="footer-logo-link"><img src="../../assets/images/branding/logo-white.webp" alt="Badiani 1932" width="1665" height="643" /></a>
+
+        <p class="footer-tagline">Gelato artigianale dal 1932. Firenze.</p>
+
+      </div>
+
+      <div class="footer-col"><h3 data-i18n="footer.nav">Navigazione</h3><ul><li><a href="../../" data-i18n="footer.home">Home</a></li><li><a href="../" data-i18n="footer.eventi">Eventi</a></li><li><a href="../../b2b/" data-i18n="footer.b2b">B2B</a></li><li><a href="../../magazine/" data-i18n="footer.magazine">Dicono di Noi</a></li></ul></div>
+
+      <div class="footer-col"><h3 data-i18n="footer.contatti">Contatti</h3><ul><li><a href="mailto:eventi@badiani1932.com">eventi@badiani1932.com</a></li><li><a href="https://www.badiani1932.com" target="_blank" rel="noopener noreferrer">www.badiani1932.com</a></li></ul></div>
+
+      <div class="footer-col"><h3 data-i18n="footer.legale">Legale</h3><ul><li><a href="../../privacy.html" data-i18n="footer.privacy">Privacy Policy</a></li><li><a href="../../cookie-policy.html" data-i18n="footer.cookie">Cookie Policy</a></li></ul></div>
+
+    </div>
+
+    <div class="footer-bottom"><p>&copy; 2026 Badiani 1932. Tutti i diritti riservati.</p></div>
+
+  </footer>
+
+
+
+  <!-- COOKIE BANNER -->
+
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Informativa cookie" data-i18n-attr="aria-label:cookie.aria">
+
+    <p class="cookie-banner__text" data-i18n-html="cookie.text">Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a></p>
+
+    <div class="cookie-banner__actions">
+
+      <button class="cookie-banner__btn cookie-banner__btn--accept" id="cookieAccept" data-i18n="cookie.accept">Accetto</button>
+
+      <a href="../../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- SCRIPTS -->
+
+  <script>
+
+    // Gallery lightbox
+
+    var expGalleryImages = [
+
+      '../../assets/images/migrated/eventi/foto%20eventi/1.webp',
+
+      '../../assets/images/migrated/eventi/foto%20eventi/2.webp',
+
+      '../../assets/images/migrated/eventi/foto%20eventi/3.webp',
+
+      '../../assets/images/migrated/eventi/foto%20eventi/4.webp'
+
+    ];
+
+    var expCurrentIndex = 0;
+
+
+
+    function openExpLightbox(index) {
+
+      expCurrentIndex = index;
+
+      var lb = document.getElementById('expLightbox');
+
+      var img = document.getElementById('expLightbox-img');
+
+      img.src = expGalleryImages[index];
+
+      lb.classList.add('active');
+
+      document.body.style.overflow = 'hidden';
+
+    }
+
+    function closeExpLightbox(e) {
+
+      if (e && e.target !== e.currentTarget && !e.target.classList.contains('lightbox-close')) return;
+
+      document.getElementById('expLightbox').classList.remove('active');
+
+      document.body.style.overflow = '';
+
+    }
+
+    function prevExpImage(e) {
+
+      e.stopPropagation();
+
+      expCurrentIndex = (expCurrentIndex - 1 + expGalleryImages.length) % expGalleryImages.length;
+
+      document.getElementById('expLightbox-img').src = expGalleryImages[expCurrentIndex];
+
+    }
+
+    function nextExpImage(e) {
+
+      e.stopPropagation();
+
+      expCurrentIndex = (expCurrentIndex + 1) % expGalleryImages.length;
+
+      document.getElementById('expLightbox-img').src = expGalleryImages[expCurrentIndex];
+
+    }
+
+
+
+    document.querySelectorAll('.exp-gallery__photo[data-index]').forEach(function(photo) {
+
+      photo.addEventListener('click', function() {
+
+        openExpLightbox(parseInt(this.getAttribute('data-index'), 10));
+
+      });
+
+    });
+
+
+
+    document.getElementById('expLightbox').addEventListener('click', function(e) { closeExpLightbox(e); });
+
+    document.querySelector('#expLightbox .lightbox-close').addEventListener('click', function() { closeExpLightbox(); });
+
+    document.querySelector('#expLightbox .lightbox-prev').addEventListener('click', function(e) { prevExpImage(e); });
+
+    document.querySelector('#expLightbox .lightbox-next').addEventListener('click', function(e) { nextExpImage(e); });
+
+
+
+    document.addEventListener('keydown', function(e) {
+
+      var lb = document.getElementById('expLightbox');
+
+      if (lb && lb.classList.contains('active')) {
+
+        if (e.key === 'Escape') closeExpLightbox();
+
+        if (e.key === 'ArrowLeft') prevExpImage(e);
+
+        if (e.key === 'ArrowRight') nextExpImage(e);
+
+      }
+
+    });
+
+
+
+    // Scroll CTA
+
+    document.getElementById('scrollToContattiBtn').addEventListener('click', function() {
+
+      document.getElementById('contatti').scrollIntoView({ behavior: 'smooth' });
+
+    });
+
+
+
+    // Hamburger
+
+    (function(){
+
+      var b = document.getElementById('hamburgerBtn'), n = document.getElementById('mobileNav');
+
+      if (!b || !n) return;
+
+      function cl(){ b.setAttribute('aria-expanded', 'false'); n.classList.remove('is-open'); }
+
+      b.addEventListener('click', function(e){
+
+        e.stopPropagation();
+
+        var o = b.getAttribute('aria-expanded') === 'true';
+
+        b.setAttribute('aria-expanded', String(!o));
+
+        n.classList.toggle('is-open');
+
+      });
+
+      n.querySelectorAll('a').forEach(function(a){
+
+        a.addEventListener('click', function(){ cl(); });
+
+      });
+
+      n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){
+        t.addEventListener('click', function(e){ e.stopPropagation(); var x=t.getAttribute('aria-expanded')==='true'; t.setAttribute('aria-expanded',String(!x)); t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open'); });
+      });
+
+      document.addEventListener('click', function(e){
+
+        if(n.classList.contains('is-open') && !n.contains(e.target) && !b.contains(e.target)){ cl(); }
+
+      });
+
+    })();
+
+
+
+    // Cookie banner
+
+    (function(){
+
+      var k = 'badianiCookieConsent', b = document.getElementById('cookieBanner'), a = document.getElementById('cookieAccept');
+
+      if (!b || !a) return;
+
+      try { if (localStorage.getItem(k) === 'accepted') { b.style.display = 'none'; return; } } catch(e) {}
+
+      a.addEventListener('click', function(){
+
+        try { localStorage.setItem(k, 'accepted'); } catch(e) {}
+
+        b.classList.add('is-hidden');
+
+        setTimeout(function(){ b.style.display = 'none'; }, 500);
+
+      });
+
+    })();
+
+
+
+    // Experience form submit handler
+
+    (function(){
+
+      var form = document.getElementById('experienceRequestForm');
+
+      if (!form) return;
+
+      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+
+
+
+      function getSubmitButton() {
+
+        return form.querySelector('button[type="submit"]');
+
+      }
+
+      function setSubmitting(submitting) {
+
+        var btn = getSubmitButton();
+
+        if (!btn) return;
+
+        if (submitting) {
+
+          if (!btn.dataset.originalText) btn.dataset.originalText = btn.textContent.trim();
+
+          btn.disabled = true;
+
+          btn.setAttribute('aria-busy', 'true');
+
+          btn.textContent = 'Invio in corso...';
+
+          return;
+
+        }
+
+        btn.disabled = false;
+
+        btn.removeAttribute('aria-busy');
+
+        if (btn.dataset.originalText) btn.textContent = btn.dataset.originalText;
+
+      }
+
+      function showFeedback(message, isError) {
+
+        var feedback = form.querySelector('.form-feedback');
+
+        if (!feedback) {
+
+          feedback = document.createElement('p');
+
+          feedback.className = 'form-feedback';
+
+          feedback.setAttribute('role', 'status');
+
+          feedback.setAttribute('aria-live', 'polite');
+
+          feedback.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;';
+
+          form.appendChild(feedback);
+
+        }
+
+        feedback.style.color = isError ? '#b42318' : '#127c56';
+
+        feedback.textContent = message;
+
+        if (!/in corso/i.test(message)) feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      }
+
+      async function postToApi(payload) {
+
+        var response = await fetch(CONTACT_API_ENDPOINT, {
+
+          method: 'POST',
+
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+
+          body: JSON.stringify(payload)
+
+        });
+
+        var body = null;
+
+        try { body = await response.json(); } catch(e) {}
+
+        if (!response.ok) {
+
+          throw new Error((body && (body.error || body.message)) || ('HTTP ' + response.status));
+
+        }
+
+        return body;
+
+      }
+
+
+
+      form.addEventListener('submit', async function(e) {
+
+        e.preventDefault();
+
+        var fd = new FormData(form);
+
+        var nome = (fd.get('nome') || '').toString().trim();
+
+        var cognome = (fd.get('cognome') || '').toString().trim();
+
+        var email = (fd.get('email') || '').toString().trim();
+
+        var telefono = (fd.get('telefono') || '').toString().trim();
+
+        var data = (fd.get('data') || '').toString().trim();
+
+        var persone = (fd.get('persone') || '').toString().trim();
+
+        var allergie = (fd.get('allergie') || '').toString().trim();
+
+
+
+        var lines = [
+
+          '=== PRENOTAZIONE EXPERIENCE — "GLI ICONICI DI PAOLO POMPOSI" ===',
+
+          ''
+
+        ];
+
+        function addLine(label, value) {
+
+          if (value) lines.push(label + ': ' + value);
+
+        }
+
+        addLine('Nome', nome);
+
+        addLine('Cognome', cognome);
+
+        addLine('Email', email);
+
+        addLine('Telefono', telefono);
+
+        addLine('Data preferita', data);
+
+        addLine('Numero partecipanti', persone);
+
+        if (allergie) {
+
+          lines.push('Allergie / Intolleranze:');
+
+          lines.push('  ' + allergie);
+
+        }
+
+        lines.push('', '--- Fine richiesta ---');
+
+
+
+        var subject = 'Prenotazione Experience "Gli Iconici" — ' + (nome + ' ' + cognome).trim() + (persone ? ' (' + persone + ' pax)' : '');
+
+
+
+        var payload = {
+
+          source: 'eventi-experience',
+
+          formId: form.id,
+
+          subject: subject,
+
+          message: lines.join('\n'),
+
+          body: lines.join('\n'),
+
+          fields: { nome: nome, cognome: cognome, email: email, telefono: telefono, data: data, persone: persone, allergie: allergie },
+
+          structured: { nome: nome, cognome: cognome, email: email, telefono: telefono, data: data, persone: persone, allergie: allergie }
+
+        };
+
+
+
+        setSubmitting(true);
+
+        showFeedback('Invio in corso... ti risponderemo a breve.', false);
+
+
+
+        try {
+
+          await postToApi(payload);
+
+          showFeedback('Richiesta inviata! Ti contatteremo a breve per confermare la prenotazione.', false);
+
+          form.reset();
+
+        } catch (error) {
+
+          console.error('Experience form submit error:', error);
+
+          showFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
+
+        } finally {
+
+          setSubmitting(false);
+
+        }
+
+      });
+
+    })();
+
+
+
+    // i18n System
+
+    (function(){
+
+      var SUPPORTED = ['it','en','fr','es'];
+
+      var DEFAULT_LANG = 'it';
+
+      var STORAGE_KEY = 'badianiLang';
+
+
+
+      var STRINGS = {
+
+        it: {
+
+          'meta.title': 'Experience \u2014 Gli Iconici di Paolo Pomposi | Badiani 1932',
+
+          'topbar.label': 'Barra brand',
+
+          'nav.label': 'Navigazione principale',
+
+          'lang.label': 'Selettore lingua',
+
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+
+          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Saletta Tosinghi', 'nav.eventi.esterno': 'Badiani dove vuoi', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Gusti', 'nav.b2b.monoporzioni': 'Monoporzioni', 'nav.b2b.torte': 'Torte', 'nav.b2b.coni': 'Coni & Coppette', 'nav.b2b.accessori': 'Accessori', 'nav.b2b.contenitori': 'Contenitori',
+
+          'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
+
+          'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
+
+          'footer.legale': 'Legale', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
+
+          'cookie.aria': 'Informativa cookie',
+
+          'cookie.text': 'Questo sito utilizza cookie tecnici per garantire il corretto funzionamento. <a href="../../cookie-policy.html">Maggiori informazioni</a>',
+
+          'cookie.accept': 'Accetto',
+
+          'cookie.link': 'Cookie Policy',
+
+        },
+
+        en: {
+
+          'meta.title': 'Experience \u2014 The Iconic Flavors of Paolo Pomposi | Badiani 1932',
+
+          'topbar.label': 'Brand bar',
+
+          'nav.label': 'Main navigation',
+
+          'lang.label': 'Language selector',
+
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Tosinghi Room', 'nav.eventi.esterno': 'Badiani where you want', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Flavors', 'nav.b2b.monoporzioni': 'Single Servings', 'nav.b2b.torte': 'Cakes', 'nav.b2b.coni': 'Cones & Cups', 'nav.b2b.accessori': 'Accessories', 'nav.b2b.contenitori': 'Containers',
+
+          'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
+
+          'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
+
+          'footer.legale': 'Legal', 'footer.privacy': 'Privacy Policy', 'footer.cookie': 'Cookie Policy',
+
+          'cookie.aria': 'Cookie notice',
+
+          'cookie.text': 'This site uses technical cookies to ensure proper functioning. <a href="../../cookie-policy.html">More information</a>',
+
+          'cookie.accept': 'Accept',
+
+          'cookie.link': 'Cookie Policy',
+
+        },
+
+        fr: {
+
+          'meta.title': 'Experience \u2014 Les Iconiques de Paolo Pomposi | Badiani 1932',
+
+          'topbar.label': 'Barre de marque',
+
+          'nav.label': 'Navigation principale',
+
+          'lang.label': 'S\u00e9lecteur de langue',
+
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+
+          'nav.home': 'Accueil', 'nav.eventi': '\u00c9v\u00e9nements', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Salon Tosinghi', 'nav.eventi.esterno': 'Badiani o\u00f9 vous voulez', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Parfums', 'nav.b2b.monoporzioni': 'Portions Individuelles', 'nav.b2b.torte': 'G\u00e2teaux', 'nav.b2b.coni': 'C\u00f4nes & Coupes', 'nav.b2b.accessori': 'Accessoires', 'nav.b2b.contenitori': 'Conteneurs',
+
+          'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': '\u00c9v\u00e9nements',
+
+          'footer.b2b': 'B2B', 'footer.magazine': 'Ils parlent de nous', 'footer.contatti': 'Contacts',
+
+          'footer.legale': 'L\u00e9gal', 'footer.privacy': 'Politique de confidentialit\u00e9', 'footer.cookie': 'Cookie Policy',
+
+          'cookie.aria': 'Avis sur les cookies',
+
+          'cookie.text': 'Ce site utilise des cookies techniques pour garantir son bon fonctionnement. <a href="../../cookie-policy.html">Plus d\'informations</a>',
+
+          'cookie.accept': 'Accepter',
+
+          'cookie.link': 'Cookie Policy',
+
+        },
+
+        es: {
+
+          'meta.title': 'Experience \u2014 Los Ic\u00f3nicos de Paolo Pomposi | Badiani 1932',
+
+          'topbar.label': 'Barra de marca',
+
+          'nav.label': 'Navegaci\u00f3n principal',
+
+          'lang.label': 'Selector de idioma',
+
+          'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
+
+          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B', 'nav.eventi.saletta': 'Sal\u00f3n Tosinghi', 'nav.eventi.esterno': 'Badiani donde quieras', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience', 'nav.b2b.gusti': 'Sabores', 'nav.b2b.monoporzioni': 'Monoporciones', 'nav.b2b.torte': 'Tartas', 'nav.b2b.coni': 'Conos y Copas', 'nav.b2b.accessori': 'Accesorios', 'nav.b2b.contenitori': 'Contenedores',
+
+          'footer.nav': 'Navegaci\u00f3n', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
+
+          'footer.b2b': 'B2B', 'footer.magazine': 'Hablan de nosotros', 'footer.contatti': 'Contactos',
+
+          'footer.legale': 'Legal', 'footer.privacy': 'Pol\u00edtica de privacidad', 'footer.cookie': 'Cookie Policy',
+
+          'cookie.aria': 'Aviso de cookies',
+
+          'cookie.text': 'Este sitio utiliza cookies t\u00e9cnicas para garantizar el correcto funcionamiento. <a href="../../cookie-policy.html">M\u00e1s informaci\u00f3n</a>',
+
+          'cookie.accept': 'Aceptar',
+
+          'cookie.link': 'Cookie Policy',
+
+        }
+
+      };
+
+
+
+      function normalizeLang(lang) {
+
+        if (!lang) return DEFAULT_LANG;
+
+        var l = lang.substring(0, 2).toLowerCase();
+
+        return SUPPORTED.indexOf(l) !== -1 ? l : DEFAULT_LANG;
+
+      }
+
+      function getSavedLang() {
+
+        try { return normalizeLang(localStorage.getItem(STORAGE_KEY)); } catch(e) { return DEFAULT_LANG; }
+
+      }
+
+      function saveLang(lang) {
+
+        try { localStorage.setItem(STORAGE_KEY, lang); } catch(e) {}
+
+      }
+
+      function getString(lang, key) {
+
+        var strings = STRINGS[lang] || STRINGS[DEFAULT_LANG];
+
+        return (strings && strings[key] !== undefined) ? strings[key] : ((STRINGS[DEFAULT_LANG] && STRINGS[DEFAULT_LANG][key]) || key);
+
+      }
+
+      function applyStrings(lang) {
+
+        document.documentElement.setAttribute('lang', lang);
+
+        var metaTitleStr = getString(lang, 'meta.title');
+
+        if (metaTitleStr) document.title = metaTitleStr;
+
+        document.querySelectorAll('[data-i18n]').forEach(function(el) {
+
+          var key = el.getAttribute('data-i18n');
+
+          var str = getString(lang, key);
+
+          if (str !== undefined) el.textContent = str;
+
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+
+          var key = el.getAttribute('data-i18n-html');
+
+          var str = getString(lang, key);
+
+          if (str !== undefined) el.innerHTML = str;
+
+        });
+
+        document.querySelectorAll('[data-i18n-attr]').forEach(function(el) {
+
+          var pairs = el.getAttribute('data-i18n-attr').split(';');
+
+          pairs.forEach(function(pair) {
+
+            var kv = pair.split(':');
+
+            if (kv.length < 2) return;
+
+            var attr = kv[0].trim(), strKey = kv.slice(1).join(':').trim();
+
+            var str = getString(lang, strKey);
+
+            if (str !== undefined) el.setAttribute(attr, str);
+
+          });
+
+        });
+
+        var select = document.getElementById('langSelect');
+
+        if (select) select.value = lang;
+
+      }
+
+
+
+      var currentLang = getSavedLang();
+
+      applyStrings(currentLang);
+
+
+
+      var select = document.getElementById('langSelect');
+
+      if (select) {
+
+        select.addEventListener('change', function() {
+
+          var lang = normalizeLang(this.value);
+
+          saveLang(lang);
+
+          applyStrings(lang);
+
+        });
+
+      }
+
+      (function(){var dl=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!dl)return;var btns=document.querySelectorAll('.topbar__mobile-lang-btn');function sync(){btns.forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===dl.value);});}btns.forEach(function(b){b.addEventListener('click',function(){dl.value=b.dataset.lang;dl.dispatchEvent(new Event('change'));sync();});});dl.addEventListener('change',sync);setTimeout(sync,0);})();
+      (function(){var sel=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!sel)return;var trigger=document.querySelector('.topbar__lang-trigger');var panel=document.querySelector('.topbar__lang-panel');var cur=document.querySelector('.topbar__lang-cur');if(!trigger||!panel||!cur)return;function syncDd(){var v=sel.value||'it';cur.textContent=v.toUpperCase();panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===v);});}trigger.addEventListener('click',function(e){e.stopPropagation();var open=panel.classList.toggle('is-open');trigger.setAttribute('aria-expanded',open?'true':'false');panel.setAttribute('aria-hidden',open?'false':'true');});panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.addEventListener('click',function(){sel.value=b.dataset.lang;sel.dispatchEvent(new Event('change'));panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');syncDd();});});document.addEventListener('click',function(e){if(!trigger.contains(e.target)&&!panel.contains(e.target)){panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});sel.addEventListener('change',syncDd);setTimeout(syncDd,0);})();
+
+    })();
+
+  </script>
+
+
+
+  <!-- LIGHTBOX CSS (shared pattern — must align with badiani-common.css) -->
+
+  <style>
+
+    .lightbox{
+
+      position:fixed;
+
+      inset:0;
+
+      background:rgba(0,0,0,0.96);
+
+      -webkit-backdrop-filter:blur(16px);
+
+      backdrop-filter:blur(16px);
+
+      z-index:10000;
+
+      display:none;
+
+      align-items:center;
+
+      justify-content:center;
+
+      padding:20px;
+
+      opacity:0;
+
+      transition:opacity 0.3s ease;
+
+    }
+
+    .lightbox.active{ display:flex; opacity:1; }
+
+    .lightbox img{
+
+      max-width:90vw;
+
+      max-height:90vh;
+
+      object-fit:contain;
+
+      border-radius:12px;
+
+      box-shadow:0 20px 60px rgba(0,0,0,0.5);
+
+    }
+
+    .lightbox-close{
+
+      position:absolute;
+
+      top:20px; right:20px;
+
+      background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7);
+
+      border:none;
+
+      color:#fff;
+
+      font-size:28px;
+
+      width:55px; height:55px;
+
+      border-radius:50%;
+
+      cursor:pointer;
+
+      transition:transform 0.3s, background 0.3s;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      box-shadow:0 5px 20px rgba(240,103,166,0.5);
+
+    }
+
+    .lightbox-close:hover{
+
+      background:linear-gradient(135deg, var(--badiani-blue), #2a4ab0);
+
+      transform:rotate(90deg) scale(1.1);
+
+    }
+
+    .lightbox-nav{
+
+      position:absolute;
+
+      top:50%;
+
+      transform:translateY(-50%);
+
+      background:rgba(255,255,255,0.1);
+
+      border:1px solid rgba(255,255,255,0.15);
+
+      color:#fff;
+
+      font-size:28px;
+
+      width:56px; height:56px;
+
+      border-radius:50%;
+
+      cursor:pointer;
+
+      transition:background 0.3s;
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+    }
+
+    .lightbox-nav:hover{ background:var(--badiani-pink); border-color:var(--badiani-pink); }
+
+    .lightbox-prev{ left:20px; }
+
+    .lightbox-next{ right:20px; }
+
+  </style>
+
+</body>
+
+</html>
+

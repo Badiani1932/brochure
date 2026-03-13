@@ -22,6 +22,15 @@
   <meta name="twitter:title" content="Eventi — Badiani 1932" />
   <meta name="twitter:description" content="Feste private e eventi su misura con gelato artigianale Badiani dal 1932." />
   <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <!-- OG image dimensions -->
+  <meta property="og:image:width" content="1665" />
+  <meta property="og:image:height" content="643" />
+  <meta property="og:image:type" content="image/webp" />
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
+  <link rel="dns-prefetch" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
   <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/" />
   <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/" />
   <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/" />
@@ -918,12 +927,24 @@
         </div>
       </nav>
       <div class="topbar__lang">
-        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+        <select class="topbar__select" id="langSelect" hidden data-i18n-attr="aria-label:lang.label">
           <option value="it" data-i18n="lang.it"></option>
           <option value="en" data-i18n="lang.en"></option>
           <option value="es" data-i18n="lang.es"></option>
           <option value="fr" data-i18n="lang.fr"></option>
         </select>
+        <div class="topbar__lang-dd">
+          <button class="topbar__lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="topbar__lang-cur">IT</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path fill="#ffffff" d="M6 8L1 3h10z"/></svg>
+          </button>
+          <div class="topbar__lang-panel" role="listbox" aria-hidden="true">
+            <button class="topbar__lang-opt" data-lang="it" role="option" data-i18n="lang.it">IT</button>
+            <button class="topbar__lang-opt" data-lang="en" role="option" data-i18n="lang.en">EN</button>
+            <button class="topbar__lang-opt" data-lang="es" role="option" data-i18n="lang.es">ES</button>
+            <button class="topbar__lang-opt" data-lang="fr" role="option" data-i18n="lang.fr">FR</button>
+          </div>
+        </div>
       </div>
       <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span>
@@ -933,8 +954,11 @@
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
     <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
     <a href="../" data-i18n="nav.home">Home</a>
-    <details class="topbar__mobile-group">
-      <summary data-i18n="nav.b2b">B2B</summary>
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
+        <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
       <div class="topbar__mobile-group-items">
         <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
         <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
@@ -943,7 +967,13 @@
         <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
         <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
       </div>
-    </details>
+    </div>
+    <div class="topbar__mobile-lang">
+      <button class="topbar__mobile-lang-btn" data-lang="it" data-i18n="lang.it">IT</button>
+      <button class="topbar__mobile-lang-btn" data-lang="en" data-i18n="lang.en">EN</button>
+      <button class="topbar__mobile-lang-btn" data-lang="es" data-i18n="lang.es">ES</button>
+      <button class="topbar__mobile-lang-btn" data-lang="fr" data-i18n="lang.fr">FR</button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -1185,7 +1215,7 @@
   <div class="lightbox" id="eventLightbox">
     <button class="lightbox-close" aria-label="Chiudi">&times;</button>
     <button class="lightbox-nav lightbox-prev" aria-label="Precedente">&#10094;</button>
-    <img id="eventLightbox-img" src="" alt="" loading="lazy" decoding="async" />
+    <img id="eventLightbox-img" src="" alt="" loading="lazy" decoding="async" aria-hidden="true" />
     <button class="lightbox-nav lightbox-next" aria-label="Successiva">&#10095;</button>
   </div>
 
@@ -1687,6 +1717,8 @@
       }
       var select = document.getElementById('langSelect');
       if(select){ select.value = currentLang; select.addEventListener('change', function(e){ setLang(e.target.value); }); }
+      (function(){var dl=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!dl)return;var btns=document.querySelectorAll('.topbar__mobile-lang-btn');function sync(){btns.forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===dl.value);});}btns.forEach(function(b){b.addEventListener('click',function(){dl.value=b.dataset.lang;dl.dispatchEvent(new Event('change'));sync();});});dl.addEventListener('change',sync);setTimeout(sync,0);})();
+      (function(){var sel=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!sel)return;var trigger=document.querySelector('.topbar__lang-trigger');var panel=document.querySelector('.topbar__lang-panel');var cur=document.querySelector('.topbar__lang-cur');if(!trigger||!panel||!cur)return;function syncDd(){var v=sel.value||'it';cur.textContent=v.toUpperCase();panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===v);});}trigger.addEventListener('click',function(e){e.stopPropagation();var open=panel.classList.toggle('is-open');trigger.setAttribute('aria-expanded',open?'true':'false');panel.setAttribute('aria-hidden',open?'false':'true');});panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.addEventListener('click',function(){sel.value=b.dataset.lang;sel.dispatchEvent(new Event('change'));panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');syncDd();});});document.addEventListener('click',function(e){if(!trigger.contains(e.target)&&!panel.contains(e.target)){panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});sel.addEventListener('change',syncDd);setTimeout(syncDd,0);})();
       applyTranslations();
     })();
   </script>
@@ -1982,7 +2014,7 @@
   </script>
 
   <!-- Hamburger + Cookie -->
-  <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');document.body.style.overflow=o?'':'hidden';});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');document.body.style.overflow='';});});})();</script>
+  <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;function cl(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');}b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){cl();});});n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();var x=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!x));t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open');});});document.addEventListener('click',function(e){if(n.classList.contains('is-open')&&!n.contains(e.target)&&!b.contains(e.target)){cl();}});})();</script>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
   <script>
   (function(){

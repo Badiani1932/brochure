@@ -1,11 +1,16 @@
-# Badiani 1932 Brochure Site
+# Badiani 1932 - robots.txt
 User-agent: *
 Allow: /
 
 Sitemap: https://www.badiani1932.com/sitemap.xml
 
-# Block access to source and script files
+# Block access to source, scripts, docs and internal tools
 Disallow: /_source/
 Disallow: /scripts/
 Disallow: /docs/
 Disallow: /assets/docs/
+Disallow: /cloudflare/
+Disallow: /data/
+
+# Block crawling of query-string URLs
+Disallow: /*?

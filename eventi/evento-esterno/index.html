@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
-  <title>Badiani dove vuoi â€” Badiani 1932 | Cool Box e Carretto Gelato</title>
+  <title>Badiani dove vuoi — Badiani 1932 | Cool Box e Carretto Gelato</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Organizza il tuo evento con Badiani dove vuoi: Cool Box e Carretto Gelato. Gelato artigianale fiorentino per feste, matrimoni ed eventi aziendali." />
   <meta name="theme-color" content="#1e398d" />
@@ -12,16 +12,25 @@
   <link rel="apple-touch-icon" href="../../assets/images/branding/apple-touch-icon.png" />
   <link rel="canonical" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Badiani dove vuoi â€” Badiani 1932" />
+  <meta property="og:title" content="Badiani dove vuoi — Badiani 1932" />
   <meta property="og:description" content="Cool Box e Carretto Gelato dove vuoi." />
   <meta property="og:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
   <meta property="og:url" content="https://www.badiani1932.com/eventi/evento-esterno/" />
   <meta property="og:site_name" content="Badiani 1932" />
   <meta property="og:locale" content="it_IT" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Badiani dove vuoi â€” Badiani 1932" />
+  <meta name="twitter:title" content="Badiani dove vuoi — Badiani 1932" />
   <meta name="twitter:description" content="Cool Box e Carretto Gelato per eventi. Gelato artigianale fiorentino ovunque." />
   <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
+  <!-- OG image dimensions -->
+  <meta property="og:image:width" content="1665" />
+  <meta property="og:image:height" content="643" />
+  <meta property="og:image:type" content="image/webp" />
+  <!-- Robots -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
+  <link rel="dns-prefetch" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
   <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/evento-esterno/" />
@@ -33,7 +42,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Evento Esterno â€” Badiani 1932",
+    "name": "Evento Esterno — Badiani 1932",
     "description": "Porta il gelato Badiani al tuo evento con soluzioni mobili: Coolbox e Carretto Gelato.",
     "url": "https://www.badiani1932.com/eventi/evento-esterno/",
     "breadcrumb": {
@@ -53,7 +62,7 @@
   </script>
   <style>
     /* ============================================================
-       EVENTO ESTERNO â€” aligned with home + eventi design language
+       EVENTO ESTERNO — aligned with home + eventi design language
        Full-bleed sections, dark overlays, SuperGrotesk typography
        ============================================================ */
 
@@ -120,7 +129,7 @@
       font-weight:300;
     }
 
-    /* ===== SOLUTION CARDS â€” 3-column full-bleed ===== */
+    /* ===== SOLUTION CARDS — 3-column full-bleed ===== */
     .ext-solutions{
       padding:0;
       background:#000;
@@ -267,7 +276,7 @@
       box-shadow:-1px 0 0 0 rgba(255,255,255,0.12);
     }
 
-    /* ===== TERMS â€” dark blue section ===== */
+    /* ===== TERMS — dark blue section ===== */
     .ext-terms{
       background:var(--badiani-blue);
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
@@ -316,7 +325,7 @@
       font-weight:300;
     }
 
-    /* ===== FORM SECTION â€” sfondo.webp background ===== */
+    /* ===== FORM SECTION — sfondo.webp background ===== */
     .ext-form-section{
       position:relative;
       overflow:visible;
@@ -527,7 +536,7 @@
       fill:currentColor;
     }
 
-    /* ===== MODALS â€” dark immersive design ===== */
+    /* ===== MODALS — dark immersive design ===== */
     .modal-overlay{
       position:fixed;
       top:0; left:0;
@@ -614,7 +623,7 @@
     }
     @keyframes modalReveal{ from{transform:translateY(50px) scale(0.97);opacity:0;} to{transform:translateY(0) scale(1);opacity:1;} }
 
-    /* Modal hero header â€” dark with giant title + image */
+    /* Modal hero header — dark with giant title + image */
     .modal-hero{
       position:relative;
       overflow:hidden;
@@ -771,7 +780,7 @@
 
 
 
-    /* Modal body â€” specs area */
+    /* Modal body — specs area */
     .modal-body{
       padding:0;
       background:rgba(255,255,255,0.04);
@@ -1004,12 +1013,24 @@
         </div>
       </nav>
       <div class="topbar__lang">
-        <select class="topbar__select" id="langSelect" data-i18n-attr="aria-label:lang.label">
+        <select class="topbar__select" id="langSelect" hidden data-i18n-attr="aria-label:lang.label">
           <option value="it" data-i18n="lang.it"></option>
           <option value="en" data-i18n="lang.en"></option>
           <option value="es" data-i18n="lang.es"></option>
           <option value="fr" data-i18n="lang.fr"></option>
         </select>
+        <div class="topbar__lang-dd">
+          <button class="topbar__lang-trigger" aria-haspopup="listbox" aria-expanded="false">
+            <span class="topbar__lang-cur">IT</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 12 12" aria-hidden="true"><path fill="#ffffff" d="M6 8L1 3h10z"/></svg>
+          </button>
+          <div class="topbar__lang-panel" role="listbox" aria-hidden="true">
+            <button class="topbar__lang-opt" data-lang="it" role="option" data-i18n="lang.it">IT</button>
+            <button class="topbar__lang-opt" data-lang="en" role="option" data-i18n="lang.en">EN</button>
+            <button class="topbar__lang-opt" data-lang="es" role="option" data-i18n="lang.es">ES</button>
+            <button class="topbar__lang-opt" data-lang="fr" role="option" data-i18n="lang.fr">FR</button>
+          </div>
+        </div>
       </div>
       <button class="topbar__hamburger" id="hamburgerBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
         <span></span>
@@ -1017,19 +1038,25 @@
     </div>
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">Ã—</a>
+    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
     <a href="../../" data-i18n="nav.home">Home</a>
-    <details class="topbar__mobile-group">
-      <summary data-i18n="nav.eventi">Eventi</summary>
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
+        <a href="../" data-i18n="nav.eventi">Eventi</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
       <div class="topbar__mobile-group-items">
         <a href="../saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
         <a href="../evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
         <a href="../" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
         <a href="../experience/" data-i18n="nav.eventi.experience">Experience</a>
       </div>
-    </details>
-    <details class="topbar__mobile-group">
-      <summary data-i18n="nav.b2b">B2B</summary>
+    </div>
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
+        <a href="../../b2b/" data-i18n="nav.b2b">B2B</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
       <div class="topbar__mobile-group-items">
         <a href="../../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
         <a href="../../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
@@ -1038,7 +1065,13 @@
         <a href="../../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
         <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
       </div>
-    </details>
+    </div>
+    <div class="topbar__mobile-lang">
+      <button class="topbar__mobile-lang-btn" data-lang="it" data-i18n="lang.it">IT</button>
+      <button class="topbar__mobile-lang-btn" data-lang="en" data-i18n="lang.en">EN</button>
+      <button class="topbar__mobile-lang-btn" data-lang="es" data-i18n="lang.es">ES</button>
+      <button class="topbar__mobile-lang-btn" data-lang="fr" data-i18n="lang.fr">FR</button>
+    </div>
   </nav>
 
   <!-- HERO -->
@@ -1056,11 +1089,11 @@
     </div>
   </section>
 
-  <!-- SOLUTION CARDS â€” 3-column full-bleed -->
+  <!-- SOLUTION CARDS — 3-column full-bleed -->
   <section class="ext-solutions" data-i18n-attr="aria-label:external.solutions.title">
     <div class="ext-solutions__grid">
       <!-- COOL BOX -->
-      <button class="ext-card" data-modal="coolbox" aria-label="Cool Box â€” Pratico e versatile" data-i18n-attr="aria-label:external.coolbox.aria">
+      <button class="ext-card" data-modal="coolbox" aria-label="Cool Box — Pratico e versatile" data-i18n-attr="aria-label:external.coolbox.aria">
         <img class="ext-card__img" src="../../assets/images/categories/pulsante-coolbox.webp" alt="Cool box Badiani" loading="lazy" decoding="async" width="1024" height="1024" />
         <span class="ext-card__label" aria-hidden="true">1</span>
         <div class="ext-card__overlay">
@@ -1072,7 +1105,7 @@
       </button>
 
       <!-- CARRETTO GELATO -->
-      <button class="ext-card" data-modal="carretto" aria-label="Carretto Gelato â€” Ideale per eventi casual e all'aperto" data-i18n-attr="aria-label:external.carretto.aria">
+      <button class="ext-card" data-modal="carretto" aria-label="Carretto Gelato — Ideale per eventi casual e all'aperto" data-i18n-attr="aria-label:external.carretto.aria">
         <img class="ext-card__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" />
         <span class="ext-card__label" aria-hidden="true">2</span>
         <div class="ext-card__overlay">
@@ -1087,7 +1120,7 @@
     </div>
   </section>
 
-  <!-- TERMS â€” dark blue full-bleed -->
+  <!-- TERMS — dark blue full-bleed -->
   <section class="ext-terms">
     <p class="ext-terms__label" data-i18n="external.terms.label">Condizioni</p>
     <h2 class="ext-terms__title title-accent title-accent--light" data-i18n="external.terms.title">Termini e Condizioni</h2>
@@ -1111,7 +1144,7 @@
     </div>
   </section>
 
-  <!-- FORM â€” sfondo.webp background -->
+  <!-- FORM — sfondo.webp background -->
   <section id="contatti" class="ext-form-section" data-i18n-attr="aria-label:external.contact.title">
     <div class="ext-form-block">
       <div class="ext-form-header">
@@ -1349,14 +1382,14 @@
       }
     });
 
-    // Solution card buttons â€” open modals
+    // Solution card buttons — open modals
     document.querySelectorAll('.ext-card[data-modal]').forEach(function(btn) {
       btn.addEventListener('click', function() {
         openModal(this.getAttribute('data-modal'));
       });
     });
 
-    // Modal overlays â€” close on overlay/bg click
+    // Modal overlays — close on overlay/bg click
     document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
       overlay.addEventListener('click', function(e) {
         if (e.target === overlay || e.target.classList.contains('modal-bg')) {
@@ -1376,14 +1409,14 @@
       });
     });
 
-    // Modal content â€” stop propagation
+    // Modal content — stop propagation
     document.querySelectorAll('.modal-overlay .modal-content').forEach(function(el) {
       el.addEventListener('click', function(e) {
         e.stopPropagation();
       });
     });
 
-    // Modal CTA buttons â€” close modal + scroll to contact
+    // Modal CTA buttons — close modal + scroll to contact
     document.querySelectorAll('.modal-request-btn[data-close-modal]').forEach(function(btn) {
       btn.addEventListener('click', function() {
         closeModal(this.getAttribute('data-close-modal'));
@@ -1404,18 +1437,21 @@
     (function(){
       var b=document.getElementById('hamburgerBtn'), n=document.getElementById('mobileNav');
       if(!b||!n) return;
-      b.addEventListener('click', function(){
+      function cl(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');}
+      b.addEventListener('click', function(e){
+        e.stopPropagation();
         var o = b.getAttribute('aria-expanded')==='true';
         b.setAttribute('aria-expanded', String(!o));
         n.classList.toggle('is-open');
-        document.body.style.overflow = o ? '' : 'hidden';
       });
       n.querySelectorAll('a').forEach(function(a){
-        a.addEventListener('click', function(){
-          b.setAttribute('aria-expanded','false');
-          n.classList.remove('is-open');
-          document.body.style.overflow = '';
-        });
+        a.addEventListener('click', function(){ cl(); });
+      });
+      n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){
+        t.addEventListener('click', function(e){ e.stopPropagation(); var x=t.getAttribute('aria-expanded')==='true'; t.setAttribute('aria-expanded',String(!x)); t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open'); });
+      });
+      document.addEventListener('click', function(e){
+        if(n.classList.contains('is-open')&&!n.contains(e.target)&&!b.contains(e.target)){ cl(); }
       });
     })();
 
@@ -1583,7 +1619,7 @@
 
         try{
           await postToContactApi(payload);
-          showFormFeedback('Invio riuscito! Ti risponderemo al piÃ¹ presto.', false);
+          showFormFeedback('Invio riuscito! Ti risponderemo al più presto.', false);
           form.reset();
           var extrasPanel = document.getElementById('extrasEsterno');
           if(extrasPanel) extrasPanel.classList.remove('visible');
@@ -1603,7 +1639,7 @@
 
       var STRINGS = {
         it: {
-          'meta.title': 'Badiani dove vuoi â€” Eventi Badiani',
+          'meta.title': 'Badiani dove vuoi — Eventi Badiani',
           'lang.label': 'Selettore lingua',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1709,7 +1745,7 @@
           'cookie.link': 'Cookie Policy',
 },
         en: {
-          'meta.title': 'Badiani Anywhere â€” Badiani Events',
+          'meta.title': 'Badiani Anywhere — Badiani Events',
           'lang.label': 'Language selector',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1815,8 +1851,8 @@
           'cookie.link': 'Cookie Policy',
 },
         fr: {
-          'meta.title': 'Badiani oÃ¹ vous voulez â€” Ã‰vÃ©nements Badiani',
-          'lang.label': 'SÃ©lecteur de langue',
+          'meta.title': 'Badiani où vous voulez — Événements Badiani',
+          'lang.label': 'Sélecteur de langue',
           'lang.it': 'IT',
           'lang.en': 'EN',
           'lang.fr': 'FR',
@@ -1825,13 +1861,13 @@
           'nav.eventi': '\u00c9v\u00e9nements',
           'nav.b2b': 'B2B',
           'nav.eventi.saletta': 'Salon Tosinghi',
-          'nav.eventi.esterno': 'Badiani oÃ¹ vous voulez',
+          'nav.eventi.esterno': 'Badiani où vous voulez',
           'nav.eventi.gelatovan': 'Gelato Van',
           'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Parfums',
           'nav.b2b.monoporzioni': 'Portions Individuelles',
-          'nav.b2b.torte': 'GÃ¢teaux',
-          'nav.b2b.coni': 'CÃ´nes & Coupes',
+          'nav.b2b.torte': 'Gâteaux',
+          'nav.b2b.coni': 'Cônes & Coupes',
           'nav.b2b.accessori': 'Accessoires',
           'nav.b2b.contenitori': 'Conteneurs',
           'footer.nav': 'Navigation',
@@ -1844,8 +1880,8 @@
           'footer.privacy': 'Politique de Confidentialit\u00e9',
           'footer.cookie': 'Politique de Cookies',
           'external.hero.label': 'Solutions mobiles',
-          'external.hero.title': 'Badiani oÃ¹ vous voulez',
-          'external.hero.desc': 'Apportez Badiani Ã  votre Ã©vÃ©nement avec des solutions mobiles Ã©lÃ©gantes et polyvalentes',
+          'external.hero.title': 'Badiani où vous voulez',
+          'external.hero.desc': 'Apportez Badiani à votre événement avec des solutions mobiles élégantes et polyvalentes',
           'external.solutions.title': 'Solutions Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pratique et polyvalent',
           'external.coolbox.subtitle': 'Pratique et polyvalent',
@@ -1910,7 +1946,7 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': '\u00c9v\u00e9nement d\u2019int\u00e9r\u00eat *',
           'external.form.eventInterest.privateRoom': 'Salle Priv\u00e9e',
-          'external.form.eventInterest.external': 'Badiani oÃ¹ vous voulez',
+          'external.form.eventInterest.external': 'Badiani où vous voulez',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': '\u00c9v\u00e9nement d\'Entreprise sur Mesure',
           'external.form.privacy': 'J\u2019ai lu et j\u2019accepte la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialit\u00e9</a>.',
@@ -1921,7 +1957,7 @@
           'cookie.link': 'Cookie Policy',
 },
         es: {
-          'meta.title': 'Badiani donde quieras â€” Eventos Badiani',
+          'meta.title': 'Badiani donde quieras — Eventos Badiani',
           'lang.label': 'Selector de idioma',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1930,7 +1966,7 @@
           'nav.home': 'Inicio',
           'nav.eventi': 'Eventos',
           'nav.b2b': 'B2B',
-          'nav.eventi.saletta': 'SalÃ³n Tosinghi',
+          'nav.eventi.saletta': 'Salón Tosinghi',
           'nav.eventi.esterno': 'Badiani donde quieras',
           'nav.eventi.gelatovan': 'Gelato Van',
           'nav.eventi.experience': 'Experience',
@@ -1949,9 +1985,9 @@
           'footer.legale': 'Legal',
           'footer.privacy': 'Pol\u00edtica de Privacidad',
           'footer.cookie': 'Pol\u00edtica de Cookies',
-          'external.hero.label': 'Soluciones mÃ³viles',
+          'external.hero.label': 'Soluciones móviles',
           'external.hero.title': 'Badiani donde quieras',
-          'external.hero.desc': 'Lleva Badiani a tu evento con soluciones mÃ³viles elegantes y versÃ¡tiles',
+          'external.hero.desc': 'Lleva Badiani a tu evento con soluciones móviles elegantes y versátiles',
           'external.solutions.title': 'Soluciones Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pr\u00e1ctico y vers\u00e1til',
           'external.coolbox.subtitle': 'Pr\u00e1ctico y vers\u00e1til',
@@ -2091,11 +2127,9 @@
       }
 
       applyTranslations();
+      (function(){var dl=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!dl)return;var btns=document.querySelectorAll('.topbar__mobile-lang-btn');function sync(){btns.forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===dl.value);});}btns.forEach(function(b){b.addEventListener('click',function(){dl.value=b.dataset.lang;dl.dispatchEvent(new Event('change'));sync();});});dl.addEventListener('change',sync);setTimeout(sync,0);})();
+      (function(){var sel=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!sel)return;var trigger=document.querySelector('.topbar__lang-trigger');var panel=document.querySelector('.topbar__lang-panel');var cur=document.querySelector('.topbar__lang-cur');if(!trigger||!panel||!cur)return;function syncDd(){var v=sel.value||'it';cur.textContent=v.toUpperCase();panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===v);});}trigger.addEventListener('click',function(e){e.stopPropagation();var open=panel.classList.toggle('is-open');trigger.setAttribute('aria-expanded',open?'true':'false');panel.setAttribute('aria-hidden',open?'false':'true');});panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.addEventListener('click',function(){sel.value=b.dataset.lang;sel.dispatchEvent(new Event('change'));panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');syncDd();});});document.addEventListener('click',function(e){if(!trigger.contains(e.target)&&!panel.contains(e.target)){panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});sel.addEventListener('change',syncDd);setTimeout(syncDd,0);})();
     })();
-  </script>
-  <script>
-  (function(){
-    function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
         v.muted=true;
@@ -2116,7 +2150,7 @@
     <button class="img-lightbox__close" aria-label="Chiudi">&#x2715;</button>
     <button class="img-lightbox__nav img-lightbox__nav--prev" aria-label="Precedente" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8249;</button>
     <button class="img-lightbox__nav img-lightbox__nav--next" aria-label="Successiva" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8250;</button>
-    <img class="img-lightbox__img" id="imgLightboxSrc" alt="" />
+    <img class="img-lightbox__img" id="imgLightboxSrc" alt="" aria-hidden="true" />
   </div>
 
   <script>
