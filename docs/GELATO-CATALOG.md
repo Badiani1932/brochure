@@ -6,7 +6,7 @@
 
 ## File: `data/gelatoFlavors.js`
 
-Array di 27 oggetti gusto, esportato come modulo ES6.
+Array di 35 oggetti gusto, esportato come modulo ES6.
 
 ### Struttura Dati per Gusto
 
@@ -36,7 +36,7 @@ Array di 27 oggetti gusto, esportato come modulo ES6.
 
 ---
 
-## I 27 Gusti
+## I 35 Gusti
 
 | # | Gusto | Allergeni chiave | Flag speciali |
 | --- | ------- | ----------------- | --------------- |

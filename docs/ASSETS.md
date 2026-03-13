@@ -16,7 +16,7 @@
 
 ```text
 assets/
-├── gelato/           # 27 cartelle × 3 immagini = ~81 file WebP
+├── gelato/           # 35 cartelle × 3 immagini = ~105 file WebP
 ├── images/
 │   ├── branding/     # Logo, favicon (favicon.webp, favicon.ico, apple-touch-icon.png)
 │   ├── categories/   # Immagini categorie B2B (vasche.webp, torte.webp, ecc.)
