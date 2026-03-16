@@ -184,12 +184,12 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s ease;
-      filter:brightness(0.72);
+      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      filter:none;
     }
     .choice-card:hover .choice-card__img{
       transform:scale(1.06);
-      filter:brightness(0.6);
+      filter:none;
     }
     .choice-card__overlay{
       position:relative;
@@ -248,7 +248,7 @@
       border:2px solid var(--badiani-pink);
       background:var(--badiani-pink);
       color:#fff;
-      font-family:'SuperGroteskB',sans-serif;
+      font-family:'SuperGroteskA',sans-serif;
       font-size:clamp(13px, 1vw, 15px);
       text-transform:uppercase;
       letter-spacing:2.5px;
@@ -1043,7 +1043,7 @@
       font-size:13px;
       text-transform:uppercase;
       letter-spacing:2px;
-      font-family:inherit;
+      font-family:'SuperGroteskA',sans-serif;
       font-weight:600;
       cursor:pointer;
       transition:background 0.3s, transform 0.3s, box-shadow 0.3s;

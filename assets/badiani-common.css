@@ -100,7 +100,7 @@ html, body {
 html::-webkit-scrollbar, body::-webkit-scrollbar { display: none; }
 
 body, html {
-  font-family: 'SuperGroteskC', 'SuperGroteskA', 'SuperGroteskB', sans-serif;
+  font-family: 'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
   font-weight: 400;
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
