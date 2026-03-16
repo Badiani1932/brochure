@@ -22,15 +22,6 @@
   <meta name="twitter:title" content="B2B — Badiani 1932" />
   <meta name="twitter:description" content="Gelato artigianale per hotel, ristoranti e catering. Catalogo B2B Badiani 1932." />
   <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
-  <!-- OG image dimensions -->
-  <meta property="og:image:width" content="1665" />
-  <meta property="og:image:height" content="643" />
-  <meta property="og:image:type" content="image/webp" />
-  <!-- Robots -->
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
-  <link rel="dns-prefetch" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
   <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/b2b/" />
   <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/b2b/" />
   <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/b2b/" />
@@ -81,11 +72,9 @@
       position:relative;
       min-height:70vh;
       display:flex;
-      flex-direction:column;
-      justify-content:flex-end;
-      align-items:flex-start;
+      align-items:flex-end;
       padding:48px 52px;
-      gap:12px;
+      gap:24px;
       margin:0;
       background:#000;
       overflow:hidden;
@@ -136,10 +125,11 @@
       flex-shrink:0;
     }
     .page-hero p{
-      font-size:clamp(13px, 1.1vw, 16px);
+      font-size:clamp(14px, 1.2vw, 17px);
       color:rgba(255,255,255,0.85);
       line-height:1.5;
-      max-width:480px;
+      max-width:280px;
+      padding-bottom:8px;
       font-weight:300;
     }
 
@@ -4658,7 +4648,7 @@
         <track kind="descriptions" srclang="it" label="Descrizione video" default>
       </video>
       <div class="page-hero__heading-group">
-        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">Gelato Artigianale B2B</h1>
+        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">B2B</h1>
       </div>
       <p data-i18n="b2b.hero.subtitle">Esperienze B2B su misura: dal corporate all'hospitality, un'unica regia per eventi, travel e partnership</p>
     </section>
@@ -5050,7 +5040,7 @@
               <div class="gelato-category-title" style="font-size:1.5em;font-weight:600;margin:0 0 14px;padding:0;text-transform:uppercase;color:var(--badiani-blue);" data-i18n="b2b.vasche.formatoAcquisto">Formato Acquisto</div>
               <div class="tipologia-detail-panel-wrap">
                 <div class="tipologia-detail-panel" id="tipologiaDetailPanel" aria-live="polite">
-                  <div class="tipologia-detail-panel__img" id="tipologiaDetailImg"><img id="tipologiaDetailImgEl" src="" alt="" aria-hidden="true" /></div>
+                  <div class="tipologia-detail-panel__img" id="tipologiaDetailImg"><img id="tipologiaDetailImgEl" src="" alt="" /></div>
                   <div class="tipologia-detail-panel__body">
                     <div class="tipologia-detail-panel__name" id="tipologiaDetailName"></div>
                     <div class="tipologia-detail-panel__capacity" id="tipologiaDetailCapacity"></div>
@@ -5346,7 +5336,7 @@
     <button class="fullscreen-nav fullscreen-nav--next" type="button" aria-label="Foto successiva">&#8250;</button>
     <div class="fullscreen-content">
       <button class="fullscreen-close" type="button" aria-label="Chiudi" data-i18n-attr="aria-label:b2b.fullscreen.close">&#x2715;</button>
-      <img id="gelatoFullscreenImage" alt="" aria-hidden="true" />
+      <img id="gelatoFullscreenImage" alt="" />
       <div class="fullscreen-dots" id="gelatoFullscreenDots"></div>
     </div>
   </div>
@@ -5357,7 +5347,7 @@
     <button class="lingotto-carousel__nav lingotto-carousel__nav--prev" type="button" aria-label="Precedente">&#8249;</button>
     <button class="lingotto-carousel__nav lingotto-carousel__nav--next" type="button" aria-label="Successivo">&#8250;</button>
     <div class="lingotto-carousel__inner">
-      <img class="lingotto-carousel__img" id="lingottoCarouselImg" alt="" aria-hidden="true" />
+      <img class="lingotto-carousel__img" id="lingottoCarouselImg" alt="" />
       <div class="lingotto-carousel__dots" id="lingottoCarouselDots"></div>
     </div>
   </div>
@@ -5399,7 +5389,7 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'Gelato Artigianale B2B',
+          'b2b.hero.title': 'B2B',
           'b2b.hero.subtitle': 'Esperienze B2B su misura: dal corporate all\'hospitality, un\'unica regia per eventi, travel e partnership',
           'b2b.hero.note': 'Progetti personalizzabili · Collaborazioni su misura · Supporto dedicato',
           'b2b.target.label': 'A chi è dedicato',
@@ -5776,7 +5766,7 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'b2b.hero.label': 'B2B hero',
-          'b2b.hero.title': 'Artisan Gelato B2B',
+          'b2b.hero.title': 'B2B',
           'b2b.hero.subtitle': 'Tailor-made B2B experiences: from corporate to hospitality, a single direction for events, travel and partnerships',
           'b2b.hero.note': 'Customisable projects · Tailor-made collaborations · Dedicated support',
           'b2b.target.label': 'Who it is for',
@@ -6157,7 +6147,7 @@
           'footer.privacy': 'Politique de Confidentialité',
           'footer.cookie': 'Politique de Cookies',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'Gelato Artisanal B2B',
+          'b2b.hero.title': 'B2B',
           'b2b.hero.subtitle': 'Expériences B2B sur mesure : du corporate à l’hospitalité, une direction unique pour événements, voyages et partenariats',
           'b2b.hero.note': 'Projets personnalisables · Collaborations sur mesure · Support dédié',
           'b2b.target.label': 'À qui c’est dédié',
@@ -6538,7 +6528,7 @@
           'footer.privacy': 'Política de Privacidad',
           'footer.cookie': 'Política de Cookies',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'Gelato Artesanal B2B',
+          'b2b.hero.title': 'B2B',
           'b2b.hero.subtitle': 'Experiencias B2B a medida: del corporate al hospitality, una única dirección para eventos, travel y partnerships',
           'b2b.hero.note': 'Proyectos personalizables · Colaboraciones a medida · Soporte dedicado',
           'b2b.target.label': 'A quién va dirigido',

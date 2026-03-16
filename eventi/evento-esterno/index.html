@@ -22,15 +22,6 @@
   <meta name="twitter:title" content="Badiani dove vuoi — Badiani 1932" />
   <meta name="twitter:description" content="Cool Box e Carretto Gelato per eventi. Gelato artigianale fiorentino ovunque." />
   <meta name="twitter:image" content="https://www.badiani1932.com/assets/images/branding/logo.webp" />
-  <!-- OG image dimensions -->
-  <meta property="og:image:width" content="1665" />
-  <meta property="og:image:height" content="643" />
-  <meta property="og:image:type" content="image/webp" />
-  <!-- Robots -->
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
-  <link rel="dns-prefetch" href="https://badianiapiwebmail.marco-bruzzi.workers.dev" />
   <link rel="alternate" hreflang="it" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="alternate" hreflang="en" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="alternate" hreflang="fr" href="https://www.badiani1932.com/eventi/evento-esterno/" />
@@ -1038,7 +1029,7 @@
     </div>
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
+    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">Ã—</a>
     <a href="../../" data-i18n="nav.home">Home</a>
     <div class="topbar__mobile-group">
       <div class="topbar__mobile-group-header">
@@ -1851,7 +1842,7 @@
           'cookie.link': 'Cookie Policy',
 },
         fr: {
-          'meta.title': 'Badiani où vous voulez — Événements Badiani',
+          'meta.title': 'Badiani où vous voulez — Ã‰vénements Badiani',
           'lang.label': 'Sélecteur de langue',
           'lang.it': 'IT',
           'lang.en': 'EN',
@@ -1866,7 +1857,7 @@
           'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Parfums',
           'nav.b2b.monoporzioni': 'Portions Individuelles',
-          'nav.b2b.torte': 'Gâteaux',
+          'nav.b2b.torte': 'GÃ¢teaux',
           'nav.b2b.coni': 'Cônes & Coupes',
           'nav.b2b.accessori': 'Accessoires',
           'nav.b2b.contenitori': 'Conteneurs',
@@ -1987,7 +1978,7 @@
           'footer.cookie': 'Pol\u00edtica de Cookies',
           'external.hero.label': 'Soluciones móviles',
           'external.hero.title': 'Badiani donde quieras',
-          'external.hero.desc': 'Lleva Badiani a tu evento con soluciones móviles elegantes y versátiles',
+          'external.hero.desc': 'Lleva Badiani a tu evento con soluciones móviles elegantes y versÃ¡tiles',
           'external.solutions.title': 'Soluciones Disponibles',
           'external.coolbox.aria': 'Cool Box \u2014 Pr\u00e1ctico y vers\u00e1til',
           'external.coolbox.subtitle': 'Pr\u00e1ctico y vers\u00e1til',
@@ -2130,6 +2121,10 @@
       (function(){var dl=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!dl)return;var btns=document.querySelectorAll('.topbar__mobile-lang-btn');function sync(){btns.forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===dl.value);});}btns.forEach(function(b){b.addEventListener('click',function(){dl.value=b.dataset.lang;dl.dispatchEvent(new Event('change'));sync();});});dl.addEventListener('change',sync);setTimeout(sync,0);})();
       (function(){var sel=document.getElementById('langSelect')||document.querySelector('.topbar__select');if(!sel)return;var trigger=document.querySelector('.topbar__lang-trigger');var panel=document.querySelector('.topbar__lang-panel');var cur=document.querySelector('.topbar__lang-cur');if(!trigger||!panel||!cur)return;function syncDd(){var v=sel.value||'it';cur.textContent=v.toUpperCase();panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.classList.toggle('is-active',b.dataset.lang===v);});}trigger.addEventListener('click',function(e){e.stopPropagation();var open=panel.classList.toggle('is-open');trigger.setAttribute('aria-expanded',open?'true':'false');panel.setAttribute('aria-hidden',open?'false':'true');});panel.querySelectorAll('.topbar__lang-opt').forEach(function(b){b.addEventListener('click',function(){sel.value=b.dataset.lang;sel.dispatchEvent(new Event('change'));panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');syncDd();});});document.addEventListener('click',function(e){if(!trigger.contains(e.target)&&!panel.contains(e.target)){panel.classList.remove('is-open');trigger.setAttribute('aria-expanded','false');panel.setAttribute('aria-hidden','true');}});sel.addEventListener('change',syncDd);setTimeout(syncDd,0);})();
     })();
+  </script>
+  <script>
+  (function(){
+    function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
         v.muted=true;
@@ -2150,7 +2145,7 @@
     <button class="img-lightbox__close" aria-label="Chiudi">&#x2715;</button>
     <button class="img-lightbox__nav img-lightbox__nav--prev" aria-label="Precedente" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8249;</button>
     <button class="img-lightbox__nav img-lightbox__nav--next" aria-label="Successiva" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8250;</button>
-    <img class="img-lightbox__img" id="imgLightboxSrc" alt="" aria-hidden="true" />
+    <img class="img-lightbox__img" id="imgLightboxSrc" alt="" />
   </div>
 
   <script>
