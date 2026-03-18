@@ -249,7 +249,7 @@
       letter-spacing:clamp(1px, 0.8cqi, 4px);
       font-weight:700;
       line-height:0.9;
-      text-shadow:0 2px 8px rgba(0,0,0,0.35);
+      text-shadow:none;
     }
     .ext-card__desc{
       position:absolute;
@@ -291,6 +291,16 @@
     }
     .ext-card:hover .ext-card__desc svg{
       transform:translateX(4px);
+    }
+    /* Carretto CTA — blue variant */
+    .ext-card[data-modal="carretto"] .ext-card__desc{
+      background:var(--badiani-blue);
+      border-color:var(--badiani-blue);
+    }
+    .ext-card[data-modal="carretto"]:hover .ext-card__desc{
+      background:#fff;
+      border-color:var(--badiani-blue);
+      color:var(--badiani-blue);
     }
     .ext-card__price{
       position:absolute;
