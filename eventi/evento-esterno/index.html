@@ -252,11 +252,14 @@
       text-shadow:0 2px 8px rgba(0,0,0,0.35);
     }
     .ext-card__desc{
+      position:absolute;
+      top:82%;
+      left:18%;
+      width:64%;
+      box-sizing:border-box;
       display:flex;
       align-items:flex-start;
       gap:10px;
-      margin-top:auto;
-      align-self:stretch;
       padding:clamp(10px, 3cqi, 14px) clamp(12px, 4cqi, 22px);
       border-radius:0;
       border:2px solid var(--badiani-pink);
@@ -270,6 +273,7 @@
       line-height:1.35;
       max-width:none;
       pointer-events:none;
+      z-index:2;
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
     .ext-card__desc svg{
