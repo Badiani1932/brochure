@@ -327,9 +327,9 @@
       background:#fff;
       padding:clamp(32px, 4vw, 56px) clamp(28px, 3.5vw, 48px);
       display:grid;
-      grid-template-columns:1fr 1fr;
-      grid-template-rows:auto repeat(5, auto);
-      gap:0 clamp(24px, 3vw, 48px);
+      grid-template-columns:1fr;
+      grid-template-rows:auto;
+      gap:0;
       align-items:start;
       border-left:1px solid rgba(30,57,141,0.06);
       position:relative;
@@ -380,17 +380,15 @@
       font-weight:300;
     }
     .ev-corp-col{
-      display:grid;
-      grid-template-rows:subgrid;
-      grid-row:span 6;
-      padding:0 clamp(16px, 2vw, 28px);
+      display:block;
+      padding:0;
     }
     .ev-corp-col--customize{
-      border-right:1px solid rgba(30,57,141,0.08);
-      padding-right:clamp(16px, 2vw, 28px);
+      border-bottom:1px solid rgba(30,57,141,0.08);
+      padding-bottom:clamp(24px, 3vw, 40px);
     }
     .ev-corp-col--ideal{
-      padding-left:clamp(16px, 2vw, 28px);
+      padding-top:clamp(24px, 3vw, 40px);
     }
     .ev-corp-col h3{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
@@ -405,9 +403,7 @@
     .ev-corp-col--ideal h3{ color:var(--badiani-pink); align-self:end; }
     .ev-corp-list{
       list-style:none;
-      display:grid;
-      grid-template-rows:subgrid;
-      grid-row:span 5;
+      display:block;
       padding:0;
       margin:0;
     }
@@ -796,30 +792,8 @@
       .ev-corporate__grid{
         grid-template-columns:1fr;
       }
-      .ev-corp-details{
-        grid-template-columns:1fr;
-        grid-template-rows:auto;
-        gap:0;
-        border-bottom:none;
-      }
-      .ev-corp-col--customize{
-        display:block;
-        grid-row:auto;
-        border-right:none;
-        padding-right:0;
-        border-bottom:none;
-        padding-bottom:clamp(32px, 4vw, 48px);
-      }
-      .ev-corp-col--ideal{
-        display:block;
-        grid-row:auto;
-        padding-left:0;
-        padding-top:clamp(32px, 4vw, 48px);
-      }
-      .ev-corp-col{ padding:0; }
-      .ev-corp-list{
-        display:block;
-      }
+      .ev-corp-col--customize{ border-bottom:none; padding-bottom:clamp(32px, 4vw, 48px); }
+      .ev-corp-col--ideal{ padding-top:clamp(32px, 4vw, 48px); }
       .ev-corp-list li{ border-bottom:none; padding:clamp(6px,0.8vw,10px) 0; }
 
       .ev-gallery__grid{
@@ -852,8 +826,6 @@
       .ev-corp-details{
         padding:32px 20px;
       }
-      .ev-corp-details{ border-bottom:none; }
-      .ev-corp-col{ padding:0; }
       .ev-corp-col--customize{ border-bottom:none; padding-bottom:clamp(20px,2.5vw,32px); }
       .ev-corp-list li{ border-bottom:none; padding:clamp(6px,0.8vw,10px) 0; }
       .ev-corp-info__title{
