@@ -256,25 +256,25 @@
       top:82%;
       left:18%;
       width:64%;
-      box-sizing:border-box;
-      display:flex;
+      box-sizing:content-box;
+      display:inline-flex;
       align-items:flex-start;
-      gap:10px;
-      padding:clamp(10px, 3cqi, 14px) clamp(12px, 4cqi, 22px);
+      gap:12px;
+      padding:10px 16px;
       border-radius:0;
       border:2px solid var(--badiani-pink);
       background:var(--badiani-pink);
       color:#fff;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(10px, 3cqi, 13px);
+      font-size:clamp(13px,1vw,15px);
       text-transform:uppercase;
-      letter-spacing:1.5px;
+      letter-spacing:2.5px;
       font-weight:700;
       line-height:1.35;
       max-width:none;
       pointer-events:none;
       z-index:2;
-      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     }
     .ext-card__desc svg{
       width:16px;
@@ -285,7 +285,7 @@
     }
     .ext-card:hover .ext-card__desc{
       background:#fff;
-      border-color:#fff;
+      border-color:var(--badiani-pink);
       color:var(--badiani-pink);
       transform:translateY(-2px);
     }

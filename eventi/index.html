@@ -284,8 +284,9 @@
     }
     .ev-card:hover .ev-card__desc{
       background:#fff;
-      border-color:#fff;
+      border-color:var(--badiani-pink);
       color:var(--badiani-pink);
+      transform:translateY(-2px);
     }
     .ev-card__desc svg{
       flex-shrink:0;
@@ -306,7 +307,7 @@
     .ev-card:nth-child(2):hover .ev-card__desc,
     .ev-card:nth-child(4):hover .ev-card__desc{
       background:#fff;
-      border-color:#fff;
+      border-color:var(--badiani-blue);
       color:var(--badiani-blue);
     }
     /* no dividers needed — gap:2px provides visual separation */
@@ -867,6 +868,7 @@
     .ev-corporate{
       position:relative;
       overflow:visible;
+      clip-path:inset(-9999px -9999px 0 -9999px);
       z-index:1;
     }
     .ev-corp-info{
