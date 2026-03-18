@@ -148,7 +148,7 @@
       overflow:hidden;
       color:#fff;
       display:flex;
-      align-items:flex-start;
+      align-items:stretch;
       aspect-ratio:1/1;
       cursor:pointer;
       border:none;
@@ -290,21 +290,18 @@
     }
     .ext-card__price{
       position:absolute;
-      top:clamp(8px, 2cqi, 16px);
-      right:clamp(8px, 2cqi, 16px);
+      top:calc(18% + clamp(8px, 2cqi, 16px));
+      right:calc(18% + clamp(8px, 2cqi, 16px));
       z-index:3;
       font-size:clamp(14px, 1.2vw, 17px);
       color:#fff;
       font-weight:600;
       letter-spacing:0.02em;
       text-transform:none;
+      text-shadow:0 1px 6px rgba(0,0,0,0.6), 0 2px 12px rgba(0,0,0,0.4);
       background:none;
       padding:0;
       margin:0;
-    }
-    /* subtle dividers between cards */
-    .ext-card + .ext-card{
-      box-shadow:none;
     }
 
     /* ===== TERMS — dark blue section ===== */
@@ -984,7 +981,7 @@
       .ext-hero__content{ padding:24px 20px; }
       .ext-hero__title{ font-size:clamp(40px, 12vw, 72px); }
 
-      .ext-card{ aspect-ratio:3/4; }
+      .ext-card{ aspect-ratio:1/1; }
       .ext-card__overlay{ padding:28px 20px; }
       .ext-card__title{ font-size:clamp(28px, 8vw, 44px); }
 
