@@ -153,9 +153,6 @@
     }
     .page-hero h1,
     .section-title,
-    .category-title,
-    .category-label,
-    .category-desc,
     .b2b-terms__title,
     .modal__section h4,
     .map-overlay-title{
@@ -222,8 +219,7 @@
         box-shadow:inset 0 0 30px rgba(232,88,130,0.4), 0 0 30px rgba(232,88,130,0.4);
       }
     }
-    /* Dark overlay on each card */
-    /* ::after = gradient overlay */
+    /* ::after = gradient overlay (disabled — original photos shown) */
     .category-card.b2b-card--gelato::after,
     .category-card.b2b-card--torte::after,
     .category-card.b2b-card--vasche::after,
@@ -233,15 +229,7 @@
     .category-card.b2b-card--cialde::after,
     .category-card.b2b-card--contenitori::after,
     .category-card.b2b-card--accessori::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.20) 50%, rgba(0,0,0,0.10) 100%);
-      transition:background 0.5s ease;
-      z-index:1;
-    }
-    .category-card:hover::after{
-      background:linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.28) 50%, rgba(0,0,0,0.14) 100%);
+      content:none;
     }
     /* Background images via CSS custom property for zoom effect */
     .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/gusti.webp'); }
@@ -318,7 +306,12 @@
       text-transform:uppercase;
       letter-spacing:clamp(1px, 0.6cqi, 3px);
       font-weight:400;
-      color:rgba(255,255,255,0.75);
+      color:#fff;
+      -webkit-text-stroke:0.5px rgba(0,0,0,0.3);
+      paint-order:stroke fill;
+      text-shadow:
+        0 1px 6px rgba(0,0,0,0.6),
+        0 2px 12px rgba(0,0,0,0.4);
       line-height:1;
       margin-bottom:clamp(8px, 4cqi, 20px);
     }
@@ -330,7 +323,12 @@
       font-weight:700;
       line-height:0.9;
       color:#fff;
-      text-shadow:none;
+      -webkit-text-stroke:1.5px rgba(0,0,0,0.35);
+      paint-order:stroke fill;
+      text-shadow:
+        0 2px 8px rgba(0,0,0,0.6),
+        0 4px 20px rgba(0,0,0,0.45),
+        0 0 40px rgba(0,0,0,0.3);
       padding:0;
       overflow-wrap:break-word;
       word-break:break-word;
@@ -716,10 +714,10 @@
       display:none !important;
     }
     .modal__content.is-pezziduri.is-pezziduri-overlay{
-      overflow-y:auto;
-      -webkit-overflow-scrolling:touch;
-      display:grid;
-      align-content:start;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       padding:0;
       scrollbar-width:none;
       -ms-overflow-style:none;
@@ -730,7 +728,7 @@
     .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-hero-overlay{
       margin:0;
       width:100%;
-      height:auto;
+      height:100%;
     }
     .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-note{
       display:none;
@@ -1008,7 +1006,8 @@
     }
     .gelato-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:18px;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
@@ -1497,18 +1496,20 @@
       gap:12px;
     }
     .coppette-detail-name{
-      font-size:24px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
-      letter-spacing:0.8px;
+      letter-spacing:1px;
+      line-height:1.2;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-align:center;
     }
     .coppette-detail-meta{
       display:grid;
       gap:8px;
-      font-size:16px;
+      font-size:15px;
+      line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
       text-transform:none;
@@ -1546,7 +1547,7 @@
         gap:6px;
       }
       .coppette-detail-name{
-        font-size:15px;
+        font-size:16px;
       }
       .coppette-detail-meta{
         font-size:12px;
@@ -1706,18 +1707,20 @@
       gap:12px;
     }
     .coni-detail-name{
-      font-size:24px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
-      letter-spacing:0.8px;
+      letter-spacing:1px;
+      line-height:1.2;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-align:center;
     }
     .coni-detail-meta{
       display:grid;
       gap:8px;
-      font-size:16px;
+      font-size:15px;
+      line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
       text-transform:none;
@@ -1755,7 +1758,7 @@
         gap:6px;
       }
       .coni-detail-name{
-        font-size:15px;
+        font-size:16px;
       }
       .coni-detail-meta{
         font-size:12px;
@@ -1917,18 +1920,20 @@
       gap:12px;
     }
     .conigf-detail-name{
-      font-size:24px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
-      letter-spacing:0.8px;
+      letter-spacing:1px;
+      line-height:1.2;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-align:center;
     }
     .conigf-detail-meta{
       display:grid;
       gap:8px;
-      font-size:16px;
+      font-size:15px;
+      line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
       text-transform:none;
@@ -1966,7 +1971,7 @@
         gap:6px;
       }
       .conigf-detail-name{
-        font-size:15px;
+        font-size:16px;
       }
       .conigf-detail-meta{
         font-size:12px;
@@ -2046,7 +2051,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:12px;
+      font-size:13px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:5px 12px 5px 8px;
@@ -2118,17 +2123,18 @@
       gap:12px;
     }
     .accessori-detail-name{
-      font-size:18px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
-      letter-spacing:0.8px;
+      letter-spacing:1px;
+      line-height:1.2;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
     .accessori-detail-meta{
       display:grid;
       gap:8px;
-      font-size:13px;
+      font-size:12px;
       color:rgba(30,57,141,0.65);
     }
     .accessori-detail-meta span{
@@ -2161,7 +2167,7 @@
         padding:12px 14px;
       }
       .accessori-detail-name{
-        font-size:14px;
+        font-size:16px;
       }
       .accessori-detail-meta{
         font-size:12px;
@@ -2171,7 +2177,7 @@
         padding:5px 8px;
       }
       .accessori-zone-label{
-        font-size:8px;
+        font-size:10px;
         padding:3px 6px 3px 4px;
         bottom:4px;
         gap:2px;
@@ -2425,49 +2431,58 @@
       cursor:pointer;
       overflow:hidden;
       animation:pezziduri-fadeIn 0.4s ease;
-      /* cancel modal__content padding to go edge-to-edge */
-      margin:-24px -28px 0;
-      width:calc(100% + 56px);
+      margin:0;
+      width:100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
     }
     .pezziduri-hero-overlay img{
       display:block;
       width:100%;
-      height:auto;
+      height:100%;
       object-fit:contain;
-      object-position:center top;
+      object-position:center center;
     }
     @media(min-width:769px){
       .pezziduri-hero-overlay{
         margin:0;
-        width:auto;
+        width:100%;
+        height:100%;
         max-height:none;
         overflow:visible;
         display:flex;
+        align-items:center;
         justify-content:center;
       }
       .pezziduri-hero-overlay img{
         width:auto;
         max-width:100%;
-        height:auto;
-        max-height:70vh;
+        height:100%;
+        max-height:none;
         object-fit:contain;
         object-position:center center;
       }
     }
     @media(max-width:1024px){
       .pezziduri-hero-overlay{
-        margin:-20px -22px 0;
-        width:calc(100% + 44px);
+        margin:0;
+        width:100%;
+        height:100%;
       }
     }
     @media(max-width:768px){
       .pezziduri-hero-overlay{
-        margin:-16px -18px 0;
-        width:calc(100% + 36px);
+        margin:0;
+        width:100%;
+        height:100%;
       }
       .pezziduri-hero-overlay img{
-        width:140%;
-        margin-left:calc(-20% - 20px);
+        width:100%;
+        height:100%;
+        margin-left:0;
+        object-fit:contain;
       }
     }
     .pezziduri-hero-overlay .pezziduri-hero-tap{
@@ -2645,7 +2660,8 @@
     }
     .pezziduri-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:18px;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
@@ -2823,7 +2839,8 @@
     }
     .accessori-card__exp-name{
       font-family:'SuperGroteskB',sans-serif;
-      font-size:18px;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
       letter-spacing:1px;
@@ -2963,7 +2980,7 @@
       margin-bottom:0;
     }
     .torte-set-name{
-      font-size:14px;
+      font-size:13px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
@@ -3094,18 +3111,20 @@
       gap:14px;
     }
     .torte-detail-name{
-      font-size:24px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
-      letter-spacing:0.8px;
+      letter-spacing:1px;
+      line-height:1.2;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-align:center;
     }
     .torte-detail-meta{
       display:grid;
       gap:8px;
-      font-size:16px;
+      font-size:15px;
+      line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
       text-transform:none;
@@ -3169,7 +3188,7 @@
         gap:6px;
       }
       .torte-detail-name{
-        font-size:15px;
+        font-size:16px;
       }
       .torte-detail-meta{
         font-size:12px;
@@ -3356,18 +3375,20 @@
       gap:6px;
     }
     .contenitori-detail-name{
-      font-size:24px;
-      font-weight:700;
+      font-size:20px;
+      font-weight:600;
       color:var(--badiani-blue);
       text-transform:uppercase;
-      letter-spacing:0.8px;
+      letter-spacing:1px;
+      line-height:1.2;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
       text-align:center;
     }
     .contenitori-detail-meta{
       display:grid;
       gap:2px;
-      font-size:16px;
+      font-size:15px;
+      line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
       text-transform:none;
@@ -3405,7 +3426,7 @@
         gap:4px;
       }
       .contenitori-detail-name{
-        font-size:15px;
+        font-size:16px;
       }
       .contenitori-detail-meta{
         font-size:12px;
@@ -3535,7 +3556,7 @@
     @media(max-width:768px){
       .gelato-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .gelato-card__exp-body{ padding:10px 12px 10px; gap:4px; max-height:80%; }
-      .gelato-card__exp-name{ font-size:15px; letter-spacing:0.8px; }
+      .gelato-card__exp-name{ font-size:16px; letter-spacing:0.8px; }
       .gelato-card__exp-category{ font-size:8px; letter-spacing:1.8px; }
       .gelato-card__exp-section-label{ font-size:10px; letter-spacing:1px; }
       .gelato-card__exp-desc{ font-size:13px; line-height:1.35; }
@@ -7487,9 +7508,13 @@
         'Biscotto Buontalenti': 'Biscotto con Buontalenti®',
         'Biscotto Stracciatella': 'Biscotto con gelato alla stracciatella',
         'Donut bianco': 'Buontalenti® ricoperto con cioccolato bianco',
-        'Donut rosa': 'Buontalenti®',
-        'Donut verde': 'Buontalenti®',
-        'Donut cioccolato': 'Buontalenti® ricoperto con cioccolato fondente'
+        'Donut rosa': 'Stecco di Buontalenti® con ricopertura di cioccolato alla fragola',
+        'Donut verde': 'Stecco di Buontalenti® con ricopertura di cioccolato al pistacchio',
+        'Donut cioccolato': 'Buontalenti® ricoperto con cioccolato fondente',
+        'Lingotto Buontalenti': 'Lingotto di Buontalenti®',
+        'Zuccotto': 'Classico zuccotto fiorentino con inzuppatura leggermente alcolica e ripieno di stracciatella e cioccolata',
+        'Mini Coni': 'Miniconi con Buontalenti® glassati con cioccolata fondente',
+        'Zampa': 'Stecco a forma di zampetta con Buontalenti® ricoperto di cioccolata fondente'
       };
 
       /* -- Pezzi duri description i18n (EN/FR/ES) -- */
@@ -7503,9 +7528,13 @@
           'Biscotto Buontalenti': 'Biscuit with Buontalenti®',
           'Biscotto Stracciatella': 'Biscuit with stracciatella gelato',
           'Donut bianco': 'Buontalenti® coated in white chocolate',
-          'Donut rosa': 'Buontalenti®',
-          'Donut verde': 'Buontalenti®',
-          'Donut cioccolato': 'Buontalenti® coated in dark chocolate'
+          'Donut rosa': 'Buontalenti® bar coated in strawberry chocolate',
+          'Donut verde': 'Buontalenti® bar coated in pistachio chocolate',
+          'Donut cioccolato': 'Buontalenti® coated in dark chocolate',
+          'Lingotto Buontalenti': 'Buontalenti® ingot',
+          'Zuccotto': 'Classic Florentine zuccotto with a lightly alcoholic soaking and filled with stracciatella and chocolate',
+          'Mini Coni': 'Mini cones with Buontalenti® glazed in dark chocolate',
+          'Zampa': 'Paw-shaped Buontalenti® bar coated in dark chocolate'
         },
         fr: {
           'Stecco Buontalenti': 'Bâtonnet Buontalenti® enrobé de chocolat noir',
@@ -7516,9 +7545,13 @@
           'Biscotto Buontalenti': 'Biscuit avec Buontalenti®',
           'Biscotto Stracciatella': 'Biscuit avec gelato stracciatella',
           'Donut bianco': 'Buontalenti® enrobé de chocolat blanc',
-          'Donut rosa': 'Buontalenti®',
-          'Donut verde': 'Buontalenti®',
-          'Donut cioccolato': 'Buontalenti® enrobé de chocolat noir'
+          'Donut rosa': 'Bâtonnet Buontalenti® enrobé de chocolat à la fraise',
+          'Donut verde': 'Bâtonnet Buontalenti® enrobé de chocolat à la pistache',
+          'Donut cioccolato': 'Buontalenti® enrobé de chocolat noir',
+          'Lingotto Buontalenti': 'Lingot de Buontalenti®',
+          'Zuccotto': 'Zuccotto florentin classique avec trempage légèrement alcoolisé et garni de stracciatella et chocolat',
+          'Mini Coni': 'Mini-cônes avec Buontalenti® glacés au chocolat noir',
+          'Zampa': 'Bâtonnet en forme de patte avec Buontalenti® enrobé de chocolat noir'
         },
         es: {
           'Stecco Buontalenti': 'Bombón Buontalenti® bañado en chocolate negro',
@@ -7529,9 +7562,13 @@
           'Biscotto Buontalenti': 'Galleta con Buontalenti®',
           'Biscotto Stracciatella': 'Galleta con helado stracciatella',
           'Donut bianco': 'Buontalenti® bañado en chocolate blanco',
-          'Donut rosa': 'Buontalenti®',
-          'Donut verde': 'Buontalenti®',
-          'Donut cioccolato': 'Buontalenti® bañado en chocolate negro'
+          'Donut rosa': 'Bombón de Buontalenti® bañado en chocolate de fresa',
+          'Donut verde': 'Bombón de Buontalenti® bañado en chocolate de pistacho',
+          'Donut cioccolato': 'Buontalenti® bañado en chocolate negro',
+          'Lingotto Buontalenti': 'Lingote de Buontalenti®',
+          'Zuccotto': 'Clásico zuccotto florentino con remojo ligeramente alcohólico y relleno de stracciatella y chocolate',
+          'Mini Coni': 'Mini conos con Buontalenti® glaseados con chocolate negro',
+          'Zampa': 'Bombón en forma de patita con Buontalenti® bañado en chocolate negro'
         }
       };
 

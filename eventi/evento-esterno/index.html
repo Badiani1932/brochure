@@ -28,6 +28,8 @@
   <link rel="alternate" hreflang="es" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
+  <link rel="preload" href="../../assets/images/categories/coolbox.webp" as="image" type="image/webp" />
+  <link rel="preload" href="../../assets/images/eventi/carretto.webp" as="image" type="image/webp" />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
   <script type="application/ld+json">
   {
@@ -212,7 +214,7 @@
     }
     .ext-card__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4vw, 60px);
+      font-size:clamp(36px, 4.8vw, 68px);
       color:#fff;
       text-transform:uppercase;
       letter-spacing:3px;
@@ -645,7 +647,7 @@
       z-index:1;
     }
     .modal-hero__label{
-      font-size:clamp(11px, 1vw, 14px);
+      font-size:clamp(13px, 1.2vw, 16px);
       letter-spacing:3px;
       text-transform:uppercase;
       color:var(--badiani-pink);
@@ -880,28 +882,24 @@
     }
 
     @media(max-width:768px){
-      .modal-overlay{
-        overflow-y:auto;
-        overflow-x:hidden;
+      .modal-overlay.active{
+        overflow:hidden;
       }
       .modal-content{
-        padding:56px 10px 24px;
-        min-height:100vh;
-        height:auto;
-        overflow-y:visible;
-        overflow-x:hidden;
-        align-items:flex-start;
+        align-items:center;
         justify-content:center;
-        box-sizing:border-box;
+        padding:12px;
+        min-height:100dvh;
+        height:100dvh;
+        overflow:hidden;
       }
       .modal-panel{
-        width:min(100%, calc(100vw - 20px));
-        max-width:calc(100vw - 20px);
-        max-height:none;
+        width:100%;
+        max-height:min(90dvh, 820px);
         border-radius:18px;
-        margin:0 auto;
       }
-      .modal-close{ top:8px; right:8px; width:44px; height:44px; }
+      .modal-close{ top:max(12px, env(safe-area-inset-top)); right:max(12px, env(safe-area-inset-right)); width:40px; height:40px; }
+      .modal-close{ --close-icon-size:18px; --close-icon-stroke:2.5px; }
       .modal-hero{
         grid-template-columns:1fr;
         padding:28px 24px;
@@ -924,10 +922,23 @@
 
       .modal-hero__title{
         font-size:clamp(36px, 10vw, 60px);
+        letter-spacing:2px;
+        margin-bottom:10px;
       }
+      .modal-hero__desc{ font-size:14px; line-height:1.5; }
       .modal-hero__number{
         font-size:clamp(140px, 30vw, 240px);
       }
+      .modal-cta-wrap{
+        padding:18px 14px 22px;
+      }
+      .modal-request-btn{
+        padding:12px 22px;
+        font-size:12px;
+        letter-spacing:1.6px;
+        gap:8px;
+      }
+      .modal-request-btn svg{ width:16px; height:16px; }
     }
 
     @media(max-width:600px){
@@ -1232,7 +1243,7 @@
             <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
           </div>
           <div class="modal-hero__img-wrap">
-            <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="lazy" decoding="async" data-zoomable data-gallery="coolbox" tabindex="0" role="button" />
+            <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="eager" decoding="async" width="1600" height="1066" data-zoomable data-gallery="coolbox" tabindex="0" role="button" />
             <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
@@ -1282,7 +1293,7 @@
             <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
           </div>
           <div class="modal-hero__img-wrap">
-            <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
+            <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="eager" decoding="async" width="2892" height="2048" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
             <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
