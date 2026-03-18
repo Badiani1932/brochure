@@ -55,6 +55,9 @@
        EVENTI PAGE — aligned with home design language
        Full-bleed sections, split grids, dark overlays, SuperGrotesk
        ============================================================ */
+    body{
+      background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat fixed;
+    }
 
     /* ===== HERO ===== */
     .ev-hero{
@@ -144,13 +147,6 @@
       padding:0;
       position:relative;
       overflow:hidden;
-    }
-    .ev-types::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat;
-      z-index:0;
     }
     .ev-types__grid{
       position:relative;
@@ -439,7 +435,7 @@
 
     /* ===== GALLERY — dark full-bleed section ===== */
     .ev-gallery-section{
-      background:var(--badiani-blue);
+      background:transparent;
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
       position:relative;
       z-index:20;
@@ -511,14 +507,6 @@
       overflow:visible;
       padding:clamp(40px, 6vw, 80px) clamp(16px, 4vw, 80px);
       background:transparent;
-    }
-    .ev-form-section::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat;
-      transform:scaleX(-1);
-      z-index:0;
     }
     .ev-form-section > *{
       position:relative;
@@ -771,11 +759,14 @@
     /* ===== RESPONSIVE ===== */
     /* desktop 4-col: push images down so titles don't overlap */
     @media(min-width:901px){
+      .ev-card{
+        aspect-ratio:3/4;
+      }
       .ev-card::after{
-        top:28%; left:14%; right:14%; bottom:14%;
+        top:24%; left:12%; right:12%; bottom:18%;
       }
       .ev-card__img{
-        top:28%; left:14%; width:72%; height:58%;
+        top:24%; left:12%; width:76%; height:58%;
       }
     }
     /* tablet: already 2-col, keep as-is */
