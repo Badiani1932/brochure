@@ -144,9 +144,9 @@
 
     /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
-      padding:0;
+      padding:clamp(40px, 6vw, 80px) 0 clamp(100px, 12vw, 160px);
       position:relative;
-      overflow:hidden;
+      overflow:visible;
     }
     .ev-types__grid{
       position:relative;
@@ -173,12 +173,12 @@
     }
     .ev-card{
       position:relative;
-      overflow:hidden;
+      overflow:visible;
       text-decoration:none;
       color:#fff;
       display:flex;
       align-items:stretch;
-      aspect-ratio:1/1;
+      aspect-ratio:3/4;
       min-height:0;
       cursor:pointer;
       container-type:inline-size;
@@ -186,15 +186,17 @@
     .ev-card::after{
       content:'';
       position:absolute;
-      inset:18%;
+      top:calc(22% + clamp(14px, 3vw, 40px));
+      left:calc(18% + clamp(14px, 3vw, 40px));
+      width:64%;
+      height:50%;
       background:var(--badiani-pink);
-      translate:0 0;
-      transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
       z-index:0;
       pointer-events:none;
+      transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
     }
     .ev-card:hover::after{
-      translate:40px 40px;
+      translate:clamp(6px, 1.5vw, 16px) clamp(6px, 1.5vw, 16px);
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -209,10 +211,10 @@
     .ev-card:hover{ transform:none; box-shadow:none; }
     .ev-card__img{
       position:absolute;
-      top:18%;
+      top:22%;
       left:18%;
       width:64%;
-      height:64%;
+      height:50%;
       object-fit:cover;
       z-index:1;
       transition:none;
@@ -228,7 +230,7 @@
       z-index:2;
       display:grid;
       grid-template-columns:18% 64% 18%;
-      grid-template-rows:18% 64% 18%;
+      grid-template-rows:22% 50% 28%;
       padding:0;
       box-sizing:border-box;
       pointer-events:none;
@@ -267,7 +269,7 @@
       text-shadow:none;
     }
     .ev-card__desc{
-      grid-column:2 / 3;
+      grid-column:2 / -1;
       grid-row:3;
       align-self:start;
       display:inline-flex;
@@ -797,7 +799,7 @@
         grid-template-columns:repeat(2, 1fr);
         gap:0;
       }
-      .ev-card{ aspect-ratio:1/1; min-height:0; }
+      .ev-card{ aspect-ratio:3/4; min-height:0; }
       .ev-card__title{ font-size:clamp(17px, 3.5vw, 44px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
 
@@ -829,7 +831,7 @@
 
       .ev-types__grid{ grid-template-columns:1fr; }
       .ev-card{
-        aspect-ratio:1/1;
+        aspect-ratio:3/4;
         min-height:0;
       }
       .ev-card__title{
