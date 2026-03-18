@@ -769,6 +769,15 @@
     .lightbox-next{ right:20px; }
 
     /* ===== RESPONSIVE ===== */
+    /* desktop 4-col: push images down so titles don't overlap */
+    @media(min-width:901px){
+      .ev-card::after{
+        top:28%; left:14%; right:14%; bottom:14%;
+      }
+      .ev-card__img{
+        top:28%; left:14%; width:72%; height:58%;
+      }
+    }
     /* tablet: already 2-col, keep as-is */
     @media(max-width:900px){
       .ev-hero__content{
