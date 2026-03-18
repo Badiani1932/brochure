@@ -223,15 +223,15 @@
       filter:none;
     }
     .ev-card__overlay{
-      position:relative;
+      position:absolute;
+      inset:0;
       z-index:2;
+      display:grid;
+      grid-template-columns:18% 64% 18%;
+      grid-template-rows:18% 64% 18%;
       padding:0;
-      width:100%;
-      height:100%;
       box-sizing:border-box;
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
+      pointer-events:none;
     }
     .ev-card__label{
       position:absolute;
@@ -252,10 +252,9 @@
       text-align:right;
     }
     .ev-card__title{
-      position:absolute;
-      bottom:calc(100% - 18%);
-      left:18%;
-      right:0;
+      grid-column:2 / -1;
+      grid-row:1;
+      align-self:end;
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
       font-size:clamp(17px, 3.5vw, 60px);
       color:#fff;
@@ -266,14 +265,11 @@
       margin:0;
       padding-bottom:clamp(6px, 1cqi, 12px);
       text-shadow:none;
-      z-index:2;
     }
     .ev-card__desc{
-      position:absolute;
-      top:82%;
-      left:18%;
-      width:64%;
-      box-sizing:content-box;
+      grid-column:2 / 3;
+      grid-row:3;
+      align-self:start;
       display:inline-flex;
       align-items:flex-start;
       gap:12px;
@@ -289,8 +285,7 @@
       font-weight:700;
       line-height:1.35;
       max-width:none;
-      pointer-events:none;
-      z-index:2;
+      pointer-events:auto;
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease;
     }
     .ev-card:hover .ev-card__desc{
@@ -836,9 +831,6 @@
       .ev-card{
         aspect-ratio:1/1;
         min-height:0;
-      }
-      .ev-card__overlay{
-        padding:24px 20px;
       }
       .ev-card__title{
         font-size:clamp(20px, 7vw, 40px);
