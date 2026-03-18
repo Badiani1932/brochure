@@ -125,9 +125,19 @@
     /* ===== SOLUTION CARDS — 3-column full-bleed ===== */
     .ext-solutions{
       padding:0;
-      background:#000;
+      position:relative;
+      overflow:hidden;
+    }
+    .ext-solutions::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('../../assets/images/branding/sfondo.webp') center/cover no-repeat;
+      z-index:0;
     }
     .ext-solutions__grid{
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:repeat(2, 1fr);
       gap:0;
@@ -142,15 +152,26 @@
       aspect-ratio:1/1;
       cursor:pointer;
       border:none;
-      background:none;
+      background:transparent;
       font-family:inherit;
       text-align:left;
       padding:0;
       width:100%;
+      container-type:inline-size;
     }
     .ext-card:hover{ transform:none; box-shadow:none; }
     .ext-card::after{
-      display:none;
+      content:'';
+      position:absolute;
+      inset:18%;
+      background:var(--badiani-pink);
+      translate:0 0;
+      transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
+      z-index:0;
+      pointer-events:none;
+    }
+    .ext-card:hover::after{
+      translate:40px 40px;
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -168,12 +189,14 @@
     }
     .ext-card__img{
       position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
+      top:18%;
+      left:18%;
+      width:64%;
+      height:64%;
       object-position:center center;
       object-fit:cover;
-      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      z-index:1;
+      transition:none;
       filter:none;
     }
     .ext-card[data-modal="coolbox"] .ext-card__img{
@@ -181,7 +204,7 @@
       object-position:center bottom;
     }
     .ext-card:hover .ext-card__img{
-      transform:scale(1.06);
+      transform:none;
       filter:none;
     }
     .ext-card__label{
@@ -206,46 +229,54 @@
     .ext-card__overlay{
       position:relative;
       z-index:2;
-      padding:48px 40px;
+      padding:clamp(20px, 8cqi, 52px) clamp(16px, 8cqi, 52px);
       width:100%;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-start;
+      gap:clamp(8px, 3cqi, 16px);
     }
     .ext-card__subtitle{
       display:none;
     }
     .ext-card__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.8vw, 68px);
+      font-family:'SuperGroteskB',sans-serif;
+      font-size:clamp(17px, 11cqi, 100px);
       color:#fff;
       text-transform:uppercase;
-      letter-spacing:3px;
+      letter-spacing:clamp(1px, 0.8cqi, 4px);
       font-weight:700;
-      line-height:0.95;
-      margin-bottom:12px;
-      text-shadow:none;
+      line-height:0.9;
+      text-shadow:0 2px 8px rgba(0,0,0,0.35);
     }
     .ext-card__desc{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      margin-top:clamp(16px, 2vw, 28px);
-      padding:14px 28px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      margin-top:auto;
+      align-self:stretch;
+      padding:clamp(10px, 3cqi, 14px) clamp(12px, 4cqi, 22px);
       border-radius:0;
       border:2px solid var(--badiani-pink);
       background:var(--badiani-pink);
       color:#fff;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(13px, 1vw, 15px);
+      font-size:clamp(10px, 3cqi, 13px);
       text-transform:uppercase;
-      letter-spacing:2.5px;
+      letter-spacing:1.5px;
       font-weight:700;
-      line-height:1;
+      line-height:1.35;
       max-width:none;
+      pointer-events:none;
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
     .ext-card__desc svg{
-      width:17px;
-      height:17px;
+      width:16px;
+      height:16px;
       flex-shrink:0;
+      margin-top:0.1em;
       transition:transform 0.25s ease;
     }
     .ext-card:hover .ext-card__desc{
@@ -258,15 +289,22 @@
       transform:translateX(4px);
     }
     .ext-card__price{
+      position:absolute;
+      top:clamp(20px, 8cqi, 52px);
+      right:clamp(16px, 8cqi, 52px);
+      z-index:3;
       font-size:clamp(14px, 1.2vw, 17px);
       color:#fff;
       font-weight:600;
-      margin-top:8px;
       letter-spacing:0.02em;
+      text-transform:none;
+      background:none;
+      padding:0;
+      margin:0;
     }
     /* subtle dividers between cards */
     .ext-card + .ext-card{
-      box-shadow:-1px 0 0 0 rgba(255,255,255,0.12);
+      box-shadow:none;
     }
 
     /* ===== TERMS — dark blue section ===== */
@@ -863,10 +901,10 @@
       .ext-solutions__grid{
         grid-template-columns:1fr;
       }
-      .ext-card{ aspect-ratio:4/3; }
+      .ext-card{ aspect-ratio:1/1; }
       .ext-card + .ext-card{
         box-shadow:none;
-        border-top:1px solid rgba(255,255,255,0.12);
+        border-top:none;
       }
 
       .ext-terms__grid{

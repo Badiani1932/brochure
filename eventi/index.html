@@ -142,9 +142,19 @@
     /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
       padding:0;
-      background:#000;
+      position:relative;
+      overflow:hidden;
+    }
+    .ev-types::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat;
+      z-index:0;
     }
     .ev-types__grid{
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:repeat(4, 1fr);
       gap:0;
@@ -152,7 +162,7 @@
     }
     /* Experience card — photo background */
     .ev-card--experience{
-      background:#d4d0ca;
+      background:transparent;
     }
     .ev-card--experience .ev-card__img{
       filter:none;
@@ -161,7 +171,6 @@
     .ev-card--experience:hover .ev-card__img{
       filter:none;
     }
-    .ev-card--experience::after{ display:none; }
     .ev-card--experience .ev-card__title{
       color:#fff;
       text-shadow:none;
@@ -173,17 +182,22 @@
       color:#fff;
       display:flex;
       align-items:flex-start;
-      aspect-ratio:3/4;
+      aspect-ratio:1/1;
       min-height:0;
       cursor:pointer;
     }
     .ev-card::after{
       content:'';
       position:absolute;
-      inset:0;
-      z-index:1;
+      inset:18%;
+      background:var(--badiani-pink);
+      translate:0 0;
+      transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
+      z-index:0;
       pointer-events:none;
-      background:none;
+    }
+    .ev-card:hover::after{
+      translate:40px 40px;
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -198,15 +212,17 @@
     .ev-card:hover{ transform:none; box-shadow:none; }
     .ev-card__img{
       position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
+      top:18%;
+      left:18%;
+      width:64%;
+      height:64%;
       object-fit:cover;
-      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      z-index:1;
+      transition:none;
       filter:none;
     }
     .ev-card:hover .ev-card__img{
-      transform:scale(1.06);
+      transform:none;
       filter:none;
     }
     .ev-card__overlay{
@@ -784,25 +800,27 @@
         grid-template-columns:1fr;
         grid-template-rows:auto;
         gap:0;
-        border-bottom:1px solid rgba(30,57,141,0.08);
+        border-bottom:none;
       }
       .ev-corp-col--customize{
         display:block;
         grid-row:auto;
         border-right:none;
         padding-right:0;
-        border-bottom:1px solid rgba(30,57,141,0.08);
-        padding-bottom:clamp(20px, 2.5vw, 32px);
+        border-bottom:none;
+        padding-bottom:clamp(32px, 4vw, 48px);
       }
       .ev-corp-col--ideal{
         display:block;
         grid-row:auto;
         padding-left:0;
-        padding-top:clamp(20px, 2.5vw, 32px);
+        padding-top:clamp(32px, 4vw, 48px);
       }
+      .ev-corp-col{ padding:0; }
       .ev-corp-list{
         display:block;
       }
+      .ev-corp-list li{ border-bottom:none; padding:clamp(6px,0.8vw,10px) 0; }
 
       .ev-gallery__grid{
         grid-template-columns:repeat(2, 1fr);
@@ -834,6 +852,10 @@
       .ev-corp-details{
         padding:32px 20px;
       }
+      .ev-corp-details{ border-bottom:none; }
+      .ev-corp-col{ padding:0; }
+      .ev-corp-col--customize{ border-bottom:none; padding-bottom:clamp(20px,2.5vw,32px); }
+      .ev-corp-list li{ border-bottom:none; padding:clamp(6px,0.8vw,10px) 0; }
       .ev-corp-info__title{
         font-size:clamp(28px, 8vw, 44px);
       }

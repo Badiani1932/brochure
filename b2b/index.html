@@ -166,8 +166,22 @@
     /* ===== STEPS WRAPPER ===== */
     /* (steps section wrapper moved into form section sidebar) */
 
-    /* ===== CATEGORY GRID — full-bleed immersive cards ===== */
+    /* ===== CATEGORY SECTION — shared sfondo background ===== */
+    .b2b-categories-section{
+      position:relative;
+      overflow:hidden;
+    }
+    .b2b-categories-section::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat;
+      z-index:0;
+    }
+    /* ===== CATEGORY GRID — immersive cards ===== */
     .category-grid{
+      position:relative;
+      z-index:1;
       display:grid;
       grid-template-columns:repeat(3, 1fr);
       gap:0;
@@ -185,7 +199,7 @@
       border:none;
       border-radius:0;
       padding:0;
-      background:none;
+      background:transparent;
       box-shadow:none;
       container-type:inline-size;
     }
@@ -218,7 +232,7 @@
         box-shadow:inset 0 0 30px rgba(232,88,130,0.4), 0 0 30px rgba(232,88,130,0.4);
       }
     }
-    /* ::after = gradient overlay (disabled — original photos shown) */
+    /* ::after = solid pink shadow behind photo */
     .category-card.b2b-card--gelato::after,
     .category-card.b2b-card--torte::after,
     .category-card.b2b-card--vasche::after,
@@ -228,7 +242,17 @@
     .category-card.b2b-card--cialde::after,
     .category-card.b2b-card--contenitori::after,
     .category-card.b2b-card--accessori::after{
-      content:none;
+      content:'';
+      position:absolute;
+      inset:18%;
+      background:var(--badiani-pink);
+      translate:0 0;
+      transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
+      z-index:0;
+      pointer-events:none;
+    }
+    .category-card:hover::after{
+      translate:40px 40px;
     }
     /* Background images via CSS custom property for zoom effect */
     .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/gusti.webp'); }
@@ -252,13 +276,13 @@
     .category-card.b2b-card--accessori::before{
       content:'';
       position:absolute;
-      inset:0;
-      background:var(--card-bg) center/cover no-repeat;
+      inset:18%;
+      background:var(--card-bg) center/contain no-repeat;
       transition:transform 0.6s cubic-bezier(.25,.46,.45,.94);
-      z-index:0;
+      z-index:1;
     }
     .category-card:hover::before{
-      transform:scale(1.08);
+      transform:none;
     }
     .category-card.b2b-card--gelato > *:not(.b2b-pulse),
     .category-card.b2b-card--torte > *:not(.b2b-pulse),
@@ -275,10 +299,6 @@
     .category-card:focus-visible{
       outline:2px solid var(--badiani-pink);
       outline-offset:-2px;
-    }
-    /* Subtle dividers between cards */
-    .category-card + .category-card{
-      box-shadow:-1px 0 0 0 rgba(255,255,255,0.08);
     }
     .category-card__overlay{
       position:relative;
@@ -306,11 +326,9 @@
       letter-spacing:clamp(1px, 0.6cqi, 3px);
       font-weight:400;
       color:#fff;
-      -webkit-text-stroke:0.5px rgba(0,0,0,0.3);
-      paint-order:stroke fill;
-      text-shadow:
-        0 1px 6px rgba(0,0,0,0.6),
-        0 2px 12px rgba(0,0,0,0.4);
+      -webkit-text-stroke:none;
+      paint-order:normal;
+      text-shadow:0 1px 4px rgba(0,0,0,0.3);
       line-height:1;
       margin-bottom:clamp(8px, 4cqi, 20px);
     }
@@ -322,12 +340,9 @@
       font-weight:700;
       line-height:0.9;
       color:#fff;
-      -webkit-text-stroke:1.5px rgba(0,0,0,0.35);
-      paint-order:stroke fill;
-      text-shadow:
-        0 2px 8px rgba(0,0,0,0.6),
-        0 4px 20px rgba(0,0,0,0.45),
-        0 0 40px rgba(0,0,0,0.3);
+      -webkit-text-stroke:none;
+      paint-order:normal;
+      text-shadow:0 2px 8px rgba(0,0,0,0.35);
       padding:0;
       overflow-wrap:break-word;
       word-break:break-word;
@@ -365,9 +380,9 @@
       transition:transform 0.25s ease;
     }
     .category-card:hover .category-cta{
-      background:#fff;
+      background:var(--badiani-blue);
       border-color:#fff;
-      color:var(--badiani-blue);
+      color:#fff;
       transform:translateY(-2px);
     }
     .category-card:hover .category-cta svg{
@@ -3623,10 +3638,6 @@
     @media(max-width:900px){
       .category-grid{ grid-template-columns:1fr; }
       .category-card{ min-height:50vh; }
-      .category-card + .category-card{
-        box-shadow:none;
-        border-top:1px solid rgba(255,255,255,0.15);
-      }
       .page-hero{
         padding:32px 28px;
         flex-direction:column;
@@ -4731,7 +4742,7 @@
       <p data-i18n="b2b.hero.subtitle">Esperienze B2B su misura: dal corporate all'hospitality, un'unica regia per eventi, travel e partnership</p>
     </section>
 
-    <section data-i18n-attr="aria-label:b2b.areas.label">
+    <section class="b2b-categories-section" data-i18n-attr="aria-label:b2b.areas.label">
       <div class="category-grid">
         <article class="category-card b2b-card--gelato" data-category="GELATO" role="button" tabindex="0" aria-haspopup="dialog">
           <span class="b2b-pulse"></span>
