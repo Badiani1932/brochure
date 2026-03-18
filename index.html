@@ -395,12 +395,12 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s ease;
-      filter:brightness(0.55);
+      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      filter:none;
     }
     .story-card:hover .story-card__img{
       transform:none;
-      filter:brightness(0.45);
+      filter:none;
     }
     /* LA STORIA – layout come gelato: titolo sotto metà, desc in basso */
     .story-card--storia{
@@ -439,7 +439,7 @@
       object-position:left center;
     }
     .story-card--storia:hover .story-card__img{
-      filter:brightness(0.55);
+      filter:none;
     }
     /* GELATO – sfondo immagine, titolo grande che riempie il riquadro */
     .story-card--gelato{

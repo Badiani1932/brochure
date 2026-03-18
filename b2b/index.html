@@ -1529,20 +1529,28 @@
     }
     @media(max-width:600px){
       .coppette-detail-panel{
-        flex-direction:row;
+        flex-direction:column;
         gap:0;
+        width:fit-content;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
       }
       .coppette-detail-img{
-        flex:0 0 38%;
-        max-width:38%;
+        flex:none;
+        max-width:100%;
         min-height:auto;
         max-height:none;
       }
       .coppette-detail-img img{
-        object-fit:cover;
+        object-fit:contain;
+        max-height:260px;
+        width:auto;
+        margin:0 auto;
+        display:block;
       }
       .coppette-detail-info{
-        padding:10px 12px;
+        padding:14px 16px;
         gap:6px;
       }
       .coppette-detail-name{
@@ -1740,20 +1748,28 @@
     }
     @media(max-width:600px){
       .coni-detail-panel{
-        flex-direction:row;
+        flex-direction:column;
         gap:0;
+        width:fit-content;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
       }
       .coni-detail-img{
-        flex:0 0 38%;
-        max-width:38%;
+        flex:none;
+        max-width:100%;
         min-height:auto;
         max-height:none;
       }
       .coni-detail-img img{
-        object-fit:cover;
+        object-fit:contain;
+        max-height:260px;
+        width:auto;
+        margin:0 auto;
+        display:block;
       }
       .coni-detail-info{
-        padding:10px 12px;
+        padding:14px 16px;
         gap:6px;
       }
       .coni-detail-name{
@@ -1953,20 +1969,28 @@
     }
     @media(max-width:600px){
       .conigf-detail-panel{
-        flex-direction:row;
+        flex-direction:column;
         gap:0;
+        width:fit-content;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
       }
       .conigf-detail-img{
-        flex:0 0 38%;
-        max-width:38%;
+        flex:none;
+        max-width:100%;
         min-height:auto;
         max-height:none;
       }
       .conigf-detail-img img{
-        object-fit:cover;
+        object-fit:contain;
+        max-height:260px;
+        width:auto;
+        margin:0 auto;
+        display:block;
       }
       .conigf-detail-info{
-        padding:10px 12px;
+        padding:14px 16px;
         gap:6px;
       }
       .conigf-detail-name{
@@ -2152,6 +2176,10 @@
       .accessori-detail-panel{
         flex-direction:column;
         gap:0;
+        width:fit-content;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
       }
       .accessori-detail-img{
         flex:none;
@@ -2161,6 +2189,10 @@
       }
       .accessori-detail-img img{
         object-fit:contain;
+        max-height:260px;
+        width:auto;
+        margin:0 auto;
+        display:block;
       }
       .accessori-detail-info{
         padding:12px 14px;
@@ -3170,20 +3202,28 @@
     }
     @media(max-width:600px){
       .torte-detail-panel{
-        flex-direction:row;
+        flex-direction:column;
         gap:0;
+        width:fit-content;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
       }
       .torte-detail-img{
-        flex:0 0 38%;
-        max-width:38%;
+        flex:none;
+        max-width:100%;
         min-height:auto;
         max-height:none;
       }
       .torte-detail-img img{
-        object-fit:cover;
+        object-fit:contain;
+        max-height:260px;
+        width:auto;
+        margin:0 auto;
+        display:block;
       }
       .torte-detail-info{
-        padding:10px 12px;
+        padding:14px 16px;
         gap:6px;
       }
       .torte-detail-name{
@@ -3408,20 +3448,28 @@
     }
     @media(max-width:600px){
       .contenitori-detail-panel{
-        flex-direction:row;
+        flex-direction:column;
         gap:0;
+        width:fit-content;
+        max-width:100%;
+        margin-left:auto;
+        margin-right:auto;
       }
       .contenitori-detail-img{
-        flex:0 0 38%;
-        max-width:38%;
+        flex:none;
+        max-width:100%;
         min-height:auto;
         max-height:none;
       }
       .contenitori-detail-img img{
-        object-fit:cover;
+        object-fit:contain;
+        max-height:260px;
+        width:auto;
+        margin:0 auto;
+        display:block;
       }
       .contenitori-detail-info{
-        padding:10px 12px;
+        padding:14px 16px;
         gap:4px;
       }
       .contenitori-detail-name{
@@ -3483,10 +3531,10 @@
       .modal__body{ min-height:0; }
       .modal__close{ width:38px; height:38px; }
       .modal__close::before, .modal__close::after{ width:16px; }
-      .modal__header{ flex-wrap:wrap; }
-      .modal__nav{ padding:2px 4px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(255,255,255,0.06); overflow-x:auto !important; overflow-y:hidden !important; flex-wrap:nowrap !important; flex-shrink:0; box-sizing:border-box; justify-content:flex-start; gap:0; -webkit-overflow-scrolling:touch; overscroll-behavior-x:contain; }
-      .modal__nav button{ padding:7px 9px; font-size:10px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
+      .modal__header{ flex-wrap:wrap; padding:10px 0 0; }
       .modal__header-actions{ border-left:none; }
+      .modal__nav{ padding:4px 8px; order:3; width:100%; max-width:100%; border-top:1px solid rgba(0,0,0,0.06); overflow-x:hidden; overflow-y:hidden; flex-wrap:wrap; flex-shrink:0; box-sizing:border-box; justify-content:center; gap:0; }
+      .modal__nav button{ padding:7px 10px; font-size:10px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
 
       .modal__content{ padding:16px 18px 18px; gap:16px; }
       .coppette-map-wrapper,

@@ -78,7 +78,7 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      filter:brightness(0.58);
+      filter:none;
     }
     .mag-hero__content{
       position:relative;
@@ -178,12 +178,12 @@
       width:100%;
       height:100%;
       object-fit:cover;
-      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1), filter 0.7s ease;
-      filter:brightness(0.6);
+      transition:transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      filter:none;
     }
     .article-card:hover .article-card__img{
       transform:scale(1.06);
-      filter:brightness(0.45);
+      filter:none;
     }
 
     /* Gradient overlay */
@@ -191,12 +191,12 @@
       content:'';
       position:absolute;
       inset:0;
-      background:linear-gradient(180deg, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.55) 100%);
+      background:none;
       transition:background 0.5s ease;
       z-index:1;
     }
     .article-card:hover::after{
-      background:linear-gradient(180deg, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.65) 100%);
+      background:none;
     }
 
     /* Content overlay at bottom */
@@ -676,7 +676,7 @@
           source: 'Food & Beverage',
           dateISO: '',
           url: 'https://drive.google.com/file/d/11Z8dCd4pCsp0k7z1Lg49wk-d3-gZ8Cr4/view?usp=sharing',
-          image: '../assets/images/rassegna-stampa/food-beverage.png'
+          image: '../assets/images/rassegna-stampa/food-beverage.webp'
         },
         {
           title: 'Badiani su Il Tirreno',
@@ -684,7 +684,7 @@
           dateISO: '',
           url: 'https://drive.google.com/file/d/1FJY8X6u3uk1q-I8zRez5j4Qy_xRLDrXv/view?usp=sharing',
           url2: 'https://drive.google.com/file/d/13knh29b9nR18AEiq2kiz3vhXyLhX90Kr/view?usp=sharing',
-          image: '../assets/images/rassegna-stampa/il-tirreno-1.png'
+          image: '../assets/images/rassegna-stampa/il-tirreno-1.webp'
         },
         {
           title: 'Non solo arte, a Firenze si mangia pure un buon gelato',
