@@ -197,7 +197,7 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
   const compactInfo = buildCompactInfo(requestType, data);
   const compactInfoHtml = compactInfo.length
     ? `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:0 0 16px 0;">${compactInfo.map((item) => `
-      <div style="padding:12px;background:${theme.cardBg};border:1px solid ${theme.cardBorder};border-radius:10px;">
+      <div style="padding:12px;background:${theme.cardBg};border:1px solid ${theme.cardBorder};border-radius:0;">
         <div style="font-size:11px;letter-spacing:.6px;text-transform:uppercase;color:${theme.muted};font-weight:700;">${escapeHtml(item.label)}</div>
         <div style="margin-top:6px;font-size:14px;line-height:1.4;color:${theme.text};font-weight:600;">${escapeHtml(item.value)}</div>
       </div>`).join('')}</div>`
@@ -205,7 +205,7 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
 
   const messageBlock = extraMessage
     ? `
-      <div style="margin-top:24px;padding:16px 18px;background:${theme.cardBg};border:1px solid ${theme.cardBorder};border-radius:10px;">
+      <div style="margin-top:24px;padding:16px 18px;background:${theme.cardBg};border:1px solid ${theme.cardBorder};border-radius:0;">
         <div style="font-size:14px;font-weight:700;color:${theme.accent};margin-bottom:8px;">Messaggio</div>
         <div style="font-size:14px;line-height:1.7;color:${theme.text};white-space:pre-line;">${escapeHtml(extraMessage)}</div>
       </div>`
@@ -217,7 +217,7 @@ function buildProfessionalEmailHtml(payload, fallbackMessage, env) {
     <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:${theme.pageBg};padding:24px 12px;">
       <tr>
         <td align="center">
-          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#ffffff;border-radius:14px;overflow:hidden;border:1px solid ${theme.cardBorder};">
+          <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:760px;background:#ffffff;border-radius:0;overflow:hidden;border:1px solid ${theme.cardBorder};">
             <tr>
               <td style="background:${theme.headerBg};padding:22px 20px;text-align:center;">
                 <img src="${escapeHtml(logoUrl)}" alt="Badiani 1932" width="220" style="display:block;margin:0 auto;max-width:220px;height:auto;border:0;outline:none;text-decoration:none;" />

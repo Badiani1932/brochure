@@ -1,4 +1,4 @@
-﻿/* Badiani Il Barattolo - lightweight i18n + language switcher
+/* Badiani Il Barattolo - lightweight i18n + language switcher
    Supports: en, it, es, fr
    - Persists selection in localStorage
    - Updates <html lang>
@@ -807,7 +807,7 @@
         letter-spacing:clamp(1px, 0.18vw, 2px);
         text-transform:uppercase;
         padding:clamp(9px, 1.0vw, 12px) clamp(12px, 1.6vw, 18px);
-        border-radius:25px;
+        border-radius:0;
         font-weight:600;
         font-family:inherit;
         line-height:1.1;
@@ -827,7 +827,7 @@
         right: 0;
         background: rgba(30,57,141,0.98);
         border: 1px solid rgba(255,255,255,0.18);
-        border-radius: 14px;
+        border-radius:0;
         padding: 8px;
         min-width: 165px;
         box-shadow: 0 18px 50px rgba(0,0,0,0.35);
@@ -842,7 +842,7 @@
         background:transparent;
         color:#fff;
         padding:10px 10px;
-        border-radius: 10px;
+        border-radius:0;
         text-align:left;
         font-family: inherit;
         cursor:pointer;
@@ -859,7 +859,7 @@
           justify-content:center;
           font-size:10px;
           padding:6px 8px;
-          border-radius:18px;
+          border-radius:0;
           letter-spacing:0.7px;
         }
         .lang-switcher__btn{ transition: background 0.3s ease; }
@@ -870,7 +870,7 @@
           width:auto;
           min-width:120px;
           box-shadow:0 18px 50px rgba(0,0,0,0.35);
-          border-radius:12px;
+          border-radius:0;
         }
       }
 

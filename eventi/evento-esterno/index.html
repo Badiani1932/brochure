@@ -341,7 +341,7 @@
       max-width:900px;
       margin:0 auto;
       background:#fff;
-      border-radius:28px;
+      border-radius:0;
       overflow:hidden;
       box-shadow:0 20px 60px rgba(30,57,141,0.10);
       position:relative;
@@ -391,7 +391,7 @@
     .ext-form-grid select{
       width:100%;
       border:1px solid rgba(30,57,141,0.15);
-      border-radius:12px;
+      border-radius:0;
       padding:12px 14px;
       font-family:inherit;
       font-size:14px;
@@ -426,7 +426,7 @@
       cursor:pointer;
       background:#f8f9fc;
       padding:8px 14px;
-      border-radius:10px;
+      border-radius:0;
       border:1px solid rgba(30,57,141,0.1);
       transition:background 0.3s, border-color 0.3s;
     }
@@ -464,7 +464,7 @@
       margin-top:12px;
       padding:14px 16px;
       background:#f0f2f8;
-      border-radius:12px;
+      border-radius:0;
       border:1px solid rgba(30,57,141,0.1);
       animation:efExtrasReveal 0.35s ease;
     }
@@ -504,7 +504,7 @@
       background:var(--badiani-blue);
       color:#fff;
       padding:14px 36px;
-      border-radius:999px;
+      border-radius:0;
       font-size:13px;
       text-transform:uppercase;
       letter-spacing:2px;
@@ -568,7 +568,7 @@
       width:55px; height:55px;
       background:linear-gradient(135deg, var(--badiani-pink), #ff7ab7);
       border:none;
-      border-radius:50%;
+      border-radius:0;
       cursor:pointer;
       display:flex;
       align-items:center;
@@ -586,7 +586,7 @@
       width:var(--close-icon-size);
       height:var(--close-icon-stroke);
       background:#fff;
-      border-radius:999px;
+      border-radius:0;
       transform-origin:center;
     }
     .modal-close::before{ transform:translate(-50%,-50%) rotate(45deg); }
@@ -608,7 +608,7 @@
       overflow-x:hidden;
       overscroll-behavior:contain;
       background:var(--badiani-blue);
-      border-radius:24px;
+      border-radius:0;
       padding:0;
       box-sizing:border-box;
       box-shadow:0 30px 80px rgba(0,0,0,0.7);
@@ -679,7 +679,7 @@
       width:clamp(180px, 24vw, 360px);
       height:clamp(180px, 24vw, 360px);
       object-fit:cover;
-      border-radius:20px;
+      border-radius:0;
       box-shadow:0 16px 48px rgba(0,0,0,0.5);
       border:3px solid rgba(255,255,255,0.08);
     }
@@ -710,7 +710,7 @@
       max-width:92vw;
       max-height:90vh;
       object-fit:contain;
-      border-radius:12px;
+      border-radius:0;
       box-shadow:0 24px 72px rgba(0,0,0,0.7);
       pointer-events:none;
       user-select:none;
@@ -726,7 +726,7 @@
       line-height:1;
       cursor:pointer;
       padding:4px 10px;
-      border-radius:8px;
+      border-radius:0;
       opacity:0.75;
       transition:opacity 0.15s;
     }
@@ -744,7 +744,7 @@
       right:10px;
       width:46px;
       height:46px;
-      border-radius:999px;
+      border-radius:0;
       border:1.5px solid rgba(255,255,255,0.7);
       background:rgba(0,0,0,0.35);
       color:#fff;
@@ -768,7 +768,7 @@
       height:clamp(220px, 28vw, 380px);
       object-fit:cover;
       object-position:center;
-      border-radius:14px;
+      border-radius:0;
     }
 
 
@@ -822,7 +822,7 @@
       color:#fff;
       border:none;
       padding:18px 48px;
-      border-radius:999px;
+      border-radius:0;
       font-size:14px;
       text-transform:uppercase;
       letter-spacing:2.5px;
@@ -896,7 +896,7 @@
       .modal-panel{
         width:100%;
         max-height:min(90dvh, 820px);
-        border-radius:18px;
+        border-radius:0;
       }
       .modal-close{ top:max(12px, env(safe-area-inset-top)); right:max(12px, env(safe-area-inset-right)); width:40px; height:40px; }
       .modal-close{ --close-icon-size:18px; --close-icon-stroke:2.5px; }
@@ -2154,8 +2154,8 @@
   <!-- Lightbox fullscreen -->
   <div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Immagine a tutto schermo">
     <button class="img-lightbox__close" aria-label="Chiudi">&#x2715;</button>
-    <button class="img-lightbox__nav img-lightbox__nav--prev" aria-label="Precedente" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8249;</button>
-    <button class="img-lightbox__nav img-lightbox__nav--next" aria-label="Successiva" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:50%;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8250;</button>
+    <button class="img-lightbox__nav img-lightbox__nav--prev" aria-label="Precedente" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:0;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8249;</button>
+    <button class="img-lightbox__nav img-lightbox__nav--next" aria-label="Successiva" style="position:absolute;right:16px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.15);border:none;color:#fff;font-size:36px;width:52px;height:52px;border-radius:0;cursor:pointer;display:none;align-items:center;justify-content:center;">&#8250;</button>
     <img class="img-lightbox__img" id="imgLightboxSrc" alt="" />
   </div>
 
