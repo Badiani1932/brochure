@@ -188,17 +188,22 @@
     .ev-card::after{
       content:'';
       position:absolute;
-      top:calc(22% + clamp(14px, 3vw, 40px));
-      left:calc(18% + clamp(14px, 3vw, 40px));
+      top:22%;
+      left:18%;
       width:64%;
       height:50%;
       background:var(--badiani-pink);
       z-index:0;
       pointer-events:none;
+      translate:0 0;
       transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
     }
     .ev-card:hover::after{
-      translate:clamp(6px, 1.5vw, 16px) clamp(6px, 1.5vw, 16px);
+      translate:clamp(14px, 3vw, 40px) clamp(14px, 3vw, 40px);
+    }
+    /* Scroll-triggered shadow on touch / mobile */
+    .ev-card.in-view::after{
+      translate:clamp(14px, 3vw, 40px) clamp(14px, 3vw, 40px);
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -777,12 +782,19 @@
         aspect-ratio:3/4;
       }
       .ev-card::after{
-        top:calc(24% + clamp(14px, 2vw, 30px));
-        left:calc(12% + clamp(14px, 2vw, 30px));
+        top:24%;
+        left:12%;
         width:76%;
         height:58%;
         right:auto;
         bottom:auto;
+        translate:0 0;
+      }
+      .ev-card:hover::after{
+        translate:clamp(14px, 2vw, 30px) clamp(14px, 2vw, 30px);
+      }
+      .ev-card.in-view::after{
+        translate:clamp(14px, 2vw, 30px) clamp(14px, 2vw, 30px);
       }
       .ev-card__img{
         top:24%; left:12%; width:76%; height:58%;
@@ -2064,6 +2076,31 @@
   </script>
 
   <!-- Hamburger + Cookie -->
+  <!-- Scroll-triggered shadow animation on ev-cards (only after first scroll) -->
+  <script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    var cards = document.querySelectorAll('.ev-card');
+    if(!cards.length) return;
+    var started = false;
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+        } else {
+          entry.target.classList.remove('in-view');
+        }
+      });
+    }, { threshold: 0.4 });
+    function startObserver(){
+      if(started) return;
+      started = true;
+      cards.forEach(function(card){ observer.observe(card); });
+      window.removeEventListener('scroll', startObserver);
+    }
+    window.addEventListener('scroll', startObserver, {passive:true});
+  })();
+  </script>
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;function cl(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');}b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){cl();});});n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();var x=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!x));t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open');});});document.addEventListener('click',function(e){if(n.classList.contains('is-open')&&!n.contains(e.target)&&!b.contains(e.target)){cl();}});})();</script>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
   <script>
