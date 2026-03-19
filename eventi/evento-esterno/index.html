@@ -923,6 +923,8 @@
         grid-template-columns:1fr;
         gap:80px 0;
         padding-bottom:90px;
+        padding-left:clamp(16px, 4vw, 32px);
+        padding-right:clamp(16px, 4vw, 32px);
       }
       .ext-card{ aspect-ratio:1/1; }
       .ext-card + .ext-card{
@@ -1010,6 +1012,7 @@
       .ext-hero__content{ padding:24px 20px; }
       .ext-hero__title{ font-size:clamp(48px, 13vw, 72px); }
 
+      .ext-solutions__grid{ padding-left:24px; padding-right:24px; }
       .ext-card{ aspect-ratio:1/1; }
       .ext-card::after{
         left:8%;
