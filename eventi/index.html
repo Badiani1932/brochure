@@ -199,11 +199,11 @@
       transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
     }
     .ev-card:hover::after{
-      translate:clamp(14px, 3vw, 40px) clamp(14px, 3vw, 40px);
+      translate:40px 40px;
     }
     /* Scroll-triggered shadow on touch / mobile */
     .ev-card.in-view::after{
-      translate:clamp(14px, 3vw, 40px) clamp(14px, 3vw, 40px);
+      translate:40px 40px;
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -791,10 +791,10 @@
         translate:0 0;
       }
       .ev-card:hover::after{
-        translate:clamp(14px, 2vw, 30px) clamp(14px, 2vw, 30px);
+        translate:40px 40px;
       }
       .ev-card.in-view::after{
-        translate:clamp(14px, 2vw, 30px) clamp(14px, 2vw, 30px);
+        translate:40px 40px;
       }
       .ev-card__img{
         top:24%; left:12%; width:76%; height:58%;
