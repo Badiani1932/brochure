@@ -970,32 +970,51 @@
       .modal-close{ top:max(8px, env(safe-area-inset-top)); right:max(8px, env(safe-area-inset-right)); width:40px; height:40px; }
       .modal-close{ --close-icon-size:17px; --close-icon-stroke:2.5px; }
       .modal-hero{
-        grid-template-columns:1fr auto;
-        padding:18px 20px 14px;
+        display:flex;
+        flex-direction:column;
+        padding:0;
         min-height:auto;
-        gap:18px;
-        align-items:center;
+        gap:0;
         flex-shrink:0;
-      }
-      .modal-hero__img{
-        width:clamp(140px, 38vw, 240px);
-        height:clamp(140px, 38vw, 240px);
+        background:linear-gradient(135deg, var(--badiani-blue) 0%, #0f1f5c 60%, #0a1440 100%);
       }
       .modal-hero__img-wrap{
-        flex-shrink:0;
+        order:-1;
+        width:100%;
+        display:flex;
+        justify-content:center;
+        background:none;
+        padding:16px 0 14px;
+        touch-action:manipulation;
+        overflow:hidden;
+      }
+      .modal-hero__img{
+        width:clamp(220px, 60vw, 360px);
+        height:clamp(220px, 60vw, 360px);
+        object-fit:cover;
+        touch-action:manipulation;
+        user-select:none;
+        -webkit-user-drag:none;
+        pointer-events:none;
       }
       .modal-hero__img--coolbox{
-        width:clamp(180px, 46vw, 280px);
-        height:clamp(130px, 34vw, 200px);
+        width:clamp(280px, 75vw, 440px);
+        height:clamp(180px, 48vw, 300px);
       }
       .modal-hero__zoom{ display:none; }
+      .modal-hero__text{
+        padding:10px 20px 12px;
+        background:none;
+        text-align:left;
+        align-self:stretch;
+      }
       .modal-hero__title{
         font-size:clamp(32px, 8vw, 52px);
         letter-spacing:2px;
-        margin-bottom:8px;
+        margin-bottom:4px;
       }
-      .modal-hero__label{ font-size:12px; margin-bottom:8px; letter-spacing:2.5px; }
-      .modal-hero__desc{ font-size:14px; line-height:1.5; }
+      .modal-hero__label{ font-size:12px; margin-bottom:6px; letter-spacing:2.5px; }
+      .modal-hero__desc{ font-size:14px; line-height:1.4; }
       .modal-hero__number{ display:none !important; }
       .modal-body{
         flex:1;
@@ -1099,33 +1118,31 @@
         justify-content:center;
       }
 
-      .modal-hero{
-        grid-template-columns:1fr auto;
-        padding:18px 18px 14px;
-        gap:14px;
+      .modal-hero__img-wrap{
+        padding:12px 0 10px;
       }
       .modal-hero__img{
-        width:clamp(90px, 26vw, 130px);
-        height:clamp(90px, 26vw, 130px);
-      }
-      .modal-hero__img-wrap{
-        flex-shrink:0;
+        width:clamp(180px, 55vw, 280px);
+        height:clamp(180px, 55vw, 280px);
       }
       .modal-hero__img--coolbox{
-        width:clamp(130px, 38vw, 180px);
-        height:clamp(85px, 24vw, 130px);
+        width:clamp(240px, 70vw, 380px);
+        height:clamp(150px, 44vw, 240px);
+      }
+      .modal-hero__text{
+        padding:8px 18px 8px;
       }
       .modal-hero__title{
         font-size:clamp(26px, 7.5vw, 40px);
-        margin-bottom:6px;
+        margin-bottom:4px;
       }
-      .modal-hero__label{ font-size:11px; margin-bottom:5px; }
-      .modal-hero__desc{ font-size:13px; line-height:1.4; }
-      .spec-card{ padding:clamp(10px, 2dvh, 18px) 16px; }
-      .spec-label{ font-size:10px; margin-bottom:5px; }
-      .spec-value{ font-size:13px; line-height:1.4; }
-      .modal-cta-wrap{ padding:12px 16px max(12px, env(safe-area-inset-bottom)); }
-      .modal-request-btn{ padding:12px 20px; font-size:12px; }
+      .modal-hero__label{ font-size:11px; margin-bottom:4px; }
+      .modal-hero__desc{ font-size:13px; line-height:1.35; }
+      .spec-card{ padding:clamp(6px, 1.2dvh, 14px) 16px; }
+      .spec-label{ font-size:10px; margin-bottom:4px; }
+      .spec-value{ font-size:13px; line-height:1.35; }
+      .modal-cta-wrap{ padding:8px 16px max(8px, env(safe-area-inset-bottom)); }
+      .modal-request-btn{ padding:10px 20px; font-size:12px; }
     }
 
     @media(prefers-reduced-motion: reduce){
