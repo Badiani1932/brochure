@@ -382,14 +382,14 @@
     }
     .ev-corp-info__subtitle{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(16px, 1.6vw, 22px);
+      font-size:clamp(17px, 1.6vw, 22px);
       font-weight:300;
       color:rgba(255,255,255,0.85);
       margin-bottom:16px;
     }
     .ev-corp-info__desc{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(15px, 1.3vw, 18px);
       color:rgba(255,255,255,0.7);
       line-height:1.7;
       max-width:500px;
@@ -428,7 +428,7 @@
     }
     .ev-corp-list li{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(13px, 1.05vw, 15px);
+      font-size:clamp(14px, 1.1vw, 16px);
       color:#3a3f47;
       line-height:1.55;
       padding:clamp(8px, 0.9vw, 12px) 0;
@@ -814,7 +814,7 @@
         gap:10px;
       }
       .ev-hero__title{
-        font-size:clamp(48px, 9vw, 72px);
+        font-size:clamp(52px, 10vw, 80px);
         letter-spacing:2px;
       }
       .ev-hero__desc{ max-width:none; }
@@ -829,7 +829,7 @@
       .ev-card::after{ height:64%; }
       .ev-card__img{ height:64%; }
       .ev-card__overlay{ grid-template-rows:18% 64% 18%; }
-      .ev-card__title{ font-size:clamp(17px, 3.5vw, 44px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
+      .ev-card__title{ font-size:clamp(22px, 4.5vw, 48px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
 
       .ev-corporate__grid{
@@ -856,7 +856,7 @@
     @media(max-width:600px){
       .ev-hero{ min-height:45vh; }
       .ev-hero__content{ padding:24px 20px; }
-      .ev-hero__title{ font-size:clamp(40px, 12vw, 72px); }
+      .ev-hero__title{ font-size:clamp(48px, 13vw, 72px); }
 
       .ev-types__grid{ grid-template-columns:1fr; padding-left:24px; padding-right:24px; gap:96px 0; }
       .ev-types{ padding-top:64px; }
@@ -881,25 +881,28 @@
         grid-template-rows:24% 64% 12%;
       }
       .ev-card__title{
-        font-size:clamp(36px, 10vw, 64px);
+        font-size:clamp(44px, 12vw, 64px);
         letter-spacing:clamp(1px, 0.3vw, 3px);
         line-height:0.9;
       }
-      .ev-card__desc{ padding:12px 22px; }
+      .ev-card__desc{ padding:12px 22px; font-size:clamp(12px, 3.2vw, 15px); }
 
       .ev-corp-info,
       .ev-corp-details{
         padding:32px 20px;
       }
       .ev-corp-info__title{
-        font-size:clamp(28px, 8vw, 44px);
+        font-size:clamp(34px, 9vw, 48px);
+      }
+      .ev-corp-col h3{
+        font-size:clamp(28px, 7vw, 36px);
       }
 
       .ev-gallery-section{
         padding:32px 20px;
       }
       .ev-gallery__title{
-        font-size:clamp(28px, 8vw, 44px);
+        font-size:clamp(34px, 9vw, 48px);
       }
 
       .ev-form-grid{
