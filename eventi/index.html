@@ -188,10 +188,10 @@
     .ev-card::after{
       content:'';
       position:absolute;
-      top:22%;
+      top:18%;
       left:18%;
       width:64%;
-      height:50%;
+      aspect-ratio:1/1;
       background:var(--badiani-pink);
       z-index:0;
       pointer-events:none;
@@ -218,10 +218,10 @@
     .ev-card:hover{ transform:none; box-shadow:none; }
     .ev-card__img{
       position:absolute;
-      top:22%;
+      top:18%;
       left:18%;
       width:64%;
-      height:50%;
+      aspect-ratio:1/1;
       object-fit:cover;
       z-index:1;
       transition:none;
@@ -237,7 +237,7 @@
       z-index:2;
       display:grid;
       grid-template-columns:18% 64% 18%;
-      grid-template-rows:22% 50% 28%;
+      grid-template-rows:18% 64% 18%;
       padding:0;
       box-sizing:border-box;
       pointer-events:none;
@@ -783,10 +783,11 @@
         aspect-ratio:3/4;
       }
       .ev-card::after{
-        top:24%;
+        top:18%;
         left:12%;
         width:76%;
-        height:58%;
+        aspect-ratio:1/1;
+        height:auto;
         right:auto;
         bottom:auto;
         translate:0 0;
@@ -798,11 +799,11 @@
         translate:40px 40px;
       }
       .ev-card__img{
-        top:24%; left:12%; width:76%; height:58%;
+        top:18%; left:12%; width:76%; aspect-ratio:1/1; height:auto;
       }
       .ev-card__overlay{
         grid-template-columns:12% 76% 12%;
-        grid-template-rows:24% 58% 18%;
+        grid-template-rows:18% 64% 18%;
       }
     }
     /* tablet: already 2-col, keep as-is */
@@ -822,10 +823,10 @@
       .ev-types__grid{
         grid-template-columns:repeat(2, 1fr);
         gap:0;
-        padding-left:clamp(56px, 4vw, 72px);
-        padding-right:clamp(56px, 4vw, 72px);
+        padding-left:clamp(16px, 4vw, 32px);
+        padding-right:clamp(16px, 4vw, 32px);
       }
-      .ev-card{ aspect-ratio:3/4; min-height:0; }
+      .ev-card{ aspect-ratio:1/1; min-height:0; }
       .ev-card__title{ font-size:clamp(17px, 3.5vw, 44px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
 
@@ -855,13 +856,30 @@
       .ev-hero__content{ padding:24px 20px; }
       .ev-hero__title{ font-size:clamp(40px, 12vw, 72px); }
 
-      .ev-types__grid{ grid-template-columns:1fr; padding-left:64px; padding-right:64px; }
+      .ev-types__grid{ grid-template-columns:1fr; padding-left:24px; padding-right:24px; }
       .ev-card{
-        aspect-ratio:3/4;
-        min-height:0;
+        aspect-ratio:1/1;
+        min-height:40vh;
+      }
+      .ev-card::after{
+        left:8%;
+        top:18%;
+        width:72%;
+        aspect-ratio:1/1;
+        height:auto;
+      }
+      .ev-card__img{
+        left:8%;
+        top:18%;
+        width:72%;
+        aspect-ratio:1/1;
+        height:auto;
+      }
+      .ev-card__overlay{
+        grid-template-columns:8% 72% 20%;
       }
       .ev-card__title{
-        font-size:clamp(20px, 7vw, 40px);
+        font-size:clamp(48px, 12vw, 80px);
         letter-spacing:clamp(1px, 0.3vw, 3px);
         line-height:0.9;
       }
