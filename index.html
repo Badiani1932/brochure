@@ -446,6 +446,14 @@
     .story-card--storia{
       align-items:stretch;
     }
+    .story-card--storia::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.35);
+      z-index:1;
+      pointer-events:none;
+    }
     .story-card--storia .story-card__overlay{
       position:absolute;
       inset:0;
