@@ -337,15 +337,24 @@
       .choice-card{
         aspect-ratio:1/1;
         min-height:0;
+        overflow:visible;
+        isolation:isolate;
       }
       .choice-card__overlay{
         padding:32px 28px;
+        position:static;
       }
       .choice-title{
         font-size:clamp(56px, 14vw, 140px);
       }
       .choice-cta{
-        margin-top:auto;
+        position:absolute;
+        top:82%;
+        left:14%;
+        width:72%;
+        box-sizing:border-box;
+        z-index:3;
+        margin-top:0;
         padding:12px 18px;
         font-size:clamp(11px, 2.8vw, 14px);
         letter-spacing:1.5px;
