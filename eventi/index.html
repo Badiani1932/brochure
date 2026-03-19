@@ -806,19 +806,7 @@
       }
     }
     /* tablet: already 2-col, keep as-is */
-    @media(max-width:900px){
-      .ev-hero__content{
-        padding:32px 28px;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-      }
-      .ev-hero__title{
-        font-size:clamp(52px, 10vw, 80px);
-        letter-spacing:2px;
-      }
-      .ev-hero__desc{ max-width:none; }
-
+    @media(max-width:1024px){
       .ev-types__grid{
         grid-template-columns:repeat(2, 1fr);
         gap:48px 0;
@@ -831,6 +819,19 @@
       .ev-card__overlay{ grid-template-rows:18% 64% 18%; }
       .ev-card__title{ font-size:clamp(22px, 4.5vw, 48px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
+    }
+    @media(max-width:900px){
+      .ev-hero__content{
+        padding:32px 28px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:10px;
+      }
+      .ev-hero__title{
+        font-size:clamp(52px, 10vw, 80px);
+        letter-spacing:2px;
+      }
+      .ev-hero__desc{ max-width:none; }
 
       .ev-corporate__grid{
         grid-template-columns:1fr;
