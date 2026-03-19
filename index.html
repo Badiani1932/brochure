@@ -187,12 +187,15 @@
       z-index:0;
       pointer-events:none;
     }
-    .choice-card:hover::after{
-      translate:40px 40px;
+    @media(hover:hover){
+      .choice-card:hover::after{
+        translate:40px 40px;
+      }
     }
-    /* Scroll-triggered shadow on touch / mobile */
-    .choice-card.in-view::after{
-      translate:40px 40px;
+    @media(hover:none){
+      .choice-card.in-view::after{
+        translate:40px 40px;
+      }
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -290,8 +293,14 @@
       font-weight:700;
       white-space:normal;
       word-break:break-word;
+      overflow:hidden;
       pointer-events:none;
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
+    }
+    .choice-cta > span{
+      min-width:0;
+      flex:1 1 0%;
+      overflow:hidden;
     }
     .choice-cta svg{
       width:17px;
@@ -2470,28 +2479,42 @@
   })();
   </script>
 
-  <!-- Scroll-triggered shadow animation on choice cards (only after first scroll) -->
+  <!-- Scroll-triggered shadow animation on choice cards (mobile/touch only, staggered) -->
   <script>
   (function(){
     if(!('IntersectionObserver' in window)) return;
-    var cards = document.querySelectorAll('.choice-card');
+    if(window.matchMedia('(hover:hover)').matches) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.choice-card'));
     if(!cards.length) return;
-    var started = false;
+    var queue = [];
+    var draining = false;
+    var STAGGER = 400;
+    function drain(){
+      if(!queue.length){ draining = false; return; }
+      draining = true;
+      var card = queue.shift();
+      if(card._shadowQueued){
+        card.classList.add('in-view');
+        card._shadowQueued = false;
+      }
+      setTimeout(drain, STAGGER);
+    }
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
-          entry.target.classList.add('in-view');
-          observer.unobserve(entry.target);
+          if(!entry.target.classList.contains('in-view')){
+            entry.target._shadowQueued = true;
+            queue.push(entry.target);
+            if(!draining) drain();
+          }
+        } else {
+          entry.target.classList.remove('in-view');
+          entry.target._shadowQueued = false;
+          queue = queue.filter(function(c){ return c !== entry.target; });
         }
       });
-    }, { threshold: 0.4 });
-    function startObserver(){
-      if(started) return;
-      started = true;
-      cards.forEach(function(card){ observer.observe(card); });
-      window.removeEventListener('scroll', startObserver);
-    }
-    window.addEventListener('scroll', startObserver, {passive:true});
+    }, { threshold: 0.3 });
+    cards.forEach(function(card){ observer.observe(card); });
   })();
   </script>
 

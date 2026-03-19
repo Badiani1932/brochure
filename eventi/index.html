@@ -198,12 +198,15 @@
       translate:0 0;
       transition:translate 0.5s cubic-bezier(.25,.46,.45,.94);
     }
-    .ev-card:hover::after{
-      translate:40px 40px;
+    @media(hover:hover){
+      .ev-card:hover::after{
+        translate:40px 40px;
+      }
     }
-    /* Scroll-triggered shadow on touch / mobile */
-    .ev-card.in-view::after{
-      translate:40px 40px;
+    @media(hover:none){
+      .ev-card.in-view::after{
+        translate:40px 40px;
+      }
     }
     @keyframes pulse-border{
       0%, 100%{
@@ -792,9 +795,6 @@
         translate:0 0;
       }
       .ev-card:hover::after{
-        translate:40px 40px;
-      }
-      .ev-card.in-view::after{
         translate:40px 40px;
       }
       .ev-card__img{
@@ -2103,29 +2103,42 @@
   </script>
 
   <!-- Hamburger + Cookie -->
-  <!-- Scroll-triggered shadow animation on ev-cards (only after first scroll) -->
+  <!-- Scroll-triggered shadow animation on ev-cards (mobile/touch only, staggered) -->
   <script>
   (function(){
     if(!('IntersectionObserver' in window)) return;
-    var cards = document.querySelectorAll('.ev-card');
+    if(window.matchMedia('(hover:hover)').matches) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.ev-card'));
     if(!cards.length) return;
-    var started = false;
+    var queue = [];
+    var draining = false;
+    var STAGGER = 400;
+    function drain(){
+      if(!queue.length){ draining = false; return; }
+      draining = true;
+      var card = queue.shift();
+      if(card._shadowQueued){
+        card.classList.add('in-view');
+        card._shadowQueued = false;
+      }
+      setTimeout(drain, STAGGER);
+    }
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
-          entry.target.classList.add('in-view');
+          if(!entry.target.classList.contains('in-view')){
+            entry.target._shadowQueued = true;
+            queue.push(entry.target);
+            if(!draining) drain();
+          }
         } else {
           entry.target.classList.remove('in-view');
+          entry.target._shadowQueued = false;
+          queue = queue.filter(function(c){ return c !== entry.target; });
         }
       });
-    }, { threshold: 0.4 });
-    function startObserver(){
-      if(started) return;
-      started = true;
-      cards.forEach(function(card){ observer.observe(card); });
-      window.removeEventListener('scroll', startObserver);
-    }
-    window.addEventListener('scroll', startObserver, {passive:true});
+    }, { threshold: 0.3 });
+    cards.forEach(function(card){ observer.observe(card); });
   })();
   </script>
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;function cl(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');}b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){cl();});});n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();var x=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!x));t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open');});});document.addEventListener('click',function(e){if(n.classList.contains('is-open')&&!n.contains(e.target)&&!b.contains(e.target)){cl();}});})();</script>

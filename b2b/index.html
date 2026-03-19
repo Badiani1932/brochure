@@ -251,8 +251,15 @@
       z-index:0;
       pointer-events:none;
     }
-    .category-card:hover::after{
-      translate:40px 40px;
+    @media(hover:hover){
+      .category-card:hover::after{
+        translate:40px 40px;
+      }
+    }
+    @media(hover:none){
+      .category-card.in-view::after{
+        translate:40px 40px;
+      }
     }
     /* Background images via CSS custom property for zoom effect */
     .category-card.b2b-card--gelato{ --card-bg:url('../assets/images/categories/gusti.webp'); }
@@ -10515,6 +10522,44 @@
       <a href="../cookie-policy.html" class="cookie-banner__btn cookie-banner__btn--info" data-i18n="cookie.link">Cookie Policy</a>
     </div>
   </div>
+  <!-- Scroll-triggered shadow animation on category-cards (mobile/touch only, staggered) -->
+  <script>
+  (function(){
+    if(!('IntersectionObserver' in window)) return;
+    if(window.matchMedia('(hover:hover)').matches) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.category-card'));
+    if(!cards.length) return;
+    var queue = [];
+    var draining = false;
+    var STAGGER = 400;
+    function drain(){
+      if(!queue.length){ draining = false; return; }
+      draining = true;
+      var card = queue.shift();
+      if(card._shadowQueued){
+        card.classList.add('in-view');
+        card._shadowQueued = false;
+      }
+      setTimeout(drain, STAGGER);
+    }
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          if(!entry.target.classList.contains('in-view')){
+            entry.target._shadowQueued = true;
+            queue.push(entry.target);
+            if(!draining) drain();
+          }
+        } else {
+          entry.target.classList.remove('in-view');
+          entry.target._shadowQueued = false;
+          queue = queue.filter(function(c){ return c !== entry.target; });
+        }
+      });
+    }, { threshold: 0.3 });
+    cards.forEach(function(card){ observer.observe(card); });
+  })();
+  </script>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;function cl(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');}b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){cl();});});n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();var x=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!x));t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open');});});document.addEventListener('click',function(e){if(n.classList.contains('is-open')&&!n.contains(e.target)&&!b.contains(e.target)){cl();}});})();</script>
 
