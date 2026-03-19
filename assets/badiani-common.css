@@ -109,7 +109,7 @@ body, html {
   color: var(--badiani-gray);
   line-height: 1.6;
   -webkit-tap-highlight-color: transparent;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -119,24 +119,15 @@ body {
 body > * {
   opacity: 0;
   transform: translateY(-16px);
-  animation: page-reveal 0.6s ease-out forwards;
+  animation: page-reveal 0.5s ease-out forwards;
 }
 
-body > *:nth-child(1){ animation-delay: 0.04s; }
-body > *:nth-child(2){ animation-delay: 0.10s; }
-body > *:nth-child(3){ animation-delay: 0.16s; }
-body > *:nth-child(4){ animation-delay: 0.22s; }
-body > *:nth-child(5){ animation-delay: 0.28s; }
-body > *:nth-child(6){ animation-delay: 0.34s; }
-body > *:nth-child(7){ animation-delay: 0.40s; }
-body > *:nth-child(8){ animation-delay: 0.46s; }
-body > *:nth-child(9){ animation-delay: 0.52s; }
-body > *:nth-child(10){ animation-delay: 0.58s; }
-body > *:nth-child(11){ animation-delay: 0.64s; }
-body > *:nth-child(12){ animation-delay: 0.70s; }
-body > *:nth-child(13){ animation-delay: 0.76s; }
-body > *:nth-child(14){ animation-delay: 0.82s; }
-body > *:nth-child(15){ animation-delay: 0.88s; }
+body > *:nth-child(1){ animation-delay: 0.03s; }
+body > *:nth-child(2){ animation-delay: 0.06s; }
+body > *:nth-child(3){ animation-delay: 0.09s; }
+body > *:nth-child(4){ animation-delay: 0.12s; }
+body > *:nth-child(5){ animation-delay: 0.15s; }
+body > *:nth-child(n+6){ animation-delay: 0.18s; }
 
 @keyframes page-reveal {
   to {
@@ -204,6 +195,10 @@ h1, h2, h3 {
   left: 0;
   right: 0;
   z-index: 1000;
+  will-change: transform;
+  contain: layout style paint;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .topbar__logo {
@@ -537,6 +532,7 @@ h1, h2, h3 {
   transition: opacity 0.15s ease;
   overflow-y: auto;
   max-height: calc(100vh - var(--topbar-h));
+  max-height: calc(100dvh - var(--topbar-h));
   border-radius:0;
   box-shadow: -4px 8px 24px rgba(0,0,0,0.18);
 }
@@ -759,9 +755,7 @@ h1, h2, h3 {
   left: 0;
   right: 0;
   z-index: 9999;
-  background: rgba(26, 26, 46, 0.97);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(26, 26, 46, 0.99);
   color: rgba(255, 255, 255, 0.9);
   padding: 18px clamp(16px, 4vw, 60px);
   display: flex;
@@ -772,6 +766,10 @@ h1, h2, h3 {
   box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
   transform: translateY(0);
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  will-change: transform;
+  contain: layout style;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .cookie-banner.is-hidden {

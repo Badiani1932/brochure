@@ -2383,15 +2383,15 @@
   <!-- Parallax scroll (optimized) -->
   <script>
   (function(){
-    /* Skip parallax if user prefers reduced motion */
-    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(prefersReducedMotion) return;
+    /* Skip parallax if user prefers reduced motion or on touch devices (perf) */
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if(window.matchMedia('(pointer: coarse)').matches) return;
 
     /* --- GELATOSTORY parallax rimosso (nessuna immagine) --- */
     var gelatoImg = null;
     var gelatoCard = null;
 
-    /* --- PAOLO parallax orizzontale (dx ? sx) --- */
+    /* --- PAOLO parallax orizzontale (dx → sx) --- */
     var paolo = document.querySelector('.world-card__paolo');
     var paoloCard = paolo ? paolo.closest('.world-card--metrics') : null;
     if(paolo) paolo.style.willChange = 'transform';
@@ -2414,9 +2414,13 @@
         requestAnimationFrame(function(){
           var vh = window.innerHeight;
 
-          /* GELATOSTORY – leggero shake mentre scrolla */
-          if(gelatoImg && gelatoCard){
-            var gr = gelatoCard.getBoundingClientRect();
+          /* ── BATCH ALL LAYOUT READS ── */
+          var gr = (gelatoImg && gelatoCard) ? gelatoCard.getBoundingClientRect() : null;
+          var pr = (paolo && paoloCard) ? paoloCard.getBoundingClientRect() : null;
+          var wr = (worldMap && worldCard) ? worldCard.getBoundingClientRect() : null;
+
+          /* ── BATCH ALL STYLE WRITES ── */
+          if(gr){
             var gp = 1 - (gr.top + gr.height) / (vh + gr.height);
             gp = Math.max(0, Math.min(1, gp));
             var baseY = (gp - 0.5) * 30;
@@ -2425,25 +2429,19 @@
             gelatoImg.style.transform = 'translateY(' + (baseY + shake) + 'px) rotate(' + rot + 'deg)';
           }
 
-          /* PAOLO – entra da destra, scorre verso sinistra */
-          if(paolo && paoloCard){
-            var pr = paoloCard.getBoundingClientRect();
+          if(pr){
             var pp = 1 - (pr.top + pr.height) / (vh + pr.height);
             pp = Math.max(0, Math.min(1, pp));
-            /* pp=0 (card fuori in basso) ? +150px (destra), pp=1 (card passata) ? 0 */
             var shiftX = (1 - pp) * 40;
             paolo.style.transform = 'translateX(' + shiftX + 'px)';
           }
 
-          /* WORLDWIDE – entra dal basso verso l'alto */
-          if(worldMap && worldCard){
-            var wr = worldCard.getBoundingClientRect();
+          if(wr){
             var wp = 1 - (wr.top + wr.height) / (vh + wr.height);
             wp = Math.max(0, Math.min(1, wp * 1.6));
             var shiftMapY = (1 - wp) * 80;
             worldMap.style.transform = 'translateY(' + shiftMapY + 'px)';
 
-            /* GELATO big text – scende dall'alto (opposto alla mappa), comparsa anticipata */
             if(gelatoBig){
               var gpEarly = Math.min(1, wp * 2.2);
               var shiftTextY = -(1 - gpEarly) * 50;
@@ -2487,7 +2485,7 @@
     if(!cards.length) return;
     var queue = [];
     var draining = false;
-    var STAGGER = 400;
+    var STAGGER = 150;
     function drain(){
       if(!queue.length){ draining = false; return; }
       draining = true;

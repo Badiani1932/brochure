@@ -575,9 +575,7 @@
     .modal-overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.96);
-      -webkit-backdrop-filter:blur(16px);
-      backdrop-filter:blur(16px);
+      background:rgba(0,0,0,0.97);
       display:none;
       align-items:center;
       justify-content:center;
@@ -2618,50 +2616,7 @@
       display:flex;
     }
 
-    /* -- Plating button variant (Lingotto products) -- */
-    .card-zoom--plating{
-      background:linear-gradient(135deg,var(--badiani-pink),#c8507a) !important;
-      border:none !important;
-      box-shadow:0 2px 12px rgba(240,103,166,0.45);
-      position:absolute;
-      top:10px;
-      right:10px;
-      width:52px;
-      height:52px;
-      border-radius:0;
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      cursor:pointer;
-      backdrop-filter:blur(8px);
-      transition:transform 0.18s ease, box-shadow 0.18s ease;
-      touch-action:manipulation;
-      z-index:5;
-      pointer-events:auto;
-    }
-    .card-zoom--plating:hover{
-      transform:scale(1.1);
-      box-shadow:0 4px 18px rgba(240,103,166,0.6);
-    }
-    .card-zoom--plating svg{ width:24px; height:24px; }
-    .card-zoom--plating::before{
-      content:'';
-      position:absolute;
-      inset:-4px;
-      border-radius:0;
-      padding:2.5px;
-      background:conic-gradient(var(--badiani-pink),var(--badiani-yellow),var(--badiani-pink));
-      -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-              mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-      -webkit-mask-composite:xor;
-              mask-composite:exclude;
-      animation:platingRingSpin 2.4s linear infinite;
-      pointer-events:none;
-    }
-    @keyframes platingRingSpin{
-      to{ transform:rotate(360deg); }
-    }
+
 
     .pezziduri-body{
       padding:12px 14px 14px;
@@ -3705,9 +3660,7 @@
     .b2b-form-overlay{
       position:fixed;
       inset:0;
-      background:rgba(0,0,0,0.85);
-      -webkit-backdrop-filter:blur(10px);
-      backdrop-filter:blur(10px);
+      background:rgba(0,0,0,0.92);
       z-index:20000;
       display:none;
       align-items:center;
@@ -4289,11 +4242,9 @@
       position:fixed;
       inset:0;
       z-index:10010;
-      background:rgba(0,0,0,0.55);
+      background:rgba(0,0,0,0.65);
       align-items:center;
       justify-content:center;
-      backdrop-filter:blur(6px);
-      -webkit-backdrop-filter:blur(6px);
     }
     .listino-pw-overlay.is-open{ display:flex; }
     .listino-pw-box{
@@ -4386,11 +4337,9 @@
       position:fixed;
       inset:0;
       z-index:10020;
-      background:rgba(0,0,0,0.82);
+      background:rgba(0,0,0,0.88);
       align-items:center;
       justify-content:center;
-      backdrop-filter:blur(6px);
-      -webkit-backdrop-filter:blur(6px);
     }
     .listino-viewer-overlay.is-open{ display:flex; }
 
@@ -8462,14 +8411,8 @@
             const localMin = getPezziDuriMinOrder(min);
             const localAllergens = getPezziDuriAllergens(allergens);
             const hasPlating = !!PEZZI_DURI_ZOOM_IMAGES[name];
-            const zoomBtnClass = hasPlating ? 'card-zoom card-zoom--plating' : 'card-zoom';
-            const zoomIcon = hasPlating
-              ? `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
-                   <ellipse cx="12" cy="12" rx="10" ry="3.5" stroke="currentColor" stroke-width="1.8" fill="none"/>
-                   <ellipse cx="12" cy="10.5" rx="7" ry="7" stroke="currentColor" stroke-width="1.8" fill="none"/>
-                   <ellipse cx="12" cy="10.5" rx="3.5" ry="3.5" stroke="currentColor" stroke-width="1.5" fill="none" opacity=".6"/>
-                 </svg>`
-              : `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+            const zoomBtnClass = 'card-zoom';
+            const zoomIcon = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
                    <polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                    <polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                    <line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>

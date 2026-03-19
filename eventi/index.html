@@ -2003,9 +2003,10 @@
       var observer = new IntersectionObserver(function(entries){
         entries.forEach(function(entry){
           if(entry.isIntersecting){
-            var els = document.querySelectorAll('.ev-gallery__photo');
-            els.forEach(function(p, i){
-              setTimeout(function(){ p.style.opacity = '1'; p.style.transform = 'translateY(0)'; }, i * 80);
+            photos.forEach(function(p, i){
+              p.style.transitionDelay = (i * 80) + 'ms';
+              p.style.opacity = '1';
+              p.style.transform = 'translateY(0)';
             });
             observer.disconnect();
           }
@@ -2024,12 +2025,16 @@
       var customizeCol = corporateWrap ? corporateWrap.querySelector('.ev-corp-col--customize') : null;
       if(!mano || !section || !corporateWrap || !customizeCol) return;
       if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if(window.matchMedia('(pointer: coarse)').matches) return;
       mano.style.transition = 'transform 0.1s linear';
       mano.style.willChange = 'transform';
 
-      function isStackedLayout(){
-        return window.matchMedia('(max-width: 900px)').matches;
-      }
+      /* Cache media query — update on resize, not during scroll */
+      var stacked = window.matchMedia('(max-width: 900px)').matches;
+      window.addEventListener('resize', function(){
+        stacked = window.matchMedia('(max-width: 900px)').matches;
+        requestAnimationFrame(updateManogelato);
+      });
 
       function updateManogelato(){
         var vh = window.innerHeight;
@@ -2037,9 +2042,9 @@
         var p = 1 - (r.top + r.height) / (vh + r.height);
         p = Math.max(0, Math.min(1, p));
 
-        if(isStackedLayout()){
+        if(stacked){
           var wrapRect = corporateWrap.getBoundingClientRect();
-          var handHeight = mano.offsetHeight || mano.getBoundingClientRect().height || 0;
+          var handHeight = mano.offsetHeight || 0;
           var anchorTop = wrapRect.height - handHeight + 30;
           var rotateStacked = p * -6;
 
@@ -2067,21 +2072,18 @@
         }
       }, {passive:true});
 
-      window.addEventListener('resize', function(){
-        requestAnimationFrame(updateManogelato);
-      });
-
       updateManogelato();
     })();
   </script>
 
   <script>
-    // Mobile manogelato scroll parallax
+    // Mobile manogelato scroll parallax — disabled on touch for perf
     (function(){
       var manoM = document.querySelector('.ev-corporate__manogelato-mobile');
       var idealCol = manoM ? manoM.closest('.ev-corp-col--ideal') : null;
       if(!manoM || !idealCol) return;
       if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if(window.matchMedia('(pointer: coarse)').matches) return;
       var ticking2 = false;
       window.addEventListener('scroll', function(){
         if(!ticking2){
@@ -2112,7 +2114,7 @@
     if(!cards.length) return;
     var queue = [];
     var draining = false;
-    var STAGGER = 400;
+    var STAGGER = 150;
     function drain(){
       if(!queue.length){ draining = false; return; }
       draining = true;
