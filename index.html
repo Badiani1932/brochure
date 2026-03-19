@@ -88,6 +88,13 @@
       min-height:60vh;
       max-height:80vh;
     }
+    .hero .hero-content{
+      opacity:0;
+      transition:opacity 0.5s ease;
+    }
+    .hero.video-ready .hero-content{
+      opacity:1;
+    }
     .hero video{
       display:block;
       width:100%;
@@ -1240,6 +1247,16 @@
       </div>
     </div>
   </section>
+  <script>
+  (function(){
+    var hero = document.querySelector('.hero');
+    var vid = hero && hero.querySelector('video');
+    if(!vid){ hero && hero.classList.add('video-ready'); return; }
+    if(vid.readyState >= 3){ hero.classList.add('video-ready'); return; }
+    vid.addEventListener('canplay', function(){ hero.classList.add('video-ready'); }, {once:true});
+    setTimeout(function(){ hero.classList.add('video-ready'); }, 2000);
+  })();
+  </script>
 
   <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
     <div class="choice-grid">
@@ -2446,8 +2463,7 @@
       entries.forEach(function(entry){
         if(entry.isIntersecting){
           entry.target.classList.add('in-view');
-        } else {
-          entry.target.classList.remove('in-view');
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.4 });
