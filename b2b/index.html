@@ -621,8 +621,8 @@
       animation:modalReveal 0.6s cubic-bezier(0.34,1.56,0.64,1);
     }
     @keyframes modalReveal{
-      from{ opacity:0; transform:scale(0.92) translateY(30px); }
-      to{ opacity:1; transform:scale(1) translateY(0); }
+      from{ opacity:0; transform:translateY(20px); }
+      to{ opacity:1; transform:translateY(0); }
     }
     .modal__header{
       display:flex;
@@ -737,6 +737,14 @@
       background:transparent;
       overscroll-behavior-y:contain;
       touch-action:pan-y;
+      contain:layout style;
+      will-change:scroll-position;
+    }
+    #b2bDefaultContent{
+      transition:opacity 0.15s ease;
+    }
+    #b2bDefaultContent.is-switching{
+      opacity:0;
     }
     .pezziduri-grid-stage[hidden]{
       display:none !important;
@@ -873,7 +881,9 @@
       padding:0;
       display:flex;
       flex-direction:column;
-      transition:transform 0.18s ease, box-shadow 0.18s ease, outline-color 0.18s ease;
+      transition:transform 0.18s ease, outline-color 0.18s ease;
+      will-change:transform;
+      contain:layout style;
     }
     .gelato-card img{
       width:100%;
@@ -911,12 +921,11 @@
       outline:2px solid rgba(255,255,255,0.4);
       outline-offset:2px;
     }
-    .gelato-card:hover{ transform:translateY(-2px); box-shadow:0 16px 28px rgba(0,0,0,0.25); }
+    .gelato-card:hover{ transform:translateY(-2px) scale(1.01); }
     .gelato-card.is-selected{ outline:2px solid rgba(30,57,141,0.3); outline-offset:2px; }
     .gelato-card.is-expanded{
       outline:2px solid var(--badiani-pink);
       outline-offset:2px;
-      box-shadow:0 12px 28px rgba(0,0,0,0.3);
     }
     .gelato-card__content{
       display:grid;
@@ -1132,9 +1141,11 @@
       padding:0;
       display:flex;
       flex-direction:column;
-      transition:transform 0.18s ease, box-shadow 0.18s ease, outline-color 0.18s ease;
+      transition:transform 0.18s ease, outline-color 0.18s ease;
+      will-change:transform;
+      contain:layout style;
     }
-    .tipologia-card:hover{ transform:translateY(-2px); box-shadow:0 16px 28px rgba(0,0,0,0.25); }
+    .tipologia-card:hover{ transform:translateY(-2px) scale(1.01); }
     .tipologia-card:focus-visible{ outline:2px solid rgba(255,255,255,0.4); outline-offset:2px; }
     .tipologia-card.is-expanded{ outline:2px solid var(--badiani-pink); outline-offset:2px; box-shadow:0 12px 28px rgba(240,103,166,0.35); }
     .tipologia-media{
@@ -1267,9 +1278,11 @@
       display:flex;
       flex-direction:column;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition:transform 0.2s ease, border-color 0.2s ease;
+      will-change:transform;
+      contain:layout style;
     }
-    .coni-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.3); }
+    .coni-card:hover{ transform:translateY(-2px) scale(1.01); }
     .coni-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
     .coni-card.is-expanded{ border-color:var(--badiani-pink); box-shadow:0 12px 28px rgba(240,103,166,0.2); }
     .coni-media{
@@ -2295,7 +2308,8 @@
       padding:24px;
       z-index:4000;
     }
-    .fullscreen-overlay.is-open{ display:flex; }
+    .fullscreen-overlay.is-open{ display:flex; animation:fsReveal 0.2s ease both; }
+    @keyframes fsReveal{ from{opacity:0} to{opacity:1} }
     .fullscreen-content{
       position:relative;
       max-width:min(1200px, 92vw);
@@ -2565,13 +2579,13 @@
 
     /* -- Staggered card entrance -- */
     @keyframes cardStaggerIn{
-      from{ opacity:0; transform:scale(0.92) translateY(10px); }
-      to{ opacity:1; transform:scale(1) translateY(0); }
+      from{ opacity:0; transform:translateY(8px); }
+      to{ opacity:1; transform:translateY(0); }
     }
     .gelato-card,
     .pezziduri-card{
-      animation:cardStaggerIn 0.35s cubic-bezier(0.22,1,0.36,1) both;
-      animation-delay:calc(var(--stagger-i, 0) * 40ms);
+      animation:cardStaggerIn 0.25s cubic-bezier(0.22,1,0.36,1) both;
+      animation-delay:calc(var(--stagger-i, 0) * 30ms);
     }
     @media(prefers-reduced-motion:reduce){
       .gelato-card,
@@ -2588,10 +2602,12 @@
       display:flex;
       flex-direction:column;
       cursor:pointer;
-      transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+      transition:transform 0.2s ease, border-color 0.2s ease;
       position:relative;
+      will-change:transform;
+      contain:layout style;
     }
-    .pezziduri-card:hover{ transform:translateY(-2px); box-shadow:0 16px 30px rgba(0,0,0,0.3); }
+    .pezziduri-card:hover{ transform:translateY(-2px) scale(1.01); }
     .pezziduri-card:focus-visible{ outline:2px solid rgba(30,57,141,0.3); outline-offset:3px; }
     .pezziduri-card.is-expanded{
       border-color:var(--badiani-pink);
@@ -9377,29 +9393,17 @@
           sections.push(`<div class="modal__section"><p class="pezziduri-note">${note}</p></div>`);
         }
 
-        if(category === 'TORTE'){
-          requestAnimationFrame(setupTorteInteraction);
-        }
-        if(category === 'PEZZI DURI'){
-          requestAnimationFrame(setupPezziDuriZoom);
-          requestAnimationFrame(setupLingottoCarousel);
-        }
-        if(category === 'CONTENITORI'){
-          requestAnimationFrame(setupContenitoriZoom);
-        }
-        if(category === 'CONI_COPPETTE'){
-          requestAnimationFrame(setupConiZoom);
-          requestAnimationFrame(setupCoppetteInteraction);
-          requestAnimationFrame(setupConiHeroInteraction);
-          requestAnimationFrame(setupConiGfInteraction);
-        }
-        if(category === 'ACCESSORI'){
-          requestAnimationFrame(setupAccessoriInteraction);
-        }
-
-        requestAnimationFrame(setupZoomButtons);
-
-        defaultContent.innerHTML = sections.join('');
+        defaultContent.classList.add('is-switching');
+        requestAnimationFrame(() => {
+          defaultContent.innerHTML = sections.join('');
+          if(category === 'TORTE') setupTorteInteraction();
+          if(category === 'PEZZI DURI'){ setupPezziDuriZoom(); setupLingottoCarousel(); }
+          if(category === 'CONTENITORI') setupContenitoriZoom();
+          if(category === 'CONI_COPPETTE'){ setupConiZoom(); setupCoppetteInteraction(); setupConiHeroInteraction(); setupConiGfInteraction(); }
+          if(category === 'ACCESSORI') setupAccessoriInteraction();
+          setupZoomButtons();
+          requestAnimationFrame(() => { defaultContent.classList.remove('is-switching'); });
+        });
       }
 
       function renderGelatoDetail(flavor){
@@ -9463,7 +9467,7 @@
             }
           }
           gelatoDetail.classList.remove('is-updating');
-        }, 150);
+        }, 80);
       }
 
       function buildGelatoDetailsHTML(flavor){
