@@ -91,6 +91,14 @@
       object-position:center 30%;
       filter:none;
     }
+    .ev-hero::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.38) 35%, transparent 65%);
+      z-index:1;
+      pointer-events:none;
+    }
     .ev-hero__content{
       position:relative;
       z-index:2;

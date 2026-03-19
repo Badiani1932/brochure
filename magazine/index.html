@@ -80,6 +80,14 @@
       object-fit:cover;
       filter:none;
     }
+    .mag-hero::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.38) 35%, transparent 65%);
+      z-index:1;
+      pointer-events:none;
+    }
     .mag-hero__content{
       position:relative;
       z-index:2;
@@ -186,17 +194,17 @@
       filter:none;
     }
 
-    /* Gradient overlay */
+    /* Gradient overlay — dark fade at the bottom for text legibility */
     .article-card::after{
       content:'';
       position:absolute;
       inset:0;
-      background:none;
+      background:linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.38) 35%, transparent 65%);
       transition:background 0.5s ease;
       z-index:1;
     }
     .article-card:hover::after{
-      background:none;
+      background:linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.42) 35%, transparent 65%);
     }
 
     /* Content overlay at bottom */

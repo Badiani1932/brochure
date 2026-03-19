@@ -196,7 +196,7 @@ h1, h2, h3 {
   right: 0;
   z-index: 1000;
   will-change: transform;
-  contain: layout style paint;
+  contain: layout style;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
