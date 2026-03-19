@@ -2427,12 +2427,13 @@
   })();
   </script>
 
-  <!-- Scroll-triggered shadow animation on choice cards (mobile) -->
+  <!-- Scroll-triggered shadow animation on choice cards (only after first scroll) -->
   <script>
   (function(){
     if(!('IntersectionObserver' in window)) return;
     var cards = document.querySelectorAll('.choice-card');
     if(!cards.length) return;
+    var started = false;
     var observer = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
         if(entry.isIntersecting){
@@ -2442,7 +2443,13 @@
         }
       });
     }, { threshold: 0.4 });
-    cards.forEach(function(card){ observer.observe(card); });
+    function startObserver(){
+      if(started) return;
+      started = true;
+      cards.forEach(function(card){ observer.observe(card); });
+      window.removeEventListener('scroll', startObserver);
+    }
+    window.addEventListener('scroll', startObserver, {passive:true});
   })();
   </script>
 
