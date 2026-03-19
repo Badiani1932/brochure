@@ -145,7 +145,8 @@
     }
     .ext-card{
       position:relative;
-      overflow:hidden;
+      overflow:visible;
+      isolation:isolate;
       color:#fff;
       display:flex;
       align-items:stretch;
@@ -258,8 +259,8 @@
     .ext-card__desc{
       position:absolute;
       top:82%;
-      left:18%;
-      width:64%;
+      left:14%;
+      width:72%;
       box-sizing:border-box;
       display:inline-flex;
       align-items:flex-start;
@@ -915,12 +916,16 @@
 
       .ext-solutions__grid{
         grid-template-columns:1fr;
-        gap:64px 0;
+        gap:80px 0;
+        padding-bottom:80px;
       }
       .ext-card{ aspect-ratio:1/1; }
       .ext-card + .ext-card{
         box-shadow:none;
         border-top:none;
+      }
+      .ext-card__desc{
+        padding:12px 22px;
       }
 
       .ext-terms__grid{
@@ -1016,11 +1021,12 @@
       .ext-card__overlay{ padding:28px 20px; }
       .ext-card__title{ font-size:clamp(44px, 12vw, 64px); }
       .ext-card__desc{
-        top:auto;
-        bottom:calc(14% - 14px);
-        left:10%;
-        width:66%;
+        top:86%;
+        bottom:auto;
+        left:6%;
+        width:74%;
         font-size:clamp(12px, 3.2vw, 15px);
+        padding:12px 22px;
       }
       .ext-card__price{
         top:calc(20% + clamp(8px, 2cqi, 16px));
