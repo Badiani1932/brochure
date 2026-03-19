@@ -165,7 +165,8 @@
     }
     .choice-card{
       position:relative;
-      overflow:hidden;
+      overflow:visible;
+      isolation:isolate;
       text-decoration:none;
       color:#fff;
       display:flex;
@@ -220,7 +221,7 @@
       filter:none;
     }
     .choice-card__overlay{
-      position:relative;
+      position:static;
       z-index:2;
       padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px) clamp(32px, 4vw, 48px);
       background:none;
@@ -266,11 +267,16 @@
       margin-top:14px;
     }
     .choice-cta{
-      display:inline-flex;
+      position:absolute;
+      top:82%;
+      left:14%;
+      width:72%;
+      box-sizing:border-box;
+      z-index:3;
+      display:flex;
       align-items:center;
       gap:12px;
-      margin-top:clamp(20px, 2.5vw, 36px);
-      align-self:flex-start;
+      margin-top:0;
       padding:14px 28px;
       border-radius:0;
       border:2px solid var(--badiani-pink);
@@ -281,6 +287,8 @@
       text-transform:uppercase;
       letter-spacing:2.5px;
       font-weight:700;
+      white-space:normal;
+      word-break:break-word;
       pointer-events:none;
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
@@ -337,24 +345,14 @@
       .choice-card{
         aspect-ratio:1/1;
         min-height:0;
-        overflow:visible;
-        isolation:isolate;
       }
       .choice-card__overlay{
         padding:32px 28px;
-        position:static;
       }
       .choice-title{
         font-size:clamp(56px, 14vw, 140px);
       }
       .choice-cta{
-        position:absolute;
-        top:82%;
-        left:14%;
-        width:72%;
-        box-sizing:border-box;
-        z-index:3;
-        margin-top:0;
         padding:12px 18px;
         font-size:clamp(11px, 2.8vw, 14px);
         letter-spacing:1.5px;
