@@ -349,11 +349,14 @@
     }
     .category-desc{ display:none; }
     .category-cta{
+      position:absolute;
+      top:82%;
+      left:14%;
+      width:72%;
+      box-sizing:border-box;
       display:flex;
       align-items:flex-start;
       gap:10px;
-      margin-top:auto;
-      align-self:stretch;
       padding:clamp(10px, 3cqi, 14px) clamp(12px, 4cqi, 22px);
       border-radius:0;
       border:2px solid var(--badiani-blue);
@@ -366,6 +369,7 @@
       font-weight:700;
       line-height:1.35;
       pointer-events:none;
+      z-index:2;
       transition:background 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s ease;
     }
     .category-cta > span{
