@@ -221,7 +221,7 @@
       filter:none;
     }
     .choice-card__overlay{
-      position:static;
+      position:relative;
       z-index:2;
       padding:clamp(32px, 4vw, 56px) clamp(32px, 4vw, 56px) clamp(32px, 4vw, 48px);
       background:none;
@@ -231,6 +231,7 @@
       justify-content:flex-start;
       width:100%;
       height:100%;
+      overflow:hidden;
     }
     .choice-card__heading-group{
       display:flex;
@@ -316,6 +317,19 @@
       transform:translateX(4px);
     }
 
+    @media(max-width:1024px){
+      .choice-cta{
+        font-size:clamp(10px, 1.4vw, 13px);
+        letter-spacing:1.5px;
+        padding:10px 16px;
+        gap:8px;
+        line-height:1.35;
+      }
+      .choice-cta svg{
+        width:14px;
+        height:14px;
+      }
+    }
     @media(max-width:768px){
       .page-shell{ padding:var(--space-lg) 18px; }
     }
