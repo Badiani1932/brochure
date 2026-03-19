@@ -807,6 +807,9 @@
     }
     /* tablet: already 2-col, keep as-is */
     @media(max-width:1200px){
+      .ev-types{
+        padding:clamp(48px, 6vw, 80px) 0;
+      }
       .ev-types__grid{
         grid-template-columns:repeat(2, 1fr);
         gap:48px 0;
@@ -860,7 +863,7 @@
       .ev-hero__title{ font-size:clamp(48px, 13vw, 72px); }
 
       .ev-types__grid{ grid-template-columns:1fr; padding-left:24px; padding-right:24px; gap:96px 0; }
-      .ev-types{ padding-top:64px; }
+      .ev-types{ padding:64px 0; }
       .ev-card{
         aspect-ratio:1/1;
         min-height:40vh;
