@@ -191,7 +191,7 @@
       top:18%;
       left:18%;
       width:64%;
-      aspect-ratio:1/1;
+      height:48%;
       background:var(--badiani-pink);
       z-index:0;
       pointer-events:none;
@@ -221,7 +221,7 @@
       top:18%;
       left:18%;
       width:64%;
-      aspect-ratio:1/1;
+      height:48%;
       object-fit:cover;
       z-index:1;
       transition:none;
@@ -237,7 +237,7 @@
       z-index:2;
       display:grid;
       grid-template-columns:18% 64% 18%;
-      grid-template-rows:18% 64% 18%;
+      grid-template-rows:18% 48% 34%;
       padding:0;
       box-sizing:border-box;
       pointer-events:none;
@@ -786,8 +786,7 @@
         top:18%;
         left:12%;
         width:76%;
-        aspect-ratio:1/1;
-        height:auto;
+        height:57%;
         right:auto;
         bottom:auto;
         translate:0 0;
@@ -799,11 +798,11 @@
         translate:40px 40px;
       }
       .ev-card__img{
-        top:18%; left:12%; width:76%; aspect-ratio:1/1; height:auto;
+        top:18%; left:12%; width:76%; height:57%;
       }
       .ev-card__overlay{
         grid-template-columns:12% 76% 12%;
-        grid-template-rows:18% 64% 18%;
+        grid-template-rows:18% 57% 25%;
       }
     }
     /* tablet: already 2-col, keep as-is */
@@ -827,6 +826,9 @@
         padding-right:clamp(16px, 4vw, 32px);
       }
       .ev-card{ aspect-ratio:1/1; min-height:0; }
+      .ev-card::after{ height:64%; }
+      .ev-card__img{ height:64%; }
+      .ev-card__overlay{ grid-template-rows:18% 64% 18%; }
       .ev-card__title{ font-size:clamp(17px, 3.5vw, 44px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
 
@@ -865,18 +867,17 @@
         left:8%;
         top:18%;
         width:72%;
-        aspect-ratio:1/1;
-        height:auto;
+        height:72%;
       }
       .ev-card__img{
         left:8%;
         top:18%;
         width:72%;
-        aspect-ratio:1/1;
-        height:auto;
+        height:72%;
       }
       .ev-card__overlay{
         grid-template-columns:8% 72% 20%;
+        grid-template-rows:18% 72% 10%;
       }
       .ev-card__title{
         font-size:clamp(48px, 12vw, 80px);
