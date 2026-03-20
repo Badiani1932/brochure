@@ -1301,12 +1301,15 @@
         align-items:center;
         justify-content:center;
         padding:12px;
+        min-height:100vh;
         min-height:100dvh;
+        height:100vh;
         height:100dvh;
         overflow:hidden;
       }
       .modal-panel{
         width:100%;
+        max-height:min(90vh, 820px);
         max-height:min(90dvh, 820px);
         border-radius:0;
       }
@@ -1568,7 +1571,7 @@
 
   <!-- VIDEO HERO -->
   <section class="sal-hero" id="main-content">
-    <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true" poster="../../assets/images/migrated/eventi/foto%20eventi/1.webp">
       <source src="../../assets/video/videotosinghi.mp4" type="video/mp4">
       <track kind="descriptions" srclang="it" label="Descrizione video" default>
     </video>
