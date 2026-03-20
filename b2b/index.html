@@ -4714,7 +4714,7 @@
   <main class="page-shell" id="main-content">
 
     <section class="page-hero">
-      <video class="page-hero__video" autoplay muted loop playsinline poster="../assets/images/branding/hero-bg.webp">
+      <video class="page-hero__video" autoplay muted loop playsinline preload="auto" poster="../assets/images/branding/hero-bg.webp">
         <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4" />
         <track kind="descriptions" srclang="it" label="Descrizione video" default>
       </video>
@@ -10517,12 +10517,19 @@
     function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
+        v.setAttribute('muted','');
         v.muted=true;
-        var p=v.play();
-        if(p&&p.catch) p.catch(function(){
-          document.addEventListener('touchstart',function t(){v.play();document.removeEventListener('touchstart',t);},{once:true,passive:true});
-          document.addEventListener('click',function c(){v.play();document.removeEventListener('click',c);},{once:true,passive:true});
-        });
+        v.defaultMuted=true;
+        if(v.preload!=='auto') v.preload='auto';
+        function tp(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+        tp();
+        v.addEventListener('loadeddata',tp,{once:true});
+        v.addEventListener('canplay',tp,{once:true});
+        setTimeout(tp,500);setTimeout(tp,1500);setTimeout(tp,3000);
+        function onUi(){tp();document.removeEventListener('touchstart',onUi);document.removeEventListener('click',onUi);document.removeEventListener('scroll',onUi);}
+        document.addEventListener('touchstart',onUi,{once:true,passive:true});
+        document.addEventListener('click',onUi,{once:true,passive:true});
+        document.addEventListener('scroll',onUi,{once:true,passive:true});
       });
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);

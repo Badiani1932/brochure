@@ -152,7 +152,7 @@
 
     /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
-      padding:clamp(40px, 6vw, 80px) 0 0;
+      padding:clamp(40px, 6vw, 80px) 0;
       position:relative;
       overflow:visible;
     }
@@ -816,7 +816,7 @@
     /* tablet: already 2-col, keep as-is */
     @media(max-width:1200px){
       .ev-types{
-        padding:clamp(48px, 6vw, 80px) 0 0;
+        padding:clamp(48px, 6vw, 80px) 0 120px;
       }
       .ev-types__grid{
         grid-template-columns:repeat(2, 1fr);
@@ -1078,7 +1078,7 @@
 
   <!-- HERO -->
   <section class="ev-hero" id="main-content">
-    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" aria-hidden="true">
       <source src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
       <track kind="descriptions" srclang="it" label="Descrizione video" default>
     </video>
@@ -2161,12 +2161,19 @@
     function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
+        v.setAttribute('muted','');
         v.muted=true;
-        var p=v.play();
-        if(p&&p.catch) p.catch(function(){
-          document.addEventListener('touchstart',function t(){v.play();document.removeEventListener('touchstart',t);},{once:true,passive:true});
-          document.addEventListener('click',function c(){v.play();document.removeEventListener('click',c);},{once:true,passive:true});
-        });
+        v.defaultMuted=true;
+        if(v.preload!=='auto') v.preload='auto';
+        function tp(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
+        tp();
+        v.addEventListener('loadeddata',tp,{once:true});
+        v.addEventListener('canplay',tp,{once:true});
+        setTimeout(tp,500);setTimeout(tp,1500);setTimeout(tp,3000);
+        function onUi(){tp();document.removeEventListener('touchstart',onUi);document.removeEventListener('click',onUi);document.removeEventListener('scroll',onUi);}
+        document.addEventListener('touchstart',onUi,{once:true,passive:true});
+        document.addEventListener('click',onUi,{once:true,passive:true});
+        document.addEventListener('scroll',onUi,{once:true,passive:true});
       });
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
