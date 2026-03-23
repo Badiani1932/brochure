@@ -4,12 +4,8 @@ compatibility_date = "2026-02-20"
 workers_dev = true
 
 [vars]
-# Comma-separated origins, e.g. "https://www.badiani1932.com,https://badiani1932.com"
 ALLOWED_ORIGIN = "https://www.badiani1932.com,https://badiani1932.github.io"
 MAIL_TO = "eventi@badiani1932.com"
-MAIL_FROM = "eventi@badiani1932.com"
+MAIL_FROM = "noreply@badiani1932.com"
 
-# Set secrets via Cloudflare dashboard or wrangler secret put:
-# GOOGLE_CLIENT_ID
-# GOOGLE_CLIENT_SECRET
-# GOOGLE_REFRESH_TOKEN
+# Set secret via: npx wrangler secret put RESEND_API_KEY

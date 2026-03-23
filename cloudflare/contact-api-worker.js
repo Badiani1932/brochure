@@ -50,9 +50,8 @@ export default {
     const replyTo = inferReplyTo(payload);
 
     try {
-      const accessToken = await getGoogleAccessToken(env);
-      await sendGmail({
-        accessToken,
+      await sendResend({
+        apiKey: env.RESEND_API_KEY,
         fromEmail,
         toEmail,
         subject,
@@ -472,99 +471,34 @@ function safePretty(value) {
   }
 }
 
-async function getGoogleAccessToken(env) {
-  const clientId = (env.GOOGLE_CLIENT_ID || '').trim();
-  const clientSecret = (env.GOOGLE_CLIENT_SECRET || '').trim();
-  const refreshToken = (env.GOOGLE_REFRESH_TOKEN || '').trim();
+async function sendResend({ apiKey, fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo }) {
+  if (!apiKey) throw new Error('Missing RESEND_API_KEY');
 
-  if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error('Missing GOOGLE_CLIENT_ID / GOOGLE_CLIENT_SECRET / GOOGLE_REFRESH_TOKEN');
-  }
+  const body = {
+    from: `Badiani Website <${fromEmail}>`,
+    to: [toEmail],
+    subject,
+    html: bodyHtml || undefined,
+    text: bodyText || undefined
+  };
 
-  const response = await fetch('https://oauth2.googleapis.com/token', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams({
-      client_id: clientId,
-      client_secret: clientSecret,
-      refresh_token: refreshToken,
-      grant_type: 'refresh_token'
-    }).toString()
-  });
+  if (replyTo) body.reply_to = replyTo;
 
-  const data = await response.json();
-  if (!response.ok || !data || !data.access_token) {
-    throw new Error(`Google OAuth token error: ${response.status} ${safePretty(data)}`);
-  }
-
-  return data.access_token;
-}
-
-async function sendGmail({ accessToken, fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo }) {
-  const mime = buildMime({ fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo });
-  const raw = toBase64Url(mime);
-
-  const response = await fetch('https://gmail.googleapis.com/gmail/v1/users/me/messages/send', {
+  const response = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${apiKey}`,
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ raw })
+    body: JSON.stringify(body)
   });
 
   const data = await response.json();
   if (!response.ok) {
-    throw new Error(`Gmail API error: ${response.status} ${safePretty(data)}`);
+    throw new Error(`Resend API error: ${response.status} ${safePretty(data)}`);
   }
 
   return data;
-}
-
-function mimeEncodeHeader(text) {
-  const str = String(text || '');
-  if (/^[\x20-\x7E]*$/.test(str)) return str;
-  const bytes = new TextEncoder().encode(str);
-  let binary = '';
-  for (let i = 0; i < bytes.length; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-  return '=?UTF-8?B?' + btoa(binary) + '?=';
-}
-
-function buildMime({ fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo }) {
-  const boundary = `badiani_${crypto.randomUUID()}`;
-  const encodedSubject = mimeEncodeHeader(subject);
-  const encodedFromName = mimeEncodeHeader('Badiani Website');
-  const lines = [
-    `From: ${encodedFromName} <${fromEmail}>`,
-    `To: ${toEmail}`,
-    `Subject: ${encodedSubject}`,
-    'MIME-Version: 1.0',
-    `Content-Type: multipart/alternative; boundary="${boundary}"`
-  ];
-
-  if (replyTo) {
-    lines.splice(2, 0, `Reply-To: ${replyTo}`);
-  }
-
-  lines.push(
-    '',
-    `--${boundary}`,
-    'Content-Type: text/plain; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-    '',
-    bodyText || '',
-    '',
-    `--${boundary}`,
-    'Content-Type: text/html; charset=UTF-8',
-    'Content-Transfer-Encoding: 8bit',
-    '',
-    bodyHtml || '',
-    '',
-    `--${boundary}--`
-  );
-  return lines.join('\r\n');
 }
 
 function escapeHtml(value) {
@@ -574,19 +508,6 @@ function escapeHtml(value) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
-}
-
-function toBase64Url(str) {
-  const bytes = new TextEncoder().encode(str);
-  let binary = '';
-  for (let i = 0; i < bytes.length; i++) {
-    binary += String.fromCharCode(bytes[i]);
-  }
-
-  return btoa(binary)
-    .replace(/\+/g, '-')
-    .replace(/\//g, '_')
-    .replace(/=+$/, '');
 }
 
 function isOriginAllowed(origin, env) {

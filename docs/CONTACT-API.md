@@ -7,14 +7,14 @@
 ## Architettura
 
 ```text
-[Browser Form] --POST JSON--> [Cloudflare Worker] --OAuth2--> [Gmail API] --> Email
+[Browser Form] --POST JSON--> [Cloudflare Worker] --API Key--> [Resend API] --> Email
 ```
 
 ---
 
 ## Frontend (Form HTML)
 
-Presente in: `/eventi/index.html`, `/b2b/index.html`
+Presente in: `/eventi/index.html`, `/b2b/index.html`, `/index.html`, `/eventi/evento-esterno/index.html`, `/eventi/saletta-privata-tosinghi/index.html`
 
 ```javascript
 // Payload inviato al worker
@@ -45,12 +45,13 @@ Presente in: `/eventi/index.html`, `/b2b/index.html`
 | `/send` | POST | Riceve form, classifica, invia email |
 | `/send` | OPTIONS | CORS preflight |
 
+**Email provider**: [Resend](https://resend.com) — singola chiamata POST a `https://api.resend.com/emails`.
+
 **Classificazione automatica** dei messaggi:
 
-- Keyword "aziendale" → tag `[CORPORATE]`
-- Keyword "evento" → tag `[EVENTI]`
-- Keyword "b2b" → tag `[B2B]`
-- Default → tag `[GENERAL]`
+- Source/fields "b2b", azienda, partitaIva → tag `[B2B]`
+- Source/fields "event", tosinghi, esterno → tag `[EVENTI]`
+- Default → tag `[WEB]`
 
 **Sicurezza**:
 
@@ -65,18 +66,18 @@ Presente in: `/eventi/index.html`, `/b2b/index.html`
 ## Configurazione Worker (`wrangler.toml`)
 
 ```toml
-name = "badiani-contact-api"
+name = "badianiapiwebmail"
 [vars]
 ALLOWED_ORIGIN = "https://www.badiani1932.com,https://badiani1932.github.io"
 MAIL_TO = "eventi@badiani1932.com"
-MAIL_FROM = "eventi@badiani1932.com"
+MAIL_FROM = "noreply@badiani1932.com"
 ```
 
-**Secret** (impostati via dashboard Cloudflare, mai nel codice):
+**Secret** (impostati via `npx wrangler secret put`, mai nel codice):
 
-- `GOOGLE_CLIENT_ID`
-- `GOOGLE_CLIENT_SECRET`
-- `GOOGLE_REFRESH_TOKEN`
+- `RESEND_API_KEY`
+
+**Requisiti dominio**: il dominio `badiani1932.com` deve essere verificato su Resend con record DNS (SPF, DKIM, CNAME).
 
 ---
 
@@ -85,7 +86,7 @@ MAIL_FROM = "eventi@badiani1932.com"
 | Errore | Causa | Fix |
 | -------- | ------- | ----- |
 | 403 | Origin non nella whitelist | Aggiornare `ALLOWED_ORIGIN` in wrangler.toml |
-| 502 | Credenziali OAuth scadute/errate | Rinnovare `GOOGLE_REFRESH_TOKEN` nel dashboard |
+| 502 | API key Resend errata o dominio non verificato | Verificare `RESEND_API_KEY` e DNS su resend.com |
 | 404 | Path errato | Verificare endpoint `/send` |
 | 500 | Config mancante | Verificare variabili env nel Worker |
 
@@ -94,7 +95,6 @@ MAIL_FROM = "eventi@badiani1932.com"
 ## Aggiornare il Worker Cloudflare
 
 1. Modificare `cloudflare/contact-api-worker.js`
-2. Loggarsi nel Dashboard Cloudflare Workers
-3. Incollare il codice aggiornato
-4. Testare con form submission reale
-5. Verificare ricezione email
+2. Eseguire `cd cloudflare && npx wrangler deploy`
+3. Testare con form submission reale
+4. Verificare ricezione email
