@@ -521,12 +521,25 @@ async function sendGmail({ accessToken, fromEmail, toEmail, subject, bodyText, b
   return data;
 }
 
+function mimeEncodeHeader(text) {
+  const str = String(text || '');
+  if (/^[\x20-\x7E]*$/.test(str)) return str;
+  const bytes = new TextEncoder().encode(str);
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+  return '=?UTF-8?B?' + btoa(binary) + '?=';
+}
+
 function buildMime({ fromEmail, toEmail, subject, bodyText, bodyHtml, replyTo }) {
   const boundary = `badiani_${crypto.randomUUID()}`;
+  const encodedSubject = mimeEncodeHeader(subject);
+  const encodedFromName = mimeEncodeHeader('Badiani Website');
   const lines = [
-    `From: Badiani Website <${fromEmail}>`,
+    `From: ${encodedFromName} <${fromEmail}>`,
     `To: ${toEmail}`,
-    `Subject: ${subject}`,
+    `Subject: ${encodedSubject}`,
     'MIME-Version: 1.0',
     `Content-Type: multipart/alternative; boundary="${boundary}"`
   ];
