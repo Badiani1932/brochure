@@ -359,7 +359,7 @@
     .category-desc{ display:none; }
     .category-cta{
       position:absolute;
-      top:82%;
+      top:80%;
       left:14%;
       width:72%;
       box-sizing:border-box;
@@ -7263,7 +7263,7 @@
           rows: [
             ['Cialdine', 'Cialdine logate Badiani', '1200 pz'],
             ['Palettine', 'Palettine gelato', '1 Kg'],
-            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17', '250 a pacchetto'],
+            ['Tovagliolini stampati', 'Salviettine logate Badiani 17x17 (contenitore escluso)', '250 a pacchetto'],
             ['Spatola servizio gelato', 'Spatola per servizio gelato, 26 cm', 'su richiesta'],
             ['Espositore Biscotti', 'Espositore da banco per biscotti gelato Badiani. Misure: 235×360 mm, h 48 mm', 'su richiesta'],
             ['Espositore Stecchi', 'Espositore da banco per stecchi gelato Badiani. Misure: 235×360 mm, h 48 mm', 'su richiesta']
@@ -7927,7 +7927,7 @@
         en: {
           'Palettine': { name: 'Spatulas', desc: 'Gelato spatulas' },
           'Cialdine': { name: 'Wafers', desc: 'Badiani branded wafers' },
-          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17', qty: '250 per pack' },
+          'Tovagliolini stampati': { name: 'Printed Napkins', desc: 'Badiani branded napkins 17x17 (container not included)', qty: '250 per pack' },
           'Spatola servizio gelato': { name: 'Gelato Spatula', desc: 'Gelato serving spatula, 26 cm', qty: 'on request' },
           'Espositore Biscotti': { name: 'Biscuit Display Stand', desc: 'Counter display stand for Badiani gelato biscuits. Dimensions: 235×360 mm, h 48 mm', qty: 'on request' },
           'Espositore Stecchi': { name: 'Stick Display Stand', desc: 'Counter display stand for Badiani gelato sticks. Dimensions: 235×360 mm, h 48 mm', qty: 'on request' }
@@ -7935,7 +7935,7 @@
         fr: {
           'Palettine': { name: 'Spatules', desc: 'Spatules à gelato' },
           'Cialdine': { name: 'Gaufrettes', desc: 'Gaufrettes griffées Badiani' },
-          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17', qty: '250 par paquet' },
+          'Tovagliolini stampati': { name: 'Serviettes imprimées', desc: 'Serviettes griffées Badiani 17x17 (contenant non inclus)', qty: '250 par paquet' },
           'Spatola servizio gelato': { name: 'Spatule à glace', desc: 'Spatule de service gelato, 26 cm', qty: 'sur demande' },
           'Espositore Biscotti': { name: 'Présentoir Biscuits', desc: 'Présentoir de comptoir pour biscuits glacés Badiani. Dimensions : 235×360 mm, h 48 mm', qty: 'sur demande' },
           'Espositore Stecchi': { name: 'Présentoir Bâtonnets', desc: 'Présentoir de comptoir pour bâtonnets glacés Badiani. Dimensions : 235×360 mm, h 48 mm', qty: 'sur demande' }
@@ -7943,7 +7943,7 @@
         es: {
           'Palettine': { name: 'Paletas', desc: 'Paletas de helado' },
           'Cialdine': { name: 'Barquillos', desc: 'Barquillos con logo Badiani' },
-          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17', qty: '250 por paquete' },
+          'Tovagliolini stampati': { name: 'Servilletas impresas', desc: 'Servilletas con logo Badiani 17x17 (contenedor no incluido)', qty: '250 por paquete' },
           'Spatola servizio gelato': { name: 'Espátula para helado', desc: 'Espátula de servicio para helado, 26 cm', qty: 'bajo pedido' },
           'Espositore Biscotti': { name: 'Expositor Galletas', desc: 'Expositor de mostrador para galletas heladas Badiani. Medidas: 235×360 mm, h 48 mm', qty: 'bajo pedido' },
           'Espositore Stecchi': { name: 'Expositor Palitos', desc: 'Expositor de mostrador para palitos helados Badiani. Medidas: 235×360 mm, h 48 mm', qty: 'bajo pedido' }
@@ -8364,6 +8364,11 @@
         'Spatola servizio gelato': '../assets/images/accessori/paletta.webp',
         'Espositore Biscotti': '../assets/images/accessori/espositore-biscotti.webp',
         'Espositore Stecchi':  '../assets/images/accessori/espositore-stecchi.webp'
+      };
+
+      const ACCESSORI_EXTRA_IMAGES = {
+        'Espositore Biscotti': ['../assets/images/accessori/espositore-biscotti-2.webp'],
+        'Espositore Stecchi':  ['../assets/images/accessori/espositore-stecchi-2.webp']
       };
 
       function normalizeLang(lang){
@@ -9436,11 +9441,16 @@
               </div>`;
           }
 
+          const extraImgs = ACCESSORI_EXTRA_IMAGES[name];
+          const slidesAttr = extraImgs && extraImgs.length
+            ? ` data-zoom-slides='${JSON.stringify([src, ...extraImgs])}'`
+            : '';
+
           return `
             <article class="accessori-card${isExpanded ? ' is-expanded' : ''}" data-accessori-id="${name}" role="button" tabindex="0" aria-expanded="${isExpanded ? 'true' : 'false'}">
               <div class="accessori-media">
                 <img src="${imageSrc}" alt="${localName}" loading="lazy" decoding="async" />
-                <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${src}" data-zoom-alt="${localName}">${zoomIcon}</button>
+                <button class="card-zoom" type="button" aria-label="${t('b2b.zoom')}" data-zoom-src="${src}" data-zoom-alt="${localName}"${slidesAttr}>${zoomIcon}</button>
               </div>
               <div class="accessori-body">
                 <div class="accessori-title">${localName}</div>
@@ -9563,7 +9573,12 @@
             event.stopPropagation();
             const src = button.getAttribute('data-zoom-src');
             const alt = button.getAttribute('data-zoom-alt') || '';
-            openFullscreenImage(src, alt);
+            const slidesRaw = button.getAttribute('data-zoom-slides');
+            let slides = [];
+            if(slidesRaw){
+              try{ slides = JSON.parse(slidesRaw).map(s => ({src: s})); }catch{}
+            }
+            openFullscreenImage(src, alt, slides.length > 1 ? slides : undefined);
           });
         });
       }
