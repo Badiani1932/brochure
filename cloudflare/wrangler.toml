@@ -1,4 +1,4 @@
-name = "badiani-contact-api"
+name = "badianiapiwebmail"
 main = "contact-api-worker.js"
 compatibility_date = "2026-02-20"
 workers_dev = true
