@@ -376,10 +376,14 @@ h1, h2, h3 {
   flex-direction: column;
 }
 .topbar__dropdown:hover .topbar__dropdown-menu,
-.topbar__dropdown:focus-within .topbar__dropdown-menu {
+.topbar__dropdown:focus-within .topbar__dropdown-menu,
+.topbar__dropdown.is-open .topbar__dropdown-menu {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.15s ease, visibility 0s 0s;
+}
+.topbar__dropdown.is-open > a::after {
+  transform: rotate(180deg);
 }
 .topbar__dropdown-menu a {
   color: #fff;
