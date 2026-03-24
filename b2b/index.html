@@ -4842,7 +4842,6 @@
     <section class="page-hero">
       <video class="page-hero__video" autoplay muted loop playsinline preload="auto" poster="../assets/images/branding/hero-bg.webp">
         <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4" />
-        <track kind="descriptions" srclang="it" label="Descrizione video" default>
       </video>
       <div class="page-hero__heading-group">
         <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">B2B</h1>
@@ -10788,6 +10787,7 @@
         v.muted=true;
         v.defaultMuted=true;
         if(v.preload!=='auto') v.preload='auto';
+        if(v.readyState===0) v.load();
         function tp(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
         tp();
         v.addEventListener('loadeddata',tp,{once:true});

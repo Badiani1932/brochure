@@ -1081,7 +1081,6 @@
   <section class="ev-hero" id="main-content">
     <video autoplay muted loop playsinline preload="auto" aria-hidden="true" poster="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp">
       <source src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
-      <track kind="descriptions" srclang="it" label="Descrizione video" default>
     </video>
     <div class="ev-hero__content">
       <div class="ev-hero__heading">
@@ -2190,6 +2189,7 @@
         v.muted=true;
         v.defaultMuted=true;
         if(v.preload!=='auto') v.preload='auto';
+        if(v.readyState===0) v.load();
         function tp(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
         tp();
         v.addEventListener('loadeddata',tp,{once:true});

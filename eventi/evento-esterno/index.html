@@ -1266,9 +1266,8 @@
 
   <!-- HERO -->
   <section class="ext-hero" id="main-content">
-    <video class="ext-hero__video" autoplay muted loop playsinline preload="auto" poster="../foto%20eventi/Steve%20Madden%20Pitti/DSC09319.jpg">
+    <video class="ext-hero__video" autoplay muted loop playsinline preload="auto" poster="../../assets/images/migrated/eventi/foto%20eventi/Steve%20Madden%20Pitti/STEVE4.webp">
       <source src="../../assets/video/Video%20Badiani%20dove%20vuoi%20.mp4" type="video/mp4" />
-      <track kind="descriptions" srclang="it" label="Descrizione video" default>
     </video>
     <div class="ext-hero__content">
       <div class="ext-hero__heading">
@@ -2394,6 +2393,7 @@
         v.muted=true;
         v.defaultMuted=true;
         if(v.preload!=='auto') v.preload='auto';
+        if(v.readyState===0) v.load();
         function tp(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
         tp();
         v.addEventListener('loadeddata',tp,{once:true});

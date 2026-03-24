@@ -901,12 +901,27 @@ h1, h2, h3 {
 video::-webkit-media-controls,
 video::-webkit-media-controls-panel,
 video::-webkit-media-controls-play-button,
-video::-webkit-media-controls-start-playback-button,
-video::-webkit-media-controls-overlay-play-button {
-  display: none !important;
-  -webkit-appearance: none !important;
+video::-webkit-media-controls-start-playback-button {
   opacity: 0 !important;
   pointer-events: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
 }
-video::-moz-media-controls { display: none !important; }
+video::-webkit-media-controls-overlay-play-button {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+video::-moz-media-controls {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+}
 video { object-fit: cover; }
