@@ -1341,7 +1341,11 @@
         <p data-i18n="external.form.subtitle">Compila il modulo e ti ricontatteremo</p>
       </div>
       <div class="ext-form-body">
-        <form id="externalRequestForm" method="post">
+        <form id="externalRequestForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
+          <input type="hidden" name="_next" value="">
+          <input type="hidden" name="_subject" value="Richiesta Evento Esterno dal sito Badiani">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="ext-form-grid">
             <div class="ef-field">
               <label for="ext-nome" data-i18n="external.form.firstName">Nome *</label>
@@ -1662,6 +1666,18 @@
       if(!form) return;
       var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
 
+      /* Set _next and show success on redirect back */
+      var nextField = form.querySelector('input[name="_next"]');
+      if(nextField) nextField.value = window.location.href.split('?')[0] + '?sent=1';
+      if(/[?&]sent=1/.test(window.location.search)){
+        var fb = document.createElement('p');
+        fb.className = 'form-feedback is-success';
+        fb.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;color:#127c56;';
+        fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
+        form.appendChild(fb);
+        fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
       function getSubmitButton(){
         return form.querySelector('button[type="submit"], input[type="submit"]');
       }
@@ -1819,6 +1835,10 @@
           var extrasPanel = document.getElementById('extrasEsterno');
           if(extrasPanel) extrasPanel.classList.remove('visible');
         } catch(error){
+          if(error.message && /activation/i.test(error.message)){
+            form.submit();
+            return;
+          }
           showFormFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
         } finally {
           setSubmitting(false);

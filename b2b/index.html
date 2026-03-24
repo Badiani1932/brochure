@@ -4975,7 +4975,11 @@
           <p data-i18n="b2b.form.subtitle">Compila il modulo e ti ricontatteremo</p>
         </div>
         <div class="b2b-form-block__body">
-          <form id="b2bInlineForm" method="post">
+          <form id="b2bInlineForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
+            <input type="hidden" name="_next" value="">
+            <input type="hidden" name="_subject" value="Richiesta B2B dal sito Badiani">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
             <div class="b2b-inline-grid">
               <!-- Nome / Cognome -->
               <div class="bf-field">
@@ -5109,7 +5113,11 @@
         <p data-i18n="b2b.form.subtitle"></p>
       </div>
       <div class="b2b-form__body">
-        <form id="b2bRequestForm" method="post">
+        <form id="b2bRequestForm" action="https://formsubmit.co/eventi@badiani1932.com" method="POST">
+          <input type="hidden" name="_next" value="">
+          <input type="hidden" name="_subject" value="Richiesta B2B dal sito Badiani">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
           <div class="b2b-form__grid">
             <!-- Nome / Cognome -->
             <div class="fm-field"><label for="b2b-nome" data-i18n="b2b.form.nome"></label><input id="b2b-nome" name="nome" type="text" data-i18n-attr="placeholder:b2b.form.nome_ph" autocomplete="given-name" required /></div>
@@ -10380,6 +10388,21 @@
       // Form submit handlers - send structured payload to Worker API (both inline + modal)
       var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
 
+      /* Set _next fields and show success on redirect back */
+      document.querySelectorAll('#b2bInlineForm, #b2bRequestForm').forEach(function(f){
+        var nf = f.querySelector('input[name="_next"]');
+        if(nf) nf.value = window.location.href.split('?')[0] + '?sent=1';
+      });
+      if(/[?&]sent=1/.test(window.location.search)){
+        document.querySelectorAll('#b2bInlineForm, #b2bRequestForm').forEach(function(f){
+          var fb = document.createElement('p');
+          fb.className = 'form-feedback is-success';
+          fb.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;color:#127c56;';
+          fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
+          f.appendChild(fb);
+        });
+      }
+
       function getSubmitButton(form){
         return form.querySelector('button[type="submit"], input[type="submit"]');
       }
@@ -10564,6 +10587,10 @@
           showFormFeedback(form, 'Invio riuscito! Ti risponderemo al più presto.', false);
           form.reset();
         } catch (error) {
+          if(error.message && /activation/i.test(error.message)){
+            form.submit();
+            return;
+          }
           console.error('B2B submit error:', error);
           showFormFeedback(form, 'Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
         } finally {
