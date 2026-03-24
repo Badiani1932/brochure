@@ -2196,14 +2196,13 @@
         var body = lines.join('\n');
 
         var senderEmail = (fd.get('email') || '').toString().trim();
-        var payload = {
-          name: ((fd.get('nome') || '') + ' ' + (fd.get('cognome') || '')).trim(),
-          email: senderEmail,
-          message: body,
-          _subject: subject.trim(),
-          _replyto: senderEmail,
-          _captcha: 'false'
-        };
+        var fsData = new FormData();
+        fsData.append('name', ((fd.get('nome') || '') + ' ' + (fd.get('cognome') || '')).trim());
+        fsData.append('email', senderEmail);
+        fsData.append('message', body);
+        fsData.append('_subject', subject.trim());
+        fsData.append('_replyto', senderEmail);
+        fsData.append('_captcha', 'false');
 
         setSubmitting(true);
         showFormFeedback('Invio in corso... ti risponderemo a breve.', false);
@@ -2211,11 +2210,8 @@
         try {
           var response = await fetch(CONTACT_API_ENDPOINT, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json'
-            },
-            body: JSON.stringify(payload)
+            headers: { 'Accept': 'application/json' },
+            body: fsData
           });
 
           var result = {};

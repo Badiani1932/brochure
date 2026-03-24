@@ -2888,13 +2888,17 @@
 
 
 
+        var formData = new FormData();
+
+        Object.keys(fsPayload).forEach(function(k){ formData.append(k, fsPayload[k]); });
+
         var response = await fetch(CONTACT_API_ENDPOINT, {
 
           method: 'POST',
 
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          headers: { 'Accept': 'application/json' },
 
-          body: JSON.stringify(fsPayload)
+          body: formData
 
         });
 

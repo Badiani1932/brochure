@@ -10448,10 +10448,12 @@
         if(senderName) fsPayload.name = senderName;
         if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }
 
+        var formData = new FormData();
+        Object.keys(fsPayload).forEach(function(k){ formData.append(k, fsPayload[k]); });
         var response = await fetch(CONTACT_API_ENDPOINT, {
           method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(fsPayload)
+          headers: { 'Accept': 'application/json' },
+          body: formData
         });
 
         var result = {};
