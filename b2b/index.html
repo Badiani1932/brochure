@@ -10378,7 +10378,7 @@
       });
 
       // Form submit handlers - send structured payload to Worker API (both inline + modal)
-      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+      var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
 
       function getSubmitButton(form){
         return form.querySelector('button[type="submit"], input[type="submit"]');
@@ -10439,23 +10439,27 @@
       }
 
       async function postToContactApi(payload){
+        var msg = payload.message || payload.body || payload.text || '';
+        var sub = payload.subject || 'Richiesta dal sito Badiani';
+        var s = payload.structured || payload.fields || {};
+        var replyEmail = s.email || '';
+        var fsPayload = { message: msg, _subject: sub, _captcha: 'false' };
+        var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
+        if(senderName) fsPayload.name = senderName;
+        if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }
+
         var response = await fetch(CONTACT_API_ENDPOINT, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Accept': 'application/json'
-          },
-          body: JSON.stringify(payload)
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(fsPayload)
         });
 
-        var responseBody = null;
-        try { responseBody = await response.json(); } catch(e) {}
-
-        if(!response.ok){
-          var msg = (responseBody && (responseBody.error || responseBody.message)) || ('HTTP ' + response.status);
-          throw new Error(msg);
+        var result = {};
+        try { result = await response.json(); } catch(e) {}
+        if(!result.success || result.success === 'false'){
+          throw new Error(result.message || 'Invio fallito');
         }
-        return responseBody;
+        return result;
       }
 
       function getCheckedRadioLabel(form, radioName){

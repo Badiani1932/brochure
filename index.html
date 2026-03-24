@@ -2107,7 +2107,7 @@
       var form = document.getElementById('homeRequestForm');
       if(!form) return;
 
-      var CONTACT_API_ENDPOINT = window.BADIANI_CONTACT_API_ENDPOINT || 'https://badianiapiwebmail.marco-bruzzi.workers.dev/send';
+      var CONTACT_API_ENDPOINT = 'https://formsubmit.co/ajax/eventi@badiani1932.com';
 
       function getSubmitButton(){
         return form.querySelector('button[type="submit"], input[type="submit"]');
@@ -2195,22 +2195,14 @@
         var subject = 'Richiesta Informazioni - ' + (fd.get('nome') || '') + ' ' + (fd.get('cognome') || '');
         var body = lines.join('\n');
 
+        var senderEmail = (fd.get('email') || '').toString().trim();
         var payload = {
-          source: 'home',
-          formId: 'homeRequestForm',
-          subject: subject.trim(),
+          name: ((fd.get('nome') || '') + ' ' + (fd.get('cognome') || '')).trim(),
+          email: senderEmail,
           message: body,
-          body: body,
-          fields: normalizeFormEntries(fd),
-          structured: {
-            nome: (fd.get('nome') || '').toString().trim(),
-            cognome: (fd.get('cognome') || '').toString().trim(),
-            email: (fd.get('email') || '').toString().trim(),
-            telefono: (fd.get('telefono') || '').toString().trim(),
-            preferenzaContatto: (fd.get('preferenza_contatto') || '').toString().trim(),
-            interesse: interesse,
-            messaggio: (fd.get('messaggio') || '').toString().trim()
-          }
+          _subject: subject.trim(),
+          _replyto: senderEmail,
+          _captcha: 'false'
         };
 
         setSubmitting(true);
@@ -2226,13 +2218,10 @@
             body: JSON.stringify(payload)
           });
 
-          if(!response.ok){
-            var errorText = '';
-            try {
-              var errorJson = await response.json();
-              errorText = (errorJson && (errorJson.error || errorJson.message)) || '';
-            } catch(err) {}
-            throw new Error(errorText || ('HTTP ' + response.status));
+          var result = {};
+          try { result = await response.json(); } catch(err) {}
+          if(!result.success || result.success === 'false'){
+            throw new Error(result.message || 'Invio fallito');
           }
 
           showFormFeedback('Invio riuscito! Ti risponderemo al più presto.', false);
