@@ -2,7 +2,7 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; media-src 'self'; connect-src 'self' https://badianiapiwebmail.marco-bruzzi.workers.dev; font-src 'self'; frame-ancestors 'self'; base-uri 'self'" />
   <title>Badiani 1932 — Gelato Artigianale dal 1932 | Eventi &amp; B2B</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Badiani 1932: gelato artigianale fiorentino dal 1932. Organizza eventi esclusivi con il nostro gelato e scopri le soluzioni B2B per hotel, catering e ristorazione." />
@@ -1265,8 +1265,7 @@
 
   <!-- HERO: VIDEO + TITLE -->
   <section class="hero" id="main-content">
-    <video autoplay muted loop playsinline preload="auto" aria-hidden="true" poster="assets/images/branding/hero-bg.webp">
-      <source src="assets/video/home-b2b.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" poster="assets/images/branding/hero-bg.webp" src="assets/video/home-b2b.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
       <div class="hero-content__heading-group">
@@ -2529,20 +2528,23 @@
     function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
+        v.setAttribute('webkit-playsinline','');
         v.setAttribute('muted','');
         v.muted=true;
         v.defaultMuted=true;
-        if(v.preload!=='auto') v.preload='auto';
-        if(v.readyState===0) v.load();
-        function tp(){var p=v.play();if(p&&p.catch)p.catch(function(){});}
-        tp();
+        v.preload='auto';
+        if(!v.src&&v.querySelector('source'))v.src=v.querySelector('source').src;
+        v.load();
+        function tp(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(function(){});}}
+        v.addEventListener('loadedmetadata',tp,{once:true});
         v.addEventListener('loadeddata',tp,{once:true});
         v.addEventListener('canplay',tp,{once:true});
-        setTimeout(tp,500);setTimeout(tp,1500);setTimeout(tp,3000);
+        setTimeout(tp,300);setTimeout(tp,1000);setTimeout(tp,2500);setTimeout(tp,5000);setTimeout(tp,8000);
         function onUi(){tp();document.removeEventListener('touchstart',onUi);document.removeEventListener('click',onUi);document.removeEventListener('scroll',onUi);}
         document.addEventListener('touchstart',onUi,{once:true,passive:true});
         document.addEventListener('click',onUi,{once:true,passive:true});
         document.addEventListener('scroll',onUi,{once:true,passive:true});
+        document.addEventListener('visibilitychange',function(){if(!document.hidden)tp();});
       });
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
