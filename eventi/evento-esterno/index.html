@@ -1835,11 +1835,9 @@
           var extrasPanel = document.getElementById('extrasEsterno');
           if(extrasPanel) extrasPanel.classList.remove('visible');
         } catch(error){
-          if(error.message && /activation/i.test(error.message)){
-            form.submit();
-            return;
-          }
-          showFormFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
+          console.error('Evento esterno submit error:', error);
+          form.submit();
+          return;
         } finally {
           setSubmitting(false);
         }

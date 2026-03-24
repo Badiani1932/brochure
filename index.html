@@ -2245,12 +2245,9 @@
           showFormFeedback('Invio riuscito! Ti risponderemo al più presto.', false);
           form.reset();
         } catch (error) {
-          if(error.message && /activation/i.test(error.message)){
-            form.submit();
-            return;
-          }
           console.error('Home form submit error:', error);
-          showFormFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
+          form.submit();
+          return;
         } finally {
           setSubmitting(false);
         }

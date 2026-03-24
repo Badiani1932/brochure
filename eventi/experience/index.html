@@ -3034,14 +3034,10 @@
 
         } catch (error) {
 
-          if(error.message && /activation/i.test(error.message)){
-            form.submit();
-            return;
-          }
-
           console.error('Experience form submit error:', error);
 
-          showFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
+          form.submit();
+          return;
 
         } finally {
 

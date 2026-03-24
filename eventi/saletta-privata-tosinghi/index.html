@@ -2367,12 +2367,9 @@
           var extrasPanel = document.getElementById('extrasTosinghi');
           if(extrasPanel) extrasPanel.classList.remove('visible');
         } catch (error) {
-          if(error.message && /activation/i.test(error.message)){
-            form.submit();
-            return;
-          }
           console.error('Tosinghi submit error:', error);
-          showFormFeedback('Invio non riuscito. Riprova tra poco o scrivi a eventi@badiani1932.com.', true);
+          form.submit();
+          return;
         } finally {
           setSubmitting(false);
         }
