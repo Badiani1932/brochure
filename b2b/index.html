@@ -3627,7 +3627,7 @@
       }
     }
     @media(max-width:768px){
-      .gelato-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .gelato-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); align-items:stretch; }
       .gelato-card__exp-body{ padding:10px 12px 10px; gap:4px; max-height:80%; }
       .gelato-card__exp-name{ font-size:16px; letter-spacing:0.8px; }
       .gelato-card__exp-category{ font-size:8px; letter-spacing:1.8px; }
@@ -4600,6 +4600,18 @@
       border-bottom:1px solid rgba(240,103,166,0.15);
     }
 
+    /* Carretto Gelato extras */
+    .listino-carretto-extras{
+      padding:16px 20px 8px;
+    }
+    .listino-carretto-extra{
+      font-family:'SuperGroteskA',sans-serif;
+      font-size:clamp(13px,1.1vw,15px);
+      color:var(--badiani-gray,#58595b);
+      margin:0 0 10px;
+      line-height:1.5;
+    }
+
     /* Personalizzazioni product cards */
     .pers-card{
       display:grid;
@@ -5343,6 +5355,7 @@
           <button class="listino-tab" data-listino-tab="accessori" data-i18n="b2b.listino.tab.accessori">Accessori</button>
           <button class="listino-tab" data-listino-tab="spedizione" data-i18n="b2b.listino.tab.spedizione">Spedizione</button>
           <button class="listino-tab" data-listino-tab="personalizzazioni">Personalizzazioni</button>
+          <button class="listino-tab" data-listino-tab="carretto" data-i18n="b2b.listino.tab.carretto">Carretto Gelato</button>
         </nav>
       </div>
 
@@ -5626,6 +5639,34 @@
 
         </div>
 
+        <!-- --- CARRETTO GELATO --- -->
+        <div class="listino-section" data-listino-section="carretto">
+          <div class="listino-section__banner">
+            <h4 class="listino-section__banner-title" data-i18n="b2b.listino.carretto.title">Servizio Carretto Gelato</h4>
+            <span class="listino-section__banner-note" data-i18n="b2b.listino.carretto.note">Attrezzature per distribuzione gelato</span>
+          </div>
+          <div class="listino-table-wrap">
+            <table class="listino-table">
+              <thead>
+                <tr>
+                  <th data-i18n="b2b.listino.carretto.col.pax">Pax</th>
+                  <th data-i18n="b2b.listino.carretto.col.servizio">Servizio</th>
+                  <th data-i18n="b2b.listino.carretto.col.costo">Costo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0 &ndash; 50 pax</td><td data-i18n="b2b.listino.carretto.servizio">gelato, cono/coppetta</td><td class="listino-price">&euro; 1.000,00 + 10%</td></tr>
+                <tr><td>50 &ndash; 70 pax</td><td data-i18n="b2b.listino.carretto.servizio">gelato, cono/coppetta</td><td class="listino-price">&euro; 1.200,00 + 10%</td></tr>
+                <tr><td>70 &ndash; 100 pax</td><td data-i18n="b2b.listino.carretto.servizio">gelato, cono/coppetta</td><td class="listino-price">&euro; 1.400,00 + 10%</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="listino-carretto-extras">
+            <p class="listino-carretto-extra" data-i18n-html="b2b.listino.carretto.extra.servizio">Include 2h di servizio &mdash; extra time &euro; 100,00/h + IVA al 10%</p>
+            <p class="listino-carretto-extra" data-i18n-html="b2b.listino.carretto.extra.trasporto">Trasporto per veicolo entro i 100 km &euro; 250,00 + IVA al 22%</p>
+          </div>
+        </div>
+
       </div><!-- /listino-body -->
     </div><!-- /listino-modal -->
   </div>
@@ -5802,6 +5843,15 @@
           'b2b.listino.tab.torte': 'Torte',
           'b2b.listino.tab.accessori': 'Accessori',
           'b2b.listino.tab.spedizione': 'Spedizione',
+          'b2b.listino.tab.carretto': 'Carretto Gelato',
+          'b2b.listino.carretto.title': 'Servizio Carretto Gelato',
+          'b2b.listino.carretto.note': 'Attrezzature per distribuzione gelato',
+          'b2b.listino.carretto.col.pax': 'Pax',
+          'b2b.listino.carretto.col.servizio': 'Servizio',
+          'b2b.listino.carretto.col.costo': 'Costo',
+          'b2b.listino.carretto.servizio': 'gelato, cono/coppetta',
+          'b2b.listino.carretto.extra.servizio': 'Include 2h di servizio &mdash; extra time &euro; 100,00/h + IVA al 10%',
+          'b2b.listino.carretto.extra.trasporto': 'Trasporto per veicolo entro i 100 km &euro; 250,00 + IVA al 22%',
           'b2b.listino.col.gusto': 'Gusto',
           'b2b.listino.col.vaschette': 'Vaschette',
           'b2b.listino.col.carapine': 'Carapine',
@@ -6179,6 +6229,15 @@
           'b2b.listino.tab.torte': 'Cakes',
           'b2b.listino.tab.accessori': 'Accessories',
           'b2b.listino.tab.spedizione': 'Shipping',
+          'b2b.listino.tab.carretto': 'Gelato Cart',
+          'b2b.listino.carretto.title': 'Gelato Cart Service',
+          'b2b.listino.carretto.note': 'Gelato distribution equipment',
+          'b2b.listino.carretto.col.pax': 'Guests',
+          'b2b.listino.carretto.col.servizio': 'Service',
+          'b2b.listino.carretto.col.costo': 'Cost',
+          'b2b.listino.carretto.servizio': 'gelato, cone/cup',
+          'b2b.listino.carretto.extra.servizio': 'Includes 2h service &mdash; extra time &euro; 100.00/h + 10% VAT',
+          'b2b.listino.carretto.extra.trasporto': 'Transport per vehicle within 100 km &euro; 250.00 + 22% VAT',
           'b2b.listino.col.gusto': 'Flavour',
           'b2b.listino.col.vaschette': 'Tubs',
           'b2b.listino.col.carapine': 'Carapine',
@@ -6560,6 +6619,15 @@
           'b2b.listino.tab.torte': 'Gâteaux',
           'b2b.listino.tab.accessori': 'Accessoires',
           'b2b.listino.tab.spedizione': 'Livraison',
+          'b2b.listino.tab.carretto': 'Chariot Gelato',
+          'b2b.listino.carretto.title': 'Service Chariot Gelato',
+          'b2b.listino.carretto.note': '\u00c9quipements pour distribution de gelato',
+          'b2b.listino.carretto.col.pax': 'Pers.',
+          'b2b.listino.carretto.col.servizio': 'Service',
+          'b2b.listino.carretto.col.costo': 'Co\u00fbt',
+          'b2b.listino.carretto.servizio': 'gelato, c\u00f4ne/coupe',
+          'b2b.listino.carretto.extra.servizio': '2h de service incluses &mdash; heure suppl\u00e9mentaire &euro; 100,00/h + TVA 10%',
+          'b2b.listino.carretto.extra.trasporto': 'Transport par v\u00e9hicule dans un rayon de 100 km &euro; 250,00 + TVA 22%',
           'b2b.listino.col.gusto': 'Parfum',
           'b2b.listino.col.vaschette': 'Bacs',
           'b2b.listino.col.carapine': 'Carapine',
@@ -6941,6 +7009,15 @@
           'b2b.listino.tab.torte': 'Tartas',
           'b2b.listino.tab.accessori': 'Accesorios',
           'b2b.listino.tab.spedizione': 'Envío',
+          'b2b.listino.tab.carretto': 'Carrito Helado',
+          'b2b.listino.carretto.title': 'Servicio Carrito Helado',
+          'b2b.listino.carretto.note': 'Equipos para distribuci\u00f3n de helado',
+          'b2b.listino.carretto.col.pax': 'Pers.',
+          'b2b.listino.carretto.col.servizio': 'Servicio',
+          'b2b.listino.carretto.col.costo': 'Coste',
+          'b2b.listino.carretto.servizio': 'helado, cono/copa',
+          'b2b.listino.carretto.extra.servizio': 'Incluye 2h de servicio &mdash; hora extra &euro; 100,00/h + IVA 10%',
+          'b2b.listino.carretto.extra.trasporto': 'Transporte por veh\u00edculo hasta 100 km &euro; 250,00 + IVA 22%',
           'b2b.listino.col.gusto': 'Sabor',
           'b2b.listino.col.vaschette': 'Cubetas',
           'b2b.listino.col.carapine': 'Carapine',
