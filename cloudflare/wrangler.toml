@@ -6,8 +6,8 @@ workers_dev = true
 [vars]
 ALLOWED_ORIGIN = "https://www.badiani1932.com,https://badiani1932.github.io"
 MAIL_TO = "eventi@badiani1932.com"
-# Temporaneo: usa il sender di test Resend finché i DNS di badiani1932.com non sono verificati
-# Dopo la verifica DNS, cambiare in: MAIL_FROM = "noreply@badiani1932.com"
+# Sender condiviso Resend (dominio badiani1932.com non verificato DNS)
+# Se in futuro si verificano i DNS, cambiare in: MAIL_FROM = "noreply@badiani1932.com"
 MAIL_FROM = "onboarding@resend.dev"
 
 # Set secret via: npx wrangler secret put RESEND_API_KEY
