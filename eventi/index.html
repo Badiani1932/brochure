@@ -2010,6 +2010,8 @@
           if(extrasPanel) extrasPanel.classList.remove('visible');
         } catch(error){
           console.error('Eventi submit error:', error);
+          var di = form.querySelector('input[name="data"]');
+          if(di && di.value){ di.type = 'text'; di.value = di.value.replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1'); }
           form.submit();
           return;
         } finally {
