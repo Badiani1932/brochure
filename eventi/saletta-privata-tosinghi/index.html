@@ -1826,7 +1826,8 @@
               <label data-i18n="tosinghi.form.event.label">Evento di interesse *</label>
               <div class="sf-checkbox-group">
                 <label><input type="checkbox" name="evento[]" value="saletta-privata" checked /> <span data-i18n="tosinghi.form.event.privateroom">Saletta Privata</span></label>
-                <label><input type="checkbox" name="evento[]" value="evento-esterno" /> <span data-i18n="tosinghi.form.event.external">Badiani dove vuoi</span></label>
+                <label><input type="checkbox" name="evento[]" value="carretto-gelato" /> <span data-i18n="tosinghi.form.event.carretto">Carretto Gelato</span></label>
+                <label><input type="checkbox" name="evento[]" value="coolbox" /> <span data-i18n="tosinghi.form.event.coolbox">Coolbox</span></label>
                 <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="tosinghi.form.event.gelatovan">Gelato Van</span></label>
                 <label><input type="checkbox" name="evento[]" value="su-misura" /> <span data-i18n="tosinghi.form.event.custom">Evento Aziendale su Misura</span></label>
               </div>
@@ -2235,7 +2236,7 @@
         var sub = payload.subject || 'Richiesta dal sito Badiani';
         var s = payload.structured || payload.fields || {};
         var replyEmail = s.email || '';
-        var fsPayload = { message: msg, _subject: sub, _captcha: 'false' };
+        var fsPayload = { message: msg, _subject: sub, _captcha: 'false', _template: 'table' };
         var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
         if(senderName) fsPayload.name = senderName;
         if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }
@@ -2519,7 +2520,8 @@
           'tosinghi.form.extras.djset': 'Dj set',
           'tosinghi.form.event.label': 'Evento di interesse *',
           'tosinghi.form.event.privateroom': 'Saletta Privata',
-          'tosinghi.form.event.external': 'Badiani dove vuoi',
+          'tosinghi.form.event.carretto': 'Carretto Gelato',
+          'tosinghi.form.event.coolbox': 'Coolbox',
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': 'Evento Aziendale su Misura',
           'tosinghi.form.privacy': 'Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
@@ -2666,7 +2668,8 @@
           'tosinghi.form.extras.djset': 'DJ set',
           'tosinghi.form.event.label': 'Event of Interest *',
           'tosinghi.form.event.privateroom': 'Private Room',
-          'tosinghi.form.event.external': 'Badiani Anywhere',
+          'tosinghi.form.event.carretto': 'Gelato Cart',
+          'tosinghi.form.event.coolbox': 'Coolbox',
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': 'Corporate Tailored Event',
           'tosinghi.form.privacy': 'I have read and accept the <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
@@ -2810,7 +2813,8 @@
           'tosinghi.form.extras.djset': 'DJ set',
           'tosinghi.form.event.label': '\u00c9v\u00e9nement d\'int\u00e9r\u00eat *',
           'tosinghi.form.event.privateroom': 'Salle Priv\u00e9e',
-          'tosinghi.form.event.external': 'Badiani o\u00f9 vous voulez',
+          'tosinghi.form.event.carretto': 'Chariot \u00e0 Glaces',
+          'tosinghi.form.event.coolbox': 'Coolbox',
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': '\u00c9v\u00e9nement d\'Entreprise sur Mesure',
           'tosinghi.form.privacy': 'J\'ai lu et j\'accepte la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialit\u00e9</a>.',
@@ -2954,7 +2958,8 @@
           'tosinghi.form.extras.djset': 'DJ set',
           'tosinghi.form.event.label': 'Evento de inter\u00e9s *',
           'tosinghi.form.event.privateroom': 'Sala Privada',
-          'tosinghi.form.event.external': 'Badiani donde quieras',
+          'tosinghi.form.event.carretto': 'Carrito de Helados',
+          'tosinghi.form.event.coolbox': 'Coolbox',
           'tosinghi.form.event.gelatovan': 'Gelato Van',
           'tosinghi.form.event.custom': 'Evento Corporativo a Medida',
           'tosinghi.form.privacy': 'He le\u00eddo y acepto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',

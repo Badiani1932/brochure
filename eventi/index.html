@@ -1291,7 +1291,8 @@
               <label data-i18n="eventi.form.eventInterest">A quale evento sei interessato? *</label>
               <div class="ef-checkbox-group">
                 <label><input type="checkbox" name="evento[]" value="saletta-privata" /> <span data-i18n="eventi.form.eventInterest.privateRoom">Saletta Privata Tosinghi</span></label>
-                <label><input type="checkbox" name="evento[]" value="evento-esterno" /> <span data-i18n="eventi.form.eventInterest.external">Badiani dove vuoi</span></label>
+                <label><input type="checkbox" name="evento[]" value="carretto-gelato" /> <span data-i18n="eventi.form.eventInterest.carretto">Carretto Gelato</span></label>
+                <label><input type="checkbox" name="evento[]" value="coolbox" /> <span data-i18n="eventi.form.eventInterest.coolbox">Coolbox</span></label>
                 <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="eventi.form.eventInterest.van">Gelato Van</span></label>
                 <label><input type="checkbox" name="evento[]" value="evento-su-misura" /> <span data-i18n="eventi.form.eventInterest.tailored">Evento Aziendale su Misura</span></label>
                 <label><input type="checkbox" name="evento[]" value="experience" /> <span data-i18n="eventi.form.eventInterest.experience">Experience — Tasting Guidato</span></label>
@@ -1505,7 +1506,8 @@
           'eventi.form.extras.djSet': 'Dj set',
           'eventi.form.eventInterest': 'A quale evento sei interessato? *',
           'eventi.form.eventInterest.privateRoom': 'Saletta Privata Tosinghi',
-          'eventi.form.eventInterest.external': 'Badiani dove vuoi',
+          'eventi.form.eventInterest.carretto': 'Carretto Gelato',
+          'eventi.form.eventInterest.coolbox': 'Coolbox',
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Evento Aziendale su Misura',
           'eventi.form.eventInterest.experience': 'Experience — Tasting Guidato',
@@ -1594,7 +1596,8 @@
           'eventi.form.extras.djSet': 'DJ set',
           'eventi.form.eventInterest': 'Which event are you interested in? *',
           'eventi.form.eventInterest.privateRoom': 'Tosinghi Private Room',
-          'eventi.form.eventInterest.external': 'Badiani Anywhere',
+          'eventi.form.eventInterest.carretto': 'Gelato Cart',
+          'eventi.form.eventInterest.coolbox': 'Coolbox',
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Tailored Corporate Event',
           'eventi.form.eventInterest.experience': 'Experience — Guided Tasting',
@@ -1683,7 +1686,8 @@
           'eventi.form.extras.djSet': 'DJ set',
           'eventi.form.eventInterest': 'Quel \u00e9v\u00e9nement vous int\u00e9resse ? *',
           'eventi.form.eventInterest.privateRoom': 'Salle Priv\u00e9e Tosinghi',
-          'eventi.form.eventInterest.external': 'Badiani o\u00f9 vous voulez',
+          'eventi.form.eventInterest.carretto': 'Chariot Gelato',
+          'eventi.form.eventInterest.coolbox': 'Coolbox',
           'eventi.form.eventInterest.van': 'Van \u00e0 Gelato',
           'eventi.form.eventInterest.tailored': "\u00c9v\u00e9nement d'Entreprise sur Mesure",
           'eventi.form.eventInterest.experience': 'Experience \u2014 D\u00e9gustation Guid\u00e9e',
@@ -1772,7 +1776,8 @@
           'eventi.form.extras.djSet': 'DJ set',
           'eventi.form.eventInterest': '\u00bfQu\u00e9 evento te interesa? *',
           'eventi.form.eventInterest.privateRoom': 'Sala Privada Tosinghi',
-          'eventi.form.eventInterest.external': 'Badiani donde quieras',
+          'eventi.form.eventInterest.carretto': 'Carrito Helado',
+          'eventi.form.eventInterest.coolbox': 'Coolbox',
           'eventi.form.eventInterest.van': 'Gelato Van',
           'eventi.form.eventInterest.tailored': 'Evento Corporativo a Medida',
           'eventi.form.eventInterest.experience': 'Experience \u2014 Cata Guiada',
@@ -1907,7 +1912,7 @@
         var sub = payload.subject || 'Richiesta dal sito Badiani';
         var s = payload.structured || payload.fields || {};
         var replyEmail = payload.replyTo || s.email || '';
-        var fsPayload = { message: msg, _subject: sub, _captcha: 'false' };
+        var fsPayload = { message: msg, _subject: sub, _captcha: 'false', _template: 'table' };
         var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
         if(senderName) fsPayload.name = senderName;
         if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }

@@ -2893,7 +2893,7 @@
 
         var replyEmail = s.email || '';
 
-        var fsPayload = { message: msg, _subject: sub, _captcha: 'false' };
+        var fsPayload = { message: msg, _subject: sub, _captcha: 'false', _template: 'table' };
 
         var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
 

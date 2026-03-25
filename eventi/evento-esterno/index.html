@@ -1398,7 +1398,8 @@
               <label data-i18n="external.form.eventInterest">Evento di interesse *</label>
               <div class="ef-checkbox-group">
                 <label><input type="checkbox" name="evento[]" value="saletta-privata" /> <span data-i18n="external.form.eventInterest.privateRoom">Saletta Privata</span></label>
-                <label><input type="checkbox" name="evento[]" value="evento-esterno" checked /> <span data-i18n="external.form.eventInterest.external">Badiani dove vuoi</span></label>
+                <label><input type="checkbox" name="evento[]" value="carretto-gelato" checked /> <span data-i18n="external.form.eventInterest.carretto">Carretto Gelato</span></label>
+                <label><input type="checkbox" name="evento[]" value="coolbox" checked /> <span data-i18n="external.form.eventInterest.coolbox">Coolbox</span></label>
                 <label><input type="checkbox" name="evento[]" value="gelato-van" /> <span data-i18n="external.form.eventInterest.van">Gelato Van</span></label>
                 <label><input type="checkbox" name="evento[]" value="su-misura" /> <span data-i18n="external.form.eventInterest.tailored">Evento Aziendale su Misura</span></label>
               </div>
@@ -1740,7 +1741,7 @@
         var sub = payload.subject || 'Richiesta dal sito Badiani';
         var s = payload.structured || payload.fields || {};
         var replyEmail = s.email || '';
-        var fsPayload = { message: msg, _subject: sub, _captcha: 'false' };
+        var fsPayload = { message: msg, _subject: sub, _captcha: 'false', _template: 'table' };
         var senderName = ((s.nome || '') + ' ' + (s.cognome || '')).trim();
         if(senderName) fsPayload.name = senderName;
         if(replyEmail){ fsPayload.email = replyEmail; fsPayload._replyto = replyEmail; }
@@ -1946,7 +1947,8 @@
           'external.form.extras.djSet': 'Dj set',
           'external.form.eventInterest': 'Evento di interesse *',
           'external.form.eventInterest.privateRoom': 'Saletta Privata',
-          'external.form.eventInterest.external': 'Badiani dove vuoi',
+          'external.form.eventInterest.carretto': 'Carretto Gelato',
+          'external.form.eventInterest.coolbox': 'Coolbox',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Evento Aziendale su Misura',
           'external.form.privacy': 'Ho letto e accetto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
@@ -2052,7 +2054,8 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': 'Event of interest *',
           'external.form.eventInterest.privateRoom': 'Private Room',
-          'external.form.eventInterest.external': 'Badiani Anywhere',
+          'external.form.eventInterest.carretto': 'Gelato Cart',
+          'external.form.eventInterest.coolbox': 'Coolbox',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Corporate Tailored Event',
           'external.form.privacy': 'I have read and accept the <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
@@ -2158,7 +2161,8 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': '\u00c9v\u00e9nement d\u2019int\u00e9r\u00eat *',
           'external.form.eventInterest.privateRoom': 'Salle Priv\u00e9e',
-          'external.form.eventInterest.external': 'Badiani où vous voulez',
+          'external.form.eventInterest.carretto': 'Chariot \u00e0 Glaces',
+          'external.form.eventInterest.coolbox': 'Coolbox',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': '\u00c9v\u00e9nement d\'Entreprise sur Mesure',
           'external.form.privacy': 'J\u2019ai lu et j\u2019accepte la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">politique de confidentialit\u00e9</a>.',
@@ -2264,7 +2268,8 @@
           'external.form.extras.djSet': 'DJ set',
           'external.form.eventInterest': 'Evento de inter\u00e9s *',
           'external.form.eventInterest.privateRoom': 'Sala Privada',
-          'external.form.eventInterest.external': 'Badiani donde quieras',
+          'external.form.eventInterest.carretto': 'Carrito de Helados',
+          'external.form.eventInterest.coolbox': 'Coolbox',
           'external.form.eventInterest.van': 'Gelato Van',
           'external.form.eventInterest.tailored': 'Evento Corporativo a Medida',
           'external.form.privacy': 'He le\u00eddo y acepto la <a href="../../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
