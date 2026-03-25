@@ -1226,7 +1226,7 @@
           <input type="hidden" name="_next" value="">
           <input type="hidden" name="_subject" value="Richiesta Eventi dal sito Badiani">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_template" value="table">
           <div class="ev-form-grid">
             <div class="ef-field">
               <label for="rf-nome" data-i18n="eventi.form.firstName">Nome *</label>
@@ -1971,7 +1971,7 @@
         addLine(lines, 'Telefono', fd.get('telefono'));
         addLine(lines, 'Azienda o Privato', getSelectText('tipo') || fd.get('tipo'));
         addLine(lines, 'Preferenza di contatto', getCheckedRadioLabel('preferenza_contatto') || fd.get('preferenza_contatto'));
-        addLine(lines, 'Data evento', fd.get('data'));
+        addLine(lines, 'Data evento', (fd.get('data')||'').replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1'));
         addLine(lines, 'Orario', fd.get('orario'));
         addLine(lines, 'Numero persone', fd.get('persone'));
         addLine(lines, 'Opzioni extra?', getCheckedRadioLabel('opzioniExtra') || fd.get('opzioniExtra'));

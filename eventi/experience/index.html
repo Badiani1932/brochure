@@ -2473,7 +2473,7 @@
           <input type="hidden" name="_next" value="">
           <input type="hidden" name="_subject" value="Richiesta Experience dal sito Badiani">
           <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_template" value="table">
 
           <div class="exp-form-grid">
 
@@ -2947,7 +2947,7 @@
 
         var telefono = (fd.get('telefono') || '').toString().trim();
 
-        var data = (fd.get('data') || '').toString().trim();
+        var data = (fd.get('data') || '').toString().trim().replace(/(\d{4})-(\d{2})-(\d{2})/, '$3/$2/$1');
 
         var persone = (fd.get('persone') || '').toString().trim();
 
