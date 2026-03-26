@@ -832,6 +832,9 @@
       .ev-card__title{ font-size:clamp(22px, 4.5vw, 48px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
     }
+    @media(max-width:1024px){
+      .ev-hero{ max-height:75vh; }
+    }
     @media(max-width:900px){
       .ev-hero__content{
         padding:32px 28px;
@@ -1079,7 +1082,8 @@
 
   <!-- HERO -->
   <section class="ev-hero" id="main-content">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" poster="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp" src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
+    <video autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" poster="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp">
+      <source src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
     </video>
     <div class="ev-hero__content">
       <div class="ev-hero__heading">
@@ -2187,6 +2191,7 @@
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
   <script>
   (function(){
+    var isTouch='ontouchstart'in window||navigator.maxTouchPoints>0;
     function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
@@ -2195,9 +2200,14 @@
         v.muted=true;
         v.defaultMuted=true;
         v.preload='auto';
-        if(!v.src&&v.querySelector('source'))v.src=v.querySelector('source').src;
-        v.load();
-        function tp(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(function(){});}}
+        var src=v.currentSrc||v.src||(v.querySelector('source')&&v.querySelector('source').src)||'';
+        if(!src) return;
+        if(v.readyState===0&&!v.currentSrc){ v.load(); }
+        function tp(){
+          if(!v.paused) return;
+          var p=v.play();
+          if(p&&p.catch) p.catch(function(){});
+        }
         v.addEventListener('loadedmetadata',tp,{once:true});
         v.addEventListener('loadeddata',tp,{once:true});
         v.addEventListener('canplay',tp,{once:true});
@@ -2207,6 +2217,22 @@
         document.addEventListener('click',onUi,{once:true,passive:true});
         document.addEventListener('scroll',onUi,{once:true,passive:true});
         document.addEventListener('visibilitychange',function(){if(!document.hidden)tp();});
+        if(isTouch){
+          setTimeout(function(){
+            if(!v.paused) return;
+            var wrap=v.closest('section')||v.parentElement;
+            if(!wrap||wrap.querySelector('.video-tap-play')) return;
+            var btn=document.createElement('button');
+            btn.className='video-tap-play';
+            btn.setAttribute('aria-label','Play video');
+            wrap.appendChild(btn);
+            btn.addEventListener('click',function(e){
+              e.stopPropagation();
+              v.play().then(function(){btn.remove();}).catch(function(){});
+            },{once:true});
+            v.addEventListener('playing',function(){btn.remove();},{once:true});
+          },4000);
+        }
       });
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);

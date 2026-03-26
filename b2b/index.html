@@ -4852,7 +4852,8 @@
   <main class="page-shell" id="main-content">
 
     <section class="page-hero">
-      <video class="page-hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../assets/images/branding/hero-bg.webp" src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4">
+      <video class="page-hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../assets/images/branding/hero-bg.webp">
+        <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4">
       </video>
       <div class="page-hero__heading-group">
         <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">B2B</h1>
@@ -10856,6 +10857,7 @@
 
   <script>
   (function(){
+    var isTouch='ontouchstart'in window||navigator.maxTouchPoints>0;
     function forcePlay(){
       document.querySelectorAll('video').forEach(function(v){
         v.setAttribute('playsinline','');
@@ -10864,9 +10866,14 @@
         v.muted=true;
         v.defaultMuted=true;
         v.preload='auto';
-        if(!v.src&&v.querySelector('source'))v.src=v.querySelector('source').src;
-        v.load();
-        function tp(){if(v.paused){var p=v.play();if(p&&p.catch)p.catch(function(){});}}
+        var src=v.currentSrc||v.src||(v.querySelector('source')&&v.querySelector('source').src)||'';
+        if(!src) return;
+        if(v.readyState===0&&!v.currentSrc){ v.load(); }
+        function tp(){
+          if(!v.paused) return;
+          var p=v.play();
+          if(p&&p.catch) p.catch(function(){});
+        }
         v.addEventListener('loadedmetadata',tp,{once:true});
         v.addEventListener('loadeddata',tp,{once:true});
         v.addEventListener('canplay',tp,{once:true});
@@ -10876,6 +10883,22 @@
         document.addEventListener('click',onUi,{once:true,passive:true});
         document.addEventListener('scroll',onUi,{once:true,passive:true});
         document.addEventListener('visibilitychange',function(){if(!document.hidden)tp();});
+        if(isTouch){
+          setTimeout(function(){
+            if(!v.paused) return;
+            var wrap=v.closest('section')||v.parentElement;
+            if(!wrap||wrap.querySelector('.video-tap-play')) return;
+            var btn=document.createElement('button');
+            btn.className='video-tap-play';
+            btn.setAttribute('aria-label','Play video');
+            wrap.appendChild(btn);
+            btn.addEventListener('click',function(e){
+              e.stopPropagation();
+              v.play().then(function(){btn.remove();}).catch(function(){});
+            },{once:true});
+            v.addEventListener('playing',function(){btn.remove();},{once:true});
+          },4000);
+        }
       });
     }
     if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
