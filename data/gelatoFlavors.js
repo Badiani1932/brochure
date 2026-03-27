@@ -226,7 +226,7 @@ export const gelatoFlavors = [
   {
     id: "fondente",
     nameKey: "flavor.fondente",
-    label: "Sorbetto 72%",
+    label: "Fondente 72 %",
     seasons: ["tutti"],
     image: "../assets/gelato/Fondente/fondente.webp",
     detailImage: "../assets/gelato/Fondente/fondente-2.webp",

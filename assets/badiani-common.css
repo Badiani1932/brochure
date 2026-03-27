@@ -924,7 +924,8 @@ video::-moz-media-controls {
   width: 1px !important;
   height: 1px !important;
 }
-video { object-fit: cover; }
+video { object-fit: cover; opacity: 0; transition: opacity 0.4s ease; }
+video.is-playing { opacity: 1; }
 
 /* ========== VIDEO — tap-to-play fallback (touch devices) ========== */
 .video-tap-play {

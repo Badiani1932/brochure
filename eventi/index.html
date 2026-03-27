@@ -2200,6 +2200,8 @@
         v.muted=true;
         v.defaultMuted=true;
         v.preload='auto';
+        if(!v.paused){ v.classList.add('is-playing'); }
+        v.addEventListener('playing', function(){ v.classList.add('is-playing'); }, {once:true});
         var src=v.currentSrc||v.src||(v.querySelector('source')&&v.querySelector('source').src)||'';
         if(!src) return;
         if(v.readyState===0&&!v.currentSrc){ v.load(); }

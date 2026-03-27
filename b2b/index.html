@@ -5406,7 +5406,7 @@
                 <!-- Sorbetti -->
                 <tr class="listino-subheader"><td colspan="3" data-i18n="b2b.listino.gelato.sorbetti">Sorbetti</td></tr>
                 <tr><td class="listino-flavor">Albicocca</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
-                <tr><td class="listino-flavor">Sorbetto 72%</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
+                <tr><td class="listino-flavor">Fondente 72 %</td><td class="listino-price">€ 14,00</td><td class="listino-price">€ 15,00</td></tr>
                 <tr><td class="listino-flavor">Fragola</td><td class="listino-price">€ 10,00</td><td class="listino-price">€ 11,00</td></tr>
                 <tr><td class="listino-flavor">Frutto della Passione</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
                 <tr><td class="listino-flavor">Lampone</td><td class="listino-price">€ 12,00</td><td class="listino-price">€ 13,00</td></tr>
@@ -7265,7 +7265,7 @@
             ['Nocciola'],
             ['Pistacchio'],
             ['Sorbetto: Albicocca'],
-            ['Sorbetto: Sorbetto 72%'],
+            ['Sorbetto: Fondente 72 %'],
             ['Sorbetto: Fragola'],
             ['Sorbetto: Frutto della Passione'],
             ['Sorbetto: Lampone'],
@@ -7693,7 +7693,7 @@
           'Nocciola': 'Hazelnut',
           'Pistacchio': 'Pistachio',
           'Sorbetto: Albicocca': 'Sorbet: Apricot',
-          'Sorbetto: Sorbetto 72%': 'Sorbet: Dark Chocolate 72%',
+          'Sorbetto: Fondente 72 %': 'Sorbet: Dark Chocolate 72 %',
           'Sorbetto: Fragola': 'Sorbet: Strawberry',
           'Sorbetto: Frutto della Passione': 'Sorbet: Passion Fruit',
           'Sorbetto: Lampone': 'Sorbet: Raspberry',
@@ -7727,7 +7727,7 @@
           'Nocciola': 'Noisette',
           'Pistacchio': 'Pistache',
           'Sorbetto: Albicocca': 'Sorbet : Abricot',
-          'Sorbetto: Sorbetto 72%': 'Sorbet : Chocolat Noir 72%',
+          'Sorbetto: Fondente 72 %': 'Sorbet : Chocolat Noir 72 %',
           'Sorbetto: Fragola': 'Sorbet : Fraise',
           'Sorbetto: Frutto della Passione': 'Sorbet : Fruit de la Passion',
           'Sorbetto: Lampone': 'Sorbet : Framboise',
@@ -7761,7 +7761,7 @@
           'Nocciola': 'Avellana',
           'Pistacchio': 'Pistacho',
           'Sorbetto: Albicocca': 'Sorbete: Albaricoque',
-          'Sorbetto: Sorbetto 72%': 'Sorbete: Chocolate Negro 72%',
+          'Sorbetto: Fondente 72 %': 'Sorbete: Chocolate Negro 72 %',
           'Sorbetto: Fragola': 'Sorbete: Fresa',
           'Sorbetto: Frutto della Passione': 'Sorbete: Maracuyá',
           'Sorbetto: Lampone': 'Sorbete: Frambuesa',
@@ -7997,7 +7997,7 @@
           'Buontalenti all\'Amarena': 'Buontalenti® all\'Amarena',
           'Buontalenti Delattosato': 'Buontalenti® Delattosato',
           'Buontalenti Fondente': 'Buontalenti® Fondente',
-          'Sorbetto 72%': 'Sorbetto 72%'
+          'Fondente 72 %': 'Fondente 72 %'
         },
         en: {
           'Buontalenti': 'Buontalenti®',
@@ -8019,7 +8019,7 @@
           'Pistacchio': 'Pistachio',
           'Tiramisù': 'Tiramisu',
           'Yogurt': 'Yoghurt',
-          'Sorbetto 72%': 'Dark Chocolate Sorbet 72%',
+          'Fondente 72 %': 'Dark Chocolate Sorbet 72 %',
           'Fragola': 'Strawberry',
           'Limone': 'Lemon',
           'Lampone': 'Raspberry',
@@ -8052,7 +8052,7 @@
           'Pistacchio': 'Pistache',
           'Tiramisù': 'Tiramisù',
           'Yogurt': 'Yaourt',
-          'Sorbetto 72%': 'Sorbet au Chocolat Noir 72%',
+          'Fondente 72 %': 'Sorbet au Chocolat Noir 72 %',
           'Fragola': 'Fraise',
           'Limone': 'Citron',
           'Lampone': 'Framboise',
@@ -8085,7 +8085,7 @@
           'Pistacchio': 'Pistacho',
           'Tiramisù': 'Tiramisú',
           'Yogurt': 'Yogur',
-          'Sorbetto 72%': 'Sorbete de Chocolate Negro 72%',
+          'Fondente 72 %': 'Sorbete de Chocolate Negro 72 %',
           'Fragola': 'Fresa',
           'Limone': 'Limón',
           'Lampone': 'Frambuesa',
@@ -10781,6 +10781,8 @@
         v.muted=true;
         v.defaultMuted=true;
         v.preload='auto';
+        if(!v.paused){ v.classList.add('is-playing'); }
+        v.addEventListener('playing', function(){ v.classList.add('is-playing'); }, {once:true});
         var src=v.currentSrc||v.src||(v.querySelector('source')&&v.querySelector('source').src)||'';
         if(!src) return;
         if(v.readyState===0&&!v.currentSrc){ v.load(); }
