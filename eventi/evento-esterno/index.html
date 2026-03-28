@@ -29,7 +29,7 @@
   <link rel="alternate" hreflang="x-default" href="https://www.badiani1932.com/eventi/evento-esterno/" />
   <link rel="preload" href="../../assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
   <link rel="preload" href="../../assets/images/categories/coolbox.webp" as="image" type="image/webp" />
-  <link rel="preload" href="../../assets/images/eventi/carretto.webp" as="image" type="image/webp" />
+  <link rel="preload" href="../../assets/images/eventi/carretto_gelato/foto1.jpg" as="image" type="image/jpeg" />
   <link rel="stylesheet" href="../../assets/badiani-common.css" />
   <script defer src="../../assets/badiani-common.js"></script>
   <script type="application/ld+json">
@@ -221,6 +221,9 @@
     .ext-card[data-modal="coolbox"] .ext-card__img{
       object-fit:cover;
       object-position:center bottom;
+    }
+    .ext-card[data-modal="carretto"] .ext-card__img{
+      object-position:65% center;
     }
     .ext-card:hover .ext-card__img{
       transform:none;
@@ -845,7 +848,31 @@
       border-radius:0;
     }
 
-
+    /* Gallery thumbnails strip */
+    .modal-gallery-thumbs{
+      display:flex;
+      gap:8px;
+      margin-top:12px;
+      overflow-x:auto;
+      -webkit-overflow-scrolling:touch;
+      scrollbar-width:thin;
+      padding-bottom:4px;
+    }
+    .modal-gallery-thumbs img{
+      width:72px;
+      height:54px;
+      object-fit:cover;
+      border:2px solid transparent;
+      cursor:pointer;
+      opacity:0.6;
+      transition:opacity 0.2s, border-color 0.2s;
+      flex-shrink:0;
+    }
+    .modal-gallery-thumbs img:hover,
+    .modal-gallery-thumbs img.is-active{
+      opacity:1;
+      border-color:var(--badiani-pink, #e7457b);
+    }
 
     /* Modal body — specs area */
     .modal-body{
@@ -1298,7 +1325,7 @@
 
       <!-- CARRETTO GELATO -->
       <button class="ext-card" data-modal="carretto" aria-label="Carretto Gelato — Ideale per eventi casual e all'aperto" data-i18n-attr="aria-label:external.carretto.aria">
-        <img class="ext-card__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" width="2892" height="2048" />
+        <img class="ext-card__img" src="../../assets/images/eventi/carretto_gelato/foto1.jpg" alt="Carretto Gelato Badiani" loading="lazy" decoding="async" />
         <span class="ext-card__label" aria-hidden="true">2</span>
         <div class="ext-card__overlay">
           <span class="ext-card__subtitle" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
@@ -1438,10 +1465,15 @@
             <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
           </div>
           <div class="modal-hero__img-wrap">
-            <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="eager" decoding="async" width="1600" height="1066" data-zoomable data-gallery="coolbox" tabindex="0" role="button" />
+            <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="eager" decoding="async" width="1600" height="1066" data-zoomable data-gallery="coolbox" tabindex="0" role="button" id="coolboxHeroImg" />
             <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
+          </div>
+          <div class="modal-gallery-thumbs" id="coolboxThumbs">
+            <img src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" class="is-active" loading="lazy" />
+            <img src="../../assets/images/eventi/gelatobox-1.webp" alt="Cool Box Badiani dettaglio" loading="lazy" />
+            <img src="../../assets/images/eventi/gelatobox-2.webp" alt="Cool Box Badiani interno" loading="lazy" />
           </div>
         </div>
         <div class="modal-body">
@@ -1488,10 +1520,17 @@
             <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
           </div>
           <div class="modal-hero__img-wrap">
-            <img class="modal-hero__img" src="../../assets/images/eventi/carretto.webp" alt="Carretto Gelato Badiani" loading="eager" decoding="async" width="2892" height="2048" data-zoomable aria-label="Ingrandisci immagine" role="button" tabindex="0" />
+            <img class="modal-hero__img" src="../../assets/images/eventi/carretto_gelato/foto1.jpg" alt="Carretto Gelato Badiani" loading="eager" decoding="async" data-zoomable data-gallery="carretto" aria-label="Ingrandisci immagine" role="button" tabindex="0" id="carrettoHeroImg" />
             <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
               <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><polyline points="15 3 21 3 21 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="9 21 3 21 3 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="21" y1="3" x2="14" y2="10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="21" x2="10" y2="14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             </button>
+          </div>
+          <div class="modal-gallery-thumbs" id="carrettoThumbs">
+            <img src="../../assets/images/eventi/carretto_gelato/foto1.jpg" alt="Carretto Gelato 1" class="is-active" loading="lazy" />
+            <img src="../../assets/images/eventi/carretto_gelato/foto4.jpg" alt="Carretto Gelato 2" loading="lazy" />
+            <img src="../../assets/images/eventi/carretto_gelato/foto5.jpg" alt="Carretto Gelato 3" loading="lazy" />
+            <img src="../../assets/images/eventi/carretto_gelato/foto6.jpg" alt="Carretto Gelato 4" loading="lazy" />
+            <img src="../../assets/images/eventi/carretto_gelato/foto8.jpg" alt="Carretto Gelato 5" loading="lazy" />
           </div>
         </div>
         <div class="modal-body">
@@ -2469,6 +2508,13 @@
         { src:'../../assets/images/categories/coolbox.webp', alt:'Cool Box Badiani' },
         { src:'../../assets/images/eventi/gelatobox-1.webp', alt:'Cool Box Badiani dettaglio' },
         { src:'../../assets/images/eventi/gelatobox-2.webp', alt:'Cool Box Badiani interno' }
+      ],
+      carretto: [
+        { src:'../../assets/images/eventi/carretto_gelato/foto1.jpg', alt:'Carretto Gelato Badiani 1' },
+        { src:'../../assets/images/eventi/carretto_gelato/foto4.jpg', alt:'Carretto Gelato Badiani 2' },
+        { src:'../../assets/images/eventi/carretto_gelato/foto5.jpg', alt:'Carretto Gelato Badiani 3' },
+        { src:'../../assets/images/eventi/carretto_gelato/foto6.jpg', alt:'Carretto Gelato Badiani 4' },
+        { src:'../../assets/images/eventi/carretto_gelato/foto8.jpg', alt:'Carretto Gelato Badiani 5' }
       ]
     };
     var currentGallery = null;
@@ -2507,6 +2553,34 @@
 
     lbPrev.addEventListener('click', function(e){ e.stopPropagation(); navLightbox(-1); });
     lbNext.addEventListener('click', function(e){ e.stopPropagation(); navLightbox(1); });
+
+    /* Carretto thumbnail gallery */
+    var carrettoHero = document.getElementById('carrettoHeroImg');
+    var carrettoThumbs = document.getElementById('carrettoThumbs');
+    if(carrettoThumbs && carrettoHero){
+      carrettoThumbs.querySelectorAll('img').forEach(function(thumb){
+        thumb.addEventListener('click', function(){
+          carrettoHero.src = this.src;
+          carrettoHero.alt = this.alt;
+          carrettoThumbs.querySelectorAll('img').forEach(function(t){ t.classList.remove('is-active'); });
+          this.classList.add('is-active');
+        });
+      });
+    }
+
+    /* Coolbox thumbnail gallery */
+    var coolboxHero = document.getElementById('coolboxHeroImg');
+    var coolboxThumbs = document.getElementById('coolboxThumbs');
+    if(coolboxThumbs && coolboxHero){
+      coolboxThumbs.querySelectorAll('img').forEach(function(thumb){
+        thumb.addEventListener('click', function(){
+          coolboxHero.src = this.src;
+          coolboxHero.alt = this.alt;
+          coolboxThumbs.querySelectorAll('img').forEach(function(t){ t.classList.remove('is-active'); });
+          this.classList.add('is-active');
+        });
+      });
+    }
 
     /* All zoomable images (coolbox + carretto etc.) */
     document.querySelectorAll('.modal-hero__img[data-zoomable]').forEach(function(img){
