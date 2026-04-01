@@ -104,7 +104,7 @@
     }
     .ext-hero__label{
       display:block;
-      font-size:clamp(13px, 1.2vw, 16px);
+      font-size:clamp(17px, 1.6vw, 20px);
       text-transform:uppercase;
       letter-spacing:3px;
       font-weight:400;
@@ -123,7 +123,7 @@
       text-shadow:none;
     }
     .ext-hero__desc{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.85);
       line-height:1.5;
       max-width:280px;
@@ -293,7 +293,7 @@
       background:var(--badiani-pink);
       color:#fff;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(13px,1vw,15px);
+      font-size:clamp(17px, 1.4vw, 19px);
       text-transform:uppercase;
       letter-spacing:2.5px;
       font-weight:700;
@@ -334,7 +334,7 @@
       top:calc(18% + clamp(8px, 2cqi, 16px));
       right:calc(18% + clamp(8px, 2cqi, 16px));
       z-index:3;
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:#fff;
       font-weight:600;
       letter-spacing:0.02em;
@@ -351,7 +351,7 @@
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
     }
     .ext-terms__label{
-      font-size:clamp(11px, 1vw, 14px);
+      font-size:clamp(15px, 1.4vw, 18px);
       letter-spacing:3px;
       text-transform:uppercase;
       color:rgba(255,255,255,0.5);
@@ -379,7 +379,7 @@
       border-top:1px solid rgba(255,255,255,0.15);
     }
     .ext-terms__item-label{
-      font-size:clamp(11px, 0.9vw, 13px);
+      font-size:clamp(15px, 1.3vw, 17px);
       text-transform:uppercase;
       letter-spacing:2px;
       color:var(--badiani-pink);
@@ -388,7 +388,7 @@
       display:block;
     }
     .ext-terms__item-value{
-      font-size:clamp(14px, 1.1vw, 16px);
+      font-size:clamp(18px, 1.5vw, 20px);
       color:rgba(255,255,255,0.85);
       line-height:1.7;
       font-weight:300;
@@ -437,7 +437,7 @@
       margin-bottom:8px;
     }
     .ext-form-header p{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.75);
     }
     .ext-form-body{
@@ -457,7 +457,7 @@
       grid-column:1 / -1;
     }
     .ext-form-grid label{
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:#6a6b6e;
@@ -470,7 +470,7 @@
       border-radius:0;
       padding:12px 14px;
       font-family:inherit;
-      font-size:14px;
+      font-size:18px;
       background:#f8f9fc;
       color:#4a4f57;
       transition:border-color 0.3s, box-shadow 0.3s;
@@ -494,7 +494,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:13px;
+      font-size:17px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -523,7 +523,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:14px;
+      font-size:18px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -563,7 +563,7 @@
       display:flex;
       align-items:flex-start;
       gap:10px;
-      font-size:13px;
+      font-size:17px;
       color:#6a6b6e;
     }
     .ext-form-actions .ef-privacy input{
@@ -581,7 +581,7 @@
       color:#fff;
       padding:14px 36px;
       border-radius:0;
-      font-size:13px;
+      font-size:17px;
       text-transform:uppercase;
       letter-spacing:2px;
       font-family:inherit;
@@ -679,9 +679,9 @@
     .modal-panel{
       width:100%;
       max-width:1280px;
+      height:92vh;
       max-height:92vh;
-      overflow-y:auto;
-      overflow-x:hidden;
+      overflow:hidden;
       overscroll-behavior:contain;
       background:var(--badiani-blue);
       border-radius:0;
@@ -689,71 +689,69 @@
       box-sizing:border-box;
       box-shadow:0 30px 80px rgba(0,0,0,0.7);
       animation:modalReveal 0.6s cubic-bezier(0.34,1.56,0.64,1);
+      display:grid;
+      grid-template-columns:1fr 1fr;
     }
     @keyframes modalReveal{ from{transform:translateY(50px) scale(0.97);opacity:0;} to{transform:translateY(0) scale(1);opacity:1;} }
 
-    /* Modal hero header — dark with giant title + image */
-    .modal-hero{
-      position:relative;
-      overflow:hidden;
-      padding:clamp(40px, 5vw, 72px) clamp(36px, 4vw, 64px);
-      padding-bottom:clamp(32px, 4vw, 56px);
-      display:grid;
-      grid-template-columns:1fr auto;
-      align-items:end;
-      gap:clamp(20px, 3vw, 40px);
-      min-height:240px;
+    /* Modal 2-column layout */
+    .modal-col--media{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:16px;
       background:linear-gradient(135deg, var(--badiani-blue) 0%, #0f1f5c 60%, #0a1440 100%);
+      padding:clamp(20px, 2.5vw, 40px);
+      overflow:hidden;
+      position:relative;
     }
-    .modal-hero__number{
-      position:absolute;
-      top:-0.18em;
-      right:clamp(4px, 1vw, 20px);
-      font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(200px, 28vw, 420px);
-      font-weight:500;
-      color:rgba(255,255,255,0.04);
-      line-height:0.7;
-      pointer-events:none;
-      user-select:none;
-      z-index:0;
+    .modal-col--info{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      padding:clamp(20px, 2.5vw, 40px) clamp(24px, 3vw, 48px);
+      overflow-y:auto;
+      overflow-x:hidden;
+      gap:clamp(12px, 1.5vh, 24px);
     }
     .modal-hero__text{
       position:relative;
       z-index:1;
     }
     .modal-hero__label{
-      font-size:clamp(13px, 1.2vw, 16px);
+      font-size:clamp(15px, 1.4vw, 18px);
       letter-spacing:3px;
       text-transform:uppercase;
       color:var(--badiani-pink);
-      margin-bottom:12px;
+      margin-bottom:8px;
       font-weight:600;
       display:block;
     }
     .modal-hero__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(52px, 7vw, 110px);
-      letter-spacing:4px;
+      font-size:clamp(36px, 4.5vw, 72px);
+      letter-spacing:3px;
       text-transform:uppercase;
       color:#fff;
       font-weight:700;
-      line-height:0.88;
+      line-height:0.9;
       text-shadow:none;
-      margin-bottom:16px;
+      margin-bottom:10px;
     }
     .modal-hero__desc{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(17px, 1.5vw, 20px);
       color:rgba(255,255,255,0.65);
-      line-height:1.7;
+      line-height:1.55;
       max-width:560px;
       font-weight:300;
     }
     .modal-hero__img{
       position:relative;
       z-index:1;
-      width:clamp(180px, 24vw, 360px);
-      height:clamp(180px, 24vw, 360px);
+      width:clamp(200px, 80%, 420px);
+      height:auto;
+      max-height:60vh;
       object-fit:cover;
       border-radius:0;
       box-shadow:0 16px 48px rgba(0,0,0,0.5);
@@ -841,8 +839,9 @@
     .modal-hero__zoom svg{ width:20px; height:20px; }
 
     .modal-hero__img--coolbox{
-      width:clamp(250px, 30vw, 440px);
-      height:clamp(220px, 28vw, 380px);
+      width:clamp(250px, 80%, 440px);
+      height:auto;
+      max-height:55vh;
       object-fit:cover;
       object-position:center;
       border-radius:0;
@@ -851,16 +850,16 @@
     /* Gallery thumbnails strip */
     .modal-gallery-thumbs{
       display:flex;
-      gap:8px;
-      margin-top:12px;
+      gap:6px;
       overflow-x:auto;
       -webkit-overflow-scrolling:touch;
       scrollbar-width:thin;
-      padding-bottom:4px;
+      padding-bottom:2px;
+      flex-shrink:0;
     }
     .modal-gallery-thumbs img{
-      width:72px;
-      height:54px;
+      width:56px;
+      height:42px;
       object-fit:cover;
       border:2px solid transparent;
       cursor:pointer;
@@ -878,6 +877,7 @@
     .modal-body{
       padding:0;
       background:rgba(255,255,255,0.04);
+      border-radius:0;
     }
     .specs-grid{
       display:grid;
@@ -885,7 +885,7 @@
       gap:0;
     }
     .spec-card{
-      padding:clamp(24px, 3vw, 40px) clamp(28px, 3vw, 48px);
+      padding:clamp(10px, 1.5vh, 20px) clamp(14px, 1.5vw, 24px);
       border-bottom:1px solid rgba(255,255,255,0.06);
       border-right:1px solid rgba(255,255,255,0.06);
       transition:background 0.3s ease;
@@ -895,38 +895,39 @@
     .spec-card:nth-last-child(-n+2){ border-bottom:none; }
     .spec-card:hover{ background:rgba(255,255,255,0.03); }
     .spec-label{
-      font-size:clamp(11px, 0.9vw, 13px);
+      font-size:clamp(15px, 1.2vw, 16px);
       text-transform:uppercase;
-      letter-spacing:2.5px;
+      letter-spacing:2px;
       color:var(--badiani-pink);
       font-weight:700;
-      margin-bottom:12px;
+      margin-bottom:6px;
       display:block;
     }
     .spec-card:nth-child(odd) .spec-label{ color:rgba(255,255,255,0.5); }
     .spec-value{
-      font-size:clamp(15px, 1.3vw, 19px);
+      font-size:clamp(16px, 1.4vw, 19px);
       font-weight:300;
       color:rgba(255,255,255,0.88);
-      line-height:1.7;
+      line-height:1.5;
     }
     .modal-cta-wrap{
       text-align:center;
-      padding:clamp(28px, 4vw, 48px) clamp(36px, 4vw, 64px);
+      padding:clamp(10px, 1.5vh, 20px) 0 0;
       background:none;
+      flex-shrink:0;
     }
     .modal-request-btn{
       display:inline-flex;
       align-items:center;
-      gap:12px;
+      gap:10px;
       background:var(--badiani-pink);
       color:#fff;
       border:none;
-      padding:18px 48px;
+      padding:14px 36px;
       border-radius:0;
-      font-size:14px;
+      font-size:17px;
       text-transform:uppercase;
-      letter-spacing:2.5px;
+      letter-spacing:2px;
       font-family:inherit;
       font-weight:600;
       cursor:pointer;
@@ -944,7 +945,7 @@
       outline-offset:3px;
     }
     .modal-request-btn svg{
-      width:18px; height:18px; fill:currentColor;
+      width:16px; height:16px; fill:currentColor;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -985,9 +986,10 @@
       }
 
       .specs-grid{
-        grid-template-columns:1fr;
+        grid-template-columns:repeat(2, 1fr);
       }
       .spec-card{ border-right:none !important; }
+      .spec-card:nth-child(even){ border-right:none; }
       .spec-card:nth-last-child(-n+2){ border-bottom:1px solid rgba(255,255,255,0.06); }
       .spec-card:last-child{ border-bottom:none; }
     }
@@ -1013,92 +1015,88 @@
         overflow:hidden;
         display:flex;
         flex-direction:column;
+        grid-template-columns:none;
       }
       .modal-close{ top:max(8px, env(safe-area-inset-top)); right:max(8px, env(safe-area-inset-right)); width:40px; height:40px; }
       .modal-close{ --close-icon-size:17px; --close-icon-stroke:2.5px; }
-      .modal-hero{
-        display:flex;
-        flex-direction:column;
-        padding:0;
-        min-height:auto;
-        gap:0;
+      .modal-col--media{
         flex-shrink:0;
-        background:linear-gradient(135deg, var(--badiani-blue) 0%, #0f1f5c 60%, #0a1440 100%);
+        max-height:35vh;
+        padding:12px 16px;
+        gap:8px;
       }
       .modal-hero__img-wrap{
-        order:-1;
-        width:100%;
+        width:auto;
         display:flex;
         justify-content:center;
-        background:none;
-        padding:16px 0 14px;
         touch-action:manipulation;
         overflow:hidden;
       }
       .modal-hero__img{
-        width:clamp(220px, 60vw, 360px);
-        height:clamp(220px, 60vw, 360px);
-        object-fit:cover;
+        width:auto;
+        height:auto;
+        max-height:22vh;
+        max-width:80vw;
+        object-fit:contain;
         touch-action:manipulation;
         user-select:none;
         -webkit-user-drag:none;
       }
       .modal-hero__img--coolbox{
-        width:clamp(280px, 75vw, 440px);
-        height:clamp(180px, 48vw, 300px);
+        max-width:75vw;
+        max-height:20vh;
       }
       .modal-hero__zoom{ display:none; }
-      .modal-hero__text{
-        padding:10px 20px 12px;
-        background:none;
-        text-align:left;
-        align-self:stretch;
-      }
-      .modal-hero__title{
-        font-size:clamp(32px, 8vw, 52px);
-        letter-spacing:2px;
-        margin-bottom:4px;
-      }
-      .modal-hero__label{ font-size:12px; margin-bottom:6px; letter-spacing:2.5px; }
-      .modal-hero__desc{ font-size:14px; line-height:1.4; }
-      .modal-hero__number{ display:none !important; }
-      .modal-body{
+      .modal-col--info{
         flex:1;
         overflow-y:auto;
         overflow-x:hidden;
         min-height:0;
+        padding:10px 20px;
+        gap:8px;
       }
+      .modal-hero__text{
+        padding:0;
+        text-align:left;
+      }
+      .modal-hero__title{
+        font-size:clamp(28px, 7vw, 44px);
+        letter-spacing:2px;
+        margin-bottom:4px;
+      }
+      .modal-hero__label{ font-size:15px; margin-bottom:4px; letter-spacing:2px; }
+      .modal-hero__desc{ font-size:17px; line-height:1.4; }
       .specs-grid{
         grid-template-columns:1fr 1fr;
       }
       .spec-card{
-        padding:clamp(8px, 1.5dvh, 16px) 18px;
+        padding:clamp(6px, 1.2dvh, 14px) 14px;
         display:flex;
         flex-direction:column;
         justify-content:center;
       }
       .spec-label{
-        font-size:11px;
-        letter-spacing:2px;
-        margin-bottom:5px;
+        font-size:15px;
+        letter-spacing:1.5px;
+        margin-bottom:4px;
       }
       .spec-value{
-        font-size:14px;
-        line-height:1.4;
+        font-size:17px;
+        line-height:1.35;
       }
       .modal-cta-wrap{
-        padding:10px 20px max(10px, env(safe-area-inset-bottom));
+        padding:8px 0 max(8px, env(safe-area-inset-bottom));
         flex-shrink:0;
       }
       .modal-request-btn{
         padding:12px 28px;
-        font-size:13px;
+        font-size:16px;
         letter-spacing:2px;
         gap:10px;
         width:100%;
         justify-content:center;
       }
-      .modal-request-btn svg{ width:17px; height:17px; }
+      .modal-request-btn svg{ width:16px; height:16px; }
     }
 
     @media(max-width:600px){
@@ -1134,7 +1132,7 @@
         bottom:auto;
         left:5%;
         width:78%;
-        font-size:clamp(12px, 3.2vw, 15px);
+        font-size:clamp(16px, 3.6vw, 19px);
         padding:12px 22px;
       }
       .ext-card__price{
@@ -1164,31 +1162,32 @@
         justify-content:center;
       }
 
-      .modal-hero__img-wrap{
-        padding:12px 0 10px;
+      .modal-col--media{
+        padding:8px 12px;
+        max-height:30vh;
       }
       .modal-hero__img{
-        width:clamp(180px, 55vw, 280px);
-        height:clamp(180px, 55vw, 280px);
+        max-height:18vh;
+        max-width:75vw;
       }
       .modal-hero__img--coolbox{
-        width:clamp(240px, 70vw, 380px);
-        height:clamp(150px, 44vw, 240px);
+        max-width:70vw;
+        max-height:16vh;
       }
       .modal-hero__text{
-        padding:8px 18px 8px;
+        padding:0;
       }
       .modal-hero__title{
-        font-size:clamp(26px, 7.5vw, 40px);
-        margin-bottom:4px;
+        font-size:clamp(24px, 7vw, 36px);
+        margin-bottom:3px;
       }
-      .modal-hero__label{ font-size:11px; margin-bottom:4px; }
-      .modal-hero__desc{ font-size:13px; line-height:1.35; }
-      .spec-card{ padding:clamp(6px, 1.2dvh, 14px) 16px; }
-      .spec-label{ font-size:10px; margin-bottom:4px; }
-      .spec-value{ font-size:13px; line-height:1.35; }
-      .modal-cta-wrap{ padding:8px 16px max(8px, env(safe-area-inset-bottom)); }
-      .modal-request-btn{ padding:10px 20px; font-size:12px; }
+      .modal-hero__label{ font-size:15px; margin-bottom:3px; }
+      .modal-hero__desc{ font-size:16px; line-height:1.3; }
+      .spec-card{ padding:clamp(5px, 1dvh, 10px) 12px; }
+      .spec-label{ font-size:15px; margin-bottom:3px; }
+      .spec-value{ font-size:16px; line-height:1.3; }
+      .modal-cta-wrap{ padding:6px 0 max(6px, env(safe-area-inset-bottom)); }
+      .modal-request-btn{ padding:10px 18px; font-size:15px; }
     }
 
     @media(prefers-reduced-motion: reduce){
@@ -1231,6 +1230,7 @@
             <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
           </div>
         </div>
+        <a href="../../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
       </nav>
       <div class="topbar__lang">
         <select class="topbar__select" id="langSelect" hidden data-i18n-attr="aria-label:lang.label">
@@ -1258,7 +1258,7 @@
     </div>
   </header>
   <nav class="topbar__mobile-nav" id="mobileNav" aria-label="Menu mobile">
-    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">Ã—</a>
+    <a href="#" class="topbar__mobile-close" aria-label="Chiudi menu">×</a>
     <a href="../../" data-i18n="nav.home">Home</a>
     <div class="topbar__mobile-group">
       <div class="topbar__mobile-group-header">
@@ -1286,6 +1286,7 @@
         <a href="../../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
       </div>
     </div>
+    <a href="../../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
     <div class="topbar__mobile-lang">
       <button class="topbar__mobile-lang-btn" data-lang="it" data-i18n="lang.it">IT</button>
       <button class="topbar__mobile-lang-btn" data-lang="en" data-i18n="lang.en">EN</button>
@@ -1294,11 +1295,8 @@
     </div>
   </nav>
 
-  <!-- HERO -->
   <section class="ext-hero" id="main-content">
-    <video class="ext-hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../../assets/images/migrated/eventi/foto%20eventi/Steve%20Madden%20Pitti/STEVE4.webp">
-      <source src="../../assets/video/Video%20Badiani%20dove%20vuoi%20.mp4" type="video/mp4">
-    </video>
+    <img class="ext-hero__img" src="../../assets/images/categories/coolbox.webp" alt="Badiani dove vuoi" loading="eager" decoding="async" />
     <div class="ext-hero__content">
       <div class="ext-hero__heading">
         <span class="ext-hero__label" data-i18n="external.hero.label">Soluzioni mobili</span>
@@ -1457,13 +1455,8 @@
     <button class="modal-close" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
     <div class="modal-content">
       <div class="modal-panel">
-        <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true" style="display:none;">1</span>
-          <div class="modal-hero__text">
-            <span class="modal-hero__label" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
-            <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
-            <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
-          </div>
+        <!-- Left column: image + thumbnails -->
+        <div class="modal-col modal-col--media">
           <div class="modal-hero__img-wrap">
             <img class="modal-hero__img modal-hero__img--coolbox" src="../../assets/images/categories/coolbox.webp" alt="Cool Box Badiani" loading="eager" decoding="async" width="1600" height="1066" data-zoomable data-gallery="coolbox" tabindex="0" role="button" id="coolboxHeroImg" />
             <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
@@ -1476,31 +1469,39 @@
             <img src="../../assets/images/eventi/gelatobox-2.webp" alt="Cool Box Badiani interno" loading="lazy" />
           </div>
         </div>
-        <div class="modal-body">
-          <div class="specs-grid">
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.included.label">Incluso*</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.included.value">&euro;200 comprensivo di: noleggio della cool box, gelato x 50 persone, 2 spatole, palettine monouso, tovagliolini e coppette</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.capacity.label">Capacit&agrave; massima</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.capacity.value">120 persone</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.transport.label">Trasporto</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.transport.value">A partire da &euro;50+IVA</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.coolbox.services.label">Servizi su richiesta</span>
-              <span class="spec-value" data-i18n-html="external.modal.coolbox.services.value">1 operatore per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Cool Box (entro 14 giorni dalla data dall&rsquo;evento prezzo a partire da &euro;150+IVA)</span>
+        <!-- Right column: info + specs + CTA -->
+        <div class="modal-col modal-col--info">
+          <div class="modal-hero__text">
+            <span class="modal-hero__label" data-i18n="external.coolbox.subtitle">Pratico e versatile</span>
+            <h2 class="modal-hero__title title-accent title-accent--light">Cool Box</h2>
+            <p class="modal-hero__desc" data-i18n="external.coolbox.desc">Ideale per piccoli eventi, da 40 a 90 persone</p>
+          </div>
+          <div class="modal-body">
+            <div class="specs-grid">
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.coolbox.included.label">Incluso*</span>
+                <span class="spec-value" data-i18n-html="external.modal.coolbox.included.value">&euro;200 comprensivo di: noleggio della cool box, gelato x 50 persone, 2 spatole, palettine monouso, tovagliolini e coppette</span>
+              </div>
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.coolbox.capacity.label">Capacit&agrave; massima</span>
+                <span class="spec-value" data-i18n-html="external.modal.coolbox.capacity.value">120 persone</span>
+              </div>
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.coolbox.transport.label">Trasporto</span>
+                <span class="spec-value" data-i18n-html="external.modal.coolbox.transport.value">A partire da &euro;50+IVA</span>
+              </div>
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.coolbox.services.label">Servizi su richiesta</span>
+                <span class="spec-value" data-i18n-html="external.modal.coolbox.services.value">1 operatore per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Cool Box (entro 14 giorni dalla data dall&rsquo;evento prezzo a partire da &euro;150+IVA)</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" data-close-modal="coolbox">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
-          </button>
+          <div class="modal-cta-wrap">
+            <button type="button" class="modal-request-btn" data-close-modal="coolbox">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1512,13 +1513,8 @@
     <button class="modal-close" aria-label="Chiudi" data-i18n-attr="aria-label:external.modal.close"></button>
     <div class="modal-content">
       <div class="modal-panel">
-        <div class="modal-hero">
-          <span class="modal-hero__number" aria-hidden="true" style="display:none;">2</span>
-          <div class="modal-hero__text">
-            <span class="modal-hero__label" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
-            <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
-            <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
-          </div>
+        <!-- Left column: image + thumbnails -->
+        <div class="modal-col modal-col--media">
           <div class="modal-hero__img-wrap">
             <img class="modal-hero__img" src="../../assets/images/eventi/carretto_gelato/foto1.jpg" alt="Carretto Gelato Badiani" loading="eager" decoding="async" data-zoomable data-gallery="carretto" aria-label="Ingrandisci immagine" role="button" tabindex="0" id="carrettoHeroImg" />
             <button class="modal-hero__zoom" type="button" aria-label="Espandi immagine">
@@ -1533,31 +1529,39 @@
             <img src="../../assets/images/eventi/carretto_gelato/foto8.jpg" alt="Carretto Gelato 5" loading="lazy" />
           </div>
         </div>
-        <div class="modal-body">
-          <div class="specs-grid">
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.included.label">Incluso*</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.included.value">&euro;1.000 + IVA comprensivo di: noleggio del carretto gelato, gelato fino a 50 persone, 1 operatore per servizio somministrazione gelato per 2 ore</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.scalable.label">Scalabilit&agrave;</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.scalable.value">Disponibile anche per eventi su larga scala con elevato numero di ospiti, grazie a un servizio modulabile e personalizzabile in base alle esigenze.</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.transport.label">Trasporto</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.transport.value">A partire da &euro;250+IVA</span>
-            </div>
-            <div class="spec-card">
-              <span class="spec-label" data-i18n="external.modal.carretto.services.label">Servizi su richiesta</span>
-              <span class="spec-value" data-i18n-html="external.modal.carretto.services.value">Operatore extra per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Carretto Gelato (entro 14 giorni dalla data dall&rsquo;evento prezzo a partire da &euro;150+IVA)</span>
+        <!-- Right column: info + specs + CTA -->
+        <div class="modal-col modal-col--info">
+          <div class="modal-hero__text">
+            <span class="modal-hero__label" data-i18n="external.carretto.subtitle">Ideale per eventi casual e all'aperto</span>
+            <h2 class="modal-hero__title title-accent title-accent--light">Carretto Gelato</h2>
+            <p class="modal-hero__desc" data-i18n="external.carretto.desc">Soluzione iconica e mobile per portare il gelato Badiani direttamente al tuo evento.</p>
+          </div>
+          <div class="modal-body">
+            <div class="specs-grid">
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.carretto.included.label">Incluso*</span>
+                <span class="spec-value" data-i18n-html="external.modal.carretto.included.value">&euro;1.000 + IVA comprensivo di: noleggio del carretto gelato, gelato fino a 50 persone, 1 operatore per servizio somministrazione gelato per 2 ore</span>
+              </div>
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.carretto.scalable.label">Scalabilit&agrave;</span>
+                <span class="spec-value" data-i18n-html="external.modal.carretto.scalable.value">Disponibile anche per eventi su larga scala con elevato numero di ospiti, grazie a un servizio modulabile e personalizzabile in base alle esigenze.</span>
+              </div>
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.carretto.transport.label">Trasporto</span>
+                <span class="spec-value" data-i18n-html="external.modal.carretto.transport.value">A partire da &euro;250+IVA</span>
+              </div>
+              <div class="spec-card">
+                <span class="spec-label" data-i18n="external.modal.carretto.services.label">Servizi su richiesta</span>
+                <span class="spec-value" data-i18n-html="external.modal.carretto.services.value">Operatore extra per servizio di somministrazione gelato<br>Brandizzazione e personalizzazione Carretto Gelato (entro 14 giorni dalla data dall&rsquo;evento prezzo a partire da &euro;150+IVA)</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="modal-cta-wrap">
-          <button type="button" class="modal-request-btn" data-close-modal="carretto">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
-          </button>
+          <div class="modal-cta-wrap">
+            <button type="button" class="modal-request-btn" data-close-modal="carretto">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              <span data-i18n="external.cta.requestInfo">Richiedi Informazioni</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -1715,7 +1719,7 @@
       if(/[?&]sent=1/.test(window.location.search)){
         var fb = document.createElement('p');
         fb.className = 'form-feedback is-success';
-        fb.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;color:#127c56;';
+        fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
         fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
         form.appendChild(fb);
         fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -1916,6 +1920,7 @@
           'nav.b2b.coni': 'Coni & Coppette',
           'nav.b2b.accessori': 'Accessori',
           'nav.b2b.contenitori': 'Contenitori',
+          'nav.magazine': 'Dicono di Noi',
           'footer.nav': 'Navigazione',
           'footer.home': 'Home',
           'footer.eventi': 'Eventi',
@@ -2023,6 +2028,7 @@
           'nav.b2b.coni': 'Cones & Cups',
           'nav.b2b.accessori': 'Accessories',
           'nav.b2b.contenitori': 'Containers',
+          'nav.magazine': 'They Say About Us',
           'footer.nav': 'Navigation',
           'footer.home': 'Home',
           'footer.eventi': 'Events',
@@ -2130,6 +2136,7 @@
           'nav.b2b.coni': 'Cônes & Coupes',
           'nav.b2b.accessori': 'Accessoires',
           'nav.b2b.contenitori': 'Conteneurs',
+          'nav.magazine': 'Ils Parlent de Nous',
           'footer.nav': 'Navigation',
           'footer.home': 'Accueil',
           'footer.eventi': '\u00c9v\u00e9nements',
@@ -2237,6 +2244,7 @@
           'nav.b2b.coni': 'Conos y Copas',
           'nav.b2b.accessori': 'Accesorios',
           'nav.b2b.contenitori': 'Contenedores',
+          'nav.magazine': 'Dicen de Nosotros',
           'footer.nav': 'Navegaci\u00f3n',
           'footer.home': 'Inicio',
           'footer.eventi': 'Eventos',

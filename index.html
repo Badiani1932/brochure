@@ -36,8 +36,6 @@
 
   <!-- Preload critical font -->
   <link rel="preload" href="assets/fonts/SuperGroteskB-CdMed.woff" as="font" type="font/woff" crossorigin />
-  <!-- Preload critical above-the-fold images -->
-  <link rel="preload" as="image" href="assets/images/categories/b2b-hero.webp" />
 
   <link rel="stylesheet" href="./assets/badiani-common.css" />
   <script defer src="./assets/badiani-common.js"></script>
@@ -63,11 +61,11 @@
   <style>
     /* Page-specific styles for homepage */
     @media(max-width:500px){
-      .topbar__nav a{ padding:6px 10px; font-size:clamp(9px, 2.5vw, 10px); letter-spacing:1px; }
+      .topbar__nav a{ padding:6px 10px; font-size:clamp(15px, 2.9vw, 18px); letter-spacing:1px; }
     }
     @media(max-width:900px){
       .topbar__nav a{
-        font-size:clamp(9px, 2vw, 12px);
+        font-size:clamp(15px, 2.4vw, 16px);
         padding:5px 7px;
         letter-spacing:0.8px;
       }
@@ -78,65 +76,6 @@
     .intro{ max-width:900px; margin:0 auto var(--space-lg); text-align:center; }
     .intro h1{ font-size:clamp(28px, 3.6vw, 48px); margin-bottom:16px; }
     .intro p{ font-size:clamp(16px, 1.6vw, 20px); color:#6a6b6e; }
-
-    /* HERO - VIDEO + TITLE (inspiration style) */
-    .hero{
-      position:relative;
-      overflow:hidden;
-      text-align:left;
-      color:#fff;
-      background:#000;
-      min-height:60vh;
-      max-height:80vh;
-    }
-    .hero .hero-content{
-      display:none;
-    }
-    .hero video{
-      display:block;
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-    .hero-content__heading-group{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      justify-content:flex-end;
-      flex-shrink:0;
-    }
-    .hero-content__label{
-      display:block;
-      font-size:clamp(13px, 1.2vw, 16px);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      font-weight:400;
-      color:rgba(255,255,255,0.75);
-      line-height:1;
-      margin-bottom:20px;
-    }
-    .hero-content h1{
-      font-family:'SuperGroteskDigits', 'SuperGroteskB';
-      font-size:clamp(72px, 9vw, 140px);
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      line-height:0.9;
-      color:#fff;
-      text-shadow:none;
-      flex-shrink:0;
-    }
-    .hero-subtitle{
-      font-size:clamp(14px, 1.2vw, 17px);
-      font-weight:300;
-      color:rgba(255,255,255,0.85);
-      line-height:1.5;
-      text-shadow:none;
-      max-width:260px;
-      padding-bottom:8px;
-    }
 
     /* ===== SPLIT-SCREEN CHOICE SECTION ===== */
     .choice-section{
@@ -244,7 +183,7 @@
     }
     .choice-card__label{
       display:block;
-      font-size:clamp(13px, 1.2vw, 16px);
+      font-size:clamp(17px, 1.6vw, 20px);
       text-transform:uppercase;
       letter-spacing:3px;
       font-weight:400;
@@ -263,7 +202,7 @@
       text-shadow:none;
     }
     .choice-desc{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.85);
       line-height:1.5;
       max-width:220px;
@@ -280,13 +219,13 @@
       align-items:center;
       gap:12px;
       margin-top:0;
-      padding:14px 28px;
+      padding:16px 28px;
       border-radius:0;
       border:2px solid var(--badiani-pink);
       background:var(--badiani-pink);
       color:#fff;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(13px, 1vw, 15px);
+      font-size:clamp(17px, 1.4vw, 19px);
       text-transform:uppercase;
       letter-spacing:2.5px;
       font-weight:700;
@@ -326,9 +265,9 @@
 
     @media(max-width:1024px){
       .choice-cta{
-        font-size:clamp(10px, 1.4vw, 13px);
+        font-size:clamp(15px, 1.8vw, 17px);
         letter-spacing:1.5px;
-        padding:10px 16px;
+        padding:16px 16px;
         gap:8px;
         line-height:1.35;
       }
@@ -341,26 +280,6 @@
       .page-shell{ padding:var(--space-lg) 18px; }
     }
     @media(max-width:900px){
-      .hero{
-        height:auto;
-        min-height:45vh;
-      }
-      .hero-content{
-        padding:32px 28px;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-      }
-      .hero-content h1{
-        font-size:clamp(56px, 11vw, 110px);
-        letter-spacing:2px;
-        line-height:0.9;
-      }
-      .hero-subtitle{
-        max-width:none;
-        text-align:left;
-      }
-
       .choice-grid{
         grid-template-columns:1fr;
       }
@@ -375,24 +294,16 @@
         font-size:clamp(56px, 14vw, 140px);
       }
       .choice-cta{
-        padding:12px 18px;
-        font-size:clamp(11px, 2.8vw, 14px);
+        padding:16px 18px;
+        font-size:clamp(15px, 3.2vw, 18px);
         letter-spacing:1.5px;
         gap:8px;
         flex-wrap:wrap;
       }
       .todo-note{ display:none; }
-
-      .video-note{ margin:10px auto 24px; }
     }
 
     @media(max-width:600px){
-      .hero-content{
-        padding:24px 20px;
-      }
-      .hero-content h1{
-        font-size:clamp(52px, 14vw, 80px);
-      }
       .choice-card{
         aspect-ratio:1/1;
         min-height:0;
@@ -406,28 +317,19 @@
       .choice-title{
         font-size:clamp(56px, 15vw, 140px);
       }
-      .choice-desc{ font-size:15px; max-width:none; }
+      .choice-desc{ font-size:18px; max-width:none; }
       .choice-cta{
-        padding:10px 14px;
-        font-size:clamp(10px, 2.6vw, 13px);
+        padding:16px 14px;
+        font-size:clamp(15px, 3.0vw, 17px);
         letter-spacing:1px;
         gap:6px;
       }
     }
 
-    .video-note{
-      text-align:center;
-      font-size:12px;
-      letter-spacing:1.5px;
-      text-transform:uppercase;
-      color:var(--badiani-pink);
-      margin:18px auto var(--space-lg);
-    }
-
     .todo-note{
       display:block;
       margin-top:8px;
-      font-size:11px;
+      font-size:15px;
       letter-spacing:1.6px;
       text-transform:uppercase;
       color:var(--badiani-pink);
@@ -588,7 +490,7 @@
     .story-card--gelato .story-card__desc{
       color:var(--badiani-blue);
       display:block;
-      font-size:clamp(13px, 1.2vw, 17px);
+      font-size:clamp(17px, 1.6vw, 21px);
       line-height:1.55;
       max-width:none;
       margin-top:auto;
@@ -605,7 +507,7 @@
     }
     .story-card__label{
       display:block;
-      font-size:clamp(13px, 1.2vw, 17px);
+      font-size:clamp(17px, 1.6vw, 21px);
       text-transform:uppercase;
       letter-spacing:3px;
       color:rgba(255,255,255,0.65);
@@ -629,7 +531,7 @@
       min-width:0;
     }
     .story-card__desc{
-      font-size:clamp(14px, 1.3vw, 20px);
+      font-size:clamp(18px, 1.7vw, 24px);
       color:rgba(255,255,255,0.85);
       line-height:1.7;
       max-width:280px;
@@ -691,7 +593,7 @@
     }
     .world-card__label{
       display:block;
-      font-size:clamp(13px, 1.2vw, 22px);
+      font-size:clamp(17px, 1.6vw, 26px);
       text-transform:uppercase;
       letter-spacing:3px;
       line-height:1;
@@ -718,7 +620,7 @@
       hyphens:none;
     }
     .world-card__desc{
-      font-size:clamp(13px, 1.2vw, 22px);
+      font-size:clamp(17px, 1.6vw, 26px);
       line-height:1.6;
       max-width:55%;
       font-weight:300;
@@ -781,7 +683,7 @@
     .stat:nth-child(3) .stat-num{ color:var(--badiani-yellow); }
     .stat:nth-child(4) .stat-num{ color:var(--badiani-cyan); }
     .stat-label{
-      font-size:clamp(10px, 0.9vw, 16px);
+      font-size:clamp(15px, 1.3vw, 20px);
       text-transform:uppercase;
       letter-spacing:2.5px;
       color:var(--badiani-gray);
@@ -895,7 +797,7 @@
       letter-spacing:1px;
     }
     .timeline-city{
-      font-size:clamp(10px, 0.9vw, 17px);
+      font-size:clamp(15px, 1.3vw, 21px);
       text-transform:uppercase;
       letter-spacing:2.5px;
       color:rgba(255,255,255,0.55);
@@ -1012,7 +914,7 @@
       margin-bottom:8px;
     }
     .home-form-header p{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.75);
     }
     .home-form-body{
@@ -1032,7 +934,7 @@
       grid-column:1 / -1;
     }
     .home-form-grid label{
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:#6a6b6e;
@@ -1046,7 +948,7 @@
       border-radius:0;
       padding:12px 14px;
       font-family:inherit;
-      font-size:14px;
+      font-size:18px;
       background:#f8f9fc;
       color:#4a4f57;
       transition:border-color 0.3s, box-shadow 0.3s;
@@ -1076,7 +978,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:14px;
+      font-size:18px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -1102,7 +1004,7 @@
       display:flex;
       align-items:flex-start;
       gap:10px;
-      font-size:13px;
+      font-size:17px;
       color:#6a6b6e;
     }
     .home-form-actions .hf-privacy input{
@@ -1120,7 +1022,7 @@
       color:#fff;
       padding:14px 36px;
       border-radius:0;
-      font-size:13px;
+      font-size:17px;
       text-transform:uppercase;
       letter-spacing:2px;
       font-family:'SuperGroteskA',sans-serif;
@@ -1261,29 +1163,7 @@
     </div>
   </nav>
 
-  <!-- HERO: VIDEO + TITLE -->
-  <section class="hero" id="main-content">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" poster="assets/images/branding/hero-bg.webp">
-      <source src="assets/video/home-b2b.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <div class="hero-content__heading-group">
-        <h1 data-i18n="home.hero.title">Badiani 1932</h1>
-      </div>
-    </div>
-  </section>
-  <script>
-  (function(){
-    var hero = document.querySelector('.hero');
-    var vid = hero && hero.querySelector('video');
-    if(!vid){ hero && hero.classList.add('video-ready'); return; }
-    if(vid.readyState >= 3){ hero.classList.add('video-ready'); return; }
-    vid.addEventListener('canplay', function(){ hero.classList.add('video-ready'); }, {once:true});
-    setTimeout(function(){ hero.classList.add('video-ready'); }, 2000);
-  })();
-  </script>
-
-  <section class="choice-section" data-i18n-attr="aria-label:home.choice.label">
+  <section class="choice-section" id="main-content" data-i18n-attr="aria-label:home.choice.label">
     <div class="choice-grid">
       <a class="choice-card" href="eventi/" data-i18n-attr="aria-label:home.choice.eventi.aria">
         <img class="choice-card__img" src="assets/images/eventi/carretto_gelato/foto4.jpg" alt="Eventi" loading="lazy" decoding="async" data-i18n-attr="alt:home.card.eventi.title" />
@@ -1309,29 +1189,6 @@
           </span>
         </div>
       </a>
-    </div>
-  </section>
-
-  <!-- STORIA DI BADIANI + GELATO (split-screen) -->
-  <section id="story" class="story-section">
-    <div class="story-grid">
-      <div class="story-card story-card--storia">
-        <img class="story-card__img" src="assets/storia.webp" alt="Badiani 1932 Firenze" loading="lazy" decoding="async" width="1657" height="1195" />
-        <div class="story-card__overlay">
-          <h2 class="story-card__title title-accent title-accent--light" data-i18n="story.title">LA STORIA</h2>
-          <p class="story-card__desc" data-i18n-html="story.text">
-            Nell'estate del <span class="highlight-pink">1932</span>, il gelatiere Idilio Badiani apre la sua prima gelateria a Firenze. Nel 1993 il brand viene acquisito da <span class="highlight-pink">Orazio Pomposi</span> che, insieme ai figli Paolo e Patrizio, porta Badiani a nuovi traguardi attraverso innovazione e creatività. Il gusto più celebre, il <span class="highlight-pink">Buontalenti</span>, resta il simbolo della tradizione fiorentina. Dal 2015 Badiani è anche a Londra con negozi e laboratorio dedicato, guidata dal Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.
-          </p>
-        </div>
-      </div>
-      <div class="story-card story-card--gelato">
-        <div class="story-card__overlay">
-          <h2 class="story-card__title title-accent" data-i18n-html="gelato.titleHtml">IL <span style="white-space:nowrap">BUONTALENTI<span class="story-card__reg">®</span></span></h2>
-          <p class="story-card__desc" data-i18n-html="gelato.text">
-            Il Buontalenti® è un marchio registrato di Badiani e il gelato più famoso di Firenze: nato negli anni ‘70 come omaggio all’architetto Bernardo Buontalenti, inventore del gelato. Da allora lo abbiamo portato nel mondo come simbolo del Made in Italy.<br><br><strong>Cosa lo rende speciale?</strong><br>• <span class="highlight-pink">Semplicità perfetta</span> — solo 4 ingredienti: panna, latte, zucchero e uova.<br>• <span class="highlight-pink">Innovazione premiata</span> — varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Versatilità totale</span> — cono, coppa, torte gelato e monoporzioni.
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1371,6 +1228,29 @@
         </h2>
         <div class="world-card__gelato-wrap">
           <span class="world-card__gelato-big">Gelato</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORIA DI BADIANI + GELATO (split-screen) -->
+  <section id="story" class="story-section">
+    <div class="story-grid">
+      <div class="story-card story-card--storia">
+        <img class="story-card__img" src="assets/storia.webp" alt="Badiani 1932 Firenze" loading="lazy" decoding="async" width="1657" height="1195" />
+        <div class="story-card__overlay">
+          <h2 class="story-card__title title-accent title-accent--light" data-i18n="story.title">LA STORIA</h2>
+          <p class="story-card__desc" data-i18n-html="story.text">
+            Nell'estate del <span class="highlight-pink">1932</span>, il gelatiere Idilio Badiani apre la sua prima gelateria a Firenze. Nel 1993 il brand viene acquisito da <span class="highlight-pink">Orazio Pomposi</span> che, insieme ai figli Paolo e Patrizio, porta Badiani a nuovi traguardi attraverso innovazione e creatività. Il gusto più celebre, il <span class="highlight-pink">Buontalenti</span>, resta il simbolo della tradizione fiorentina. Dal 2015 Badiani è anche a Londra con negozi e laboratorio dedicato, guidata dal Gelato Maker <span class="highlight-pink">Paolo Pomposi</span>.
+          </p>
+        </div>
+      </div>
+      <div class="story-card story-card--gelato">
+        <div class="story-card__overlay">
+          <h2 class="story-card__title title-accent" data-i18n-html="gelato.titleHtml">IL <span style="white-space:nowrap">BUONTALENTI<span class="story-card__reg">®</span></span></h2>
+          <p class="story-card__desc" data-i18n-html="gelato.text">
+            Il Buontalenti® è un marchio registrato di Badiani e il gelato più famoso di Firenze: nato negli anni ‘70 come omaggio all’architetto Bernardo Buontalenti, inventore del gelato. Da allora lo abbiamo portato nel mondo come simbolo del Made in Italy.<br><br><strong>Cosa lo rende speciale?</strong><br>• <span class="highlight-pink">Semplicità perfetta</span> — solo 4 ingredienti: panna, latte, zucchero e uova.<br>• <span class="highlight-pink">Innovazione premiata</span> — varianti celebri come La Dolcevita e Buontalenti Pistacchio.<br>• <span class="highlight-pink">Versatilità totale</span> — cono, coppa, torte gelato e monoporzioni.
+          </p>
         </div>
       </div>
     </div>
@@ -2118,7 +1998,7 @@
       if(/[?&]sent=1/.test(window.location.search)){
         var fb = document.createElement('p');
         fb.className = 'form-feedback is-success';
-        fb.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;color:#127c56;';
+        fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
         fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
         form.appendChild(fb);
         fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2522,61 +2402,5 @@
   })();
   </script>
 
-  <script>
-  (function(){
-    var isTouch='ontouchstart'in window||navigator.maxTouchPoints>0;
-    function forcePlay(){
-      document.querySelectorAll('video').forEach(function(v){
-        v.setAttribute('playsinline','');
-        v.setAttribute('webkit-playsinline','');
-        v.setAttribute('muted','');
-        v.muted=true;
-        v.defaultMuted=true;
-        v.preload='auto';
-        if(!v.paused){ v.classList.add('is-playing'); }
-        v.addEventListener('playing', function(){ v.classList.add('is-playing'); }, {once:true});
-        /* resolve src from <source> only if needed */
-        var src=v.currentSrc||v.src||(v.querySelector('source')&&v.querySelector('source').src)||'';
-        if(!src) return;
-        /* only call load() when the video has no data at all */
-        if(v.readyState===0&&!v.currentSrc){ v.load(); }
-        function tp(){
-          if(!v.paused) return;
-          var p=v.play();
-          if(p&&p.catch) p.catch(function(){});
-        }
-        v.addEventListener('loadedmetadata',tp,{once:true});
-        v.addEventListener('loadeddata',tp,{once:true});
-        v.addEventListener('canplay',tp,{once:true});
-        setTimeout(tp,300);setTimeout(tp,1000);setTimeout(tp,2500);setTimeout(tp,5000);setTimeout(tp,8000);
-        function onUi(){tp();document.removeEventListener('touchstart',onUi);document.removeEventListener('click',onUi);document.removeEventListener('scroll',onUi);}
-        document.addEventListener('touchstart',onUi,{once:true,passive:true});
-        document.addEventListener('click',onUi,{once:true,passive:true});
-        document.addEventListener('scroll',onUi,{once:true,passive:true});
-        document.addEventListener('visibilitychange',function(){if(!document.hidden)tp();});
-        /* tap-to-play overlay for touch devices when autoplay fails */
-        if(isTouch){
-          setTimeout(function(){
-            if(!v.paused) return;
-            var wrap=v.closest('section')||v.parentElement;
-            if(!wrap||wrap.querySelector('.video-tap-play')) return;
-            var btn=document.createElement('button');
-            btn.className='video-tap-play';
-            btn.setAttribute('aria-label','Play video');
-            wrap.appendChild(btn);
-            btn.addEventListener('click',function(e){
-              e.stopPropagation();
-              v.play().then(function(){btn.remove();}).catch(function(){});
-            },{once:true});
-            /* auto-remove if video starts on its own */
-            v.addEventListener('playing',function(){btn.remove();},{once:true});
-          },4000);
-        }
-      });
-    }
-    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
-    else forcePlay();
-  })();
-  </script>
 </body>
 </html>

@@ -65,7 +65,7 @@
   background: var(--badiani-blue);
   color: #fff;
   padding: 12px 24px;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   text-decoration: none;
   border-radius:0;
@@ -251,7 +251,7 @@ h1, h2, h3 {
   color: #fff;
   background: none;
   border: none;
-  font-size: clamp(12px, 0.9vw, 14px);
+  font-size: clamp(16px, 1.3vw, 18px);
   letter-spacing: clamp(0.5px, 0.1vw, 1.5px);
   text-transform: uppercase;
   padding: clamp(6px, 0.6vw, 8px) clamp(8px, 1vw, 14px);
@@ -294,7 +294,7 @@ h1, h2, h3 {
   background: none;
   border: none;
   border-bottom: 1px solid rgba(255,255,255,0.07);
-  font-size: 13px;
+  font-size: 17px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
   font-family: 'SuperGroteskB', 'SuperGroteskA', sans-serif;
@@ -320,7 +320,7 @@ h1, h2, h3 {
 .topbar__nav a {
   color: #fff;
   text-decoration: none;
-  font-size: clamp(12px, 0.9vw, 14px);
+  font-size: clamp(16px, 1.3vw, 18px);
   letter-spacing: clamp(0.5px, 0.1vw, 1.5px);
   text-transform: uppercase;
   padding: clamp(6px, 0.6vw, 8px) clamp(8px, 1vw, 14px);
@@ -388,7 +388,7 @@ h1, h2, h3 {
 .topbar__dropdown-menu a {
   color: #fff;
   text-decoration: none;
-  font-size: clamp(11px, 0.85vw, 13px);
+  font-size: clamp(15px, 1.25vw, 17px);
   letter-spacing: 0.5px;
   padding: 9px 20px;
   white-space: nowrap;
@@ -449,7 +449,7 @@ h1, h2, h3 {
   display: flex;
 }
 .topbar__mobile-nav .topbar__mobile-group-items a {
-  font-size: clamp(11px, 0.85vw, 13px);
+  font-size: clamp(15px, 1.25vw, 17px);
   letter-spacing: 0.5px;
   text-transform: none;
   padding: 10px 20px 10px 36px;
@@ -528,8 +528,10 @@ h1, h2, h3 {
   display: none;
   position: fixed;
   top: var(--topbar-h);
+  left: 0;
   right: 0;
-  width: 260px;
+  width: 100%;
+  max-width: none;
   background: var(--badiani-blue);
   z-index: 999;
   flex-direction: column;
@@ -551,7 +553,7 @@ h1, h2, h3 {
 .topbar__mobile-nav a {
   color: #fff;
   text-decoration: none;
-  font-size: clamp(12px, 0.9vw, 14px);
+  font-size: clamp(16px, 1.3vw, 18px);
   letter-spacing: clamp(0.5px, 0.1vw, 1.5px);
   text-transform: uppercase;
   font-family: inherit;
@@ -585,7 +587,7 @@ h1, h2, h3 {
   color: rgba(255,255,255,0.7);
   background: none;
   border: none;
-  font-size: clamp(12px, 0.9vw, 14px);
+  font-size: clamp(16px, 1.3vw, 18px);
   letter-spacing: clamp(0.5px, 0.1vw, 1.5px);
   text-transform: uppercase;
   font-family: inherit;
@@ -647,7 +649,7 @@ h1, h2, h3 {
   background: #1a1a2e;
   color: rgba(255, 255, 255, 0.85);
   padding: clamp(40px, 6vw, 72px) clamp(16px, 4vw, 80px) 0;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .footer-inner {
@@ -676,7 +678,7 @@ h1, h2, h3 {
 
 .footer-tagline {
   font-family: 'SuperGroteskA', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.6;
   max-width: 260px;
@@ -684,7 +686,7 @@ h1, h2, h3 {
 
 .footer-col h3 {
   font-family: 'SuperGroteskDigits', 'SuperGroteskB', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #fff;
@@ -706,7 +708,7 @@ h1, h2, h3 {
   font-family: 'SuperGroteskA', sans-serif;
   color: rgba(255, 255, 255, 0.65);
   text-decoration: none;
-  font-size: 14px;
+  font-size: 18px;
   transition: color 0.3s;
   display: inline-block;
 }
@@ -724,7 +726,7 @@ h1, h2, h3 {
 
 .footer-bottom p {
   font-family: 'SuperGroteskA', sans-serif;
-  font-size: 12px;
+  font-size: 16px;
   color: rgba(255, 255, 255, 0.4);
   letter-spacing: 0.5px;
 }
@@ -785,7 +787,7 @@ h1, h2, h3 {
 }
 
 .cookie-banner__text {
-  font-size: 13px;
+  font-size: 17px;
   line-height: 1.6;
   max-width: 680px;
   flex: 1 1 400px;
@@ -806,7 +808,7 @@ h1, h2, h3 {
   border: none;
   border-radius:0;
   padding: 10px 24px;
-  font-size: 12px;
+  font-size: 16px;
   font-family: inherit;
   font-weight: 600;
   text-transform: uppercase;
@@ -874,7 +876,7 @@ h1, h2, h3 {
   border: 1px solid rgba(30, 57, 141, 0.2);
   background: #eef3ff;
   color: var(--badiani-blue);
-  font-size: 14px;
+  font-size: 18px;
   line-height: 1.45;
   font-weight: 700;
 }

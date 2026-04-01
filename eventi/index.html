@@ -60,97 +60,6 @@
       background:url('../assets/images/branding/sfondo.webp') center/cover no-repeat fixed;
     }
 
-    /* ===== HERO ===== */
-    .ev-hero{
-      position:relative;
-      overflow:hidden;
-      min-height:60vh;
-      display:flex;
-      align-items:flex-end;
-      background:#000;
-    }
-    .ev-hero video{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center top;
-      filter:none;
-      transition: filter 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .ev-hero.is-active video{
-      filter:brightness(1) saturate(1.1);
-      transform:scale(1.05);
-    }
-    .ev-hero__img{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      object-position:center 30%;
-      filter:none;
-    }
-    .ev-hero::after{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.38) 35%, transparent 65%);
-      z-index:1;
-      pointer-events:none;
-    }
-    .ev-hero__content{
-      position:relative;
-      z-index:2;
-      width:100%;
-      padding:48px 52px;
-      display:flex;
-      flex-direction:row;
-      align-items:flex-end;
-      gap:24px;
-      transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .ev-hero.is-active .ev-hero__content{
-      opacity:0;
-      pointer-events:none;
-    }
-    .ev-hero__heading{
-      display:flex;
-      flex-direction:column;
-      align-items:flex-start;
-      flex-shrink:0;
-    }
-    .ev-hero__label{
-      display:block;
-      font-size:clamp(13px, 1.2vw, 16px);
-      text-transform:uppercase;
-      letter-spacing:3px;
-      font-weight:400;
-      color:rgba(255,255,255,0.75);
-      line-height:1;
-      margin-bottom:20px;
-    }
-    .ev-hero__title{
-      font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(72px, 9vw, 140px);
-      font-weight:700;
-      letter-spacing:4px;
-      text-transform:uppercase;
-      line-height:0.9;
-      color:#fff;
-      text-shadow:none;
-    }
-    .ev-hero__desc{
-      font-size:clamp(14px, 1.2vw, 17px);
-      color:rgba(255,255,255,0.85);
-      line-height:1.5;
-      max-width:280px;
-      padding-bottom:8px;
-      font-weight:300;
-    }
-
-
     /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
       padding:clamp(40px, 6vw, 80px) 0;
@@ -301,7 +210,7 @@
       background:var(--badiani-pink);
       color:#fff;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(13px,1vw,15px);
+      font-size:clamp(17px, 1.4vw, 19px);
       text-transform:uppercase;
       letter-spacing:2.5px;
       font-weight:700;
@@ -374,7 +283,7 @@
     .ev-corp-info__label{
       display:block;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(11px, 1vw, 14px);
+      font-size:clamp(15px, 1.4vw, 18px);
       text-transform:uppercase;
       letter-spacing:3px;
       color:rgba(255,255,255,0.55);
@@ -401,7 +310,7 @@
     }
     .ev-corp-info__desc{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(15px, 1.3vw, 18px);
+      font-size:clamp(19px, 1.7vw, 22px);
       color:rgba(255,255,255,0.7);
       line-height:1.7;
       max-width:500px;
@@ -440,7 +349,7 @@
     }
     .ev-corp-list li{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(14px, 1.1vw, 16px);
+      font-size:clamp(18px, 1.5vw, 20px);
       color:#3a3f47;
       line-height:1.55;
       padding:clamp(8px, 0.9vw, 12px) 0;
@@ -473,7 +382,7 @@
       z-index:20;
     }
     .ev-gallery__label{
-      font-size:clamp(11px, 1vw, 14px);
+      font-size:clamp(15px, 1.4vw, 18px);
       letter-spacing:3px;
       text-transform:uppercase;
       color:rgba(255,255,255,0.5);
@@ -522,7 +431,7 @@
       padding:10px 14px;
       background:none;
       color:#fff;
-      font-size:11px;
+      font-size:15px;
       letter-spacing:1.5px;
       text-transform:uppercase;
       font-weight:600;
@@ -566,7 +475,7 @@
       margin-bottom:8px;
     }
     .ev-form-header p{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.75);
     }
     .ev-form-body{
@@ -586,7 +495,7 @@
       grid-column:1 / -1;
     }
     .ev-form-grid label{
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:#6a6b6e;
@@ -599,7 +508,7 @@
       border-radius:0;
       padding:12px 14px;
       font-family:inherit;
-      font-size:14px;
+      font-size:18px;
       background:#f8f9fc;
       color:#4a4f57;
       transition:border-color 0.3s, box-shadow 0.3s;
@@ -623,7 +532,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:13px;
+      font-size:17px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -652,7 +561,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:14px;
+      font-size:18px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -692,7 +601,7 @@
       display:flex;
       align-items:flex-start;
       gap:10px;
-      font-size:13px;
+      font-size:17px;
       color:#6a6b6e;
     }
     .ev-form-actions .ef-privacy input{
@@ -710,7 +619,7 @@
       color:#fff;
       padding:14px 36px;
       border-radius:0;
-      font-size:13px;
+      font-size:17px;
       text-transform:uppercase;
       letter-spacing:2px;
       font-family:'SuperGroteskA',sans-serif;
@@ -829,24 +738,12 @@
       .ev-card::after{ height:64%; }
       .ev-card__img{ height:64%; }
       .ev-card__overlay{ grid-template-rows:18% 64% 18%; }
-      .ev-card__title{ font-size:clamp(22px, 4.5vw, 48px); letter-spacing:clamp(1px, 0.3vw, 3px); line-height:0.9; }
+      .ev-card__title{ font-size:clamp(22px, 4.5vw, 48px); letter-spacing:clamp(15px, 0.7vw, 18px); line-height:0.9; }
       .ev-card__desc{ padding:12px 22px; }
     }
     @media(max-width:1024px){
-      .ev-hero{ max-height:75vh; }
     }
     @media(max-width:900px){
-      .ev-hero__content{
-        padding:32px 28px;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:10px;
-      }
-      .ev-hero__title{
-        font-size:clamp(52px, 10vw, 80px);
-        letter-spacing:2px;
-      }
-      .ev-hero__desc{ max-width:none; }
 
       .ev-corporate__grid{
         grid-template-columns:1fr;
@@ -870,10 +767,6 @@
     }
 
     @media(max-width:600px){
-      .ev-hero{ min-height:45vh; }
-      .ev-hero__content{ padding:24px 20px; }
-      .ev-hero__title{ font-size:clamp(48px, 13vw, 72px); }
-
       .ev-types__grid{ grid-template-columns:1fr; padding-left:24px; padding-right:24px; gap:96px 0; }
       .ev-types{ padding:64px 0 120px; }
       .ev-card{
@@ -901,7 +794,7 @@
         letter-spacing:clamp(1px, 0.3vw, 3px);
         line-height:0.9;
       }
-      .ev-card__desc{ padding:12px 22px; font-size:clamp(12px, 3.2vw, 15px); }
+      .ev-card__desc{ padding:12px 22px; font-size:clamp(16px, 3.6vw, 19px); }
 
       .ev-corp-info,
       .ev-corp-details{
@@ -1019,6 +912,15 @@
       <nav class="topbar__nav" data-i18n-attr="aria-label:nav.label">
         <a href="../" data-i18n="nav.home">Home</a>
         <div class="topbar__dropdown">
+          <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../eventi/saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+            <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+            <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+            <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+          </div>
+        </div>
+        <div class="topbar__dropdown">
           <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
           <div class="topbar__dropdown-menu">
             <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
@@ -1029,6 +931,7 @@
             <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
           </div>
         </div>
+        <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
       </nav>
       <div class="topbar__lang">
         <select class="topbar__select" id="langSelect" hidden data-i18n-attr="aria-label:lang.label">
@@ -1060,6 +963,18 @@
     <a href="../" data-i18n="nav.home">Home</a>
     <div class="topbar__mobile-group">
       <div class="topbar__mobile-group-header">
+        <a href="../eventi/" data-i18n="nav.eventi">Eventi</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="topbar__mobile-group-items">
+        <a href="../eventi/saletta-privata-tosinghi/" data-i18n="nav.eventi.saletta">Saletta Tosinghi</a>
+        <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
+        <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
+        <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+      </div>
+    </div>
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
         <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
         <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       </div>
@@ -1072,6 +987,7 @@
         <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
       </div>
     </div>
+    <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
     <div class="topbar__mobile-lang">
       <button class="topbar__mobile-lang-btn" data-lang="it" data-i18n="lang.it">IT</button>
       <button class="topbar__mobile-lang-btn" data-lang="en" data-i18n="lang.en">EN</button>
@@ -1080,20 +996,8 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="ev-hero" id="main-content">
-    <video autoplay muted loop playsinline webkit-playsinline preload="auto" aria-hidden="true" poster="../assets/images/eventi/fotoeventipassati-web/DSC09312.webp">
-      <source src="../assets/video/Video%20Eventi.mp4" type="video/mp4">
-    </video>
-    <div class="ev-hero__content">
-      <div class="ev-hero__heading">
-        <h1 class="ev-hero__title title-accent title-accent--light" data-i18n="eventi.page.title">Eventi</h1>
-      </div>
-    </div>
-  </section>
-
   <!-- EVENT TYPES — 3-column full-bleed -->
-  <section class="ev-types" data-i18n-attr="aria-label:eventi.types.label">
+  <section class="ev-types" id="main-content" data-i18n-attr="aria-label:eventi.types.label">
     <div class="ev-types__grid">
       <a class="ev-card" href="./saletta-privata-tosinghi/" data-i18n-attr="aria-label:eventi.tosinghi.aria">
         <img class="ev-card__img" src="../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta privata Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
@@ -1120,7 +1024,7 @@
         <img class="ev-card__img" src="../assets/images/eventi/fotoeventipassati-web/PHOTO-2026-02-09-14-32-12%207.webp" alt="Experience" loading="lazy" decoding="async" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.experience.title">Experience</h2>
-          <p class="ev-card__desc"><span data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
+          <p class="ev-card__desc"><span data-i18n="eventi.experience.desc">Tasting guidato dei gusti iconici di Paolo Pomposi.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
     </div>
@@ -1441,7 +1345,8 @@
           'nav.label': 'Navigazione principale',
           'lang.label': 'Selettore lingua',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.b2b': 'B2B',
+          'nav.home': 'Home', 'nav.eventi': 'Eventi', 'nav.b2b': 'B2B', 'nav.magazine': 'Dicono di Noi',
+          'nav.eventi.saletta': 'Saletta Tosinghi', 'nav.eventi.esterno': 'Badiani dove vuoi', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Gusti', 'nav.b2b.monoporzioni': 'Monoporzioni', 'nav.b2b.torte': 'Torte', 'nav.b2b.coni': 'Coni & Coppette', 'nav.b2b.accessori': 'Accessori', 'nav.b2b.contenitori': 'Contenitori',
           'footer.nav': 'Navigazione', 'footer.home': 'Home', 'footer.eventi': 'Eventi',
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicono di Noi', 'footer.contatti': 'Contatti',
@@ -1517,7 +1422,7 @@
           'eventi.form.eventInterest.experience': 'Experience — Tasting Guidato',
           'eventi.experience.aria': 'Vai alla pagina Experience',
           'eventi.experience.title': 'Experience',
-          'eventi.experience.desc': 'Tasting guidato dei gusti iconici di Paolo Pomposi. Un racconto esperienziale nella saletta privata Tosinghi.',
+          'eventi.experience.desc': 'Tasting guidato dei gusti iconici di Paolo Pomposi.',
           'eventi.form.privacy': 'Ho letto e accetto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
           'eventi.form.submit': 'Invia Richiesta',
           'cookie.aria': 'Informativa cookie',
@@ -1531,7 +1436,8 @@
           'nav.label': 'Main navigation',
           'lang.label': 'Language selector',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Home', 'nav.b2b': 'B2B',
+          'nav.home': 'Home', 'nav.eventi': 'Events', 'nav.b2b': 'B2B', 'nav.magazine': 'They Say About Us',
+          'nav.eventi.saletta': 'Tosinghi Room', 'nav.eventi.esterno': 'Badiani where you want', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Flavors', 'nav.b2b.monoporzioni': 'Single Servings', 'nav.b2b.torte': 'Cakes', 'nav.b2b.coni': 'Cones & Cups', 'nav.b2b.accessori': 'Accessories', 'nav.b2b.contenitori': 'Containers',
           'footer.nav': 'Navigation', 'footer.home': 'Home', 'footer.eventi': 'Events',
           'footer.b2b': 'B2B', 'footer.magazine': 'They Say About Us', 'footer.contatti': 'Contacts',
@@ -1607,7 +1513,7 @@
           'eventi.form.eventInterest.experience': 'Experience — Guided Tasting',
           'eventi.experience.aria': 'Go to Experience page',
           'eventi.experience.title': 'Experience',
-          'eventi.experience.desc': 'Guided tasting of Paolo Pomposi’s iconic flavors. An experiential storytelling in the Tosinghi private room.',
+          'eventi.experience.desc': 'Guided tasting of Paolo Pomposi’s iconic flavors.',
           'eventi.form.privacy': 'I have read and accept the <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">privacy policy</a>.',
           'eventi.form.submit': 'Send Request',
           'cookie.aria': 'Cookie notice',
@@ -1621,7 +1527,8 @@
           'nav.label': 'Navigation principale',
           'lang.label': 'S\u00e9lecteur de langue',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Accueil', 'nav.b2b': 'B2B',
+          'nav.home': 'Accueil', 'nav.eventi': 'Événements', 'nav.b2b': 'B2B', 'nav.magazine': 'Ils Parlent de Nous',
+          'nav.eventi.saletta': 'Salon Tosinghi', 'nav.eventi.esterno': 'Badiani où vous voulez', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Parfums', 'nav.b2b.monoporzioni': 'Portions Individuelles', 'nav.b2b.torte': 'Gâteaux', 'nav.b2b.coni': 'Cônes & Coupes', 'nav.b2b.accessori': 'Accessoires', 'nav.b2b.contenitori': 'Conteneurs',
           'footer.nav': 'Navigation', 'footer.home': 'Accueil', 'footer.eventi': '\u00c9v\u00e9nements',
           'footer.b2b': 'B2B', 'footer.magazine': 'Ils Parlent de Nous', 'footer.contatti': 'Contacts',
@@ -1697,7 +1604,7 @@
           'eventi.form.eventInterest.experience': 'Experience \u2014 D\u00e9gustation Guid\u00e9e',
           'eventi.experience.aria': 'Aller \u00e0 la page Experience',
           'eventi.experience.title': 'Experience',
-          'eventi.experience.desc': 'D\u00e9gustation guid\u00e9e des saveurs iconiques de Paolo Pomposi dans la salle priv\u00e9e Tosinghi.',
+          'eventi.experience.desc': 'D\u00e9gustation guid\u00e9e des saveurs iconiques de Paolo Pomposi.',
           'eventi.form.privacy': "J'ai lu et j'accepte la <a href=\"../privacy.html\" style=\"color:var(--badiani-blue);text-decoration:underline;\">politique de confidentialit\u00e9</a>.",
           'eventi.form.submit': 'Envoyer la Demande',
           'cookie.aria': 'Avis sur les cookies',
@@ -1711,7 +1618,8 @@
           'nav.label': 'Navegaci\u00f3n principal',
           'lang.label': 'Selector de idioma',
           'lang.it': 'IT', 'lang.en': 'EN', 'lang.fr': 'FR', 'lang.es': 'ES',
-          'nav.home': 'Inicio', 'nav.b2b': 'B2B',
+          'nav.home': 'Inicio', 'nav.eventi': 'Eventos', 'nav.b2b': 'B2B', 'nav.magazine': 'Dicen de Nosotros',
+          'nav.eventi.saletta': 'Salón Tosinghi', 'nav.eventi.esterno': 'Badiani donde quieras', 'nav.eventi.gelatovan': 'Gelato Van', 'nav.eventi.experience': 'Experience',
           'nav.b2b.gusti': 'Sabores', 'nav.b2b.monoporzioni': 'Monoporciones', 'nav.b2b.torte': 'Tartas', 'nav.b2b.coni': 'Conos y Copas', 'nav.b2b.accessori': 'Accesorios', 'nav.b2b.contenitori': 'Contenedores',
           'footer.nav': 'Navegaci\u00f3n', 'footer.home': 'Inicio', 'footer.eventi': 'Eventos',
           'footer.b2b': 'B2B', 'footer.magazine': 'Dicen de Nosotros', 'footer.contatti': 'Contactos',
@@ -1787,7 +1695,7 @@
           'eventi.form.eventInterest.experience': 'Experience \u2014 Cata Guiada',
           'eventi.experience.aria': 'Ir a la p\u00e1gina Experience',
           'eventi.experience.title': 'Experience',
-          'eventi.experience.desc': 'Cata guiada de los sabores ic\u00f3nicos de Paolo Pomposi en la sala privada Tosinghi.',
+          'eventi.experience.desc': 'Cata guiada de los sabores ic\u00f3nicos de Paolo Pomposi.',
           'eventi.form.privacy': 'He le\u00eddo y acepto la <a href="../privacy.html" style="color:var(--badiani-blue);text-decoration:underline;">pol\u00edtica de privacidad</a>.',
           'eventi.form.submit': 'Enviar Solicitud',
           'cookie.aria': 'Aviso de cookies',
@@ -1808,7 +1716,7 @@
         return normalizeLang(navigator.language || DEFAULT_LANG);
       }
       var currentLang = getInitialLang();
-      function t(key){ var d = STRINGS[currentLang] || STRINGS[DEFAULT_LANG]; return d && d[key] ? d[key] : ''; }
+      function t(key){ var d = STRINGS[currentLang] || STRINGS[DEFAULT_LANG]; return d && d[key] ? d[key] : key; }
       function applyTranslations(){
         document.documentElement.setAttribute('lang', currentLang);
         document.title = t('meta.title');
@@ -1847,7 +1755,7 @@
       if(/[?&]sent=1/.test(window.location.search)){
         var fb = document.createElement('p');
         fb.className = 'form-feedback is-success';
-        fb.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;color:#127c56;';
+        fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
         fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
         form.appendChild(fb);
         fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -2026,19 +1934,6 @@
   </script>
 
   <script>
-    // Video hero - click to toggle visibility
-    (function(){
-      var hero = document.getElementById('main-content');
-      if(!hero) return;
-      var video = hero.querySelector('video');
-      if(!video) return;
-      video.addEventListener('click', function(){
-        hero.classList.toggle('is-active');
-      });
-    })();
-  </script>
-
-  <script>
     // Scroll reveal for gallery photos
     (function(){
       var photos = document.querySelectorAll('.ev-gallery__photo');
@@ -2189,57 +2084,5 @@
   </script>
   <script>(function(){var b=document.getElementById('hamburgerBtn'),n=document.getElementById('mobileNav');if(!b||!n)return;function cl(){b.setAttribute('aria-expanded','false');n.classList.remove('is-open');}b.addEventListener('click',function(e){e.stopPropagation();var o=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!o));n.classList.toggle('is-open');});n.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){cl();});});n.querySelectorAll('.topbar__mobile-group-toggle').forEach(function(t){t.addEventListener('click',function(e){e.stopPropagation();var x=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!x));t.closest('.topbar__mobile-group').querySelector('.topbar__mobile-group-items').classList.toggle('is-open');});});document.addEventListener('click',function(e){if(n.classList.contains('is-open')&&!n.contains(e.target)&&!b.contains(e.target)){cl();}});})();</script>
   <script>(function(){var k='badianiCookieConsent',b=document.getElementById('cookieBanner'),a=document.getElementById('cookieAccept');if(!b||!a)return;try{if(localStorage.getItem(k)==='accepted'){b.style.display='none';return;}}catch(e){}a.addEventListener('click',function(){try{localStorage.setItem(k,'accepted');}catch(e){}b.classList.add('is-hidden');setTimeout(function(){b.style.display='none';},500);});})();</script>
-  <script>
-  (function(){
-    var isTouch='ontouchstart'in window||navigator.maxTouchPoints>0;
-    function forcePlay(){
-      document.querySelectorAll('video').forEach(function(v){
-        v.setAttribute('playsinline','');
-        v.setAttribute('webkit-playsinline','');
-        v.setAttribute('muted','');
-        v.muted=true;
-        v.defaultMuted=true;
-        v.preload='auto';
-        if(!v.paused){ v.classList.add('is-playing'); }
-        v.addEventListener('playing', function(){ v.classList.add('is-playing'); }, {once:true});
-        var src=v.currentSrc||v.src||(v.querySelector('source')&&v.querySelector('source').src)||'';
-        if(!src) return;
-        if(v.readyState===0&&!v.currentSrc){ v.load(); }
-        function tp(){
-          if(!v.paused) return;
-          var p=v.play();
-          if(p&&p.catch) p.catch(function(){});
-        }
-        v.addEventListener('loadedmetadata',tp,{once:true});
-        v.addEventListener('loadeddata',tp,{once:true});
-        v.addEventListener('canplay',tp,{once:true});
-        setTimeout(tp,300);setTimeout(tp,1000);setTimeout(tp,2500);setTimeout(tp,5000);setTimeout(tp,8000);
-        function onUi(){tp();document.removeEventListener('touchstart',onUi);document.removeEventListener('click',onUi);document.removeEventListener('scroll',onUi);}
-        document.addEventListener('touchstart',onUi,{once:true,passive:true});
-        document.addEventListener('click',onUi,{once:true,passive:true});
-        document.addEventListener('scroll',onUi,{once:true,passive:true});
-        document.addEventListener('visibilitychange',function(){if(!document.hidden)tp();});
-        if(isTouch){
-          setTimeout(function(){
-            if(!v.paused) return;
-            var wrap=v.closest('section')||v.parentElement;
-            if(!wrap||wrap.querySelector('.video-tap-play')) return;
-            var btn=document.createElement('button');
-            btn.className='video-tap-play';
-            btn.setAttribute('aria-label','Play video');
-            wrap.appendChild(btn);
-            btn.addEventListener('click',function(e){
-              e.stopPropagation();
-              v.play().then(function(){btn.remove();}).catch(function(){});
-            },{once:true});
-            v.addEventListener('playing',function(){btn.remove();},{once:true});
-          },4000);
-        }
-      });
-    }
-    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',forcePlay);
-    else forcePlay();
-  })();
-  </script>
 </body>
 </html>

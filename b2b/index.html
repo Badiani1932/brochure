@@ -73,9 +73,11 @@
       position:relative;
       min-height:70vh;
       display:flex;
-      align-items:flex-end;
+      flex-direction:column;
+      align-items:flex-start;
+      justify-content:flex-end;
       padding:48px 52px;
-      gap:24px;
+      gap:12px;
       margin:0;
       background:#000;
       overflow:hidden;
@@ -106,7 +108,7 @@
     }
     .page-hero__label{
       display:block;
-      font-size:clamp(13px, 1.2vw, 16px);
+      font-size:clamp(17px, 1.6vw, 20px);
       text-transform:uppercase;
       letter-spacing:3px;
       font-weight:400;
@@ -124,9 +126,10 @@
       color:#fff;
       text-shadow:none;
       flex-shrink:0;
+      max-width:8em;
     }
     .page-hero p{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.85);
       line-height:1.5;
       max-width:280px;
@@ -331,7 +334,7 @@
     }
     .category-label{
       display:block;
-      font-size:clamp(10px, 4cqi, 19px);
+      font-size:clamp(12px, 4.3cqi, 21px);
       text-transform:uppercase;
       letter-spacing:clamp(1px, 0.6cqi, 3px);
       font-weight:400;
@@ -373,7 +376,7 @@
       background:var(--badiani-blue);
       color:#fff;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(10px, 3cqi, 13px);
+      font-size:clamp(12px, 3.3cqi, 15px);
       text-transform:uppercase;
       letter-spacing:1.5px;
       font-weight:700;
@@ -702,7 +705,7 @@
       border:none;
       border-bottom:2px solid transparent;
       background:transparent;
-      font-size:13px;
+      font-size:16px;
       letter-spacing:1px;
       text-transform:uppercase;
       color:rgba(30,57,141,0.5);
@@ -754,26 +757,6 @@
     .pezziduri-grid-stage[hidden]{
       display:none !important;
     }
-    .modal__content.is-pezziduri.is-pezziduri-overlay{
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:0;
-      scrollbar-width:none;
-      -ms-overflow-style:none;
-    }
-    .modal__content.is-pezziduri.is-pezziduri-overlay::-webkit-scrollbar{
-      display:none;
-    }
-    .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-hero-overlay{
-      margin:0;
-      width:100%;
-      height:100%;
-    }
-    .modal__content.is-pezziduri.is-pezziduri-overlay .pezziduri-note{
-      display:none;
-    }
     .modal__select{
       display:none;
       width:100%;
@@ -781,7 +764,7 @@
       padding:8px 10px;
       border-radius:0;
       border:1px solid rgba(30,57,141,0.12);
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:1px;
       color:var(--badiani-blue);
@@ -791,26 +774,26 @@
     .modal__section h4{ font-size:27px; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px; color:var(--badiani-pink); }
     .modal__section h4.map-overlay-title{ font-size:27px; }
     .modal__section p,
-    .modal__section li{ font-size:14px; color:rgba(30,57,141,0.65); text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif; }
+    .modal__section li{ font-size:16px; color:rgba(30,57,141,0.65); text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .modal__grid{ display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; }
     .modal__card{ background:#fff; border-radius:0; padding:12px; border:1px solid rgba(0,0,0,0.08); color:var(--badiani-blue); }
     .modal__cta{ display:flex; justify-content:flex-end; }
     .modal__cta .cta-button{ background:var(--badiani-blue); color:#fff; border:1px solid var(--badiani-blue); }
 
     .modal__table-wrap{ overflow:auto; border-radius:0; border:1px solid rgba(30,57,141,0.08); background:#fff; }
-    .modal__table{ width:100%; border-collapse:collapse; font-size:13px; color:rgba(30,57,141,0.75); }
+    .modal__table{ width:100%; border-collapse:collapse; font-size:16px; color:rgba(30,57,141,0.75); }
     .modal__table th,
     .modal__table td{ padding:8px 10px; border-bottom:1px solid rgba(30,57,141,0.08); text-align:left; vertical-align:top; }
-    .modal__table th{ background:#fff; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-pink); position:sticky; top:0; z-index:1; }
+    .modal__table th{ background:#fff; font-size:14px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-pink); position:sticky; top:0; z-index:1; }
     .modal__table td{ text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .modal__table tr:last-child td{ border-bottom:none; }
-    .modal__note{ font-size:12px; color:rgba(30,57,141,0.45); }
+    .modal__note{ font-size:15px; color:rgba(30,57,141,0.45); }
 
     .gelato-showcase{ display:none; gap:20px; }
     .gelato-showcase.is-active{ display:grid; }
     .gelato-header{ display:none; }
     .gelato-header h4{ font-size:16px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-blue); }
-    .gelato-header p{ font-size:14px; color:rgba(30,57,141,0.6); }
+    .gelato-header p{ font-size:16px; color:rgba(30,57,141,0.6); }
     .gelato-controls{ display:none; flex-wrap:wrap; gap:14px; align-items:flex-end; }
     .gelato-control{
       display:flex;
@@ -850,13 +833,13 @@
       appearance:none;
     }
     .gelato-control--search input::placeholder{ color:rgba(30,57,141,0.35); }
-    .gelato-control label{ font-size:11px; text-transform:uppercase; letter-spacing:1px; color:rgba(30,57,141,0.55); }
+    .gelato-control label{ font-size:14px; text-transform:uppercase; letter-spacing:1px; color:rgba(30,57,141,0.55); }
     .gelato-control select,
     .gelato-control input{
       border:1px solid rgba(30,57,141,0.15);
       border-radius:0;
       padding:10px 12px;
-      font-size:13px;
+      font-size:16px;
       font-family:inherit;
       color:var(--badiani-blue);
       background:#fff;
@@ -908,7 +891,7 @@
        Do NOT change to .gelato-card span — that would override allergen pills (.gelato-card__exp-tag)
        because .gelato-card span has specificity (0,1,1) which beats .gelato-card__exp-tag (0,1,0). */
     .gelato-card > span{
-      font-size:13px;
+      font-size:16px;
       font-weight:600;
       letter-spacing:0.6px;
       padding:8px 10px;
@@ -995,7 +978,7 @@
       overflow-y:auto;
       flex:0 0 auto;
       min-height:0;
-      font-size:12px;
+      font-size:15px;
       opacity:0;
       transform:translateY(6px);
       transition:opacity 0.18s ease, transform 0.18s ease;
@@ -1005,9 +988,9 @@
       transform:translateY(0);
     }
     .gelato-card__details .gelato-section-title{ margin-bottom:2px; }
-    .gelato-card__details .gelato-list{ font-size:11px; color:rgba(30,57,141,0.65); }
+    .gelato-card__details .gelato-list{ font-size:14px; color:rgba(30,57,141,0.65); }
     .gelato-card__details .gelato-flags{ gap:4px; }
-    .gelato-card__details .gelato-flag{ padding:4px 8px; font-size:11px; }
+    .gelato-card__details .gelato-flag{ padding:4px 8px; font-size:14px; }
     /* === Expanded gelato card — overlays bottom of card in place === */
     .gelato-card__exp-body{
       position:absolute;
@@ -1040,7 +1023,7 @@
       width:100%;
     }
     .gelato-card__exp-category{
-      font-size:9px;
+      font-size:13px;
       color:var(--badiani-pink);
       text-transform:uppercase;
       letter-spacing:2px;
@@ -1060,14 +1043,14 @@
       display:none;
     }
     .gelato-card__exp-section-label{
-      font-size:12px;
+      font-size:15px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .gelato-card__exp-desc{
-      font-size:15px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskA',sans-serif;
@@ -1085,7 +1068,7 @@
       color:var(--badiani-blue) !important;
       border-radius:0;
       padding:2px 8px !important;
-      font-size:12px !important;
+      font-size:15px !important;
       font-weight:400 !important;
       text-transform:uppercase !important;
       letter-spacing:0.2px !important;
@@ -1110,7 +1093,7 @@
       border:1px solid rgba(30,57,141,0.2);
       background:#fff;
       color:var(--badiani-blue);
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:1px;
       font-weight:600;
@@ -1175,7 +1158,7 @@
       flex:1;
     }
     .tipologia-title{
-      font-size:13px;
+      font-size:16px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
@@ -1215,7 +1198,7 @@
       line-height:1.2;
     }
     .tipologia-card__exp-capacity{
-      font-size:15px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskA',sans-serif;
@@ -1244,7 +1227,7 @@
     @media(max-width:720px){
       .tipologia-media{ aspect-ratio:1 / 1; }
       .tipologia-body{ padding:6px 6px 8px; }
-      .tipologia-title{ font-size:11px; letter-spacing:0.3px; }
+      .tipologia-title{ font-size:14px; letter-spacing:0.3px; }
     }
 
     /* -- Formato Acquisto scroll button -- */
@@ -1311,7 +1294,7 @@
       text-align:center;
     }
     .coni-title{
-      font-size:13px;
+      font-size:17px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
@@ -1322,7 +1305,7 @@
     .coni-meta{
       display:none;
       gap:6px;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
     }
     .coni-card.is-expanded .coni-meta{
@@ -1348,7 +1331,7 @@
       border-radius:0;
       background:transparent;
       color:var(--badiani-green);
-      font-size:11px;
+      font-size:15px;
       font-weight:600;
       letter-spacing:0.5px;
       text-transform:uppercase;
@@ -1360,7 +1343,7 @@
     .coni-gf-btn .gf-chevron{
       display:inline-block;
       transition:transform 0.25s ease;
-      font-size:10px;
+      font-size:15px;
     }
     .coni-card.is-expanded .coni-gf-btn{
       display:inline-flex;
@@ -1373,7 +1356,7 @@
       padding:10px 12px;
       background:rgba(111,124,74,0.1);
       border-radius:0;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.7);
     }
     .coni-gf-details.is-visible{ display:block; }
@@ -1452,7 +1435,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:13px;
+      font-size:17px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:6px 14px 6px 10px;
@@ -1498,7 +1481,7 @@
     }
     .coppette-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.45);
       margin:6px 0 0;
       padding:0;
@@ -1555,7 +1538,7 @@
     .coppette-detail-meta{
       display:grid;
       gap:8px;
-      font-size:15px;
+      font-size:18px;
       line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
@@ -1605,14 +1588,14 @@
         font-size:16px;
       }
       .coppette-detail-meta{
-        font-size:12px;
+        font-size:16px;
         gap:2px;
       }
       .coppette-detail-meta span{
         padding:3px 6px;
       }
       .coppette-zone-label{
-        font-size:10px;
+        font-size:15px;
         padding:4px 8px 4px 6px;
         bottom:4px;
         gap:3px;
@@ -1680,7 +1663,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:13px;
+      font-size:17px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:6px 14px 6px 10px;
@@ -1718,7 +1701,7 @@
     }
     .coni-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.45);
       margin:6px 0 0;
       padding:0;
@@ -1774,7 +1757,7 @@
     .coni-detail-meta{
       display:grid;
       gap:8px;
-      font-size:15px;
+      font-size:18px;
       line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
@@ -1824,14 +1807,14 @@
         font-size:16px;
       }
       .coni-detail-meta{
-        font-size:12px;
+        font-size:16px;
         gap:2px;
       }
       .coni-detail-meta span{
         padding:3px 6px;
       }
       .coni-zone-label{
-        font-size:10px;
+        font-size:15px;
         padding:4px 8px 4px 6px;
         bottom:4px;
         gap:3px;
@@ -1908,7 +1891,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:13px;
+      font-size:17px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:6px 14px 6px 10px;
@@ -1939,7 +1922,7 @@
     }
     .conigf-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.45);
       margin:4px 0;
       padding:0;
@@ -1995,7 +1978,7 @@
     .conigf-detail-meta{
       display:grid;
       gap:8px;
-      font-size:15px;
+      font-size:18px;
       line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
@@ -2045,14 +2028,14 @@
         font-size:16px;
       }
       .conigf-detail-meta{
-        font-size:12px;
+        font-size:16px;
         gap:2px;
       }
       .conigf-detail-meta span{
         padding:3px 6px;
       }
       .conigf-zone-label{
-        font-size:10px;
+        font-size:15px;
         padding:4px 8px 4px 6px;
         bottom:6px;
         gap:3px;
@@ -2122,7 +2105,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:13px;
+      font-size:17px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:5px 12px 5px 8px;
@@ -2153,7 +2136,7 @@
     }
     .accessori-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.45);
       margin:6px 0 0;
       padding:0;
@@ -2205,7 +2188,7 @@
     .accessori-detail-meta{
       display:grid;
       gap:8px;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
     }
     .accessori-detail-meta span{
@@ -2249,14 +2232,14 @@
         font-size:16px;
       }
       .accessori-detail-meta{
-        font-size:12px;
+        font-size:16px;
         gap:4px;
       }
       .accessori-detail-meta span{
         padding:5px 8px;
       }
       .accessori-zone-label{
-        font-size:10px;
+        font-size:15px;
         padding:3px 6px 3px 4px;
         bottom:4px;
         gap:2px;
@@ -2277,7 +2260,7 @@
       gap:6px 24px;
     }
     .vasche-flavor{
-      font-size:13px;
+      font-size:17px;
       color:rgba(30,57,141,0.7);
       padding:5px 0;
       border-bottom:1px solid rgba(30,57,141,0.08);
@@ -2285,9 +2268,9 @@
       letter-spacing:0.6px;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .gelato-section-title{ font-size:12px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-pink); margin-bottom:8px; }
+    .gelato-section-title{ font-size:15px; text-transform:uppercase; letter-spacing:1px; color:var(--badiani-pink); margin-bottom:8px; }
     .gelato-grid > .gelato-category-title:first-child{ margin-top:0; }
-    .gelato-list{ display:grid; gap:6px; font-size:13px; color:rgba(30,57,141,0.7); text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif; }
+    .gelato-list{ display:grid; gap:6px; font-size:16px; color:rgba(30,57,141,0.7); text-transform:uppercase; letter-spacing:0.6px; font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif; }
     .gelato-flags{ display:grid; gap:8px; }
     .gelato-flag{
       display:flex;
@@ -2296,13 +2279,13 @@
       padding:8px 10px;
       border-radius:0;
       background:transparent;
-      font-size:12px;
+      font-size:15px;
       color:rgba(30,57,141,0.7);
       text-transform:uppercase;
       letter-spacing:0.6px;
       font-family:'SuperGroteskA', 'SuperGroteskC', 'SuperGroteskB', sans-serif;
     }
-    .gelato-empty{ font-size:13px; color:rgba(30,57,141,0.5); text-align:center; padding:12px; }
+    .gelato-empty{ font-size:16px; color:rgba(30,57,141,0.5); text-align:center; padding:12px; }
 
     .fullscreen-overlay{
       position:fixed;
@@ -2506,85 +2489,6 @@
       grid-auto-flow:dense;
     }
 
-    /* Monoporzioni hero overlay – full-bleed */
-    .pezziduri-hero-overlay{
-      position:relative;
-      cursor:pointer;
-      overflow:hidden;
-      animation:pezziduri-fadeIn 0.4s ease;
-      margin:0;
-      width:100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-    .pezziduri-hero-overlay img{
-      display:block;
-      width:100%;
-      height:100%;
-      object-fit:contain;
-      object-position:center center;
-    }
-    @media(min-width:769px){
-      .pezziduri-hero-overlay{
-        margin:0;
-        width:100%;
-        height:100%;
-        max-height:none;
-        overflow:visible;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-      }
-      .pezziduri-hero-overlay img{
-        width:auto;
-        max-width:100%;
-        height:100%;
-        max-height:none;
-        object-fit:contain;
-        object-position:center center;
-      }
-    }
-    @media(max-width:1024px){
-      .pezziduri-hero-overlay{
-        margin:0;
-        width:100%;
-        height:100%;
-      }
-    }
-    @media(max-width:768px){
-      .pezziduri-hero-overlay{
-        margin:0;
-        width:100%;
-        height:100%;
-      }
-      .pezziduri-hero-overlay img{
-        width:100%;
-        height:100%;
-        margin-left:0;
-        object-fit:contain;
-      }
-    }
-    .pezziduri-hero-overlay .pezziduri-hero-tap{
-      position:absolute;
-      bottom:16px;
-      left:50%;
-      transform:translateX(-50%);
-      background:rgba(30,57,141,0.85);
-      color:#fff;
-      font-size:clamp(0.75rem,1.6vw,0.95rem);
-      padding:8px 22px;
-      border-radius:0;
-      -webkit-backdrop-filter:blur(6px);
-      backdrop-filter:blur(6px);
-      pointer-events:none;
-      white-space:nowrap;
-      animation:pezziduri-pulse 2s ease-in-out infinite;
-    }
-    @keyframes pezziduri-fadeIn{ from{opacity:0;transform:scale(1.02)} to{opacity:1;transform:scale(1)} }
-    @keyframes pezziduri-pulse{ 0%,100%{opacity:.85} 50%{opacity:1} }
-
     /* -- Staggered card entrance -- */
     @keyframes cardStaggerIn{
       from{ opacity:0; transform:translateY(8px); }
@@ -2653,7 +2557,7 @@
     }
     .pezziduri-card.is-expanded > .pezziduri-body > .pezziduri-title{ opacity:0; pointer-events:none; }
     .pezziduri-title{
-      font-size:13px;
+      font-size:17px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
@@ -2712,14 +2616,14 @@
       display:none;
     }
     .pezziduri-card__exp-section-label{
-      font-size:12px;
+      font-size:15px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .pezziduri-card__exp-desc{
-      font-size:15px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskA',sans-serif;
@@ -2730,7 +2634,7 @@
       color:var(--badiani-blue) !important;
       border-radius:0;
       padding:2px 8px !important;
-      font-size:12px !important;
+      font-size:15px !important;
       font-weight:400 !important;
       text-transform:uppercase !important;
       letter-spacing:0.2px !important;
@@ -2751,7 +2655,7 @@
       color:var(--badiani-blue);
       border-radius:0;
       padding:2px 8px;
-      font-size:12px;
+      font-size:15px;
       font-weight:400;
       text-transform:uppercase;
       letter-spacing:0.2px;
@@ -2773,7 +2677,7 @@
       }
     }
     .pezziduri-note{
-      font-size:12px;
+      font-size:16px;
       color:rgba(255,255,255,0.4);
       margin-top:6px;
     }
@@ -2832,7 +2736,7 @@
     }
     .accessori-card.is-expanded > .accessori-body > .accessori-title{ opacity:0; pointer-events:none; }
     .accessori-title{
-      font-size:13px;
+      font-size:17px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
@@ -2891,14 +2795,14 @@
       display:none;
     }
     .accessori-card__exp-section-label{
-      font-size:12px;
+      font-size:15px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:rgba(30,57,141,0.4);
       margin-bottom:0;
     }
     .accessori-card__exp-desc{
-      font-size:15px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
       line-height:1.4;
       font-family:'SuperGroteskA',sans-serif;
@@ -2916,7 +2820,7 @@
       color:var(--badiani-blue);
       border-radius:0;
       padding:2px 8px;
-      font-size:12px;
+      font-size:15px;
       font-weight:400;
       text-transform:uppercase;
       letter-spacing:0.2px;
@@ -2924,7 +2828,7 @@
       line-height:1.5;
     }
     .accessori-card__exp-measures{
-      font-size:14px;
+      font-size:16px;
       color:rgba(30,57,141,0.65);
       font-family:'SuperGroteskA',sans-serif;
       margin-top:4px;
@@ -2934,7 +2838,7 @@
       font-weight:600;
       text-transform:uppercase;
       letter-spacing:1px;
-      font-size:12px;
+      font-size:15px;
       margin-right:4px;
     }
     .accessori-card__exp-meta strong{
@@ -2974,7 +2878,7 @@
       left:12px;
       background:rgba(30,57,141,0.85);
       color:#fff;
-      font-size:11px;
+      font-size:15px;
       font-weight:700;
       text-transform:uppercase;
       letter-spacing:1.5px;
@@ -3023,7 +2927,7 @@
       margin-bottom:0;
     }
     .torte-set-name{
-      font-size:13px;
+      font-size:17px;
       font-weight:600;
       letter-spacing:0.6px;
       color:var(--badiani-blue);
@@ -3081,7 +2985,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:13px;
+      font-size:17px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:6px 14px 6px 10px;
@@ -3112,7 +3016,7 @@
     }
     .torte-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(255,255,255,0.4);
       margin-top:10px;
       letter-spacing:0.3px;
@@ -3172,7 +3076,7 @@
     .torte-detail-meta{
       display:grid;
       gap:8px;
-      font-size:15px;
+      font-size:18px;
       line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
@@ -3204,7 +3108,7 @@
       gap:6px;
       background:rgba(30,57,141,0.08);
       color:rgba(30,57,141,0.85);
-      font-size:12px;
+      font-size:16px;
       font-weight:600;
       padding:6px 14px;
       border-radius:0;
@@ -3213,7 +3117,7 @@
     }
     .torte-sizes-note{
       text-align:center;
-      font-size:13px;
+      font-size:17px;
       color:rgba(30,57,141,0.7);
       margin:12px 0 4px;
       letter-spacing:0.3px;
@@ -3253,7 +3157,7 @@
         font-size:16px;
       }
       .torte-detail-meta{
-        font-size:12px;
+        font-size:16px;
         gap:2px;
       }
       .torte-detail-meta span{
@@ -3263,11 +3167,11 @@
         gap:6px;
       }
       .torte-size-pill{
-        font-size:10px;
+        font-size:15px;
         padding:4px 10px;
       }
       .torte-zone-label{
-        font-size:10px;
+        font-size:15px;
         padding:4px 8px 4px 6px;
         bottom:4px;
         gap:3px;
@@ -3329,7 +3233,7 @@
       transform:translateX(-50%);
       background:rgba(255,255,255,0.92);
       color:var(--badiani-blue);
-      font-size:13px;
+      font-size:17px;
       font-weight:700;
       letter-spacing:0.5px;
       padding:6px 14px 6px 10px;
@@ -3373,7 +3277,7 @@
     }
     .contenitori-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.45);
       margin:6px 0 0;
       padding:0;
@@ -3381,7 +3285,7 @@
     }
     .torte-hint{
       text-align:center;
-      font-size:12px;
+      font-size:16px;
       color:rgba(30,57,141,0.45);
       margin:6px 0 0;
       padding:0;
@@ -3450,7 +3354,7 @@
     .contenitori-detail-meta{
       display:grid;
       gap:2px;
-      font-size:15px;
+      font-size:18px;
       line-height:1.4;
       color:rgba(30,57,141,0.65);
       width:100%;
@@ -3502,14 +3406,14 @@
         font-size:16px;
       }
       .contenitori-detail-meta{
-        font-size:12px;
+        font-size:16px;
         gap:2px;
       }
       .contenitori-detail-meta span{
         padding:3px 6px;
       }
       .contenitori-zone-label{
-        font-size:10px;
+        font-size:15px;
         padding:4px 8px 4px 6px;
         bottom:4px;
         gap:3px;
@@ -3560,7 +3464,7 @@
       .modal__header{ flex-wrap:wrap; padding:0; align-items:center; }
       .modal__header-actions{ border-left:none; flex-shrink:0; margin-left:auto; }
       .modal__nav{ padding:0 4px; flex:1 1 0%; min-width:0; flex-wrap:wrap; gap:0; justify-content:flex-start; overflow:hidden; }
-      .modal__nav button{ padding:8px 8px; font-size:10px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
+      .modal__nav button{ padding:8px 8px; font-size:13px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
 
       .modal__content{ padding:16px 18px 18px; gap:16px; }
       .coppette-map-wrapper,
@@ -3573,7 +3477,7 @@
       .map-overlay-title{ padding:12px 18px 10px; font-size:24px; }
       .modal__section h4.map-overlay-title{ font-size:24px; }
       .modal__section p,
-      .modal__section li{ font-size:12px; line-height:1.45; }
+      .modal__section li{ font-size:15px; line-height:1.45; }
       .coppette-hint,
       .coni-hint,
       .contenitori-hint,
@@ -3584,7 +3488,7 @@
         padding:0;
         background:transparent;
         border-top:none;
-        font-size:12px;
+        font-size:16px;
         display:block !important;
         visibility:visible !important;
         opacity:1 !important;
@@ -3593,7 +3497,7 @@
       }
       .modal__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); gap:10px; }
       .modal__card{ padding:10px; border-radius:0; }
-      .modal__table{ font-size:12px; }
+      .modal__table{ font-size:15px; }
       .modal__table th,
       .modal__table td{ padding:6px 8px; }
     }
@@ -3631,9 +3535,9 @@
       .gelato-card__exp-body{ padding:10px 12px 10px; gap:4px; max-height:80%; }
       .gelato-card__exp-name{ font-size:16px; letter-spacing:0.8px; }
       .gelato-card__exp-category{ font-size:8px; letter-spacing:1.8px; }
-      .gelato-card__exp-section-label{ font-size:10px; letter-spacing:1px; }
-      .gelato-card__exp-desc{ font-size:13px; line-height:1.35; }
-      .gelato-card__exp-tag{ font-size:10px !important; padding:2px 7px !important; }
+      .gelato-card__exp-section-label{ font-size:13px; letter-spacing:1px; }
+      .gelato-card__exp-desc{ font-size:16px; line-height:1.35; }
+      .gelato-card__exp-tag{ font-size:13px !important; padding:2px 7px !important; }
       .gelato-card__exp-allergens{ gap:3px; }
     }
     @media(prefers-reduced-motion:reduce){
@@ -3641,7 +3545,7 @@
       .gelato-card__exp-body{ animation:none; }
     }
 
-    .notice{ margin-top:10px; font-size:13px; color:rgba(255,255,255,0.4); }
+    .notice{ margin-top:10px; font-size:16px; color:rgba(255,255,255,0.4); }
 
     @media(max-width:1024px){
       .category-grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
@@ -3678,8 +3582,8 @@
         gap:8px;
       }
       .category-title{ font-size:clamp(48px, 12vw, 80px); }
-      .category-label{ font-size:13px; letter-spacing:2px; margin-bottom:10px; }
-      .category-cta{ font-size:12px; letter-spacing:1px; }
+      .category-label{ font-size:17px; letter-spacing:2px; margin-bottom:10px; }
+      .category-cta{ font-size:16px; letter-spacing:1px; }
       .section-title{ font-size:clamp(28px, 8vw, 44px); }
     }
 
@@ -3739,7 +3643,7 @@
       margin-bottom:4px;
     }
     .b2b-form__header p{
-      font-size:14px;
+      font-size:18px;
       color:rgba(255,255,255,0.7);
     }
     .b2b-form__close{
@@ -3780,7 +3684,7 @@
       grid-column:1 / -1;
     }
     .b2b-form__grid label{
-      font-size:11px;
+      font-size:15px;
       text-transform:uppercase;
       letter-spacing:1px;
       color:#6a6b6e;
@@ -3794,7 +3698,7 @@
       border-radius:0;
       padding:10px 12px;
       font-family:inherit;
-      font-size:13px;
+      font-size:17px;
       background:#f8f9fc;
       color:#4a4f57;
       transition:border-color 0.3s;
@@ -3821,7 +3725,7 @@
       display:flex;
       align-items:center;
       gap:6px;
-      font-size:12px;
+      font-size:16px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -3842,7 +3746,7 @@
       accent-color:var(--badiani-blue);
     }
     .b2b-form__section-label{
-      font-size:13px;
+      font-size:17px;
       font-weight:600;
       text-transform:uppercase;
       letter-spacing:1.5px;
@@ -3864,7 +3768,7 @@
       display:flex;
       align-items:flex-start;
       gap:8px;
-      font-size:12px;
+      font-size:16px;
       color:#6a6b6e;
     }
     .b2b-form__actions .fm-privacy input{
@@ -3881,7 +3785,7 @@
       color:#fff;
       padding:12px 30px;
       border-radius:0;
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:2px;
       font-family:'SuperGroteskA',sans-serif;
@@ -3911,7 +3815,7 @@
       padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
     }
     .b2b-terms__label{
-      font-size:clamp(11px, 1vw, 14px);
+      font-size:clamp(15px, 1.4vw, 18px);
       letter-spacing:3px;
       text-transform:uppercase;
       color:rgba(255,255,255,0.5);
@@ -3939,7 +3843,7 @@
       border-top:1px solid rgba(255,255,255,0.15);
     }
     .b2b-terms__item-label{
-      font-size:clamp(11px, 0.9vw, 13px);
+      font-size:clamp(15px, 1.3vw, 17px);
       text-transform:uppercase;
       letter-spacing:2px;
       color:var(--badiani-pink);
@@ -3948,7 +3852,7 @@
       display:block;
     }
     .b2b-terms__item-value{
-      font-size:clamp(14px, 1.1vw, 16px);
+      font-size:clamp(18px, 1.5vw, 20px);
       color:rgba(255,255,255,0.85);
       line-height:1.7;
       font-weight:300;
@@ -4054,12 +3958,12 @@
       font-size:clamp(36px, 4vw, 56px);
     }
     .b2b-steps-sidebar .b2b-step__title{
-      font-size:clamp(15px, 1.4vw, 20px);
+      font-size:clamp(19px, 1.8vw, 24px);
       letter-spacing:1.5px;
       margin-bottom:6px;
     }
     .b2b-steps-sidebar .b2b-step__desc{
-      font-size:clamp(13px, 1.1vw, 15px);
+      font-size:clamp(17px, 1.5vw, 19px);
       line-height:1.6;
     }
     .b2b-steps-sidebar .b2b-step::before{
@@ -4080,7 +3984,7 @@
       margin-bottom:8px;
     }
     .b2b-form-block__header p{
-      font-size:clamp(14px, 1.2vw, 17px);
+      font-size:clamp(18px, 1.6vw, 21px);
       color:rgba(255,255,255,0.75);
     }
     .b2b-form-block__body{
@@ -4100,7 +4004,7 @@
       grid-column:1 / -1;
     }
     .b2b-inline-grid label{
-      font-size:12px;
+      font-size:16px;
       text-transform:uppercase;
       letter-spacing:1.2px;
       color:#6a6b6e;
@@ -4114,7 +4018,7 @@
       border-radius:0;
       padding:12px 14px;
       font-family:inherit;
-      font-size:14px;
+      font-size:18px;
       background:#f8f9fc;
       color:#4a4f57;
       transition:border-color 0.3s, box-shadow 0.3s;
@@ -4144,7 +4048,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:14px;
+      font-size:18px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -4165,7 +4069,7 @@
       display:flex;
       align-items:center;
       gap:8px;
-      font-size:14px;
+      font-size:18px;
       font-weight:400;
       text-transform:none;
       letter-spacing:0;
@@ -4191,7 +4095,7 @@
       display:flex;
       align-items:flex-start;
       gap:10px;
-      font-size:13px;
+      font-size:17px;
       color:#6a6b6e;
     }
     .b2b-form-actions .bf-privacy input{
@@ -4209,7 +4113,7 @@
       color:#fff;
       padding:14px 36px;
       border-radius:0;
-      font-size:13px;
+      font-size:17px;
       text-transform:uppercase;
       letter-spacing:2px;
       font-family:inherit;
@@ -4304,7 +4208,7 @@
       letter-spacing:0.5px;
     }
     .listino-pw-box p{
-      font-size:13px;
+      font-size:17px;
       color:#666;
       margin:0 0 20px;
       line-height:1.4;
@@ -4338,7 +4242,7 @@
     }
     .listino-pw-error{
       color:#d44;
-      font-size:12px;
+      font-size:16px;
       margin-top:8px;
       min-height:18px;
     }
@@ -4354,7 +4258,7 @@
       border:none;
       cursor:pointer;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:14px;
+      font-size:18px;
       font-weight:600;
       letter-spacing:0.3px;
       transition:background 0.2s, transform 0.15s;
@@ -4428,7 +4332,7 @@
     }
     .listino-header__subtitle{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:15px;
+      font-size:18px;
       color:rgba(255,255,255,0.85);
       letter-spacing:0.3px;
       margin:0 0 0 12px;
@@ -4467,7 +4371,7 @@
       color:rgba(255,255,255,0.6);
       padding:10px 18px;
       font-family:'SuperGroteskA','SuperGroteskC','SuperGroteskB',sans-serif;
-      font-size:14px;
+      font-size:18px;
       letter-spacing:0.4px;
       text-transform:uppercase;
       white-space:nowrap;
@@ -4510,14 +4414,14 @@
     }
     .listino-section__banner-title{
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:clamp(15px,1.6vw,18px);
+      font-size:clamp(19px, 2.0vw, 22px);
       letter-spacing:0.5px;
       text-transform:uppercase;
       margin:0;
     }
     .listino-section__banner-note{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:14px;
+      font-size:18px;
       color:rgba(255,255,255,0.75);
       white-space:nowrap;
     }
@@ -4543,7 +4447,7 @@
       background:rgba(30,57,141,0.06);
       color:var(--badiani-blue,#1e398d);
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:clamp(13px, 1vw, 14px);
+      font-size:clamp(17px, 1.4vw, 18px);
       letter-spacing:0.8px;
       text-transform:uppercase;
       padding:13px 16px;
@@ -4581,7 +4485,7 @@
     .listino-table .listino-flavor small{
       display:block;
       font-weight:400;
-      font-size:clamp(14px, 1.1vw, 15px);
+      font-size:clamp(18px, 1.5vw, 19px);
       color:#777;
       margin-top:3px;
     }
@@ -4593,7 +4497,7 @@
       background:rgba(240,103,166,0.08);
       color:var(--badiani-pink,#f067a6);
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:15px;
+      font-size:18px;
       letter-spacing:0.6px;
       text-transform:uppercase;
       padding:10px 16px;
@@ -4606,7 +4510,7 @@
     }
     .listino-carretto-extra{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(13px,1.1vw,15px);
+      font-size:clamp(17px, 1.5vw, 19px);
       color:var(--badiani-gray,#58595b);
       margin:0 0 10px;
       line-height:1.5;
@@ -4665,7 +4569,7 @@
     }
     .pers-card__desc{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:15px;
+      font-size:18px;
       color:var(--badiani-gray,#58595b);
       line-height:1.5;
       margin:0 0 16px;
@@ -4683,7 +4587,7 @@
     .pers-detail__label{
       display:block;
       font-family:'SuperGroteskB','SuperGroteskC',sans-serif;
-      font-size:11px;
+      font-size:15px;
       text-transform:uppercase;
       letter-spacing:1px;
       color:var(--badiani-blue,#1e398d);
@@ -4691,7 +4595,7 @@
     }
     .pers-detail__value{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:15px;
+      font-size:18px;
       color:var(--badiani-gray,#58595b);
       line-height:1.45;
     }
@@ -4766,15 +4670,15 @@
       .listino-modal{ width:100%; max-height:100vh; border-radius:0; }
       .listino-header{ border-radius:0; padding:16px 16px 0; }
       .listino-section{ padding:16px 14px 24px; }
-      .listino-tab{ padding:8px 14px; font-size:13px; }
+      .listino-tab{ padding:8px 14px; font-size:17px; }
       .listino-shipping-grid{ grid-template-columns:1fr; }
       .listino-header__subtitle{ display:none; }
       .listino-table{ font-size:16px; }
-      .listino-table th{ font-size:13px; padding:10px 12px; }
+      .listino-table th{ font-size:17px; padding:10px 12px; }
       .listino-table td{ padding:10px 12px; }
       .listino-table .listino-price{ font-size:16px; }
       .listino-table .listino-flavor{ font-size:16px; }
-      .listino-table .listino-flavor small{ font-size:14px; }
+      .listino-table .listino-flavor small{ font-size:18px; }
     }
     @media(prefers-reduced-motion:reduce){
       .listino-pw-input.is-error{ animation:none; }
@@ -4797,6 +4701,17 @@
             <a href="../eventi/evento-esterno/" data-i18n="nav.eventi.esterno">Badiani dove vuoi</a>
             <a href="../eventi/" data-i18n="nav.eventi.gelatovan">Gelato Van</a>
             <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
+          </div>
+        </div>
+        <div class="topbar__dropdown">
+          <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+          <div class="topbar__dropdown-menu">
+            <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+            <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+            <a href="../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+            <a href="../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+            <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+            <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
           </div>
         </div>
         <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
@@ -4841,6 +4756,20 @@
         <a href="../eventi/experience/" data-i18n="nav.eventi.experience">Experience</a>
       </div>
     </div>
+    <div class="topbar__mobile-group">
+      <div class="topbar__mobile-group-header">
+        <a href="../b2b/" data-i18n="nav.b2b">B2B</a>
+        <button class="topbar__mobile-group-toggle" aria-expanded="false" aria-label="Espandi"><svg width="10" height="7" viewBox="0 0 10 7" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+      <div class="topbar__mobile-group-items">
+        <a href="../b2b/?cat=GELATO" data-i18n="nav.b2b.gusti">Gusti</a>
+        <a href="../b2b/?cat=PEZZI%20DURI" data-i18n="nav.b2b.monoporzioni">Monoporzioni</a>
+        <a href="../b2b/?cat=TORTE" data-i18n="nav.b2b.torte">Torte</a>
+        <a href="../b2b/?cat=CONI_COPPETTE" data-i18n="nav.b2b.coni">Coni &amp; Coppette</a>
+        <a href="../b2b/?cat=ACCESSORI" data-i18n="nav.b2b.accessori">Accessori</a>
+        <a href="../b2b/?cat=CONTENITORI" data-i18n="nav.b2b.contenitori">Contenitori</a>
+      </div>
+    </div>
     <a href="../magazine/" data-i18n="nav.magazine">Dicono di Noi</a>
     <div class="topbar__mobile-lang">
       <button class="topbar__mobile-lang-btn" data-lang="it" data-i18n="lang.it">IT</button>
@@ -4856,9 +4785,9 @@
         <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4">
       </video>
       <div class="page-hero__heading-group">
-        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">B2B</h1>
+        <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">Esperienze B2B su misura</h1>
       </div>
-      <p data-i18n="b2b.hero.subtitle">Esperienze B2B su misura: dal corporate all'hospitality, un'unica regia per eventi, travel e partnership</p>
+      <p data-i18n="b2b.hero.subtitle">dal corporate all'hospitality, un'unica regia per eventi, travel e partnership</p>
     </section>
 
     <section class="b2b-categories-section" data-i18n-attr="aria-label:b2b.areas.label">
@@ -5448,8 +5377,11 @@
                 <tr><td class="listino-flavor">Donut verde</td><td class="listino-price">€ 2,50</td><td class="listino-col-center">90 g</td><td class="listino-col-center">16</td></tr>
                 <tr><td class="listino-flavor">Lingotto</td><td class="listino-price">€ 2,00</td><td class="listino-col-center">60 g</td><td class="listino-col-center">96</td></tr>
                 <tr><td class="listino-flavor">Zampa</td><td class="listino-price">€ 3,00</td><td class="listino-col-center">110 g</td><td class="listino-col-center">16</td></tr>
-                <tr><td class="listino-flavor">Mini coni</td><td class="listino-price">€ 1,00</td><td class="listino-col-center">20 g</td><td class="listino-col-center">30</td></tr>
+                <tr><td class="listino-flavor">Mini coni</td><td class="listino-price">€ 1,10</td><td class="listino-col-center">20 g</td><td class="listino-col-center">30</td></tr>
                 <tr><td class="listino-flavor">Mini Zuccotto</td><td class="listino-price">€ 3,00</td><td class="listino-col-center">100 g</td><td class="listino-col-center">12</td></tr>
+                <tr><td class="listino-flavor">Ministecchi</td><td class="listino-price">€ 1,60</td><td class="listino-col-center">—</td><td class="listino-col-center">—</td></tr>
+                <tr><td class="listino-flavor">Tiramisù monoporzione</td><td class="listino-price">€ 3,00</td><td class="listino-col-center">—</td><td class="listino-col-center">—</td></tr>
+                <tr><td class="listino-flavor">Sacher monoporzione</td><td class="listino-price">€ 3,30</td><td class="listino-col-center">—</td><td class="listino-col-center">—</td></tr>
               </tbody>
             </table>
           </div>
@@ -5715,6 +5647,13 @@
           'nav.eventi.esterno': 'Badiani dove vuoi',
           'nav.eventi.gelatovan': 'Gelato Van',
           'nav.eventi.experience': 'Experience',
+          'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Gusti',
+          'nav.b2b.monoporzioni': 'Monoporzioni',
+          'nav.b2b.torte': 'Torte',
+          'nav.b2b.coni': 'Coni & Coppette',
+          'nav.b2b.accessori': 'Accessori',
+          'nav.b2b.contenitori': 'Contenitori',
           'nav.magazine': 'Dicono di Noi',
           'footer.nav': 'Navigazione',
           'footer.home': 'Home',
@@ -5726,8 +5665,8 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'B2B',
-          'b2b.hero.subtitle': 'Esperienze B2B su misura: dal corporate all\'hospitality, un\'unica regia per eventi, travel e partnership',
+          'b2b.hero.title': 'Esperienze B2B su misura',
+          'b2b.hero.subtitle': 'dal corporate all\'hospitality, un\'unica regia per eventi, travel e partnership',
           'b2b.hero.note': 'Progetti personalizzabili · Collaborazioni su misura · Supporto dedicato',
           'b2b.target.label': 'A chi è dedicato',
           'b2b.target.title': 'A chi è dedicato',
@@ -6097,6 +6036,13 @@
           'nav.eventi.esterno': 'Badiani where you want',
           'nav.eventi.gelatovan': 'Gelato Van',
           'nav.eventi.experience': 'Experience',
+          'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Flavors',
+          'nav.b2b.monoporzioni': 'Single Servings',
+          'nav.b2b.torte': 'Cakes',
+          'nav.b2b.coni': 'Cones & Cups',
+          'nav.b2b.accessori': 'Accessories',
+          'nav.b2b.contenitori': 'Containers',
           'nav.magazine': 'They Say About Us',
           'footer.nav': 'Navigation',
           'footer.home': 'Home',
@@ -6108,8 +6054,8 @@
           'footer.privacy': 'Privacy Policy',
           'footer.cookie': 'Cookie Policy',
           'b2b.hero.label': 'B2B hero',
-          'b2b.hero.title': 'B2B',
-          'b2b.hero.subtitle': 'Tailor-made B2B experiences: from corporate to hospitality, a single direction for events, travel and partnerships',
+          'b2b.hero.title': 'Tailor-made B2B experiences',
+          'b2b.hero.subtitle': 'from corporate to hospitality, a single direction for events, travel and partnerships',
           'b2b.hero.note': 'Customisable projects · Tailor-made collaborations · Dedicated support',
           'b2b.target.label': 'Who it is for',
           'b2b.target.title': 'Who it is for',
@@ -6483,6 +6429,13 @@
           'nav.eventi.esterno': 'Badiani où vous voulez',
           'nav.eventi.gelatovan': 'Gelato Van',
           'nav.eventi.experience': 'Experience',
+          'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Parfums',
+          'nav.b2b.monoporzioni': 'Portions Individuelles',
+          'nav.b2b.torte': 'Gâteaux',
+          'nav.b2b.coni': 'Cônes & Coupes',
+          'nav.b2b.accessori': 'Accessoires',
+          'nav.b2b.contenitori': 'Conteneurs',
           'nav.magazine': 'Ils Parlent de Nous',
           'footer.nav': 'Navigation',
           'footer.home': 'Accueil',
@@ -6494,8 +6447,8 @@
           'footer.privacy': 'Politique de Confidentialité',
           'footer.cookie': 'Politique de Cookies',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'B2B',
-          'b2b.hero.subtitle': 'Expériences B2B sur mesure : du corporate à l’hospitalité, une direction unique pour événements, voyages et partenariats',
+          'b2b.hero.title': 'Expériences B2B sur mesure',
+          'b2b.hero.subtitle': 'du corporate à l’hospitalité, une direction unique pour événements, voyages et partenariats',
           'b2b.hero.note': 'Projets personnalisables · Collaborations sur mesure · Support dédié',
           'b2b.target.label': 'À qui c’est dédié',
           'b2b.target.title': 'À qui c’est dédié',
@@ -6869,6 +6822,13 @@
           'nav.eventi.esterno': 'Badiani donde quieras',
           'nav.eventi.gelatovan': 'Gelato Van',
           'nav.eventi.experience': 'Experience',
+          'nav.b2b': 'B2B',
+          'nav.b2b.gusti': 'Sabores',
+          'nav.b2b.monoporzioni': 'Monoporciones',
+          'nav.b2b.torte': 'Tartas',
+          'nav.b2b.coni': 'Conos y Copas',
+          'nav.b2b.accessori': 'Accesorios',
+          'nav.b2b.contenitori': 'Contenedores',
           'nav.magazine': 'Dicen de Nosotros',
           'footer.nav': 'Navegación',
           'footer.home': 'Inicio',
@@ -6880,8 +6840,8 @@
           'footer.privacy': 'Política de Privacidad',
           'footer.cookie': 'Política de Cookies',
           'b2b.hero.label': 'Hero B2B',
-          'b2b.hero.title': 'B2B',
-          'b2b.hero.subtitle': 'Experiencias B2B a medida: del corporate al hospitality, una única dirección para eventos, travel y partnerships',
+          'b2b.hero.title': 'Experiencias B2B a medida',
+          'b2b.hero.subtitle': 'del corporate al hospitality, una única dirección para eventos, travel y partnerships',
           'b2b.hero.note': 'Proyectos personalizables · Colaboraciones a medida · Soporte dedicado',
           'b2b.target.label': 'A quién va dirigido',
           'b2b.target.title': 'A quién va dirigido',
@@ -7306,6 +7266,9 @@
             ['Ghiacciolo alla menta', '100 g', '20', ''],
             ['Zampa', '150 g', '16', 'uova, latte, soia'],
             ['Mini Coni', '40 g', '24', 'uova, latte, soia, glutine'],
+            ['Ministecchi', '—', '—', 'uova, latte, soia'],
+            ['Tiramisù monoporzione', '—', '—', 'uova, latte, glutine'],
+            ['Sacher monoporzione', '—', '—', 'uova, latte, glutine, soia'],
             ['Zuccotto', '130 g', '12', 'uova, latte, soia, glutine']
           ]
         },
@@ -7792,6 +7755,9 @@
         'Lingotto Buontalenti': 'Lingotto di Buontalenti®',
         'Zuccotto': 'Classico zuccotto fiorentino con inzuppatura leggermente alcolica e ripieno di stracciatella e cioccolata',
         'Mini Coni': 'Miniconi con Buontalenti® glassati con cioccolata fondente',
+        'Ministecchi': 'Mini stecchi di gelato',
+        'Tiramisù monoporzione': 'Tiramisù monoporzione',
+        'Sacher monoporzione': 'Sacher monoporzione',
         'Zampa': 'Stecco a forma di zampetta con Buontalenti® ricoperto di cioccolata fondente'
       };
 
@@ -7812,6 +7778,9 @@
           'Lingotto Buontalenti': 'Buontalenti® ingot',
           'Zuccotto': 'Classic Florentine zuccotto with a lightly alcoholic soaking and filled with stracciatella and chocolate',
           'Mini Coni': 'Mini cones with Buontalenti® glazed in dark chocolate',
+          'Ministecchi': 'Mini gelato bars',
+          'Tiramisù monoporzione': 'Tiramisù single serving',
+          'Sacher monoporzione': 'Sacher single serving',
           'Zampa': 'Paw-shaped Buontalenti® bar coated in dark chocolate'
         },
         fr: {
@@ -7829,6 +7798,9 @@
           'Lingotto Buontalenti': 'Lingot de Buontalenti®',
           'Zuccotto': 'Zuccotto florentin classique avec trempage légèrement alcoolisé et garni de stracciatella et chocolat',
           'Mini Coni': 'Mini-cônes avec Buontalenti® glacés au chocolat noir',
+          'Ministecchi': 'Mini bâtonnets de gelato',
+          'Tiramisù monoporzione': 'Tiramisù portion individuelle',
+          'Sacher monoporzione': 'Sacher portion individuelle',
           'Zampa': 'Bâtonnet en forme de patte avec Buontalenti® enrobé de chocolat noir'
         },
         es: {
@@ -7846,6 +7818,9 @@
           'Lingotto Buontalenti': 'Lingote de Buontalenti®',
           'Zuccotto': 'Clásico zuccotto florentino con remojo ligeramente alcohólico y relleno de stracciatella y chocolate',
           'Mini Coni': 'Mini conos con Buontalenti® glaseados con chocolate negro',
+          'Ministecchi': 'Mini palitos de helado',
+          'Tiramisù monoporzione': 'Tiramisù porción individual',
+          'Sacher monoporzione': 'Sacher porción individual',
           'Zampa': 'Bombón en forma de patita con Buontalenti® bañado en chocolate negro'
         }
       };
@@ -7858,7 +7833,10 @@
           'Stecco Buontalenti': 'Stecco Buontalenti®',
           'Cuore di Buontalenti fondente': 'Cuore di Buontalenti fondente',
           'Cuore Buontalenti e fragola': 'Cuore Buontalenti® e fragola',
-          'Biscotto Buontalenti': 'Biscotto Buontalenti®'
+          'Biscotto Buontalenti': 'Biscotto Buontalenti®',
+          'Ministecchi': 'Ministecchi',
+          'Tiramisù monoporzione': 'Tiramisù monoporzione',
+          'Sacher monoporzione': 'Sacher monoporzione'
         },
         en: {
           'Stecco Buontalenti': 'Buontalenti® Bar',
@@ -7882,7 +7860,10 @@
           'Lingotto Buontalenti': 'Buontalenti® Bar',
           'Lingotto Buontalenti Pistacchio': 'Buontalenti® Pistachio Bar',
           'Lingotto Dolcevita': 'Dolcevita Ingot',
-          'Zampa': 'Paw'
+          'Zampa': 'Paw',
+          'Ministecchi': 'Mini Gelato Bars',
+          'Tiramisù monoporzione': 'Tiramisù Single Serving',
+          'Sacher monoporzione': 'Sacher Single Serving'
         },
         fr: {
           'Stecco Buontalenti': 'Bâtonnet Buontalenti®',
@@ -7906,7 +7887,10 @@
           'Lingotto Buontalenti': 'Lingot Buontalenti®',
           'Lingotto Buontalenti Pistacchio': 'Lingot Buontalenti® Pistache',
           'Lingotto Dolcevita': 'Lingot Dolcevita',
-          'Zampa': 'Patte'
+          'Zampa': 'Patte',
+          'Ministecchi': 'Mini Bâtonnets',
+          'Tiramisù monoporzione': 'Tiramisù Portion Individuelle',
+          'Sacher monoporzione': 'Sacher Portion Individuelle'
         },
         es: {
           'Stecco Buontalenti': 'Bombón Buontalenti®',
@@ -7930,7 +7914,10 @@
           'Lingotto Buontalenti': 'Lingote Buontalenti®',
           'Lingotto Buontalenti Pistacchio': 'Lingote Buontalenti® Pistacho',
           'Lingotto Dolcevita': 'Lingote Dolcevita',
-          'Zampa': 'Patita'
+          'Zampa': 'Patita',
+          'Ministecchi': 'Mini Palitos',
+          'Tiramisù monoporzione': 'Tiramisù Porción Individual',
+          'Sacher monoporzione': 'Sacher Porción Individual'
         }
       };
 
@@ -8201,6 +8188,9 @@
         'Lingotto Dolcevita': '../assets/images/pezziduri/LINGOTTO DOLCEVITA.webp',
         'Zampa': '../assets/images/pezziduri/zampetta.webp',
         'Mini Coni': '../assets/images/pezziduri/miniconi.webp',
+        'Ministecchi': '../assets/images/pezziduri/placeholder-white.webp',
+        'Tiramisù monoporzione': '../assets/images/pezziduri/placeholder-white.webp',
+        'Sacher monoporzione': '../assets/images/pezziduri/placeholder-white.webp',
         'Zuccotto': '../assets/images/pezziduri/zuccotto.webp'
       };
 
@@ -8445,7 +8435,6 @@
       let expandedTorteId = '';
       let selectedTorteMapId = new Set();
       let expandedPezziDuriId = '';
-      let pezziDuriShowOverlay = false;
       let expandedContenitoriId = '';
       let selectedContenitoriMapId = new Set();
       let expandedTipologiaId = '';
@@ -8533,7 +8522,6 @@
         if(gelatoDetail) renderGelatoDetail(null);
         expandedTorteId = '';
         expandedPezziDuriId = '';
-        pezziDuriShowOverlay = false;
         expandedContenitoriId = '';
         expandedTipologiaId = '';
         document.querySelectorAll('#tipologiaContent .tipologia-card__exp-body').forEach(b => b.remove());
@@ -8706,18 +8694,11 @@
           })
           .join('');
 
-        /* -- Hero overlay (shown only on first entry from home) -- */
-        const heroHtml = `
-          <div class="pezziduri-hero-overlay" role="button" tabindex="0" aria-label="${t('b2b.pezziduri.tapOverlay')}">
-            <img src="../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp" alt="Vetrina Monoporzioni Badiani" loading="eager" decoding="async" />
-            <span class="pezziduri-hero-tap">${t('b2b.pezziduri.tapOverlay')}</span>
-          </div>
-        `;
+        /* -- Hero overlay removed -- */
 
         return `
           <div class="modal__section">
-            ${pezziDuriShowOverlay ? heroHtml : ''}
-            <div class="pezziduri-grid-stage"${pezziDuriShowOverlay ? ' hidden' : ''}>
+            <div class="pezziduri-grid-stage">
               <h4>${getCatTitle('PEZZI DURI')}</h4>
               <div class="pezziduri-grid">${cards}</div>
             </div>
@@ -9022,27 +9003,6 @@
       }
 
       function setupPezziDuriZoom(){
-        /* -- Hero overlay click: dismiss and reveal grid -- */
-        const heroOverlay = defaultContent ? defaultContent.querySelector('.pezziduri-hero-overlay') : null;
-        if(heroOverlay){
-          const dismissHero = () => {
-            pezziDuriShowOverlay = false;
-            heroOverlay.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-            heroOverlay.style.opacity = '0';
-            heroOverlay.style.transform = 'scale(0.97)';
-            setTimeout(() => {
-              heroOverlay.remove();
-              if(categoryContent) categoryContent.classList.remove('is-pezziduri-overlay');
-              const stage = defaultContent ? defaultContent.querySelector('.pezziduri-grid-stage') : null;
-              if(stage) stage.removeAttribute('hidden');
-            }, 300);
-          };
-          heroOverlay.addEventListener('click', dismissHero);
-          heroOverlay.addEventListener('keydown', (e) => {
-            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); dismissHero(); }
-          });
-        }
-
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
 
         cards.forEach((card) => {
@@ -9602,7 +9562,6 @@
         if(categoryContent){
           const isPezziDuri = category === 'PEZZI DURI';
           categoryContent.classList.toggle('is-pezziduri', isPezziDuri);
-          categoryContent.classList.toggle('is-pezziduri-overlay', isPezziDuri && pezziDuriShowOverlay);
         }
         const data = CATEGORY_DATA[category];
         if(!data){
@@ -10150,10 +10109,8 @@
         activeCategory = name || categories[0];
         const enteringPezziDuri = activeCategory === 'PEZZI DURI' && previousCategory !== 'PEZZI DURI';
         if(enteringPezziDuri){
-          pezziDuriShowOverlay = true;
           expandedPezziDuriId = '';
         }else if(activeCategory !== 'PEZZI DURI'){
-          pezziDuriShowOverlay = false;
           expandedPezziDuriId = '';
         }
         title.innerHTML = categoryLabel(activeCategory);
@@ -10169,7 +10126,7 @@
         if(defaultContent) defaultContent.style.display = isGelato ? 'none' : '';
         if(isGelato){
           if(categoryContent){
-            categoryContent.classList.remove('is-pezziduri', 'is-pezziduri-overlay');
+            categoryContent.classList.remove('is-pezziduri');
           }
           renderGelatoGrid();
           if(vascheContent){
@@ -10189,7 +10146,6 @@
 
       function openModal(name){
         resetInteractiveSelections();
-        if(name === 'PEZZI DURI') pezziDuriShowOverlay = true;
         setActiveCategory(name || categories[0]);
         modal.classList.add('is-open');
         lockPageScroll(SCROLL_LOCK_KEYS.CATEGORY_MODAL);
@@ -10389,7 +10345,7 @@
         document.querySelectorAll('#b2bInlineForm, #b2bRequestForm').forEach(function(f){
           var fb = document.createElement('p');
           fb.className = 'form-feedback is-success';
-          fb.style.cssText = 'margin-top:12px;font-size:14px;font-weight:600;color:#127c56;';
+          fb.style.cssText = 'margin-top:12px;font-size:18px;font-weight:600;color:#127c56;';
           fb.textContent = 'Invio riuscito! Ti risponderemo al pi\u00f9 presto.';
           f.appendChild(fb);
         });
