@@ -82,7 +82,7 @@
       padding:0;
       text-align:left;
       position:relative;
-      overflow:hidden;
+      overflow:visible;
     }
     .choice-section::before{
       content:'';
@@ -172,7 +172,7 @@
       justify-content:flex-start;
       width:100%;
       height:100%;
-      overflow:hidden;
+      overflow:visible;
     }
     .choice-card__heading-group{
       display:flex;
@@ -282,10 +282,15 @@
     @media(max-width:900px){
       .choice-grid{
         grid-template-columns:1fr;
+        gap:60px;
+      }
+      .choice-section{
+        padding-bottom:40px;
       }
       .choice-card{
         aspect-ratio:1/1;
         min-height:0;
+        overflow:visible;
       }
       .choice-card__overlay{
         padding:32px 28px;
