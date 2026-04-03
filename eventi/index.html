@@ -63,6 +63,7 @@
     /* EVENT TYPES — 3-column full-bleed grid ===== */
     .ev-types{
       padding:clamp(40px, 6vw, 80px) 0;
+      padding-top:clamp(56px, 8vw, 100px);
       position:relative;
       overflow:visible;
     }
@@ -73,6 +74,7 @@
       grid-template-columns:repeat(4, 1fr);
       gap:0;
       line-height:0;
+      padding-left:clamp(16px, 2vw, 40px);
       padding-right:clamp(16px, 2vw, 40px);
     }
     /* Experience card — photo background */
@@ -249,129 +251,113 @@
     }
     /* no dividers needed — gap:2px provides visual separation */
 
-    /* ===== CORPORATE — split-screen like home world section ===== */
+    /* ===== CORPORATE — full-width stacked layout ===== */
     .ev-corporate{
       padding:0;
       background:none;
     }
-    .ev-corporate__grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:0;
-    }
-    /* Top: compact details panel spanning both columns */
-    .ev-corp-details{
-      background:#fff;
-      padding:clamp(32px, 4vw, 56px) clamp(28px, 3.5vw, 48px) clamp(32px, 4vw, 56px) clamp(40px, 7vw, 100px);
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      grid-template-rows:auto 1fr;
-      gap:0 clamp(40px, 5vw, 80px);
-      align-items:start;
-      border-left:1px solid rgba(30,57,141,0.06);
-      position:relative;
-    }
-    /* Bottom: dark blue info panel spanning full width */
+    /* Blue hero banner */
     .ev-corp-info{
       background:var(--badiani-blue);
       color:#fff;
-      padding:clamp(48px, 6vw, 80px) clamp(32px, 4vw, 56px);
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
+      padding:clamp(48px, 6vw, 80px) clamp(32px, 5vw, 80px);
+      text-align:center;
     }
     .ev-corp-info__label{
       display:block;
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(15px, 1.4vw, 18px);
+      font-size:clamp(13px, 1.2vw, 16px);
       text-transform:uppercase;
-      letter-spacing:3px;
-      color:rgba(255,255,255,0.55);
-      margin-bottom:20px;
+      letter-spacing:4px;
+      color:rgba(255,255,255,0.5);
+      margin-bottom:16px;
       font-weight:400;
     }
     .ev-corp-info__title{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(36px, 4.5vw, 72px);
+      font-size:clamp(32px, 4vw, 64px);
       text-transform:uppercase;
       letter-spacing:3px;
       font-weight:700;
       line-height:0.95;
       margin-bottom:20px;
       color:#fff;
-      text-shadow:none;
     }
     .ev-corp-info__subtitle{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(17px, 1.6vw, 22px);
+      font-size:clamp(18px, 1.6vw, 24px);
       font-weight:300;
       color:rgba(255,255,255,0.85);
-      margin-bottom:16px;
+      margin-bottom:12px;
     }
     .ev-corp-info__desc{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(19px, 1.7vw, 22px);
-      color:rgba(255,255,255,0.7);
+      font-size:clamp(16px, 1.3vw, 19px);
+      color:rgba(255,255,255,0.6);
       line-height:1.7;
-      max-width:500px;
+      max-width:620px;
+      margin:0 auto;
       font-weight:300;
     }
-    .ev-corp-col{
+    /* White details panel below */
+    .ev-corp-details{
+      background:#fff;
       display:grid;
-      grid-template-rows:subgrid;
-      grid-row:1 / -1;
-      padding:0;
+      grid-template-columns:1fr 1fr;
+      gap:0;
+      position:relative;
+    }
+    .ev-corp-col{
+      padding:clamp(32px, 4vw, 56px) clamp(28px, 4vw, 56px);
     }
     .ev-corp-col--customize{
-      padding:0;
-    }
-    .ev-corp-col--ideal{
-      padding:0;
+      border-right:1px solid rgba(30,57,141,0.08);
     }
     .ev-corp-col h3{
       font-family:'SuperGroteskDigits','SuperGroteskB',sans-serif;
-      font-size:clamp(24px, 3vw, 42px);
+      font-size:clamp(20px, 2.2vw, 32px);
       text-transform:uppercase;
       letter-spacing:2px;
       font-weight:700;
-      line-height:0.95;
-      margin:0;
-      padding-bottom:clamp(16px, 2vw, 28px);
+      line-height:1;
+      margin:0 0 clamp(16px, 2vw, 28px);
       color:var(--badiani-blue);
-      align-self:end;
     }
-    .ev-corp-col--ideal h3{ color:var(--badiani-pink); align-self:end; }
+    .ev-corp-col--ideal h3{ color:var(--badiani-pink); }
     .ev-corp-list{
       list-style:none;
-      display:block;
+      display:flex;
+      flex-direction:column;
+      gap:0;
       padding:0;
       margin:0;
     }
     .ev-corp-list li{
       font-family:'SuperGroteskA',sans-serif;
-      font-size:clamp(18px, 1.5vw, 20px);
+      font-size:clamp(15px, 1.3vw, 18px);
       color:#3a3f47;
-      line-height:1.55;
-      padding:clamp(8px, 0.9vw, 12px) 0;
-      border-bottom:none;
+      line-height:1.5;
+      padding:clamp(10px, 1vw, 14px) 0;
+      border-bottom:1px solid rgba(30,57,141,0.06);
       position:relative;
-      cursor:default;
+      padding-left:28px;
     }
-    /* animated underline accent on hover */
-    .ev-corp-list li::after{
+    .ev-corp-list li:last-child{ border-bottom:none; }
+    .ev-corp-list li::before{
       content:'';
       position:absolute;
-      bottom:0;
       left:0;
-      width:0;
-      height:2px;
-      transition:width 0.4s cubic-bezier(0.4,0,0.2,1);
+      top:50%;
+      transform:translateY(-50%);
+      width:16px;
+      height:16px;
+      border-radius:50%;
     }
-    .ev-corp-list li:hover::after{ width:100%; }
-    .ev-corp-col--customize .ev-corp-list li::after{ background:var(--badiani-blue); }
-    .ev-corp-col--ideal .ev-corp-list li::after{ background:var(--badiani-pink); }
-    @media(prefers-reduced-motion:reduce){
-      .ev-corp-list li::after{ transition:none; }
+    .ev-corp-col--customize .ev-corp-list li::before{
+      background:var(--badiani-blue);
+    }
+    .ev-corp-col--ideal .ev-corp-list li::before{
+      background:var(--badiani-pink);
     }
 
     /* ===== GALLERY — dark full-bleed section ===== */
@@ -723,42 +709,36 @@
         grid-template-rows:18% 57% 25%;
       }
     }
-    /* tablet: already 2-col, keep as-is */
+    /* tablet: 2-col grid */
     @media(max-width:1200px){
       .ev-types{
         padding:clamp(48px, 6vw, 80px) 0 120px;
       }
       .ev-types__grid{
         grid-template-columns:repeat(2, 1fr);
-        gap:48px 0;
-        padding-left:clamp(16px, 4vw, 32px);
-        padding-right:clamp(16px, 4vw, 32px);
+        gap:clamp(32px, 5vw, 48px) clamp(8px, 1.5vw, 16px);
+        padding-left:clamp(16px, 3vw, 32px);
+        padding-right:clamp(16px, 3vw, 32px);
       }
       .ev-card{ aspect-ratio:1/1; min-height:0; }
       .ev-card::after{ height:64%; }
       .ev-card__img{ height:64%; }
       .ev-card__overlay{ grid-template-rows:18% 64% 18%; }
-      .ev-card__title{ font-size:clamp(22px, 4.5vw, 48px); letter-spacing:clamp(15px, 0.7vw, 18px); line-height:0.9; }
-      .ev-card__desc{ padding:12px 22px; }
+      .ev-card__title{ font-size:clamp(22px, 3.8vw, 48px); letter-spacing:clamp(1px, 0.3vw, 4px); line-height:0.9; }
+      .ev-card__desc{ padding:10px 16px; font-size:clamp(14px, 1.6vw, 18px); }
+      .ev-card__label{ font-size:clamp(160px, 22vw, 380px); }
     }
     @media(max-width:1024px){
     }
     @media(max-width:900px){
 
-      .ev-corporate__grid{
-        grid-template-columns:1fr;
-      }
       .ev-corp-details{
         grid-template-columns:1fr;
-        grid-template-rows:auto;
-        padding-left:clamp(28px, 3.5vw, 48px);
       }
-      .ev-corp-col{
-        display:block;
-        grid-row:auto;
+      .ev-corp-col--customize{
+        border-right:none;
+        border-bottom:1px solid rgba(30,57,141,0.08);
       }
-      .ev-corp-col--customize{ padding-bottom:clamp(24px, 3vw, 36px); }
-      .ev-corp-col--ideal{ padding-top:clamp(24px, 3vw, 36px); }
 
       .ev-gallery__grid{
         grid-template-columns:repeat(2, 1fr);
@@ -827,63 +807,7 @@
       }
     }
 
-    /* ===== MANOGELATO CHARACTER ===== */
-    .ev-corporate{
-      position:relative;
-      overflow:visible;
-      clip-path:inset(-9999px -9999px 0 -9999px);
-      z-index:1;
-    }
-    .ev-corp-info{
-      position:relative;
-      overflow:visible;
-    }
-    .ev-corporate__manogelato{
-      position:absolute;
-      left:100%;
-      right:auto;
-      bottom:clamp(-140px, -14vw, -100px);
-      height:clamp(398px, 52vh, 733px);
-      max-width:none;
-      object-fit:contain;
-      pointer-events:none;
-      z-index:10;
-      transform:translateX(-50%) translateY(170px) rotate(0deg);
-      transition:transform 0.1s linear;
-      will-change:transform;
-    }
-    @media(max-width:1200px){
-      .ev-corporate__manogelato{
-        height:clamp(315px, 43vh, 576px);
-      }
-    }
-    @media(max-width:900px){
-      .ev-corp-info{
-        position:static;
-      }
-      .ev-corporate__manogelato{
-        height:clamp(386px, 53.8vh, 605px);
-        left:auto;
-        right:-5%;
-        top:0;
-        bottom:auto;
-      }
 
-    }
-    /* mobile-only manogelato in "Ideale per" – hidden by default */
-    .ev-corporate__manogelato-mobile{
-      display:none;
-    }
-
-    @media(max-width:600px){
-      /* keep desktop manogelato visible, same positioning as stacked layout, just smaller */
-      .ev-corporate__manogelato{
-        height:clamp(240px, 40vh, 380px);
-      }
-      .ev-corporate__manogelato-mobile{
-        display:none;
-      }
-    }
 
     .ev-form-block{
       position:relative;
@@ -893,8 +817,7 @@
     /* ===== prefers-reduced-motion ===== */
     @media(prefers-reduced-motion: reduce){
       .ev-card__img,
-      .ev-gallery__photo img,
-      .ev-corporate__manogelato{
+      .ev-gallery__photo img{
         transition:none !important;
         transform:none !important;
       }
@@ -1003,21 +926,21 @@
         <img class="ev-card__img" src="../assets/images/migrated/eventi/foto%20eventi/4.webp" alt="Saletta privata Tosinghi" loading="lazy" decoding="async" width="4000" height="2668" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.tosinghi.title">Saletta Privata Tosinghi</h2>
-          <p class="ev-card__desc"><span data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata con pacchetti su misura.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
+          <p class="ev-card__desc"><span data-i18n="eventi.tosinghi.desc">Il tuo party nella nostra saletta privata.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card" href="./evento-esterno/" data-i18n-attr="aria-label:eventi.external.aria">
         <img class="ev-card__img" src="../assets/images/eventi/carretto_gelato/foto8.jpg" alt="BADIANI DOVE VUOI" loading="lazy" decoding="async" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.external.title">Badiani dove vuoi</h2>
-          <p class="ev-card__desc"><span data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
+          <p class="ev-card__desc"><span data-i18n="eventi.external.desc">Soluzioni mobili per portare Badiani ovunque.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card" href="#contatti" data-i18n-attr="aria-label:eventi.van.aria">
         <img class="ev-card__img" src="../assets/images/eventi/gelatovan.webp" alt="Gelato Van" loading="lazy" decoding="async" width="1759" height="1467" style="object-position:center top" />
         <div class="ev-card__overlay">
           <h2 class="ev-card__title" data-i18n="eventi.van.card1.title">Gelato Van</h2>
-          <p class="ev-card__desc"><span data-i18n="eventi.van.card1.desc">Van brandizzato con servizio gelato completo e staff dedicato.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
+          <p class="ev-card__desc"><span data-i18n="eventi.van.card1.desc">Van brandizzato con servizio.</span><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9h12M11 4l5 5-5 5"/></svg></p>
         </div>
       </a>
       <a class="ev-card ev-card--experience" href="./experience/" data-i18n-attr="aria-label:eventi.experience.aria">
@@ -1032,36 +955,32 @@
 
   <!-- CORPORATE -->
   <section class="ev-corporate" data-i18n-attr="aria-label:eventi.corporate.label">
-    <div class="ev-corporate__grid">
-      <div class="ev-corp-info">
-        <span class="ev-corp-info__label" data-i18n="eventi.corporate.label">Speciale aziende</span>
-        <h2 class="ev-corp-info__title title-accent title-accent--light" data-i18n="eventi.corporate.title">Evento Aziendale Su Misura</h2>
-        <p class="ev-corp-info__subtitle" data-i18n="eventi.corporate.intro1">Crea un evento unico, pensato intorno al tuo brand</p>
-        <p class="ev-corp-info__desc" data-i18n="eventi.corporate.intro2">Ogni azienda ha un'identit&#224; diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
-        <img class="ev-corporate__manogelato" src="../assets/manogelato.webp" alt="" loading="lazy" decoding="async" aria-hidden="true" />
+    <div class="ev-corp-info">
+      <span class="ev-corp-info__label" data-i18n="eventi.corporate.label">Speciale aziende</span>
+      <h2 class="ev-corp-info__title title-accent title-accent--light" data-i18n="eventi.corporate.title">Evento Aziendale Su Misura</h2>
+      <p class="ev-corp-info__subtitle" data-i18n="eventi.corporate.intro1">Crea un evento unico, pensato intorno al tuo brand</p>
+      <p class="ev-corp-info__desc" data-i18n="eventi.corporate.intro2">Ogni azienda ha un'identit&#224; diversa. Per questo realizziamo eventi personalizzati, studiati su misura in base alle tue esigenze, al contesto e al tipo di pubblico.</p>
+    </div>
+    <div class="ev-corp-details">
+      <div class="ev-corp-col ev-corp-col--customize">
+        <h3 data-i18n="eventi.corporate.custom.title">Cosa possiamo personalizzare</h3>
+        <ul class="ev-corp-list">
+          <li data-i18n="eventi.corporate.custom.item1">Tipologia di servizio gelato</li>
+          <li data-i18n="eventi.corporate.custom.item2">Selezione dei gusti (possibilit&#224; di avere gusti personalizzati e/o su richiesta)</li>
+          <li data-i18n="eventi.corporate.custom.item3">Allestimento dell'evento</li>
+          <li data-i18n="eventi.corporate.custom.item4">Branding personalizzato</li>
+          <li data-i18n="eventi.corporate.custom.item5">Concept creativo in linea con il tuo brand</li>
+        </ul>
       </div>
-      <div class="ev-corp-details">
-        <div class="ev-corp-col ev-corp-col--customize">
-          <h3 data-i18n="eventi.corporate.custom.title">Cosa possiamo personalizzare</h3>
-          <ul class="ev-corp-list">
-            <li data-i18n="eventi.corporate.custom.item1">Tipologia di servizio gelato</li>
-            <li data-i18n="eventi.corporate.custom.item2">Selezione dei gusti (possibilit&#224; di avere gusti personalizzati e/o su richiesta)</li>
-            <li data-i18n="eventi.corporate.custom.item3">Allestimento dell'evento</li>
-            <li data-i18n="eventi.corporate.custom.item4">Branding personalizzato</li>
-            <li data-i18n="eventi.corporate.custom.item5">Concept creativo in linea con il tuo brand</li>
-          </ul>
-        </div>
-        <div class="ev-corp-col ev-corp-col--ideal">
-          <img class="ev-corporate__manogelato-mobile" src="../assets/manogelato.webp" alt="" loading="lazy" decoding="async" aria-hidden="true" />
-          <h3 data-i18n="eventi.corporate.ideal.title">Ideale per</h3>
-          <ul class="ev-corp-list">
-            <li data-i18n="eventi.corporate.ideal.item1">Eventi aziendali</li>
-            <li data-i18n="eventi.corporate.ideal.item2">Inaugurazioni</li>
-            <li data-i18n="eventi.corporate.ideal.item3">Attivazioni in store</li>
-            <li data-i18n="eventi.corporate.ideal.item4">Conferenze e press day</li>
-            <li data-i18n="eventi.corporate.ideal.item5">Eventi corporate e team building</li>
-          </ul>
-        </div>
+      <div class="ev-corp-col ev-corp-col--ideal">
+        <h3 data-i18n="eventi.corporate.ideal.title">Ideale per</h3>
+        <ul class="ev-corp-list">
+          <li data-i18n="eventi.corporate.ideal.item1">Eventi aziendali</li>
+          <li data-i18n="eventi.corporate.ideal.item2">Inaugurazioni</li>
+          <li data-i18n="eventi.corporate.ideal.item3">Attivazioni in store</li>
+          <li data-i18n="eventi.corporate.ideal.item4">Conferenze e press day</li>
+          <li data-i18n="eventi.corporate.ideal.item5">Eventi corporate e team building</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1358,13 +1277,13 @@
           'eventi.hero.desc': 'Soluzioni per ristoranti, hotel, campeggi e molto altro.',
           'eventi.tosinghi.aria': 'Vai alla pagina Saletta privata Tosinghi',
           'eventi.tosinghi.title': 'Saletta Privata Tosinghi',
-          'eventi.tosinghi.desc': 'Il tuo party nella nostra saletta privata con pacchetti su misura.',
+          'eventi.tosinghi.desc': 'Il tuo party nella nostra saletta privata.',
           'eventi.external.aria': 'Vai alla pagina Badiani dove vuoi',
           'eventi.external.title': 'BADIANI DOVE VUOI',
-          'eventi.external.desc': 'Soluzioni mobili per portare Badiani ovunque: cool box, carretto, vetrina.',
+          'eventi.external.desc': 'Soluzioni mobili per portare Badiani ovunque.',
           'eventi.van.aria': 'Vai alla sezione Gelato Van',
           'eventi.van.card1.title': 'Gelato Van',
-          'eventi.van.card1.desc': 'Van brandizzato con servizio gelato completo e staff dedicato.',
+          'eventi.van.card1.desc': 'Van brandizzato con servizio.',
           'eventi.corporate.label': 'Speciale aziende',
           'eventi.corporate.title': 'Evento Aziendale Su Misura',
           'eventi.corporate.intro1': 'Crea un evento unico, pensato intorno al tuo brand',
@@ -1449,13 +1368,13 @@
           'eventi.hero.desc': 'Solutions for restaurants, hotels, campsites and much more.',
           'eventi.tosinghi.aria': 'Go to Tosinghi Private Room page',
           'eventi.tosinghi.title': 'Tosinghi Private Room',
-          'eventi.tosinghi.desc': 'Your party in our private room with tailored packages.',
+          'eventi.tosinghi.desc': 'Your party in our private room.',
           'eventi.external.aria': 'Go to Badiani Anywhere page',
           'eventi.external.title': 'BADIANI ANYWHERE',
-          'eventi.external.desc': 'Mobile solutions to bring Badiani everywhere: cool box, cart, display.',
+          'eventi.external.desc': 'Mobile solutions to bring Badiani everywhere.',
           'eventi.van.aria': 'Go to Gelato Van section',
           'eventi.van.card1.title': 'Gelato Van',
-          'eventi.van.card1.desc': 'Branded van with full gelato service and dedicated staff.',
+          'eventi.van.card1.desc': 'Branded van with service.',
           'eventi.corporate.label': 'Corporate special',
           'eventi.corporate.title': 'Tailored Corporate Event',
           'eventi.corporate.intro1': 'Create a unique event, designed around your brand',
@@ -1540,13 +1459,13 @@
           'eventi.hero.desc': 'Solutions pour restaurants, hôtels, campings et bien plus encore.',
           'eventi.tosinghi.aria': 'Aller \u00e0 la page Salle Priv\u00e9e Tosinghi',
           'eventi.tosinghi.title': 'Salle Priv\u00e9e Tosinghi',
-          'eventi.tosinghi.desc': 'Votre f\u00eate dans notre salle priv\u00e9e avec des forfaits sur mesure.',
+          'eventi.tosinghi.desc': 'Votre f\u00eate dans notre salle priv\u00e9e.',
           'eventi.external.aria': 'Aller \u00e0 la page Badiani o\u00f9 vous voulez',
           'eventi.external.title': 'BADIANI O\u00d9 TU VEUX',
-          'eventi.external.desc': 'Solutions mobiles pour amener Badiani partout : cool box, chariot, vitrine.',
+          'eventi.external.desc': 'Solutions mobiles pour amener Badiani partout.',
           'eventi.van.aria': 'Aller \u00e0 la section Gelato Van',
           'eventi.van.card1.title': 'Gelato Van',
-          'eventi.van.card1.desc': 'Van aux couleurs de la marque avec service gelato complet et personnel d\u00e9di\u00e9.',
+          'eventi.van.card1.desc': 'Van avec service.',
           'eventi.corporate.label': 'Sp\u00e9cial entreprises',
           'eventi.corporate.title': "\u00c9v\u00e9nement d'Entreprise sur Mesure",
           'eventi.corporate.intro1': 'Cr\u00e9ez un \u00e9v\u00e9nement unique, pens\u00e9 autour de votre marque',
@@ -1631,13 +1550,13 @@
           'eventi.hero.desc': 'Soluciones para restaurantes, hoteles, campings y mucho más.',
           'eventi.tosinghi.aria': 'Ir a la p\u00e1gina Sala Privada Tosinghi',
           'eventi.tosinghi.title': 'Sala Privada Tosinghi',
-          'eventi.tosinghi.desc': 'Tu fiesta en nuestra sala privada con paquetes a medida.',
+          'eventi.tosinghi.desc': 'Tu fiesta en nuestra sala privada.',
           'eventi.external.aria': 'Ir a la p\u00e1gina Badiani donde quieras',
           'eventi.external.title': 'BADIANI DONDE QUIERAS',
-          'eventi.external.desc': 'Soluciones m\u00f3viles para llevar Badiani a cualquier lugar: cool box, carrito, vitrina.',
+          'eventi.external.desc': 'Soluciones m\u00f3viles para llevar Badiani a cualquier lugar.',
           'eventi.van.aria': 'Ir a la secci\u00f3n Gelato Van',
           'eventi.van.card1.title': 'Gelato Van',
-          'eventi.van.card1.desc': 'Furgoneta con marca y servicio completo de gelato con personal dedicado.',
+          'eventi.van.card1.desc': 'Furgoneta con servicio.',
           'eventi.corporate.label': 'Especial empresas',
           'eventi.corporate.title': 'Evento Corporativo a Medida',
           'eventi.corporate.intro1': 'Crea un evento \u00fanico, pensado en torno a tu marca',
@@ -1955,93 +1874,7 @@
     })();
   </script>
 
-  <script>
-    // Manogelato arc parallax
-    (function(){
-      var mano = document.querySelector('.ev-corporate__manogelato');
-      var section = mano ? mano.closest('.ev-corp-info') : null;
-      var corporateWrap = mano ? mano.closest('.ev-corporate') : null;
-      var customizeCol = corporateWrap ? corporateWrap.querySelector('.ev-corp-col--customize') : null;
-      if(!mano || !section || !corporateWrap || !customizeCol) return;
-      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if(window.matchMedia('(pointer: coarse)').matches) return;
-      mano.style.transition = 'transform 0.1s linear';
-      mano.style.willChange = 'transform';
 
-      /* Cache media query — update on resize, not during scroll */
-      var stacked = window.matchMedia('(max-width: 900px)').matches;
-      window.addEventListener('resize', function(){
-        stacked = window.matchMedia('(max-width: 900px)').matches;
-        requestAnimationFrame(updateManogelato);
-      });
-
-      function updateManogelato(){
-        var vh = window.innerHeight;
-        var r = section.getBoundingClientRect();
-        var p = 1 - (r.top + r.height) / (vh + r.height);
-        p = Math.max(0, Math.min(1, p));
-
-        if(stacked){
-          var wrapRect = corporateWrap.getBoundingClientRect();
-          var handHeight = mano.offsetHeight || 0;
-          var anchorTop = wrapRect.height - handHeight + 30;
-          var rotateStacked = p * -6;
-
-          mano.style.top = anchorTop + 'px';
-          mano.style.bottom = 'auto';
-          mano.style.transform = 'translateX(0) translateY(0) rotate(' + rotateStacked + 'deg)';
-          return;
-        }
-
-        mano.style.top = '';
-        mano.style.bottom = '';
-        var shiftY = 170 - p * 200 - Math.sin(p * Math.PI) * 70;
-        var rotate = p * -8;
-        mano.style.transform = 'translateX(-50%) translateY(' + shiftY + 'px) rotate(' + rotate + 'deg)';
-      }
-
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if(!ticking){
-          ticking = true;
-          requestAnimationFrame(function(){
-            updateManogelato();
-            ticking = false;
-          });
-        }
-      }, {passive:true});
-
-      updateManogelato();
-    })();
-  </script>
-
-  <script>
-    // Mobile manogelato scroll parallax — disabled on touch for perf
-    (function(){
-      var manoM = document.querySelector('.ev-corporate__manogelato-mobile');
-      var idealCol = manoM ? manoM.closest('.ev-corp-col--ideal') : null;
-      if(!manoM || !idealCol) return;
-      if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      if(window.matchMedia('(pointer: coarse)').matches) return;
-      var ticking2 = false;
-      window.addEventListener('scroll', function(){
-        if(!ticking2){
-          ticking2 = true;
-          requestAnimationFrame(function(){
-            var vh = window.innerHeight;
-            var r = idealCol.getBoundingClientRect();
-            var p = 1 - (r.top + r.height) / (vh + r.height);
-            p = Math.max(0, Math.min(1, p));
-            var shiftY = -p * 80;
-            var shiftX = p * 8;
-            var rotate = -(p * 18 + Math.sin(p * Math.PI) * 10);
-            manoM.style.transform = 'scaleX(-1) translateY(' + shiftY + 'px) translateX(' + shiftX + 'px) rotate(' + rotate + 'deg)';
-            ticking2 = false;
-          });
-        }
-      }, {passive:true});
-    })();
-  </script>
 
   <!-- Hamburger + Cookie -->
   <!-- Scroll-triggered shadow animation on ev-cards (mobile/touch only, staggered) -->
