@@ -688,15 +688,22 @@
     .modal__nav{
       display:flex;
       flex-direction:row;
+      flex-wrap:nowrap;
       gap:0;
       overflow-x:auto;
+      overflow-y:hidden;
       -webkit-overflow-scrolling:touch;
       overscroll-behavior-x:contain;
       touch-action:pan-x;
       scrollbar-width:none;
+      scroll-behavior:smooth;
+      scroll-snap-type:x proximity;
       padding:0 8px;
       background:#fff;
       border-bottom:1px solid rgba(0,0,0,0.08);
+      /* Fade gradient mask to signal horizontal scroll */
+      -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
+              mask-image:linear-gradient(90deg, transparent 0, #000 20px, #000 calc(100% - 20px), transparent 100%);
     }
     .modal__nav::-webkit-scrollbar{ display:none; }
     .modal__nav button{
@@ -711,6 +718,8 @@
       color:rgba(30,57,141,0.5);
       cursor:pointer;
       white-space:nowrap;
+      flex:0 0 auto;
+      scroll-snap-align:center;
       transition:color 0.25s, border-color 0.25s, background 0.25s;
       font-family:inherit;
     }
@@ -1872,6 +1881,16 @@
       .pezziduri-grid{
         grid-template-columns:repeat(2, minmax(0, 1fr));
       }
+      .pezziduri-grid:has([data-torte-card-id]){
+        grid-template-columns:1fr;
+        gap:20px;
+        max-width:420px;
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .pezziduri-grid:has([data-torte-card-id]) .pezziduri-title{
+        font-size:19px;
+      }
     }
     .pezziduri-note{
       font-size:16px;
@@ -2170,10 +2189,21 @@
       .modal__body{ min-height:0; }
       .modal__close{ width:38px; height:38px; }
       .modal__close::before, .modal__close::after{ width:16px; }
+      /* Mobile: header stays compact; nav goes on its own full-width row below */
       .modal__header{ flex-wrap:wrap; padding:0; align-items:center; }
-      .modal__header-actions{ border-left:none; flex-shrink:0; margin-left:auto; }
-      .modal__nav{ padding:0 4px; flex:1 1 0%; min-width:0; flex-wrap:wrap; gap:0; justify-content:flex-start; overflow:hidden; }
-      .modal__nav button{ padding:8px 8px; font-size:13px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
+      .modal__header-actions{ border-left:none; flex-shrink:0; margin-left:auto; order:1; }
+      .modal__nav{
+        order:2;
+        flex:0 0 100%;
+        width:100%;
+        padding:0 4px;
+        gap:0;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        justify-content:flex-start;
+        border-top:1px solid rgba(0,0,0,0.06);
+      }
+      .modal__nav button{ padding:10px 14px; font-size:13px; white-space:nowrap; flex:0 0 auto; letter-spacing:0.4px; min-width:0; }
 
       .modal__content{ padding:16px 18px 18px; gap:16px; }
       .accessori-map-wrapper{ width:calc(100% + 36px); margin-top:0 !important; margin-left:-18px !important; margin-right:-18px !important; }
@@ -3465,7 +3495,7 @@
 
     <section class="page-hero">
       <video class="page-hero__video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="../assets/images/branding/hero-bg.webp">
-        <source src="../assets/video/b2b%20homepage%20video.mp4" type="video/mp4">
+        <source src="../assets/video/b2b-homepage-video.mp4" type="video/mp4">
       </video>
       <div class="page-hero__heading-group">
         <h1 class="title-accent title-accent--light" data-i18n="b2b.hero.title">Esperienze B2B su misura</h1>
@@ -6452,7 +6482,7 @@
           'Donut rosa': 'Buontalenti® bar coated in strawberry chocolate',
           'Donut verde': 'Buontalenti® bar coated in pistachio chocolate',
           'Donut cioccolato': 'Buontalenti® coated in dark chocolate',
-          'Lingotto Buontalenti': 'Buontalenti® ingot',
+          'Lingotto Buontalenti': 'Buontalenti® bar',
           'Zuccotto': 'Classic Florentine zuccotto with a lightly alcoholic soaking and filled with stracciatella and chocolate',
           'Mini Coni': 'Mini cones with Buontalenti® glazed in dark chocolate',
           'Ministecchi': 'Mini gelato bars',
@@ -8729,7 +8759,17 @@
         }
         title.innerHTML = categoryLabel(activeCategory);
         nav.querySelectorAll('button').forEach((btn) => {
-          btn.classList.toggle('is-active', btn.dataset.category === activeCategory);
+          const isActive = btn.dataset.category === activeCategory;
+          btn.classList.toggle('is-active', isActive);
+          if(isActive){
+            // Keep the active tab visible when nav overflows horizontally
+            try {
+              btn.scrollIntoView({ block:'nearest', inline:'center', behavior:'smooth' });
+            } catch (_) {
+              // Older browsers fallback
+              if(typeof btn.scrollIntoView === 'function') btn.scrollIntoView();
+            }
+          }
         });
         if(select.value !== activeCategory){
           select.value = activeCategory;
