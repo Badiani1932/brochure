@@ -8384,11 +8384,7 @@
       }
 
       function getBaseImageSrc(flavor){
-        const baseSrc = flavor.image;
-        if(baseSrc && baseSrc.endsWith('.webp')){
-          return baseSrc.replace(/\.webp$/i, '-thumb.webp');
-        }
-        return baseSrc;
+        return flavor.image;
       }
 
       function goToFullscreenSlide(idx){
@@ -8669,10 +8665,9 @@
                 <line x1=\"3\" y1=\"21\" x2=\"10\" y2=\"14\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"/>
               </svg>
             `;
-            const fullImageUrl = `${encodeURI(flavor.image || baseSrc)}?v=${ASSET_VERSION}`;
             const mediaBlock = `
               <div class=\"gelato-card__media\">
-                <img src=\"${imageUrl}\" alt=\"${flavorName}\" decoding=\"async\" data-fallback-src=\"${fullImageUrl}\" onerror=\"(function(i){if(i.dataset.fallbackSrc&&i.src!==i.dataset.fallbackSrc){i.src=i.dataset.fallbackSrc;i.removeAttribute('data-fallback-src');}})(this)\" />
+                <img src=\"${imageUrl}\" alt=\"${flavorName}\" decoding=\"async\" />
                 <button class=\"gelato-card__zoom\" type=\"button\" aria-label=\"${t('b2b.zoom')}\">${zoomIcon}</button>
               </div>
               <span>${flavorName}</span>
