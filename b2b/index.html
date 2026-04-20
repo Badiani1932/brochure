@@ -766,6 +766,38 @@
     .pezziduri-grid-stage[hidden]{
       display:none !important;
     }
+    .pezziduri-stage-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:6px;
+      flex-wrap:wrap;
+    }
+    .pezziduri-stage-header h4{ margin-bottom:0; }
+    .pezziduri-vetrina-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 14px;
+      border:1px solid var(--badiani-blue);
+      background:#fff;
+      color:var(--badiani-blue);
+      font-family:inherit;
+      font-size:13px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+      cursor:pointer;
+      border-radius:999px;
+      transition:background 0.15s ease, color 0.15s ease;
+    }
+    .pezziduri-vetrina-btn svg{ width:18px; height:18px; }
+    .pezziduri-vetrina-btn:hover,
+    .pezziduri-vetrina-btn:focus-visible{
+      background:var(--badiani-blue);
+      color:#fff;
+      outline:none;
+    }
     .modal__select{
       display:none;
       width:100%;
@@ -4604,6 +4636,7 @@
           'b2b.pezziduri.minOrder': 'Ordine minimo',
           'b2b.pezziduri.allergens': 'Allergeni',
           'b2b.pezziduri.tapOverlay': 'Tocca per scoprire i prodotti',
+          'b2b.pezziduri.vetrina': 'Vetrina',
           'b2b.terms.label': 'Condizioni',
           'b2b.terms.title': 'Termini e Condizioni',
           'b2b.terms.orderMin.label': 'Ordine minimo',
@@ -4992,6 +5025,7 @@
           'b2b.pezziduri.minOrder': 'Min. order',
           'b2b.pezziduri.allergens': 'Allergens',
           'b2b.pezziduri.tapOverlay': 'Tap to discover the products',
+          'b2b.pezziduri.vetrina': 'Display case',
           'b2b.terms.label': 'Conditions',
           'b2b.terms.title': 'Terms & Conditions',
           'b2b.terms.orderMin.label': 'Minimum order',
@@ -5385,6 +5419,7 @@
           'b2b.pezziduri.minOrder': 'Commande min.',
           'b2b.pezziduri.allergens': 'Allergènes',
           'b2b.pezziduri.tapOverlay': 'Appuyez pour découvrir les produits',
+          'b2b.pezziduri.vetrina': 'Vitrine',
           'b2b.terms.label': 'Conditions',
           'b2b.terms.title': 'Termes et Conditions',
           'b2b.terms.orderMin.label': 'Commande minimum',
@@ -5777,6 +5812,7 @@
           'b2b.pezziduri.minOrder': 'Pedido mín.',
           'b2b.pezziduri.allergens': 'Alérgenos',
           'b2b.pezziduri.tapOverlay': 'Toca para descubrir los productos',
+          'b2b.pezziduri.vetrina': 'Vitrina',
           'b2b.terms.label': 'Condiciones',
           'b2b.terms.title': 'Términos y Condiciones',
           'b2b.terms.orderMin.label': 'Pedido mínimo',
@@ -7401,10 +7437,14 @@
 
         /* -- Hero overlay removed -- */
 
+        const vetrinaIcon = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="2"/><line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/><line x1="3" y1="15" x2="21" y2="15" stroke="currentColor" stroke-width="2"/></svg>`;
         return `
           <div class="modal__section">
             <div class="pezziduri-grid-stage">
-              <h4>${getCatTitle('PEZZI DURI')}</h4>
+              <div class="pezziduri-stage-header">
+                <h4>${getCatTitle('PEZZI DURI')}</h4>
+                <button type="button" class="pezziduri-vetrina-btn" data-pezziduri-vetrina>${vetrinaIcon}<span>${t('b2b.pezziduri.vetrina')}</span></button>
+              </div>
               <div class="pezziduri-grid">${cards}</div>
             </div>
           </div>
@@ -7746,6 +7786,14 @@
 
       function setupPezziDuriZoom(){
         const cards = defaultContent ? defaultContent.querySelectorAll('.pezziduri-card[data-pezziduri-id]') : [];
+
+        const vetrinaBtn = defaultContent ? defaultContent.querySelector('[data-pezziduri-vetrina]') : null;
+        if(vetrinaBtn){
+          vetrinaBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            openFullscreenImage('../assets/images/pezziduri/vetrina-monoporzioni-desktop.webp', t('b2b.pezziduri.vetrina'));
+          });
+        }
 
         cards.forEach((card) => {
           const id = card.dataset.pezziduriId;
